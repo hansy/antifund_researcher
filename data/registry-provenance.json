@@ -1,0 +1,258 @@
+{
+  "accessedAt": "2026-10-08",
+  "publisherPage": "https://qs-topuniversities.cn/en/university-rankings/university-subject-rankings/2026/engineering-technology",
+  "datasetUrl": "https://qs-topuniversities.cn/sites/default/files/qs-rankings-data/en/9bf4f2464bcd27837dd44e13b62b70c0.txt",
+  "selection": "First 50 currently listed institutions, sorted numeric rank then exact publisher name; preserve tied ranks. Dataset contains 49 institutions at ranks ≤50; Monash is rank 51, selected before Université Paris-Saclay alphabetically. Missing tied rank-20 listing is not filled by inventing an institution.",
+  "selected": [
+    {
+      "name": "Massachusetts Institute of Technology (MIT)",
+      "rank": 1,
+      "domain": "mit.edu"
+    },
+    {
+      "name": "Stanford University",
+      "rank": 2,
+      "domain": "stanford.edu"
+    },
+    {
+      "name": "ETH Zurich - Swiss Federal Institute of Technology",
+      "rank": 3,
+      "domain": "ethz.ch"
+    },
+    {
+      "name": "University of Oxford",
+      "rank": 4,
+      "domain": "ox.ac.uk"
+    },
+    {
+      "name": "University of Cambridge",
+      "rank": 5,
+      "domain": "cam.ac.uk"
+    },
+    {
+      "name": "University of California, Berkeley (UCB)",
+      "rank": 6,
+      "domain": "berkeley.edu"
+    },
+    {
+      "name": "Imperial College London",
+      "rank": 7,
+      "domain": "imperial.ac.uk"
+    },
+    {
+      "name": "National University of Singapore (NUS)",
+      "rank": 8,
+      "domain": "nus.edu.sg"
+    },
+    {
+      "name": "Harvard University",
+      "rank": 9,
+      "domain": "harvard.edu"
+    },
+    {
+      "name": "Nanyang Technological University, Singapore (NTU)",
+      "rank": 10,
+      "domain": "ntu.edu.sg"
+    },
+    {
+      "name": "Tsinghua University",
+      "rank": 11,
+      "domain": "tsinghua.edu.cn"
+    },
+    {
+      "name": "EPFL",
+      "rank": 12,
+      "domain": "epfl.ch"
+    },
+    {
+      "name": "Delft University of Technology",
+      "rank": 13,
+      "domain": "tudelft.nl"
+    },
+    {
+      "name": "California Institute of Technology (Caltech)",
+      "rank": 14,
+      "domain": "caltech.edu"
+    },
+    {
+      "name": "Georgia Institute of Technology",
+      "rank": 15,
+      "domain": "gatech.edu"
+    },
+    {
+      "name": "Technical University of Munich",
+      "rank": 16,
+      "domain": "tum.de"
+    },
+    {
+      "name": "University of Toronto",
+      "rank": 17,
+      "domain": "utoronto.ca"
+    },
+    {
+      "name": "The University of Tokyo",
+      "rank": 18,
+      "domain": "u-tokyo.ac.jp"
+    },
+    {
+      "name": "Carnegie Mellon University",
+      "rank": 19,
+      "domain": "cmu.edu"
+    },
+    {
+      "name": "Politecnico di Milano",
+      "rank": 20,
+      "domain": "polimi.it"
+    },
+    {
+      "name": "Peking University",
+      "rank": 22,
+      "domain": "pku.edu.cn"
+    },
+    {
+      "name": "Shanghai Jiao Tong University",
+      "rank": 23,
+      "domain": "sjtu.edu.cn"
+    },
+    {
+      "name": "Seoul National University",
+      "rank": 24,
+      "domain": "snu.ac.kr"
+    },
+    {
+      "name": "UCL",
+      "rank": 24,
+      "domain": "ucl.ac.uk"
+    },
+    {
+      "name": "University of Illinois at Urbana-Champaign",
+      "rank": 26,
+      "domain": "illinois.edu"
+    },
+    {
+      "name": "University of California, Los Angeles (UCLA)",
+      "rank": 27,
+      "domain": "ucla.edu"
+    },
+    {
+      "name": "University of Texas at Austin",
+      "rank": 28,
+      "domain": "utexas.edu"
+    },
+    {
+      "name": "Institut Polytechnique de Paris",
+      "rank": 29,
+      "domain": "ip-paris.fr"
+    },
+    {
+      "name": "University of British Columbia",
+      "rank": 29,
+      "domain": "ubc.ca"
+    },
+    {
+      "name": "The University of Manchester",
+      "rank": 31,
+      "domain": "manchester.ac.uk"
+    },
+    {
+      "name": "Zhejiang University",
+      "rank": 31,
+      "domain": "zju.edu.cn"
+    },
+    {
+      "name": "KTH Royal Institute of Technology",
+      "rank": 33,
+      "domain": "kth.se"
+    },
+    {
+      "name": "The University of New South Wales (UNSW Sydney)",
+      "rank": 33,
+      "domain": "unsw.edu.au"
+    },
+    {
+      "name": "Cornell University",
+      "rank": 35,
+      "domain": "cornell.edu"
+    },
+    {
+      "name": "Indian Institute of Technology Delhi (IITD)",
+      "rank": 36,
+      "domain": "iitd.ac.in"
+    },
+    {
+      "name": "Purdue University",
+      "rank": 37,
+      "domain": "purdue.edu"
+    },
+    {
+      "name": "Princeton University",
+      "rank": 38,
+      "domain": "princeton.edu"
+    },
+    {
+      "name": "University of Waterloo",
+      "rank": 38,
+      "domain": "uwaterloo.ca"
+    },
+    {
+      "name": "The Hong Kong University of Science and Technology",
+      "rank": 40,
+      "domain": "hkust.edu.hk"
+    },
+    {
+      "name": "McGill University",
+      "rank": 41,
+      "domain": "mcgill.ca"
+    },
+    {
+      "name": "Indian Institute of Technology Bombay (IITB)",
+      "rank": 42,
+      "domain": "iitb.ac.in"
+    },
+    {
+      "name": "KIT, Karlsruhe Institute of Technology",
+      "rank": 42,
+      "domain": "kit.edu"
+    },
+    {
+      "name": "Technische Universität Berlin (TU Berlin)",
+      "rank": 42,
+      "domain": "tu.berlin"
+    },
+    {
+      "name": "The University of Melbourne",
+      "rank": 45,
+      "domain": "unimelb.edu.au"
+    },
+    {
+      "name": "The University of Sydney",
+      "rank": 46,
+      "domain": "sydney.edu.au"
+    },
+    {
+      "name": "Texas A&M University",
+      "rank": 47,
+      "domain": "tamu.edu"
+    },
+    {
+      "name": "Tecnológico de Monterrey",
+      "rank": 48,
+      "domain": "tec.mx"
+    },
+    {
+      "name": "University of Michigan-Ann Arbor",
+      "rank": 49,
+      "domain": "umich.edu"
+    },
+    {
+      "name": "Kyoto University",
+      "rank": 50,
+      "domain": "kyoto-u.ac.jp"
+    },
+    {
+      "name": "Monash University",
+      "rank": 51,
+      "domain": "monash.edu"
+    }
+  ]
+}

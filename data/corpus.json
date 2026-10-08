@@ -1,0 +1,1898 @@
+{
+  "schools": [
+    {
+      "id": "mit",
+      "name": "Massachusetts Institute of Technology (MIT)",
+      "shortName": "MIT",
+      "country": "United States",
+      "domain": "mit.edu",
+      "rank": 1,
+      "discoveryUrls": [
+        "https://mit.edu/"
+      ]
+    },
+    {
+      "id": "stanford",
+      "name": "Stanford University",
+      "shortName": "Stanford",
+      "country": "United States",
+      "domain": "stanford.edu",
+      "rank": 2,
+      "discoveryUrls": [
+        "https://stanford.edu/"
+      ]
+    },
+    {
+      "id": "eth",
+      "name": "ETH Zurich - Swiss Federal Institute of Technology",
+      "shortName": "ETH Zurich",
+      "country": "Switzerland",
+      "domain": "ethz.ch",
+      "rank": 3,
+      "discoveryUrls": [
+        "https://ethz.ch/"
+      ]
+    },
+    {
+      "id": "oxford",
+      "name": "University of Oxford",
+      "shortName": "Oxford",
+      "country": "United Kingdom",
+      "domain": "ox.ac.uk",
+      "rank": 4,
+      "discoveryUrls": [
+        "https://ox.ac.uk/"
+      ]
+    },
+    {
+      "id": "cambridge",
+      "name": "University of Cambridge",
+      "shortName": "Cambridge",
+      "country": "United Kingdom",
+      "domain": "cam.ac.uk",
+      "rank": 5,
+      "discoveryUrls": [
+        "https://cam.ac.uk/"
+      ]
+    },
+    {
+      "id": "berkeley",
+      "name": "University of California, Berkeley (UCB)",
+      "shortName": "UC Berkeley",
+      "country": "United States",
+      "domain": "berkeley.edu",
+      "rank": 6,
+      "discoveryUrls": [
+        "https://berkeley.edu/"
+      ]
+    },
+    {
+      "id": "imperial",
+      "name": "Imperial College London",
+      "shortName": "Imperial",
+      "country": "United Kingdom",
+      "domain": "imperial.ac.uk",
+      "rank": 7,
+      "discoveryUrls": [
+        "https://imperial.ac.uk/"
+      ]
+    },
+    {
+      "id": "nus",
+      "name": "National University of Singapore (NUS)",
+      "shortName": "NUS",
+      "country": "Singapore",
+      "domain": "nus.edu.sg",
+      "rank": 8,
+      "discoveryUrls": [
+        "https://nus.edu.sg/"
+      ]
+    },
+    {
+      "id": "harvard",
+      "name": "Harvard University",
+      "shortName": "Harvard",
+      "country": "United States",
+      "domain": "harvard.edu",
+      "rank": 9,
+      "discoveryUrls": [
+        "https://harvard.edu/"
+      ]
+    },
+    {
+      "id": "ntu",
+      "name": "Nanyang Technological University, Singapore (NTU)",
+      "shortName": "NTU Singapore",
+      "country": "Singapore",
+      "domain": "ntu.edu.sg",
+      "rank": 10,
+      "discoveryUrls": [
+        "https://ntu.edu.sg/"
+      ]
+    },
+    {
+      "id": "tsinghua",
+      "name": "Tsinghua University",
+      "shortName": "Tsinghua",
+      "country": "China (Mainland)",
+      "domain": "tsinghua.edu.cn",
+      "rank": 11,
+      "discoveryUrls": [
+        "https://tsinghua.edu.cn/"
+      ]
+    },
+    {
+      "id": "epfl",
+      "name": "EPFL",
+      "shortName": "EPFL",
+      "country": "Switzerland",
+      "domain": "epfl.ch",
+      "rank": 12,
+      "discoveryUrls": [
+        "https://epfl.ch/"
+      ]
+    },
+    {
+      "id": "delft",
+      "name": "Delft University of Technology",
+      "shortName": "TU Delft",
+      "country": "Netherlands",
+      "domain": "tudelft.nl",
+      "rank": 13,
+      "discoveryUrls": [
+        "https://tudelft.nl/"
+      ]
+    },
+    {
+      "id": "caltech",
+      "name": "California Institute of Technology (Caltech)",
+      "shortName": "Caltech",
+      "country": "United States",
+      "domain": "caltech.edu",
+      "rank": 14,
+      "discoveryUrls": [
+        "https://caltech.edu/"
+      ]
+    },
+    {
+      "id": "gatech",
+      "name": "Georgia Institute of Technology",
+      "shortName": "Georgia Tech",
+      "country": "United States",
+      "domain": "gatech.edu",
+      "rank": 15,
+      "discoveryUrls": [
+        "https://gatech.edu/"
+      ]
+    },
+    {
+      "id": "tum",
+      "name": "Technical University of Munich",
+      "shortName": "TUM",
+      "country": "Germany",
+      "domain": "tum.de",
+      "rank": 16,
+      "discoveryUrls": [
+        "https://tum.de/"
+      ]
+    },
+    {
+      "id": "toronto",
+      "name": "University of Toronto",
+      "shortName": "Toronto",
+      "country": "Canada",
+      "domain": "utoronto.ca",
+      "rank": 17,
+      "discoveryUrls": [
+        "https://utoronto.ca/"
+      ]
+    },
+    {
+      "id": "tokyo",
+      "name": "The University of Tokyo",
+      "shortName": "Tokyo",
+      "country": "Japan",
+      "domain": "u-tokyo.ac.jp",
+      "rank": 18,
+      "discoveryUrls": [
+        "https://u-tokyo.ac.jp/"
+      ]
+    },
+    {
+      "id": "cmu",
+      "name": "Carnegie Mellon University",
+      "shortName": "Carnegie Mellon",
+      "country": "United States",
+      "domain": "cmu.edu",
+      "rank": 19,
+      "discoveryUrls": [
+        "https://cmu.edu/"
+      ]
+    },
+    {
+      "id": "polimi",
+      "name": "Politecnico di Milano",
+      "shortName": "Politecnico Milano",
+      "country": "Italy",
+      "domain": "polimi.it",
+      "rank": 20,
+      "discoveryUrls": [
+        "https://polimi.it/"
+      ]
+    },
+    {
+      "id": "peking",
+      "name": "Peking University",
+      "shortName": "Peking",
+      "country": "China (Mainland)",
+      "domain": "pku.edu.cn",
+      "rank": 22,
+      "discoveryUrls": [
+        "https://pku.edu.cn/"
+      ]
+    },
+    {
+      "id": "sjtu",
+      "name": "Shanghai Jiao Tong University",
+      "shortName": "Shanghai Jiao Tong",
+      "country": "China (Mainland)",
+      "domain": "sjtu.edu.cn",
+      "rank": 23,
+      "discoveryUrls": [
+        "https://sjtu.edu.cn/"
+      ]
+    },
+    {
+      "id": "snu",
+      "name": "Seoul National University",
+      "shortName": "Seoul National",
+      "country": "South Korea",
+      "domain": "snu.ac.kr",
+      "rank": 24,
+      "discoveryUrls": [
+        "https://snu.ac.kr/"
+      ]
+    },
+    {
+      "id": "ucl",
+      "name": "UCL",
+      "shortName": "UCL",
+      "country": "United Kingdom",
+      "domain": "ucl.ac.uk",
+      "rank": 24,
+      "discoveryUrls": [
+        "https://ucl.ac.uk/"
+      ]
+    },
+    {
+      "id": "illinois",
+      "name": "University of Illinois at Urbana-Champaign",
+      "shortName": "Illinois",
+      "country": "United States",
+      "domain": "illinois.edu",
+      "rank": 26,
+      "discoveryUrls": [
+        "https://illinois.edu/"
+      ]
+    },
+    {
+      "id": "ucla",
+      "name": "University of California, Los Angeles (UCLA)",
+      "shortName": "UCLA",
+      "country": "United States",
+      "domain": "ucla.edu",
+      "rank": 27,
+      "discoveryUrls": [
+        "https://ucla.edu/"
+      ]
+    },
+    {
+      "id": "ut-austin",
+      "name": "University of Texas at Austin",
+      "shortName": "UT Austin",
+      "country": "United States",
+      "domain": "utexas.edu",
+      "rank": 28,
+      "discoveryUrls": [
+        "https://utexas.edu/"
+      ]
+    },
+    {
+      "id": "ip-paris",
+      "name": "Institut Polytechnique de Paris",
+      "shortName": "IP Paris",
+      "country": "France",
+      "domain": "ip-paris.fr",
+      "rank": 29,
+      "discoveryUrls": [
+        "https://ip-paris.fr/"
+      ]
+    },
+    {
+      "id": "ubc",
+      "name": "University of British Columbia",
+      "shortName": "UBC",
+      "country": "Canada",
+      "domain": "ubc.ca",
+      "rank": 29,
+      "discoveryUrls": [
+        "https://ubc.ca/"
+      ]
+    },
+    {
+      "id": "manchester",
+      "name": "The University of Manchester",
+      "shortName": "Manchester",
+      "country": "United Kingdom",
+      "domain": "manchester.ac.uk",
+      "rank": 31,
+      "discoveryUrls": [
+        "https://manchester.ac.uk/"
+      ]
+    },
+    {
+      "id": "zhejiang",
+      "name": "Zhejiang University",
+      "shortName": "Zhejiang",
+      "country": "China (Mainland)",
+      "domain": "zju.edu.cn",
+      "rank": 31,
+      "discoveryUrls": [
+        "https://zju.edu.cn/"
+      ]
+    },
+    {
+      "id": "kth",
+      "name": "KTH Royal Institute of Technology",
+      "shortName": "KTH",
+      "country": "Sweden",
+      "domain": "kth.se",
+      "rank": 33,
+      "discoveryUrls": [
+        "https://kth.se/"
+      ]
+    },
+    {
+      "id": "unsw",
+      "name": "The University of New South Wales (UNSW Sydney)",
+      "shortName": "UNSW Sydney",
+      "country": "Australia",
+      "domain": "unsw.edu.au",
+      "rank": 33,
+      "discoveryUrls": [
+        "https://unsw.edu.au/"
+      ]
+    },
+    {
+      "id": "cornell",
+      "name": "Cornell University",
+      "shortName": "Cornell",
+      "country": "United States",
+      "domain": "cornell.edu",
+      "rank": 35,
+      "discoveryUrls": [
+        "https://cornell.edu/"
+      ]
+    },
+    {
+      "id": "iit-delhi",
+      "name": "Indian Institute of Technology Delhi (IITD)",
+      "shortName": "IIT Delhi",
+      "country": "India",
+      "domain": "iitd.ac.in",
+      "rank": 36,
+      "discoveryUrls": [
+        "https://iitd.ac.in/"
+      ]
+    },
+    {
+      "id": "purdue",
+      "name": "Purdue University",
+      "shortName": "Purdue",
+      "country": "United States",
+      "domain": "purdue.edu",
+      "rank": 37,
+      "discoveryUrls": [
+        "https://purdue.edu/"
+      ]
+    },
+    {
+      "id": "princeton",
+      "name": "Princeton University",
+      "shortName": "Princeton",
+      "country": "United States",
+      "domain": "princeton.edu",
+      "rank": 38,
+      "discoveryUrls": [
+        "https://princeton.edu/"
+      ]
+    },
+    {
+      "id": "waterloo",
+      "name": "University of Waterloo",
+      "shortName": "Waterloo",
+      "country": "Canada",
+      "domain": "uwaterloo.ca",
+      "rank": 38,
+      "discoveryUrls": [
+        "https://uwaterloo.ca/"
+      ]
+    },
+    {
+      "id": "hkust",
+      "name": "The Hong Kong University of Science and Technology",
+      "shortName": "HKUST",
+      "country": "Hong Kong SAR",
+      "domain": "hkust.edu.hk",
+      "rank": 40,
+      "discoveryUrls": [
+        "https://hkust.edu.hk/"
+      ]
+    },
+    {
+      "id": "mcgill",
+      "name": "McGill University",
+      "shortName": "McGill",
+      "country": "Canada",
+      "domain": "mcgill.ca",
+      "rank": 41,
+      "discoveryUrls": [
+        "https://mcgill.ca/"
+      ]
+    },
+    {
+      "id": "iit-bombay",
+      "name": "Indian Institute of Technology Bombay (IITB)",
+      "shortName": "IIT Bombay",
+      "country": "India",
+      "domain": "iitb.ac.in",
+      "rank": 42,
+      "discoveryUrls": [
+        "https://iitb.ac.in/"
+      ]
+    },
+    {
+      "id": "kit",
+      "name": "KIT, Karlsruhe Institute of Technology",
+      "shortName": "KIT",
+      "country": "Germany",
+      "domain": "kit.edu",
+      "rank": 42,
+      "discoveryUrls": [
+        "https://kit.edu/"
+      ]
+    },
+    {
+      "id": "tu-berlin",
+      "name": "Technische Universität Berlin (TU Berlin)",
+      "shortName": "TU Berlin",
+      "country": "Germany",
+      "domain": "tu.berlin",
+      "rank": 42,
+      "discoveryUrls": [
+        "https://tu.berlin/"
+      ]
+    },
+    {
+      "id": "melbourne",
+      "name": "The University of Melbourne",
+      "shortName": "Melbourne",
+      "country": "Australia",
+      "domain": "unimelb.edu.au",
+      "rank": 45,
+      "discoveryUrls": [
+        "https://unimelb.edu.au/"
+      ]
+    },
+    {
+      "id": "sydney",
+      "name": "The University of Sydney",
+      "shortName": "Sydney",
+      "country": "Australia",
+      "domain": "sydney.edu.au",
+      "rank": 46,
+      "discoveryUrls": [
+        "https://sydney.edu.au/"
+      ]
+    },
+    {
+      "id": "texas-am",
+      "name": "Texas A&M University",
+      "shortName": "Texas A&M",
+      "country": "United States",
+      "domain": "tamu.edu",
+      "rank": 47,
+      "discoveryUrls": [
+        "https://tamu.edu/"
+      ]
+    },
+    {
+      "id": "tec",
+      "name": "Tecnológico de Monterrey",
+      "shortName": "Tec de Monterrey",
+      "country": "Mexico",
+      "domain": "tec.mx",
+      "rank": 48,
+      "discoveryUrls": [
+        "https://tec.mx/"
+      ]
+    },
+    {
+      "id": "michigan",
+      "name": "University of Michigan-Ann Arbor",
+      "shortName": "Michigan",
+      "country": "United States",
+      "domain": "umich.edu",
+      "rank": 49,
+      "discoveryUrls": [
+        "https://umich.edu/"
+      ]
+    },
+    {
+      "id": "kyoto",
+      "name": "Kyoto University",
+      "shortName": "Kyoto",
+      "country": "Japan",
+      "domain": "kyoto-u.ac.jp",
+      "rank": 50,
+      "discoveryUrls": [
+        "https://kyoto-u.ac.jp/"
+      ]
+    },
+    {
+      "id": "monash",
+      "name": "Monash University",
+      "shortName": "Monash",
+      "country": "Australia",
+      "domain": "monash.edu",
+      "rank": 51,
+      "discoveryUrls": [
+        "https://monash.edu/"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "source-diffusion-policy",
+      "schoolId": "mit",
+      "title": "Diffusion Policy: Visuomotor Policy Learning via Action Diffusion",
+      "url": "https://diffusion-policy.cs.columbia.edu/",
+      "kind": "page",
+      "year": 2023,
+      "accessedAt": "2026-10-08",
+      "excerpt": "Diffusion Policy predicts a sequence of action for receding-horizon control."
+    },
+    {
+      "id": "source-robogen",
+      "schoolId": "cmu",
+      "title": "RoboGen: Towards Unleashing Infinite Data for Automated Robot Learning via Generative Simulation",
+      "url": "https://robogen-ai.github.io/",
+      "kind": "page",
+      "year": 2024,
+      "accessedAt": "2026-10-08",
+      "excerpt": "RoboGen is able to propose high-level tasks, generate corresponding environments, decompose the high-level goal into low-level subtasks, and then learn the sub-skills sequentially."
+    },
+    {
+      "id": "source-umi",
+      "schoolId": "stanford",
+      "title": "Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots",
+      "url": "https://umi-gripper.github.io/",
+      "kind": "page",
+      "year": 2024,
+      "accessedAt": "2026-10-08",
+      "excerpt": "The resulting learned policies are hardware-agnostic and deployable across multiple robot platforms."
+    },
+    {
+      "id": "source-mobile-aloha",
+      "schoolId": "stanford",
+      "title": "Mobile ALOHA: Learning Bimanual Mobile Manipulation with Low-Cost Whole-Body Teleoperation",
+      "url": "https://mobile-aloha.github.io/",
+      "kind": "page",
+      "year": 2024,
+      "accessedAt": "2026-10-08",
+      "excerpt": "It augments the ALOHA system with a mobile base, and a whole-body teleoperation interface."
+    },
+    {
+      "id": "source-aloha",
+      "schoolId": "stanford",
+      "title": "Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware",
+      "url": "https://tonyzhaozh.github.io/aloha/",
+      "kind": "page",
+      "year": 2023,
+      "accessedAt": "2026-10-08",
+      "excerpt": "We introduce Action Chunking with Transformers (ACT)."
+    },
+    {
+      "id": "source-robomimic",
+      "schoolId": "stanford",
+      "title": "What Matters in Learning from Offline Human Demonstrations for Robot Manipulation",
+      "url": "https://robomimic.github.io/",
+      "kind": "page",
+      "year": 2021,
+      "accessedAt": "2026-10-08",
+      "excerpt": "robomimic is a framework for robot learning from demonstration."
+    },
+    {
+      "id": "source-extreme-parkour",
+      "schoolId": "cmu",
+      "title": "Extreme Parkour with Legged Robots",
+      "url": "https://extreme-parkour.github.io/",
+      "kind": "page",
+      "year": 2023,
+      "accessedAt": "2026-10-08",
+      "excerpt": "Fully autonomous without any human teleoperation."
+    },
+    {
+      "id": "source-robot-parkour",
+      "schoolId": "cmu",
+      "title": "Robot Parkour Learning",
+      "url": "https://robot-parkour.github.io/",
+      "kind": "page",
+      "year": 2023,
+      "accessedAt": "2026-10-08",
+      "excerpt": "The robot fails to leap on a low-friction platform."
+    },
+    {
+      "id": "source-anymal-hike",
+      "schoolId": "eth",
+      "title": "Learning robust perceptive locomotion for quadrupedal robots in the wild",
+      "url": "https://ethz.ch/en/news-and-events/eth-news/news/2022/01/wie-roboter-wandern-lernen.html",
+      "kind": "page",
+      "year": 2022,
+      "accessedAt": "2026-10-08",
+      "excerpt": "ANYmal then plays it safe and relies on its proprioception."
+    },
+    {
+      "id": "source-anymal-parkour",
+      "schoolId": "eth",
+      "title": "ANYmal Parkour: Learning Agile Navigation for Quadrupedal Robots",
+      "url": "https://ethz.ch/en/news-and-events/eth-news/news/2024/03/anymal-can-do-parkour-and-walk-across-rubble.html",
+      "kind": "page",
+      "year": 2024,
+      "accessedAt": "2026-10-08",
+      "excerpt": "ANYmal can now scale obstacles"
+    },
+    {
+      "id": "source-dtc",
+      "schoolId": "eth",
+      "title": "DTC: Deep Tracking Control",
+      "url": "https://ethz.ch/en/news-and-events/eth-news/news/2024/03/anymal-can-do-parkour-and-walk-across-rubble.html",
+      "kind": "page",
+      "year": 2024,
+      "accessedAt": "2026-10-08",
+      "excerpt": "Through the combination with classic model-based control, the robot can negotiate difficult terrain."
+    },
+    {
+      "id": "source-dribblebot",
+      "schoolId": "mit",
+      "title": "DribbleBot: Dynamic Legged Manipulation in the Wild",
+      "url": "https://news.mit.edu/2023/legged-robotic-system-playing-soccer-various-terrains-0403",
+      "kind": "page",
+      "year": 2023,
+      "accessedAt": "2026-10-08",
+      "excerpt": "Currently, the controller is not trained in simulated environments that include slopes or stairs."
+    },
+    {
+      "id": "source-lucidsim",
+      "schoolId": "mit",
+      "title": "Learning Visual Parkour from Generated Images (LucidSim)",
+      "url": "https://news.mit.edu/2024/can-robots-learn-machine-dreams-1119",
+      "kind": "page",
+      "year": 2024,
+      "accessedAt": "2026-10-08",
+      "excerpt": "LucidSim combines physics simulation with generative AI models"
+    },
+    {
+      "id": "source-serl",
+      "schoolId": "berkeley",
+      "title": "SERL: A Software Suite for Sample-Efficient Robotic Reinforcement Learning",
+      "url": "https://serl-robot.github.io/",
+      "kind": "page",
+      "year": 2024,
+      "accessedAt": "2026-10-08",
+      "excerpt": "The agent generalizes to route the cable through an unseen clip pose."
+    },
+    {
+      "id": "source-eureka",
+      "schoolId": "caltech",
+      "title": "Eureka: Human-Level Reward Design via Coding Large Language Models",
+      "url": "https://eureka-research.github.io/",
+      "kind": "page",
+      "year": 2023,
+      "accessedAt": "2026-10-08",
+      "excerpt": "Eureka generates reward functions that outperform expert human-engineered rewards."
+    },
+    {
+      "id": "source-centipede",
+      "schoolId": "gatech",
+      "title": "Multilegged Matter Transport: A Framework for Locomotion on Noisy Landscapes",
+      "url": "https://news.research.gatech.edu/2023/05/05/scurrying-centipedes-inspire-many-legged-robots-can-traverse-difficult-landscapes",
+      "kind": "page",
+      "year": 2023,
+      "accessedAt": "2026-10-08",
+      "excerpt": "the robot with redundant legs could move across uneven surfaces without any additional sensing or control technology"
+    },
+    {
+      "id": "source-bananahand",
+      "schoolId": "waterloo",
+      "title": "bananaHand",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2026-capstone-design-projects/2026-mechatronics-engineering-capstone-designs",
+      "kind": "page",
+      "year": 2026,
+      "accessedAt": "2026-10-08",
+      "excerpt": "bananaHand is an open source, 16-DOF/8-DOA, humanoid robot hand"
+    },
+    {
+      "id": "source-roamr",
+      "schoolId": "waterloo",
+      "title": "roamr",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2026-capstone-design-projects/2026-mechatronics-engineering-capstone-designs",
+      "kind": "page",
+      "year": 2026,
+      "accessedAt": "2026-10-08",
+      "excerpt": "leveraging the iPhone's compute and sensors (IMU, Camera, LiDAR) to save costs."
+    },
+    {
+      "id": "source-delft-racing",
+      "schoolId": "delft",
+      "title": "Autonomous Drone from TU Delft Defeats Human Champions in Historic Racing First",
+      "url": "https://mavlab.tudelft.nl/dronerace-defeating-champions/",
+      "kind": "page",
+      "year": 2025,
+      "accessedAt": "2026-10-08",
+      "excerpt": "It then went on to win the knockout tournament against human pilots"
+    },
+    {
+      "id": "source-depth-transfer",
+      "schoolId": "delft",
+      "title": "Depth Transfer: Learning to See Like a Simulator for Real-World Drone Navigation",
+      "url": "https://mavlab.tudelft.nl/depth-transfer-learning-to-see-like-a-simulator-for-real-world-drone-navigation/",
+      "kind": "page",
+      "year": 2025,
+      "accessedAt": "2026-10-08",
+      "excerpt": "During deployment, the encoder is refined via domain adaptation using stereo depth data from real environments."
+    },
+    {
+      "id": "source-mavrl",
+      "schoolId": "delft",
+      "title": "MAVRL: Learn to Fly in Cluttered Environments with Varying Speed",
+      "url": "https://mavlab.tudelft.nl/mavrl-learn-to-fly-in-cluttered-environments-with-varying-speed/",
+      "kind": "page",
+      "year": 2025,
+      "accessedAt": "2026-10-08",
+      "excerpt": "After minimal fine-tuning, MAVRL was successfully deployed on a real drone"
+    },
+    {
+      "id": "source-robotics-wild-talk",
+      "schoolId": "cmu",
+      "title": "Robotics In The Wild: Continual Improvement by Watching and Practicing",
+      "url": "https://ethz.ch/content/dam/ethz/special-interest/mavt/dynamic-systems-n-control/idsc-dam/Research_Frazzoli/TuesdayTalks/pathak.pdf",
+      "kind": "pdf",
+      "year": 2022,
+      "accessedAt": "2026-10-08",
+      "excerpt": "the robot needs to learn and improve by autonomously practicing in the real world (curiosity) and adapt its learning to new scenarios (RMA)."
+    },
+    {
+      "id": "oxford-planarmesh-2025-source",
+      "schoolId": "oxford",
+      "title": "PlanarMesh: Building Compact 3D Meshes from LiDAR using Incremental Adaptive Resolution Reconstruction",
+      "url": "https://dynamic.robots.ox.ac.uk/projects/planarmesh/",
+      "kind": "page",
+      "year": 2025,
+      "accessedAt": "2026-10-08T06:44:25.119Z",
+      "excerpt": "Building an online 3D LiDAR mapping system that produces a detailed surface reconstruction while remaining computationally efficient is a challenging task. In this paper, we present PlanarMesh, a novel incremental, mesh-based LiDAR reconstruction system that adaptively adjusts mesh resolution to achieve compact, detailed reconstructions in real-time. It introduces a new representation, planar-mesh, which combines plane modeling and meshing to capture both large surfaces and detailed geometry. The planar-mesh can be incrementally updated considering both local surface curvature and free-space information from sensor measurements. We employ a multi-threaded architecture with a Bounding Volume Hierarchy (BVH) for efficient data storage and fast search operations, enabling real-time performance. Experimental results show that our method achieves reconstruction accuracy on par with, or exceeding, state-of-the-art techniques—including truncated signed distance functions, occupancy mapping, and voxel-based meshing—while producing smaller output file sizes (10 times smaller than raw input and more than 5 times smaller than mesh-based methods) and maintaining real-time performance (around 2 Hz for a 64-beam sensor)."
+    },
+    {
+      "id": "oxford-aerial-robotics",
+      "schoolId": "oxford",
+      "title": "Aerial Robotics | Dynamic Robot Systems Group",
+      "url": "https://dynamic.robots.ox.ac.uk/projects/aerial-robotics/",
+      "kind": "page",
+      "year": 2024,
+      "accessedAt": "2026-10-08T06:44:58.555Z",
+      "excerpt": "Abstract: Aerial mapping systems are important for many surveying applications (e.g., industrial inspection or agricultural monitoring). Aerial platforms that can fly GPS-guided preplanned missions semi-autonomously are already widely available but fully autonomous systems can significantly improve efficiency. Autonomously mapping complex 3D structures requires a system that performs online mapping and mission planning. This paper presents Osprey, an autonomous aerial mapping system with state-of-the-art multi-session LiDAR-based mapping capabilities. It enables a non-expert operator to specify a bounded target area that the aerial platform can then map autonomously over multiple flights. Field experiments with Osprey demonstrate that this system can achieve greater map coverage of large industrial sites than manual surveys with a pilot-flown aerial platform or a terrestrial laser scanner (TLS). Three sites, with a total ground coverage of 2528 m2 and a maximum height of 27 m, were mapped in separate missions using 112 minutes of autonomous flight time. True colour maps were created from images captured by Osprey using pointcloud and NeRF reconstruction methods. These maps provide useful data for structural inspection tasks."
+    },
+    {
+      "id": "oxford-graphscene-2025-source",
+      "schoolId": "oxford",
+      "title": "GraphSCENE: on-demand critical scenario generation for autonomous vehicles in simulation - ORA - Oxford University Research Archive",
+      "url": "https://ora.ox.ac.uk/objects/uuid%3Ad44b5997-6809-4237-8d05-dc78e0238588",
+      "kind": "page",
+      "year": 2025,
+      "accessedAt": "2026-10-08T06:47:33.709Z",
+      "excerpt": "Testing and validating Autonomous Vehicle (AV) performance in safety-critical and diverse scenarios is crucial before real-world deployment. However, manually creating such scenarios in simulation remains a significant and time-consuming challenge. This work introduces a novel method that generates dynamic temporal scene graphs corresponding to diverse traffic scenarios, on-demand, tailored to user-defined preferences, such as AV actions, sets of dynamic agents, and criticality levels. A temporal Graph Neural Network (GNN) model learns to predict relationships between ego-vehicle, agents, and static structures, guided by real-world spatiotemporal interaction patterns and constrained by an ontology that restricts predictions to semantically valid links. Our model consistently outperforms the baselines in accurately generating links corresponding to the requested scenarios. We render the predicted scenarios in simulation to further demonstrate their effectiveness as testing environments for AV agents."
+    },
+    {
+      "id": "oxford-robotcycle-2025-source",
+      "schoolId": "oxford",
+      "title": "The Oxford RobotCycle Project: a multimodal urban cycling dataset for assessing the safety of vulnerable road users",
+      "url": "https://ora.ox.ac.uk/objects/uuid%3Af033cdf9-f2dc-4773-a450-2f81be4f6a8b",
+      "kind": "page",
+      "year": 2025,
+      "accessedAt": "2026-10-08T06:48:04.276Z",
+      "excerpt": "The Oxford RobotCycle Project is a novel initiative aiming to understand how road and traffic infrastructure influence road users’ behavior, affecting cyclists’ journeys and safety. By leveraging state-of-the-art technology and methods used in autonomous vehicles (AVs), this project introduces a novel multimodal dataset, capturing dynamic cycling data in complex and diverse urban traffic environments. The dataset consists of range, visual, and inertial sensors, mounted on a backpack, and eye gaze tracking glasses, coupled with an analysis of road infrastructure and interactions with other road users. Enhanced by annotated maps, reconstructed 3-D point clouds, and a detailed ontology capturing static and dynamic agents and their relations, the dataset provides a comprehensive framework for analyzing and understanding traffic dynamics. Heatmaps derived from the cyclists’ vision reveal attention patterns and focal points during various traffic scenarios. We also analyze traffic interactions and risk, either perceived or actual, and correlate them with road infrastructure and traffic volumes. To complement the dataset, we also provide a complete set of tools for risk and traffic analysis, visualization, automatic calibration, and data annotation. The dataset can also be used to evaluate the robustness of odometry estimation methods, due to the highly dynamic cyclist movements. Combining multimodal data with traffic and risk analysis, the Oxford RobotCycle Project facilitates identifying safety-critical scenarios to derive actionable insights for safer, cyclist-friendly road design. This work contributes toward improving cycling safety, enhancing urban mobility, and supporting sustainable transportation initiatives. The dataset and tools are made available at https://ori-mrg.github.io/robotcycle-dataset/"
+    }
+  ],
+  "projects": [
+    {
+      "id": "diffusion-policy",
+      "schoolId": "mit",
+      "title": "Diffusion Policy: Visuomotor Policy Learning via Action Diffusion",
+      "year": 2023,
+      "summary": "Generative action sequences support reactive manipulation. Joint Columbia, TRI and MIT research.",
+      "problem": "Manipulation demonstrations can contain several valid actions, making a single predicted action brittle.",
+      "approach": "Condition a denoising diffusion process on vision and use receding-horizon action execution.",
+      "whyItMatters": "Our interpretation: Generative action sequences support reactive manipulation. Joint Columbia, TRI and MIT research.",
+      "statusQuo": "Manipulation demonstrations can contain several valid actions, making a single predicted action brittle.",
+      "results": "Reported: The authors compare 12 tasks across four benchmarks and demonstrate physical Push-T, mug flipping and sauce manipulation.",
+      "limitations": "Benchmark improvements do not establish reliability on arbitrary objects or factory workloads.",
+      "topics": [
+        "Robot learning",
+        "Manipulation"
+      ],
+      "stage": "Hardware",
+      "authors": [
+        "Cheng Chi",
+        "Siyuan Feng",
+        "Yilun Du",
+        "Zhenjia Xu",
+        "Eric Cousineau",
+        "Benjamin Burchfiel",
+        "Shuran Song"
+      ],
+      "evidence": [
+        {
+          "sourceId": "source-diffusion-policy",
+          "quote": "Diffusion Policy predicts a sequence of action for receding-horizon control.",
+          "locator": "Highlights; Team; RSS 2023 citation"
+        }
+      ]
+    },
+    {
+      "id": "robogen",
+      "schoolId": "cmu",
+      "title": "RoboGen: Towards Unleashing Infinite Data for Automated Robot Learning via Generative Simulation",
+      "year": 2024,
+      "summary": "Automated task and scene generation could reduce manual simulation setup. Joint CMU, Tsinghua and MIT-affiliated research.",
+      "problem": "Robot skill training requires hand-designed tasks, scenes and supervision.",
+      "approach": "Use foundation models to propose tasks, populate scenes, decompose goals and select learning methods.",
+      "whyItMatters": "Our interpretation: Automated task and scene generation could reduce manual simulation setup. Joint CMU, Tsinghua and MIT-affiliated research.",
+      "statusQuo": "Robot skill training requires hand-designed tasks, scenes and supervision.",
+      "results": "Reported: The page shows simulated manipulation, locomotion and deformable-object skills generated by its pipeline.",
+      "limitations": "Simulation examples do not establish hardware transfer or an actually infinite useful dataset.",
+      "topics": [
+        "Simulation",
+        "Robot learning"
+      ],
+      "stage": "Simulation",
+      "authors": [
+        "Yufei Wang",
+        "Zhou Xian",
+        "Feng Chen",
+        "Tsun-Hsuan Wang",
+        "Yian Wang",
+        "Katerina Fragkiadaki",
+        "Zackory Erickson",
+        "David Held",
+        "Chuang Gan"
+      ],
+      "evidence": [
+        {
+          "sourceId": "source-robogen",
+          "quote": "RoboGen is able to propose high-level tasks, generate corresponding environments, decompose the high-level goal into low-level subtasks, and then learn the sub-skills sequentially.",
+          "locator": "Long-horizon task generation; ICML 2024; affiliations"
+        }
+      ]
+    },
+    {
+      "id": "umi",
+      "schoolId": "stanford",
+      "title": "Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots",
+      "year": 2024,
+      "summary": "Portable demonstration collection moves robot teaching into everyday settings. Joint Stanford, Columbia and TRI research.",
+      "problem": "Bringing robot arms to every demonstration location limits data diversity.",
+      "approach": "Collect demonstrations with camera-equipped handheld grippers, then match latency and relative action trajectories.",
+      "whyItMatters": "Our interpretation: Portable demonstration collection moves robot teaching into everyday settings. Joint Stanford, Columbia and TRI research.",
+      "statusQuo": "Bringing robot arms to every demonstration location limits data diversity.",
+      "results": "Reported: The authors demonstrate cup arrangement on UR5 and Franka, dynamic tossing, cloth folding and dish washing.",
+      "limitations": "Embodiment constraints and training-data diversity still matter; these examples are not general household autonomy.",
+      "topics": [
+        "Robot learning",
+        "Manipulation"
+      ],
+      "stage": "Hardware",
+      "authors": [
+        "Cheng Chi",
+        "Zhenjia Xu",
+        "Chuer Pan",
+        "Eric Cousineau",
+        "Benjamin Burchfiel",
+        "Siyuan Feng",
+        "Russ Tedrake",
+        "Shuran Song"
+      ],
+      "evidence": [
+        {
+          "sourceId": "source-umi",
+          "quote": "The resulting learned policies are hardware-agnostic and deployable across multiple robot platforms.",
+          "locator": "Abstract; Team; RSS 2024"
+        }
+      ]
+    },
+    {
+      "id": "mobile-aloha",
+      "schoolId": "stanford",
+      "title": "Mobile ALOHA: Learning Bimanual Mobile Manipulation with Low-Cost Whole-Body Teleoperation",
+      "year": 2024,
+      "summary": "Whole-body demonstrations connect mobile navigation with two-arm manipulation.",
+      "problem": "Tabletop imitation policies omit mobility needed for kitchen and building tasks.",
+      "approach": "Add a mobile base and whole-body teleoperation; co-train with static ALOHA demonstrations.",
+      "whyItMatters": "Our interpretation: Whole-body demonstrations connect mobile navigation with two-arm manipulation.",
+      "statusQuo": "Tabletop imitation policies omit mobility needed for kitchen and building tasks.",
+      "results": "Reported: The project shows autonomous cooking, cabinet interaction, elevator entry and pan rinsing after task-specific demonstrations.",
+      "limitations": "Task-specific training and the published failure gallery limit claims about unsupervised household deployment.",
+      "topics": [
+        "Robot learning",
+        "Manipulation",
+        "Autonomy"
+      ],
+      "stage": "Hardware",
+      "authors": [
+        "Zipeng Fu",
+        "Tony Z. Zhao",
+        "Chelsea Finn"
+      ],
+      "evidence": [
+        {
+          "sourceId": "source-mobile-aloha",
+          "quote": "It augments the ALOHA system with a mobile base, and a whole-body teleoperation interface.",
+          "locator": "Abstract; BibTeX 2024"
+        }
+      ]
+    },
+    {
+      "id": "aloha",
+      "schoolId": "stanford",
+      "title": "Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware",
+      "year": 2023,
+      "summary": "Action chunks help affordable two-arm hardware perform precise manipulation. Joint Stanford, Berkeley and Meta research.",
+      "problem": "Fine manipulation usually needs expensive hardware, and imitation errors accumulate during long tasks.",
+      "approach": "Collect bimanual teleoperation demonstrations and predict sequences of actions using ACT.",
+      "whyItMatters": "Our interpretation: Action chunks help affordable two-arm hardware perform precise manipulation. Joint Stanford, Berkeley and Meta research.",
+      "statusQuo": "Fine manipulation usually needs expensive hardware, and imitation errors accumulate during long tasks.",
+      "results": "Reported: The authors report opening condiment cups and slotting batteries using brief demonstration datasets, with physical rollout videos.",
+      "limitations": "Results vary by task; object placement ranges and demonstrations constrain the evaluation.",
+      "topics": [
+        "Robot learning",
+        "Manipulation"
+      ],
+      "stage": "Hardware",
+      "authors": [
+        "Tony Zhao",
+        "Vikash Kumar",
+        "Sergey Levine",
+        "Chelsea Finn"
+      ],
+      "evidence": [
+        {
+          "sourceId": "source-aloha",
+          "quote": "We introduce Action Chunking with Transformers (ACT).",
+          "locator": "Learning Algorithm; RSS 2023; affiliations"
+        }
+      ]
+    },
+    {
+      "id": "robomimic",
+      "schoolId": "stanford",
+      "title": "What Matters in Learning from Offline Human Demonstrations for Robot Manipulation",
+      "year": 2021,
+      "summary": "Shared datasets and algorithms make imitation methods easier to compare. Joint Stanford and UT Austin research.",
+      "problem": "Robot demonstration studies are difficult to reproduce across inconsistent datasets and learning implementations.",
+      "approach": "Release demonstration datasets and multiple learning algorithms within a common framework.",
+      "whyItMatters": "Our interpretation: Shared datasets and algorithms make imitation methods easier to compare. Joint Stanford and UT Austin research.",
+      "statusQuo": "Robot demonstration studies are difficult to reproduce across inconsistent datasets and learning implementations.",
+      "results": "Reported: The team publishes the framework, datasets, documentation and a 2021 study.",
+      "limitations": "A common benchmark does not itself prove performance in unseen real environments.",
+      "topics": [
+        "Robot learning",
+        "Simulation",
+        "Manipulation"
+      ],
+      "stage": "Simulation",
+      "authors": [
+        "Ajay Mandlekar",
+        "Danfei Xu",
+        "Josiah Wong",
+        "Soroush Nasiriany",
+        "Chen Wang",
+        "Rohun Kulkarni",
+        "Li Fei-Fei",
+        "Silvio Savarese",
+        "Yuke Zhu",
+        "Roberto Martín-Martín"
+      ],
+      "evidence": [
+        {
+          "sourceId": "source-robomimic",
+          "quote": "robomimic is a framework for robot learning from demonstration.",
+          "locator": "Introduction; Citation 2021"
+        }
+      ]
+    },
+    {
+      "id": "extreme-parkour",
+      "schoolId": "cmu",
+      "title": "Extreme Parkour with Legged Robots",
+      "year": 2023,
+      "summary": "A simulation-trained camera policy performs demanding obstacle maneuvers on low-cost hardware.",
+      "problem": "Precise parkour control conventionally demands tightly engineered perception and actuation.",
+      "approach": "Train a single camera-conditioned neural policy in simulation with large-scale reinforcement learning.",
+      "whyItMatters": "Our interpretation: A simulation-trained camera policy performs demanding obstacle maneuvers on low-cost hardware.",
+      "statusQuo": "Precise parkour control conventionally demands tightly engineered perception and actuation.",
+      "results": "Reported: The project demonstrates jumps, handstands and tilted ramps, including a live CoRL 2023 demonstration.",
+      "limitations": "Reward and distillation ablations reveal failures; curated obstacle courses do not prove disaster-site reliability.",
+      "topics": [
+        "Locomotion",
+        "Simulation",
+        "Robot learning"
+      ],
+      "stage": "Hardware",
+      "authors": [
+        "Xuxin Cheng",
+        "Kexin Shi",
+        "Ananye Agarwal",
+        "Deepak Pathak"
+      ],
+      "evidence": [
+        {
+          "sourceId": "source-extreme-parkour",
+          "quote": "Fully autonomous without any human teleoperation.",
+          "locator": "Extreme Cases; CoRL 2023; author CMU profile"
+        }
+      ]
+    },
+    {
+      "id": "robot-parkour",
+      "schoolId": "cmu",
+      "title": "Robot Parkour Learning",
+      "year": 2023,
+      "summary": "Curriculum training combines diverse obstacle skills in a single depth-camera policy. Multi-institution research including CMU and Stanford.",
+      "problem": "Vision-based locomotion methods can specialize in a narrow obstacle skill.",
+      "approach": "Pretrain with soft dynamics constraints, fine-tune with hard constraints and distill skills into a vision policy.",
+      "whyItMatters": "Our interpretation: Curriculum training combines diverse obstacle skills in a single depth-camera policy. Multi-institution research including CMU and Stanford.",
+      "statusQuo": "Vision-based locomotion methods can specialize in a narrow obstacle skill.",
+      "results": "Reported: Two different low-cost robots select and execute climbing, leaping, crawling and squeezing skills.",
+      "limitations": "The project explicitly shows failures on low friction, high obstacles and soft obstacles.",
+      "topics": [
+        "Locomotion",
+        "Simulation"
+      ],
+      "stage": "Hardware",
+      "authors": [
+        "Ziwen Zhuang",
+        "Zipeng Fu",
+        "Jianren Wang",
+        "Christopher Atkeson",
+        "Sören Schwertfeger",
+        "Chelsea Finn",
+        "Hang Zhao"
+      ],
+      "evidence": [
+        {
+          "sourceId": "source-robot-parkour",
+          "quote": "The robot fails to leap on a low-friction platform.",
+          "locator": "Failure Cases; CoRL 2023; CMU author link"
+        }
+      ]
+    },
+    {
+      "id": "anymal-hike",
+      "schoolId": "eth",
+      "title": "Learning robust perceptive locomotion for quadrupedal robots in the wild",
+      "year": 2022,
+      "summary": "Combining external perception and proprioception helps a legged robot handle ambiguous terrain.",
+      "problem": "Snow, vegetation and reflective surfaces can mislead terrain perception.",
+      "approach": "Train a controller to combine visual terrain information with internal robot sensing.",
+      "whyItMatters": "Our interpretation: Combining external perception and proprioception helps a legged robot handle ambiguous terrain.",
+      "statusQuo": "Snow, vegetation and reflective surfaces can mislead terrain perception.",
+      "results": "Reported: ETH reports a 31-minute hike up 120 vertical metres without falls or missteps and competition obstacle traversal.",
+      "limitations": "A reported hike and competition demonstration do not establish reliability over all terrain or weather.",
+      "topics": [
+        "Locomotion",
+        "Sensing",
+        "Robot learning"
+      ],
+      "stage": "Hardware",
+      "authors": [
+        "Takahiro Miki",
+        "Marco Hutter"
+      ],
+      "evidence": [
+        {
+          "sourceId": "source-anymal-hike",
+          "quote": "ANYmal then plays it safe and relies on its proprioception.",
+          "locator": "Use under extreme conditions; 19 January 2022; Reference"
+        }
+      ]
+    },
+    {
+      "id": "anymal-parkour",
+      "schoolId": "eth",
+      "title": "ANYmal Parkour: Learning Agile Navigation for Quadrupedal Robots",
+      "year": 2024,
+      "summary": "Learned maneuvers extend a quadruped beyond ordinary walking.",
+      "problem": "Fixed locomotion behaviors limit obstacle negotiation.",
+      "approach": "Use reinforcement learning to develop agile obstacle skills.",
+      "whyItMatters": "Our interpretation: Learned maneuvers extend a quadruped beyond ordinary walking.",
+      "statusQuo": "Fixed locomotion behaviors limit obstacle negotiation.",
+      "results": "Reported: ETH reports obstacle scaling and dynamic descent in physical parkour trials.",
+      "limitations": "The source describes future dangerous-site uses, not completed operational deployment.",
+      "topics": [
+        "Locomotion",
+        "Robot learning"
+      ],
+      "stage": "Hardware",
+      "authors": [
+        "Nikita Rudin",
+        "Marco Hutter"
+      ],
+      "evidence": [
+        {
+          "sourceId": "source-anymal-parkour",
+          "quote": "ANYmal can now scale obstacles",
+          "locator": "Exhausting the mechanical options; Reference 13 March 2024"
+        }
+      ]
+    },
+    {
+      "id": "dtc",
+      "schoolId": "eth",
+      "title": "DTC: Deep Tracking Control",
+      "year": 2024,
+      "summary": "Hybrid learned and model-based control offers another route to stable terrain traversal.",
+      "problem": "Learning difficult basic movements alone can be inefficient.",
+      "approach": "Combine model-based control with learned movement patterns.",
+      "whyItMatters": "Our interpretation: Hybrid learned and model-based control offers another route to stable terrain traversal.",
+      "statusQuo": "Learning difficult basic movements alone can be inefficient.",
+      "results": "Reported: ETH shows ANYmal negotiating rubble and reports improved footing on slippery or unstable surfaces.",
+      "limitations": "The source is a university report on two related papers; no operational disaster response is established.",
+      "topics": [
+        "Locomotion",
+        "Robot learning"
+      ],
+      "stage": "Hardware",
+      "authors": [
+        "Fabian Jenelten",
+        "Marco Hutter"
+      ],
+      "evidence": [
+        {
+          "sourceId": "source-dtc",
+          "quote": "Through the combination with classic model-based control, the robot can negotiate difficult terrain.",
+          "locator": "Walk across rubble; DTC Reference 2024"
+        }
+      ]
+    },
+    {
+      "id": "dribblebot",
+      "schoolId": "mit",
+      "title": "DribbleBot: Dynamic Legged Manipulation in the Wild",
+      "year": 2023,
+      "summary": "Legs can manipulate a ball as well as move a robot across natural surfaces.",
+      "problem": "Ball dynamics change on grass, snow and gravel, making scripted dribbling brittle.",
+      "approach": "Train in simulation with varying contact physics and run vision plus motor sensing onboard.",
+      "whyItMatters": "Our interpretation: Legs can manipulate a ball as well as move a robot across natural surfaces.",
+      "statusQuo": "Ball dynamics change on grass, snow and gravel, making scripted dribbling brittle.",
+      "results": "Reported: MIT reports dribbling on sand, gravel, mud and snow, including recovery after falling.",
+      "limitations": "The controller does not handle slopes or stairs and cannot lift the ball over a step.",
+      "topics": [
+        "Locomotion",
+        "Manipulation",
+        "Simulation"
+      ],
+      "stage": "Hardware",
+      "authors": [
+        "Gabe Margolis",
+        "Yandong Ji"
+      ],
+      "evidence": [
+        {
+          "sourceId": "source-dribblebot",
+          "quote": "Currently, the controller is not trained in simulated environments that include slopes or stairs.",
+          "locator": "Limitations; 3 April 2023"
+        }
+      ]
+    },
+    {
+      "id": "lucidsim",
+      "schoolId": "mit",
+      "title": "Learning Visual Parkour from Generated Images (LucidSim)",
+      "year": 2024,
+      "summary": "Generated images add visual diversity to physics-based robot training.",
+      "problem": "Domain randomization can provide diversity without enough visual realism for transfer.",
+      "approach": "Generate environment descriptions and images constrained by simulated geometry, then warp images into coherent short videos.",
+      "whyItMatters": "Our interpretation: Generated images add visual diversity to physics-based robot training.",
+      "statusQuo": "Domain randomization can provide diversity without enough visual realism for transfer.",
+      "results": "Reported: MIT reports physical parkour transfer without real-world training data and comparisons with domain randomization.",
+      "limitations": "The main testbed is quadruped parkour; suggested manipulation applications remain future work.",
+      "topics": [
+        "Simulation",
+        "Robot learning",
+        "Locomotion"
+      ],
+      "stage": "Hardware",
+      "authors": [
+        "Alan Yu",
+        "Ge Yang",
+        "Ran Choi",
+        "Yajvan Ravan",
+        "John Leonard",
+        "Phillip Isola"
+      ],
+      "evidence": [
+        {
+          "sourceId": "source-lucidsim",
+          "quote": "LucidSim combines physics simulation with generative AI models",
+          "locator": "Method; 19 November 2024; author list"
+        }
+      ]
+    },
+    {
+      "id": "serl",
+      "schoolId": "berkeley",
+      "title": "SERL: A Software Suite for Sample-Efficient Robotic Reinforcement Learning",
+      "year": 2024,
+      "summary": "A reusable software suite makes real-robot reinforcement learning more accessible. Joint Berkeley, Washington, Stanford and Intrinsic research.",
+      "problem": "Physical reinforcement learning needs algorithm, controller, reward and reset infrastructure.",
+      "approach": "Combine off-policy learning, reward specification and robot controllers in a documented software suite.",
+      "whyItMatters": "Our interpretation: A reusable software suite makes real-robot reinforcement learning more accessible. Joint Berkeley, Washington, Stanford and Intrinsic research.",
+      "statusQuo": "Physical reinforcement learning needs algorithm, controller, reward and reset infrastructure.",
+      "results": "Reported: The page reports 25–50 minute policy training and shows PCB insertion, cable routing and object relocation under disturbances.",
+      "limitations": "Reported times apply to demonstrated tasks and setups; factory throughput and maintenance are unmeasured.",
+      "topics": [
+        "Robot learning",
+        "Manipulation"
+      ],
+      "stage": "Hardware",
+      "authors": [
+        "Jianlan Luo",
+        "Zheyuan Hu",
+        "Charles Xu",
+        "You Liang Tan",
+        "Jacob Berg",
+        "Archit Sharma",
+        "Stefan Schaal",
+        "Chelsea Finn",
+        "Abhishek Gupta",
+        "Sergey Levine"
+      ],
+      "evidence": [
+        {
+          "sourceId": "source-serl",
+          "quote": "The agent generalizes to route the cable through an unseen clip pose.",
+          "locator": "Cable Routing; ICRA 2024; affiliations"
+        }
+      ]
+    },
+    {
+      "id": "eureka",
+      "schoolId": "caltech",
+      "title": "Eureka: Human-Level Reward Design via Coding Large Language Models",
+      "year": 2023,
+      "summary": "Generated reward code can automate part of simulation skill design. Joint NVIDIA, UPenn, Caltech and UT Austin research.",
+      "problem": "Complex dexterity tasks require labor-intensive reward engineering.",
+      "approach": "Generate and iteratively refine reward code using language models and simulation feedback.",
+      "whyItMatters": "Our interpretation: Generated reward code can automate part of simulation skill design. Joint NVIDIA, UPenn, Caltech and UT Austin research.",
+      "statusQuo": "Complex dexterity tasks require labor-intensive reward engineering.",
+      "results": "Reported: The authors evaluate 29 simulated tasks and demonstrate simulated Shadow Hand pen spinning.",
+      "limitations": "Results are in simulation; this corpus does not establish hardware dexterity or justify the paper’s broad human-level label.",
+      "topics": [
+        "Simulation",
+        "Robot learning",
+        "Manipulation"
+      ],
+      "stage": "Simulation",
+      "authors": [
+        "Yecheng Jason Ma",
+        "William Liang",
+        "Guanzhi Wang",
+        "De-An Huang",
+        "Osbert Bastani",
+        "Dinesh Jayaraman",
+        "Yuke Zhu",
+        "Linxi Fan",
+        "Anima Anandkumar"
+      ],
+      "evidence": [
+        {
+          "sourceId": "source-eureka",
+          "quote": "Eureka generates reward functions that outperform expert human-engineered rewards.",
+          "locator": "Abstract; BibTeX 2023; affiliations"
+        }
+      ]
+    },
+    {
+      "id": "centipede",
+      "schoolId": "gatech",
+      "title": "Multilegged Matter Transport: A Framework for Locomotion on Noisy Landscapes",
+      "year": 2023,
+      "summary": "Mechanical redundancy can reduce the sensing burden for difficult ground.",
+      "problem": "Sensors and rapid feedback can be expensive or fragile on rough terrain.",
+      "approach": "Model spatial redundancy and test robots with increasing numbers of legs on uneven terrain.",
+      "whyItMatters": "Our interpretation: Mechanical redundancy can reduce the sensing burden for difficult ground.",
+      "statusQuo": "Sensors and rapid feedback can be expensive or fragile on rough terrain.",
+      "results": "Reported: Georgia Tech reports lab and outdoor traversal with six to sixteen legs without additional sensing.",
+      "limitations": "The researchers explicitly leave the optimal leg count and energy-speed-robustness tradeoff unresolved.",
+      "topics": [
+        "Locomotion",
+        "Sensing"
+      ],
+      "stage": "Hardware",
+      "authors": [
+        "Baxi Chong",
+        "Daniel Irvine",
+        "Greg Blekherman",
+        "Juntao He",
+        "Daniel Soto",
+        "Daniel Goldman"
+      ],
+      "evidence": [
+        {
+          "sourceId": "source-centipede",
+          "quote": "the robot with redundant legs could move across uneven surfaces without any additional sensing or control technology",
+          "locator": "A Leg Up; Next Steps; 5 May 2023"
+        }
+      ]
+    },
+    {
+      "id": "bananahand",
+      "schoolId": "waterloo",
+      "title": "bananaHand",
+      "year": 2026,
+      "summary": "A student-designed tactile hand explores affordable dexterous manipulation.",
+      "problem": "Research-grade dexterous hands can be expensive and difficult to integrate.",
+      "approach": "Build a modular hand with tactile sensors, position/force control and vision teleoperation.",
+      "whyItMatters": "Our interpretation: A student-designed tactile hand explores affordable dexterous manipulation.",
+      "statusQuo": "Research-grade dexterous hands can be expensive and difficult to integrate.",
+      "results": "Reported: The capstone abstract reports an AI household-object grasping policy and real-time vision teleoperation.",
+      "limitations": "This is a student showcase claim without independently verified grasping reliability, durability or production readiness.",
+      "topics": [
+        "Manipulation",
+        "Sensing"
+      ],
+      "stage": "Hardware",
+      "authors": [
+        "Dew Bhaumik",
+        "Edwin Giang",
+        "Simon Gorbet",
+        "Lokesh Patel",
+        "Caleb Wong"
+      ],
+      "evidence": [
+        {
+          "sourceId": "source-bananahand",
+          "quote": "bananaHand is an open source, 16-DOF/8-DOA, humanoid robot hand",
+          "locator": "2026 capstone abstract 33"
+        }
+      ]
+    },
+    {
+      "id": "roamr",
+      "schoolId": "waterloo",
+      "title": "roamr",
+      "year": 2026,
+      "summary": "A student capstone explores smartphone sensing and compute for an open mobile robot.",
+      "problem": "Low-cost mobile robots often trade capability for affordability.",
+      "approach": "Use an iPhone’s compute, camera, IMU and LiDAR in an autonomous mobile robot.",
+      "whyItMatters": "Our interpretation: A student capstone explores smartphone sensing and compute for an open mobile robot.",
+      "statusQuo": "Low-cost mobile robots often trade capability for affordability.",
+      "results": "Reported: The abstract states the team’s goal of end-to-end autonomous navigation; it does not publish measured navigation results.",
+      "limitations": "Navigation capability is an aim in the source, not a verified completed outcome.",
+      "topics": [
+        "Autonomy",
+        "Sensing"
+      ],
+      "stage": "Concept",
+      "authors": [
+        "Nathan Li",
+        "Kai Ma",
+        "Anders Tai",
+        "Olivia Ye",
+        "Thomason Zhou"
+      ],
+      "evidence": [
+        {
+          "sourceId": "source-roamr",
+          "quote": "leveraging the iPhone's compute and sensors (IMU, Camera, LiDAR) to save costs.",
+          "locator": "2026 capstone abstract 16"
+        }
+      ]
+    },
+    {
+      "id": "delft-racing",
+      "schoolId": "delft",
+      "title": "Autonomous Drone from TU Delft Defeats Human Champions in Historic Racing First",
+      "year": 2025,
+      "summary": "A competition demonstrates camera-based learned control under constrained onboard resources.",
+      "problem": "High-speed optimal control is computationally expensive on small drones.",
+      "approach": "Use reinforcement-trained neural control networks, drone dynamics identification and a single forward camera.",
+      "whyItMatters": "Our interpretation: A competition demonstrates camera-based learned control under constrained onboard resources.",
+      "statusQuo": "High-speed optimal control is computationally expensive on small drones.",
+      "results": "Reported: MAVLab reports winning A2RL and the knockout tournament against three former DCL world champions.",
+      "limitations": "A racing course is a constrained domain; rescue, delivery and other applications are proposed extensions.",
+      "topics": [
+        "Autonomy",
+        "Robot learning"
+      ],
+      "stage": "Hardware",
+      "authors": [
+        "Anton Lang",
+        "Quentin Missine",
+        "Aderik Verraest",
+        "Erin Lucassen",
+        "Till Blaha",
+        "Robin Ferede",
+        "Stavrow Bahnam",
+        "Christophe De Wagter",
+        "Guido de Croon"
+      ],
+      "evidence": [
+        {
+          "sourceId": "source-delft-racing",
+          "quote": "It then went on to win the knockout tournament against human pilots",
+          "locator": "Beating human pilots; Team; 16 April 2025"
+        }
+      ]
+    },
+    {
+      "id": "depth-transfer",
+      "schoolId": "delft",
+      "title": "Depth Transfer: Learning to See Like a Simulator for Real-World Drone Navigation",
+      "year": 2025,
+      "summary": "Adapting perception can transfer a fixed simulation policy to real depth sensors.",
+      "problem": "Simulated ground-truth depth differs from noisy real stereo depth.",
+      "approach": "Train a variational depth encoder and align simulated and real latent features through domain adaptation.",
+      "whyItMatters": "Our interpretation: Adapting perception can transfer a fixed simulation policy to real depth sensors.",
+      "statusQuo": "Simulated ground-truth depth differs from noisy real stereo depth.",
+      "results": "Reported: MAVLab reports improved simulated stereo-depth success and navigation in real forests and cluttered indoor spaces.",
+      "limitations": "Real depth data still adapts the encoder; zero-shot policy transfer does not mean zero real-world data.",
+      "topics": [
+        "Simulation",
+        "Sensing",
+        "Autonomy"
+      ],
+      "stage": "Hardware",
+      "authors": [],
+      "evidence": [
+        {
+          "sourceId": "source-depth-transfer",
+          "quote": "During deployment, the encoder is refined via domain adaptation using stereo depth data from real environments.",
+          "locator": "Core Idea; RA-L October 2025"
+        }
+      ]
+    },
+    {
+      "id": "mavrl",
+      "schoolId": "delft",
+      "title": "MAVRL: Learn to Fly in Cluttered Environments with Varying Speed",
+      "year": 2025,
+      "summary": "Memory and variable speed help drones navigate clutter.",
+      "problem": "Fixed speed and forgetting past observations can reduce safety or trap navigation policies.",
+      "approach": "Combine memory of depth observations, reinforcement-learned acceleration commands and model predictive control.",
+      "whyItMatters": "Our interpretation: Memory and variable speed help drones navigate clutter.",
+      "statusQuo": "Fixed speed and forgetting past observations can reduce safety or trap navigation policies.",
+      "results": "Reported: MAVLab reports indoor and outdoor drone navigation after fine-tuning and simulation baseline comparisons.",
+      "limitations": "Real deployment requires fine-tuning; the page supplies no field failure-rate or safety certification.",
+      "topics": [
+        "Autonomy",
+        "Simulation",
+        "Robot learning"
+      ],
+      "stage": "Hardware",
+      "authors": [],
+      "evidence": [
+        {
+          "sourceId": "source-mavrl",
+          "quote": "After minimal fine-tuning, MAVRL was successfully deployed on a real drone",
+          "locator": "Method; 15 January 2025"
+        }
+      ]
+    },
+    {
+      "id": "robotics-wild-talk",
+      "schoolId": "cmu",
+      "title": "Robotics In The Wild: Continual Improvement by Watching and Practicing",
+      "year": 2022,
+      "summary": "A research presentation frames social learning, exploration and adaptation as complementary ways to scale robot learning. Speaker affiliation: Carnegie Mellon; host: ETH Zurich.",
+      "problem": "Collecting diverse robot data is difficult before robust generalization enables deployment.",
+      "approach": "Combine learning from human videos, robot practice and real-time adaptation.",
+      "whyItMatters": "Our interpretation: A research presentation frames social learning, exploration and adaptation as complementary ways to scale robot learning. Speaker affiliation: Carnegie Mellon; host: ETH Zurich.",
+      "statusQuo": "Collecting diverse robot data is difficult before robust generalization enables deployment.",
+      "results": "Reported: The presentation abstract proposes case studies of hands, legged robots and mobile manipulators; no measured result appears on this page.",
+      "limitations": "A one-page talk abstract is a research agenda, not a complete experiment or presentation slide deck.",
+      "topics": [
+        "Robot learning",
+        "Autonomy"
+      ],
+      "stage": "Concept",
+      "authors": [
+        "Deepak Pathak"
+      ],
+      "evidence": [
+        {
+          "sourceId": "source-robotics-wild-talk",
+          "quote": "the robot needs to learn and improve by autonomously practicing in the real world (curiosity) and adapt its learning to new scenarios (RMA).",
+          "page": 1,
+          "locator": "Autonomy Talks 2022: Abstract and Bio"
+        }
+      ]
+    },
+    {
+      "id": "oxford-planarmesh-2025",
+      "schoolId": "oxford",
+      "title": "PlanarMesh: Building Compact 3D Meshes from LiDAR using Incremental Adaptive Resolution Reconstruction",
+      "year": 2025,
+      "summary": "An incremental LiDAR reconstruction system that combines plane modeling and meshing to produce compact, detailed 3D surface maps in real time.",
+      "problem": "Online LiDAR mapping must produce detailed surface reconstructions while remaining computationally efficient.",
+      "approach": "Adapt mesh resolution using local surface curvature and sensor free-space information. Combine plane modeling with meshing, and use a multithreaded architecture with a Bounding Volume Hierarchy for storage and search.",
+      "whyItMatters": "Compact reconstructions with real-time updates could reduce storage requirements while retaining geometric detail for robot mapping.",
+      "statusQuo": "The source compares PlanarMesh with truncated signed distance functions, occupancy mapping, and voxel-based meshing.",
+      "results": "The source reports reconstruction accuracy matching or exceeding the compared techniques, output files 10 times smaller than raw input and more than 5 times smaller than mesh-based methods, and performance around 2 Hz for a 64-beam sensor. Accepted at IROS 2025.",
+      "limitations": "Not reported",
+      "topics": [
+        "Sensing"
+      ],
+      "stage": "Hardware",
+      "authors": [
+        "Jiahao Wang",
+        "Nived Chebrolu",
+        "Yifu Tao",
+        "Lintong Zhang",
+        "Ayoung Kim",
+        "Maurice Fallon"
+      ],
+      "evidence": [
+        {
+          "sourceId": "oxford-planarmesh-2025-source",
+          "quote": "Accepted at the 2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2025)",
+          "locator": "Acceptance statement"
+        },
+        {
+          "sourceId": "oxford-planarmesh-2025-source",
+          "quote": "Building an online 3D LiDAR mapping system that produces a detailed surface reconstruction while remaining computationally efficient is a challenging task.",
+          "locator": "Abstract"
+        },
+        {
+          "sourceId": "oxford-planarmesh-2025-source",
+          "quote": "It introduces a new representation, planar-mesh, which combines plane modeling and meshing to capture both large surfaces and detailed geometry. The planar-mesh can be incrementally updated considering both local surface curvature and free-space information from sensor measurements. We employ a multi-threaded architecture with a Bounding Volume Hierarchy (BVH) for efficient data storage and fast search operations, enabling real-time performance.",
+          "locator": "Abstract"
+        },
+        {
+          "sourceId": "oxford-planarmesh-2025-source",
+          "quote": "Experimental results show that our method achieves reconstruction accuracy on par with, or exceeding, state-of-the-art techniques—including truncated signed distance functions, occupancy mapping, and voxel-based meshing—while producing smaller output file sizes (10 times smaller than raw input and more than 5 times smaller than mesh-based methods) and maintaining real-time performance (around 2 Hz for a 64-beam sensor).",
+          "locator": "Abstract"
+        }
+      ]
+    },
+    {
+      "id": "oxford-osprey-2024",
+      "schoolId": "oxford",
+      "title": "Osprey: A Complete Multi-Session Autonomous Aerial Mapping System",
+      "year": 2024,
+      "summary": "An autonomous aerial mapping system that maps a bounded target area over multiple flights using LiDAR-based mapping and mission planning.",
+      "problem": "Autonomously mapping complex 3D structures requires online mapping and mission planning.",
+      "approach": "A non-expert operator specifies a bounded target area. Osprey performs autonomous mapping across multiple flights, with LiDAR-based SLAM and next best view planning. Captured images support true colour maps through pointcloud and NeRF reconstruction.",
+      "whyItMatters": "The reported coverage gains suggest potential to improve industrial surveying and provide useful maps for structural inspection.",
+      "statusQuo": "GPS-guided preplanned semi-autonomous aerial missions are widely available. The reported field comparisons used manual surveys with a pilot-flown aerial platform or a terrestrial laser scanner.",
+      "results": "Field experiments reported greater map coverage of large industrial sites than the manual survey alternatives. Three sites totaling 2528 m2 of ground coverage, with a maximum height of 27 m, were mapped using 112 minutes of autonomous flight time. True colour maps were also created.",
+      "limitations": "Not reported",
+      "topics": [
+        "Autonomy",
+        "Sensing"
+      ],
+      "stage": "Hardware",
+      "authors": [
+        "Rowan Border",
+        "Nived Chebrolu",
+        "Yifu Tao",
+        "Jonathan Gammell",
+        "Maurice Fallon"
+      ],
+      "evidence": [
+        {
+          "sourceId": "oxford-aerial-robotics",
+          "quote": "“Osprey: Multi-Session Autonomous Aerial Mapping with LiDAR-based SLAM and Next Best View Planning” , Rowan Border, Nived Chebrolu, Yifu Tao, Jonathan Gammell, Maurice Fallon, 2024.",
+          "locator": "Publications"
+        },
+        {
+          "sourceId": "oxford-aerial-robotics",
+          "quote": "Autonomously mapping complex 3D structures requires a system that performs online mapping and mission planning.",
+          "locator": "Osprey abstract"
+        },
+        {
+          "sourceId": "oxford-aerial-robotics",
+          "quote": "It enables a non-expert operator to specify a bounded target area that the aerial platform can then map autonomously over multiple flights.",
+          "locator": "Osprey abstract"
+        },
+        {
+          "sourceId": "oxford-aerial-robotics",
+          "quote": "Aerial platforms that can fly GPS-guided preplanned missions semi-autonomously are already widely available but fully autonomous systems can significantly improve efficiency.",
+          "locator": "Osprey abstract"
+        },
+        {
+          "sourceId": "oxford-aerial-robotics",
+          "quote": "Field experiments with Osprey demonstrate that this system can achieve greater map coverage of large industrial sites than manual surveys with a pilot-flown aerial platform or a terrestrial laser scanner (TLS). Three sites, with a total ground coverage of 2528 m2 and a maximum height of 27 m, were mapped in separate missions using 112 minutes of autonomous flight time.",
+          "locator": "Osprey abstract"
+        },
+        {
+          "sourceId": "oxford-aerial-robotics",
+          "quote": "True colour maps were created from images captured by Osprey using pointcloud and NeRF reconstruction methods. These maps provide useful data for structural inspection tasks.",
+          "locator": "Osprey abstract"
+        }
+      ]
+    },
+    {
+      "id": "oxford-graphscene-2025",
+      "schoolId": "oxford",
+      "title": "GraphSCENE: on-demand critical scenario generation for autonomous vehicles in simulation",
+      "year": 2025,
+      "summary": "Generates traffic scenarios on demand as temporal scene graphs and renders them in simulation for autonomous vehicle testing. Published on 2025-11-27.",
+      "problem": "Creating diverse, safety-critical simulation scenarios manually is time-consuming, complicating autonomous vehicle testing before real-world deployment.",
+      "approach": "A temporal graph neural network predicts relationships between the ego vehicle, agents and static structures using real-world interaction patterns. An ontology constrains predictions to semantically valid links, while user preferences specify vehicle actions, dynamic agents and criticality levels. Predicted scenarios are rendered in simulation.",
+      "whyItMatters": "On-demand generation could reduce scenario preparation effort and help test autonomous vehicles under requested safety-critical conditions before deployment.",
+      "statusQuo": "Safety-critical and diverse scenarios are manually created in simulation, which the source describes as a significant and time-consuming challenge.",
+      "results": "The authors report that their model consistently outperforms baselines in accurately generating links for requested scenarios. They also render predicted scenarios in simulation to demonstrate their effectiveness as autonomous vehicle testing environments. Quantitative results are not reported on this page.",
+      "limitations": "Not reported.",
+      "topics": [
+        "Simulation",
+        "Autonomy"
+      ],
+      "stage": "Simulation",
+      "authors": [
+        "Panagiotaki, E.",
+        "Pramatarov, G.",
+        "Kunze, L.",
+        "De Martini, D."
+      ],
+      "evidence": [
+        {
+          "sourceId": "oxford-graphscene-2025-source",
+          "quote": "Panagiotaki, E., Pramatarov, G., Kunze, L., & De Martini, D. (2025). GraphSCENE: on-demand critical scenario generation for autonomous vehicles in simulation. IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2025), 13801–13808.",
+          "locator": "Cite this record — APA Style"
+        },
+        {
+          "sourceId": "oxford-graphscene-2025-source",
+          "quote": "2025-11-27",
+          "locator": "Bibliographic Details — Publication date"
+        },
+        {
+          "sourceId": "oxford-graphscene-2025-source",
+          "quote": "Testing and validating Autonomous Vehicle (AV) performance in safety-critical and diverse scenarios is crucial before real-world deployment. However, manually creating such scenarios in simulation remains a significant and time-consuming challenge.",
+          "locator": "Abstract"
+        },
+        {
+          "sourceId": "oxford-graphscene-2025-source",
+          "quote": "This work introduces a novel method that generates dynamic temporal scene graphs corresponding to diverse traffic scenarios, on-demand, tailored to user-defined preferences, such as AV actions, sets of dynamic agents, and criticality levels. A temporal Graph Neural Network (GNN) model learns to predict relationships between ego-vehicle, agents, and static structures, guided by real-world spatiotemporal interaction patterns and constrained by an ontology that restricts predictions to semantically valid links.",
+          "locator": "Abstract"
+        },
+        {
+          "sourceId": "oxford-graphscene-2025-source",
+          "quote": "Our model consistently outperforms the baselines in accurately generating links corresponding to the requested scenarios. We render the predicted scenarios in simulation to further demonstrate their effectiveness as testing environments for AV agents.",
+          "locator": "Abstract"
+        }
+      ]
+    },
+    {
+      "id": "oxford-robotcycle-2025",
+      "schoolId": "oxford",
+      "title": "The Oxford RobotCycle Project",
+      "year": 2025,
+      "summary": "A multimodal urban cycling dataset and analysis tools applying autonomous vehicle sensing methods to cyclist safety research. Published on 2025-05-01.",
+      "problem": "Understanding how road infrastructure, traffic and interactions with other road users influence cyclists’ behavior and safety.",
+      "approach": "Collect cycling data with backpack-mounted range, visual and inertial sensors and eye gaze tracking glasses. Combine these observations with annotated maps, reconstructed 3-D point clouds and an ontology of agents and their relations; provide tools for risk analysis, visualization, calibration and annotation.",
+      "whyItMatters": "The source identifies potential uses in finding safety-critical scenarios, informing cyclist-friendly road design and evaluating odometry robustness under dynamic cyclist movements.",
+      "statusQuo": "Not reported",
+      "results": "The source reports a dataset and publicly available tools, vision-derived heatmaps showing cyclist attention patterns, and analysis correlating traffic interactions and perceived or actual risk with infrastructure and traffic volumes. Quantitative performance or safety improvements are not reported.",
+      "limitations": "Not reported",
+      "topics": [
+        "Sensing",
+        "Autonomy"
+      ],
+      "stage": "Hardware",
+      "authors": [
+        "E. Panagiotaki",
+        "D. Thuremella",
+        "J. Baghabrah",
+        "S. Sze",
+        "L. F. T. Fu",
+        "B. Hardin",
+        "T. Reinmund",
+        "T. Flatscher",
+        "D. Marques",
+        "C. Prahacs",
+        "L. Kunze",
+        "D. De Martini"
+      ],
+      "evidence": [
+        {
+          "sourceId": "oxford-robotcycle-2025-source",
+          "quote": "2025-05-01",
+          "locator": "Bibliographic Details, Publication date"
+        },
+        {
+          "sourceId": "oxford-robotcycle-2025-source",
+          "quote": "University of Oxford",
+          "locator": "Authors, Panagiotaki, E, Institution"
+        },
+        {
+          "sourceId": "oxford-robotcycle-2025-source",
+          "quote": "The Oxford RobotCycle Project is a novel initiative aiming to understand how road and traffic infrastructure influence road users’ behavior, affecting cyclists’ journeys and safety.",
+          "locator": "Abstract"
+        },
+        {
+          "sourceId": "oxford-robotcycle-2025-source",
+          "quote": "The dataset consists of range, visual, and inertial sensors, mounted on a backpack, and eye gaze tracking glasses, coupled with an analysis of road infrastructure and interactions with other road users.",
+          "locator": "Abstract"
+        },
+        {
+          "sourceId": "oxford-robotcycle-2025-source",
+          "quote": "Enhanced by annotated maps, reconstructed 3-D point clouds, and a detailed ontology capturing static and dynamic agents and their relations, the dataset provides a comprehensive framework for analyzing and understanding traffic dynamics.",
+          "locator": "Abstract"
+        },
+        {
+          "sourceId": "oxford-robotcycle-2025-source",
+          "quote": "Heatmaps derived from the cyclists’ vision reveal attention patterns and focal points during various traffic scenarios. We also analyze traffic interactions and risk, either perceived or actual, and correlate them with road infrastructure and traffic volumes.",
+          "locator": "Abstract"
+        },
+        {
+          "sourceId": "oxford-robotcycle-2025-source",
+          "quote": "To complement the dataset, we also provide a complete set of tools for risk and traffic analysis, visualization, automatic calibration, and data annotation. The dataset can also be used to evaluate the robustness of odometry estimation methods, due to the highly dynamic cyclist movements.",
+          "locator": "Abstract"
+        },
+        {
+          "sourceId": "oxford-robotcycle-2025-source",
+          "quote": "Combining multimodal data with traffic and risk analysis, the Oxford RobotCycle Project facilitates identifying safety-critical scenarios to derive actionable insights for safer, cyclist-friendly road design.",
+          "locator": "Abstract"
+        },
+        {
+          "sourceId": "oxford-robotcycle-2025-source",
+          "quote": "The dataset and tools are made available at https://ori-mrg.github.io/robotcycle-dataset/",
+          "locator": "Abstract"
+        },
+        {
+          "sourceId": "oxford-robotcycle-2025-source",
+          "quote": "Panagiotaki, E., Thuremella, D., Baghabrah, J., Sze, S., Fu, L. F. T., Hardin, B., Reinmund, T., Flatscher, T., Marques, D., Prahacs, C., Kunze, L., & De Martini, D. (2025).",
+          "locator": "Cite this record, APA Style"
+        }
+      ]
+    }
+  ],
+  "insights": [
+    {
+      "id": "sim-validation",
+      "title": "Simulation transfer needs explicit boundary tests",
+      "summary": "Hypothesis: a useful simulation workflow should track what transfers, what requires adaptation and where hardware fails.",
+      "topic": "Simulation",
+      "problem": "Simulation can mask perception and contact failures.",
+      "statusQuo": "Teams train in simulation and test on a bounded collection of physical tasks.",
+      "gap": "Transfer claims use different assumptions and are difficult to compare.",
+      "opportunity": "Hypothesis: collect scenario-level transfer tests, real-data requirements and failure taxonomies alongside training assets.",
+      "evidence": "LucidSim reports parkour transfer from generated images; Depth Transfer adapts its real-depth encoder; Robot Parkour documents low-friction and soft-obstacle failures.",
+      "counterpoint": "A single validation protocol may miss robot-specific physics; this corpus does not establish willingness to pay.",
+      "nextQuestion": "Which three field conditions predict failure across a fixed robot and a reproducible test set?",
+      "projectIds": [
+        "lucidsim",
+        "depth-transfer",
+        "robot-parkour"
+      ],
+      "sourceIds": [
+        "source-lucidsim",
+        "source-depth-transfer",
+        "source-robot-parkour"
+      ],
+      "confidence": "Early signal"
+    },
+    {
+      "id": "teaching-tools",
+      "title": "Demonstration tooling shapes the available skills",
+      "summary": "Hypothesis: improving collection ergonomics and embodiment compatibility may unlock more useful training data.",
+      "topic": "Robot learning",
+      "problem": "Demonstrations are costly and limited by where hardware can be installed.",
+      "statusQuo": "Teams use teleoperation or task-specific physical demonstrations.",
+      "gap": "Portable collection and whole-body teaching solve different constraints; comparability remains weak.",
+      "opportunity": "Hypothesis: a workflow could validate demonstrations against robot kinematics and record collection effort and downstream transfer.",
+      "evidence": "UMI uses handheld grippers and relative trajectories; Mobile ALOHA adds whole-body teleoperation; robomimic provides common demonstration datasets.",
+      "counterpoint": "Portable tools still constrain gripper form and sensing; a dataset alone does not establish generalization.",
+      "nextQuestion": "How many valid demonstrations per operator-hour survive transfer to a second robot?",
+      "projectIds": [
+        "umi",
+        "mobile-aloha",
+        "robomimic"
+      ],
+      "sourceIds": [
+        "source-umi",
+        "source-mobile-aloha",
+        "source-robomimic"
+      ],
+      "confidence": "Early signal"
+    },
+    {
+      "id": "hardware-control",
+      "title": "Mechanical design and learning can trade sensing cost",
+      "summary": "Hypothesis: robustness should be assessed across morphology, sensing and control together.",
+      "topic": "Locomotion",
+      "problem": "Rough ground makes sensing and control expensive and fragile.",
+      "statusQuo": "Some systems combine learned perception and proprioception; others use mechanical redundancy.",
+      "gap": "Cross-system energy, maintenance and failure tradeoffs are not quantified here.",
+      "opportunity": "Hypothesis: compare morphology and controller choices on the same terrain and payload rather than ranking showcase videos.",
+      "evidence": "ETH combines perception with proprioception; Georgia Tech demonstrates redundant-leg traversal; Extreme Parkour learns precise behavior with imprecise hardware.",
+      "counterpoint": "These robots differ in size, tasks and terrain; no cited head-to-head experiment establishes a superior architecture.",
+      "nextQuestion": "Which design minimizes total energy and failure recovery time for a specified inspection route?",
+      "projectIds": [
+        "anymal-hike",
+        "centipede",
+        "extreme-parkour"
+      ],
+      "sourceIds": [
+        "source-anymal-hike",
+        "source-centipede",
+        "source-extreme-parkour"
+      ],
+      "confidence": "Early signal"
+    },
+    {
+      "id": "task-infrastructure",
+      "title": "Task infrastructure is part of robot learning performance",
+      "summary": "Hypothesis: reusable controller, reset and demonstration interfaces can matter as much as a policy algorithm.",
+      "topic": "Manipulation",
+      "problem": "Robot learning requires hardware setup and reliable physical task execution.",
+      "statusQuo": "Researchers assemble task-specific demonstration, controller and reward pipelines.",
+      "gap": "Published task successes rarely account for integration and maintenance effort.",
+      "opportunity": "Hypothesis: a reusable evaluation kit could expose setup time, intervention frequency and component compatibility.",
+      "evidence": "SERL packages controllers and reward methods; ACT couples its algorithm with ALOHA teleoperation; bananaHand proposes modular tactile hardware.",
+      "counterpoint": "bananaHand is a capstone prototype, and SERL/ALOHA evaluations do not establish fleet operations.",
+      "nextQuestion": "Can an external lab reproduce a manipulation task while recording all human interventions?",
+      "projectIds": [
+        "serl",
+        "aloha",
+        "bananahand"
+      ],
+      "sourceIds": [
+        "source-serl",
+        "source-aloha",
+        "source-bananahand"
+      ],
+      "confidence": "Early signal"
+    },
+    {
+      "id": "generated-supervision",
+      "title": "Generated supervision still needs physical verification",
+      "summary": "Hypothesis: automatically generated tasks and rewards could reduce setup labor, if outputs are checked against useful physical behaviors.",
+      "topic": "Simulation",
+      "problem": "Manual tasks and reward code limit the breadth of simulation training.",
+      "statusQuo": "Researchers design scenes and rewards by hand or collect physical demonstrations.",
+      "gap": "Diverse simulated skills are not automatically useful, safe or transferable skills.",
+      "opportunity": "Hypothesis: an auditable task/reward review layer could retain generated assets, failure cases and hardware transfer evidence.",
+      "evidence": "RoboGen generates tasks, scenes and supervision; Eureka iteratively generates reward code; LucidSim generates visual training environments.",
+      "counterpoint": "RoboGen and Eureka predominantly show simulation outcomes, and generative methods can depend on expensive compute.",
+      "nextQuestion": "What fraction of generated tasks pass physics, usefulness and hardware-transfer checks?",
+      "projectIds": [
+        "robogen",
+        "eureka",
+        "lucidsim"
+      ],
+      "sourceIds": [
+        "source-robogen",
+        "source-eureka",
+        "source-lucidsim"
+      ],
+      "confidence": "Early signal"
+    }
+  ],
+  "meta": {
+    "collectedAt": "2026-10-08T06:48:48.674Z",
+    "rankingName": "QS 2026 Engineering & Technology — 50-school collection registry",
+    "rankingUrl": "https://qs-topuniversities.cn/en/university-rankings/university-subject-rankings/2026/engineering-technology",
+    "coverageNote": "Partial initial corpus: 22 selected projects across 9 of 50 registry schools, dated 2021–2026 through 8 October 2026. The registry selects the first 50 currently listed QS 2026 Engineering & Technology institutions by rank then name: 49 have ranks ≤50; Monash (rank 51) fills the 50th slot. This is a fixed collection target, not completed 50-school collection or an exhaustive survey. English-language public sources and prominent demos are overrepresented; 2026 remains partial."
+  }
+}

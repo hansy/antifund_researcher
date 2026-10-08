@@ -10,3 +10,5 @@ work/
 .data/
 *.log
 .DS_Store
+
+.research-cache/

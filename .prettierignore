@@ -1,0 +1,7 @@
+node_modules
+dist
+convex/_generated
+src/routeTree.gen.ts
+bun.lock
+work
+.research-cache
