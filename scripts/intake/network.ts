@@ -114,6 +114,10 @@ export async function download(
                   Array.isArray(value) ? value.join(", ") : value,
                 );
             const status = res.statusCode ?? 502;
+            if (status < 200 || status > 599) {
+              reject(new Error(`Unsupported HTTP status ${status}`));
+              return;
+            }
             resolve(
               new Response(
                 [204, 304].includes(status) ? null : Buffer.concat(chunks),
