@@ -1,6 +1,6 @@
 import { useState, type RefObject } from "react";
-import type { Person, Project } from "../lib/contracts";
-import { getTeamPeople } from "../lib/teams";
+import type { Person, School } from "../lib/contracts";
+import type { ResearchTeam } from "../lib/teams";
 
 export function Portrait({ person }: { person: Person }) {
   const [failedUrl, setFailedUrl] = useState<string>();
@@ -29,24 +29,40 @@ export function Portrait({ person }: { person: Person }) {
 }
 
 export function TeamView({
-  project,
+  team,
+  schools,
   headingRef,
 }: {
-  project: Project;
+  team: ResearchTeam;
+  schools: School[];
   headingRef: RefObject<HTMLHeadingElement | null>;
 }) {
-  const people = getTeamPeople(project);
+  const project = team.projects[0]!;
+  const multiple = team.projects.length > 1;
+  const schoolNames = [
+    ...new Set(
+      team.projects.map(
+        (item) => schools.find((school) => school.id === item.schoolId)?.name,
+      ),
+    ),
+  ]
+    .filter(Boolean)
+    .join(" · ");
   return (
     <article className="team-view">
       <div className="brief-header">
         <h1 ref={headingRef} tabIndex={-1}>
-          {project.title.split(":")[0]}
+          {multiple ? schoolNames : project.title.split(":")[0]}
         </h1>
-        <p className="brief-summary">{project.summary}</p>
+        <p className="brief-summary">
+          {multiple
+            ? team.projects.map((item) => item.title.split(":")[0]).join(" · ")
+            : project.summary}
+        </p>
       </div>
       <section className="team-members" aria-label="Team members">
-        {people.map((person) => (
-          <article className="person-card" key={person.authorName}>
+        {team.members.map(({ key, person, projects }) => (
+          <article className="person-card" key={key}>
             <Portrait person={person} />
             <div className="person-body">
               <h2>{person.name}</h2>
@@ -54,8 +70,14 @@ export function TeamView({
                 <p className="person-affiliation">{person.affiliation}</p>
               )}
               <p className="person-bio">
-                {person.bio ?? `Co-author · ${project.year}`}
+                {person.bio ??
+                  `Co-author · ${[...new Set(projects.map((item) => item.year))].sort().join(", ")}`}
               </p>
+              {multiple && (
+                <p className="person-projects">
+                  {projects.map((item) => item.title.split(":")[0]).join(" · ")}
+                </p>
+              )}
               {person.links && (
                 <div className="person-links">
                   {(["website", "x", "linkedin"] as const).map((kind) =>
@@ -108,7 +130,7 @@ export function TeamView({
             </div>
           </article>
         ))}
-        {people.length === 0 && (
+        {team.members.length === 0 && (
           <p className="state-message">
             The source does not identify individual contributors.
           </p>

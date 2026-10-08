@@ -1,7 +1,7 @@
 import { expect, test } from "bun:test";
 import seed from "../data/corpus.json";
 import { personSchema } from "../src/lib/contracts";
-import { getTeamPeople } from "../src/lib/teams";
+import { getTeamPeople, groupResearchTeams } from "../src/lib/teams";
 import { enrichPeople, profileCatalogSchema } from "./people";
 import { validateCorpus } from "./validation";
 
@@ -77,4 +77,41 @@ test("unknown authors, future provenance and non-profile social links are reject
       links: { linkedin: "https://www.linkedin.com/company/example" },
     }),
   ).toThrow();
+});
+
+test("overlapping research combines verified people and keeps individual credits", () => {
+  const projects = corpus.projects.filter((item) =>
+    ["oxford-robotcycle-2025", "oxford-graphscene-2025"].includes(item.id),
+  );
+  const snapshot = JSON.stringify(projects);
+  const teams = groupResearchTeams(projects);
+  expect(teams).toHaveLength(1);
+  expect(teams[0]!.projects).toHaveLength(2);
+  expect(teams[0]!.members).toHaveLength(13);
+  expect(
+    teams[0]!.members.find(
+      (member) => member.person.name === "Efimia Panagiotaki",
+    )?.projects,
+  ).toHaveLength(2);
+  expect(
+    teams[0]!.members.find(
+      (member) => member.person.name === "Georgi Pramatarov",
+    )?.projects,
+  ).toHaveLength(1);
+  expect(JSON.stringify(projects)).toBe(snapshot);
+  // The same school and unresolved names alone don't establish a collaboration.
+  expect(
+    groupResearchTeams(
+      projects.map((item) => ({ ...item, people: undefined })),
+    ),
+  ).toHaveLength(2);
+  const factory = corpus.projects.filter((item) =>
+    ["aloha", "serl"].includes(item.id),
+  );
+  expect(groupResearchTeams(factory)).toHaveLength(1);
+  expect(groupResearchTeams(factory)[0]!.members).toHaveLength(12);
+  const terrain = corpus.projects.filter((item) =>
+    ["anymal-hike", "dtc"].includes(item.id),
+  );
+  expect(groupResearchTeams(terrain)[0]!.members).toHaveLength(3);
 });

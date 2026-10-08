@@ -1,6 +1,8 @@
 # Related research and teams
 
-Each signal has two paths: **Related research** opens the project’s evidence, results and limitations; **Teams** opens its credited contributors. The desktop signal rail stays in place. Team links support reload, browser back and keyboard navigation.
+Each signal has combined research cards: people, school and years above the related studies. Clicking the people opens their profiles; clicking a study opens its evidence, results and limitations. The desktop signal rail stays in place. Links support reload, browser back and keyboard navigation.
+
+Cards combine projects with verified shared contributors: one shared person within the same school, or two across schools. Connected projects share a card; merely attending the same school does not establish a team. Unresolved names never establish a match. Contributors appear once within a card, and expanded profiles retain their individual project credits. This grouping describes research overlap, not a formal organization or a commercial team.
 
 `data/people-profiles.json` contains 63 researched identities spanning 15 projects. It supplies 54 basic bios and 46 portrait URLs. This is partial enrichment of the published corpus. Unresolved contributors remain visible using the original author names; no person or affiliation is inferred from a name alone.
 

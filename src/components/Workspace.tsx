@@ -8,7 +8,7 @@ import {
 import { flushSync } from "react-dom";
 import { useCorpus } from "../lib/client";
 import { getSignalBrief } from "../lib/signals";
-import { getTeamPeople } from "../lib/teams";
+import { groupResearchTeams } from "../lib/teams";
 import { Portrait, TeamView } from "./TeamView";
 import type { Corpus, Insight, Project, Source } from "../lib/contracts";
 
@@ -245,7 +245,10 @@ export function Workspace() {
   const relatedProjects =
     corpus?.projects.filter((item) => insight?.projectIds.includes(item.id)) ??
     [];
-  const team = relatedProjects.find((item) => item.id === selection.team);
+  const researchTeams = groupResearchTeams(relatedProjects);
+  const team = researchTeams.find((item) =>
+    item.projects.some((project) => project.id === selection.team),
+  );
   const signalSelection = {
     signal: insight?.id ?? null,
     source: null,
@@ -376,7 +379,11 @@ export function Workspace() {
                   <Arrow back />
                   <span>{insight.title}</span>
                 </a>
-                <TeamView project={team} headingRef={headingRef} />
+                <TeamView
+                  team={team}
+                  schools={corpus.schools}
+                  headingRef={headingRef}
+                />
               </div>
             ) : source ? (
               <div
@@ -484,86 +491,112 @@ export function Workspace() {
                   </BriefSection>
                   <BriefSection id="related-research" title="Related research">
                     <div className="research-list">
-                      {relatedProjects.map((item) => {
-                        const school = corpus.schools.find(
-                          (s) => s.id === item.schoolId,
-                        );
+                      {researchTeams.map((team) => {
+                        const schoolNames = [
+                          ...new Set(
+                            team.projects.map(
+                              (item) =>
+                                corpus.schools.find(
+                                  (school) => school.id === item.schoolId,
+                                )?.shortName,
+                            ),
+                          ),
+                        ]
+                          .filter(Boolean)
+                          .join(" · ");
+                        const years = team.projects.map((item) => item.year);
+                        const firstYear = Math.min(...years);
+                        const lastYear = Math.max(...years);
+                        const yearLabel =
+                          firstYear === lastYear
+                            ? `${firstYear}`
+                            : `${firstYear}–${lastYear}`;
+                        const peopleLabel =
+                          team.members
+                            .slice(0, 2)
+                            .map(({ person }) => person.name)
+                            .join(", ") +
+                          (team.members.length > 2
+                            ? ` +${team.members.length - 2}`
+                            : "");
                         return (
-                          <article className="research-card" key={item.id}>
-                            <p className="research-meta">
-                              {school?.shortName ?? school?.name} · {item.year}
-                            </p>
-                            <h3>{item.title}</h3>
-                            <p>{item.summary}</p>
-                            <div className="research-source-links">
-                              {item.evidence
-                                .filter(
-                                  (e, index, all) =>
-                                    all.findIndex(
-                                      (other) => other.sourceId === e.sourceId,
-                                    ) === index,
-                                )
-                                .map((evidence) => (
-                                  <a
-                                    key={evidence.sourceId}
-                                    {...sourceLink(evidence.sourceId, item.id)}
-                                  >
-                                    Read research
-                                    {evidence.page
-                                      ? ` · p. ${evidence.page}`
-                                      : ""}
-                                    <Arrow />
-                                  </a>
-                                ))}
+                          <article className="research-card" key={team.id}>
+                            <a
+                              className="research-team"
+                              {...internalLink({
+                                signal: insight.id,
+                                source: null,
+                                project: null,
+                                team: team.id,
+                              })}
+                              aria-label={`View people: ${schoolNames}, ${yearLabel}, ${peopleLabel}`}
+                            >
+                              <div className="team-preview" aria-hidden="true">
+                                {team.members
+                                  .slice(0, 4)
+                                  .map(({ key, person }) => (
+                                    <Portrait key={key} person={person} />
+                                  ))}
+                                {team.members.length > 4 && (
+                                  <span className="team-remainder">
+                                    +{team.members.length - 4}
+                                  </span>
+                                )}
+                              </div>
+                              <div className="research-team-meta">
+                                <h3>{schoolNames}</h3>
+                                <span>{yearLabel}</span>
+                              </div>
+                              <p className="research-people">{peopleLabel}</p>
+                              <span
+                                className="research-team-arrow"
+                                aria-hidden="true"
+                              >
+                                <Arrow />
+                              </span>
+                            </a>
+                            <div className="team-research">
+                              {team.projects.map((item) => (
+                                <div className="research-item" key={item.id}>
+                                  {item.evidence
+                                    .filter(
+                                      (e, index, all) =>
+                                        all.findIndex(
+                                          (other) =>
+                                            other.sourceId === e.sourceId,
+                                        ) === index,
+                                    )
+                                    .map((evidence, index) => (
+                                      <a
+                                        className="research-title"
+                                        key={evidence.sourceId}
+                                        {...sourceLink(
+                                          evidence.sourceId,
+                                          item.id,
+                                        )}
+                                      >
+                                        <span>
+                                          {index === 0
+                                            ? item.title
+                                            : (corpus.sources.find(
+                                                (source) =>
+                                                  source.id ===
+                                                  evidence.sourceId,
+                                              )?.title ?? item.title)}
+                                        </span>
+                                        {evidence.page && (
+                                          <span className="research-page">
+                                            p. {evidence.page}
+                                          </span>
+                                        )}
+                                        <Arrow />
+                                      </a>
+                                    ))}
+                                  <p>{item.summary}</p>
+                                </div>
+                              ))}
                             </div>
                           </article>
-                        );
-                      })}
-                    </div>
-                  </BriefSection>
-                  <BriefSection id="teams" title="Teams">
-                    <div className="team-list">
-                      {relatedProjects.map((item) => {
-                        const people = getTeamPeople(item);
-                        return (
-                          <a
-                            key={item.id}
-                            className="team-card"
-                            {...internalLink({
-                              signal: insight.id,
-                              source: null,
-                              project: null,
-                              team: item.id,
-                            })}
-                          >
-                            <div className="team-preview" aria-hidden="true">
-                              {people.slice(0, 4).map((person) => (
-                                <Portrait
-                                  key={person.authorName}
-                                  person={person}
-                                />
-                              ))}
-                              {people.length > 4 && (
-                                <span className="team-remainder">
-                                  +{people.length - 4}
-                                </span>
-                              )}
-                            </div>
-                            <h3>{item.title.split(":")[0]}</h3>
-                            <p>
-                              {people
-                                .slice(0, 2)
-                                .map((person) => person.name)
-                                .join(", ")}
-                              {people.length > 2
-                                ? ` +${people.length - 2}`
-                                : ""}
-                            </p>
-                            <span className="team-open">
-                              <span>View team</span>
-                              <Arrow />
-                            </span>
-                          </a>
                         );
                       })}
                     </div>
