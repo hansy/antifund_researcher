@@ -3,6 +3,7 @@ import { v } from "convex/values";
 import { corpus } from "./validators";
 import { requireSecret } from "./security";
 import { validateCorpus } from "../scripts/validation";
+import type { Person } from "../src/lib/contracts";
 export const ingest = mutation({
   args: { secret: v.string(), corpus },
   handler: async (ctx, args) => {
@@ -35,8 +36,22 @@ export const ingest = mutation({
           .unique();
         if (existing) {
           const { _id, _creationTime, ...old } = existing;
+          // Classification updates may omit separately researched people. Keep profiles
+          // for authors who remain credited; explicit people arrays can replace them.
+          const next =
+            table === "projects" &&
+            "authors" in record &&
+            "people" in old &&
+            !record.people
+              ? {
+                  ...record,
+                  people: old.people?.filter((person: Person) =>
+                    record.authors.includes(person.authorName),
+                  ),
+                }
+              : record;
           if (
-            JSON.stringify(old) !== JSON.stringify(record) &&
+            JSON.stringify(old) !== JSON.stringify(next) &&
             table !== "schools"
           ) {
             await ctx.db.insert("researchRevisions", {
@@ -46,7 +61,7 @@ export const ingest = mutation({
               payload: JSON.stringify(old),
             });
           }
-          await ctx.db.replace(_id, record);
+          await ctx.db.replace(_id, next);
         } else await ctx.db.insert(table, record);
       }
     }

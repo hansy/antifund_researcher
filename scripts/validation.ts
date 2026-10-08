@@ -44,6 +44,17 @@ export function validateCorpus(input: unknown): Corpus {
   for (const project of data.projects) {
     if (!schools.has(project.schoolId))
       throw new Error(`Unknown project school: ${project.id}`);
+    const profiledAuthors = new Set<string>();
+    for (const person of project.people ?? []) {
+      if (
+        !project.authors.includes(person.authorName) ||
+        profiledAuthors.has(person.authorName)
+      )
+        throw new Error(`Invalid team author: ${project.id}`);
+      profiledAuthors.add(person.authorName);
+      if (person.sources.some((source) => Date.parse(source.accessedAt) > now))
+        throw new Error("Invalid profile research date");
+    }
     for (const citation of project.evidence) {
       const source = sources.get(citation.sourceId);
       if (!source || source.schoolId !== project.schoolId)

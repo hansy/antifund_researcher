@@ -34,6 +34,56 @@ export const evidenceSchema = z.object({
   page: z.number().int().positive().optional(),
   locator: z.string().optional(),
 });
+const profileUrl = z.url().refine((value) => {
+  const url = new URL(value);
+  return url.protocol === "https:" && !url.username && !url.password;
+}, "Profile links must use HTTPS without credentials");
+export const personSchema = z.object({
+  authorName: z.string().min(1),
+  name: z.string().min(1),
+  bio: z.string().min(1).optional(),
+  affiliation: z.string().min(1).optional(),
+  photoUrl: profileUrl.optional(),
+  links: z
+    .object({
+      website: profileUrl.optional(),
+      x: profileUrl
+        .refine((value) => {
+          const url = new URL(value);
+          return (
+            ["x.com", "twitter.com", "www.x.com", "www.twitter.com"].includes(
+              url.hostname,
+            ) &&
+            /^\/[a-zA-Z0-9_]{1,15}\/?$/.test(url.pathname) &&
+            !["search", "home", "explore", "i", "intent", "share"].includes(
+              url.pathname.replace(/\//g, "").toLowerCase(),
+            ) &&
+            !url.search &&
+            !url.hash
+          );
+        }, "X links must point to a profile")
+        .optional(),
+      linkedin: profileUrl
+        .refine((value) => {
+          const url = new URL(value);
+          return (
+            ["linkedin.com", "www.linkedin.com"].includes(url.hostname) &&
+            /^\/in\/[^/]+\/?$/.test(url.pathname)
+          );
+        }, "LinkedIn links must point to a profile")
+        .optional(),
+    })
+    .optional(),
+  sources: z
+    .array(
+      z.object({
+        url: profileUrl,
+        excerpt: z.string().min(1),
+        accessedAt: z.union([z.iso.date(), z.iso.datetime()]),
+      }),
+    )
+    .min(1),
+});
 export const projectSchema = z.object({
   id: z.string(),
   schoolId: z.string(),
@@ -49,6 +99,7 @@ export const projectSchema = z.object({
   topics: z.array(z.string().min(1)),
   stage: z.enum(["Unknown", "Concept", "Simulation", "Hardware", "Deployment"]),
   authors: z.array(z.string()),
+  people: z.array(personSchema).optional(),
   evidence: z.array(evidenceSchema).min(1),
 });
 export const signalBriefSchema = z.object({
@@ -131,6 +182,7 @@ export const answerSchema = z.object({
 export type School = z.infer<typeof schoolSchema>;
 export type Source = z.infer<typeof sourceSchema>;
 export type Project = z.infer<typeof projectSchema>;
+export type Person = z.infer<typeof personSchema>;
 export type Insight = z.infer<typeof insightSchema>;
 export type SignalBrief = z.infer<typeof signalBriefSchema>;
 export type Corpus = z.infer<typeof corpusSchema>;

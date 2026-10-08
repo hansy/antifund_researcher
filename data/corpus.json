@@ -840,6 +840,188 @@
         "Benjamin Burchfiel",
         "Shuran Song"
       ],
+      "people": [
+        {
+          "authorName": "Cheng Chi",
+          "name": "Cheng Chi",
+          "bio": "Co-founder and CTO of Sunday Robotics; researches robot manipulation and perception. Enjoys studying cooking.",
+          "affiliation": "Sunday Robotics",
+          "photoUrl": "https://cheng-chi.github.io/assets/images/profile.jpg",
+          "links": {
+            "website": "https://cheng-chi.github.io/",
+            "x": "https://twitter.com/chichengcc"
+          },
+          "sources": [
+            {
+              "url": "https://cheng-chi.github.io/",
+              "excerpt": "I'm a co-founder and CTO of Sunday Robotics",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://diffusion-policy.cs.columbia.edu/",
+              "excerpt": "Cheng Chi",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://umi-gripper.github.io/",
+              "excerpt": "Cheng Chi",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Siyuan Feng",
+          "name": "Siyuan Feng",
+          "bio": "Robotics researcher using optimization and learning to generate complex robot behaviors, including locomotion and full-body manipulation.",
+          "affiliation": "Toyota Research Institute (UMI research)",
+          "photoUrl": "https://www.cs.cmu.edu/~sfeng/sfeng.jpg",
+          "links": {
+            "website": "https://www.cs.cmu.edu/~sfeng/"
+          },
+          "sources": [
+            {
+              "url": "https://umi-gripper.github.io/",
+              "excerpt": "Siyuan Feng",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://diffusion-policy.cs.columbia.edu/",
+              "excerpt": "Siyuan Feng",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://www.cs.cmu.edu/~sfeng/",
+              "excerpt": "I am generally interested in using optimization and learning techniques to generate complex robot behaviors.",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Yilun Du",
+          "name": "Yilun Du",
+          "bio": "Harvard professor leading the Embodied Minds Lab, studying how learned world models help robots plan in unfamiliar environments.",
+          "affiliation": "Harvard University",
+          "photoUrl": "https://yilundu.github.io/images/yilun8_avatar.jpg",
+          "links": {
+            "website": "https://yilundu.github.io/"
+          },
+          "sources": [
+            {
+              "url": "https://diffusion-policy.cs.columbia.edu/",
+              "excerpt": "Yilun Du",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://yilundu.github.io/",
+              "excerpt": "I lead the Embodied Minds Lab at Harvard and am a part-time research scientist at NVIDIA Research.",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Zhenjia Xu",
+          "name": "Zhenjia Xu",
+          "bio": "Robotics researcher and engineer, and a co-founder of Genesis AI. Earned his PhD at Columbia.",
+          "affiliation": "Genesis AI",
+          "photoUrl": "https://zhenjiaxu.com/images/Zhenjia_Xu.jpg",
+          "links": {
+            "website": "https://zhenjiaxu.com/",
+            "linkedin": "https://www.linkedin.com/in/zhenjia-xu/"
+          },
+          "sources": [
+            {
+              "url": "https://zhenjiaxu.com/",
+              "excerpt": "I am a robotics researcher and engineer, and a co-founder of Genesis AI.",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://diffusion-policy.cs.columbia.edu/",
+              "excerpt": "Zhenjia Xu",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://umi-gripper.github.io/",
+              "excerpt": "Zhenjia Xu",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Eric Cousineau",
+          "name": "Eric Cousineau",
+          "bio": "Robotics research engineer at Toyota Research Institute who helps develop the Drake robotics software.",
+          "affiliation": "Toyota Research Institute",
+          "photoUrl": "https://www.eacousineau.com/media/2020-profile-pic-lowres.png",
+          "links": {
+            "website": "https://www.eacousineau.com/",
+            "x": "https://twitter.com/eacousineau",
+            "linkedin": "https://www.linkedin.com/in/eacousineau"
+          },
+          "sources": [
+            {
+              "url": "https://www.eacousineau.com/",
+              "excerpt": "I am a Robotics Research Engineer at Toyota Research Institute",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://umi-gripper.github.io/",
+              "excerpt": "Eric Cousineau",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://diffusion-policy.cs.columbia.edu/",
+              "excerpt": "Eric Cousineau",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Shuran Song",
+          "name": "Shuran Song",
+          "bio": "Leads Stanford’s Robotics and Embodied AI Lab, studying how robots learn perception and manipulation through physical interaction.",
+          "affiliation": "Stanford University",
+          "photoUrl": "https://shurans.github.io/images/people/shuran_song.jpg",
+          "links": {
+            "website": "https://shurans.github.io/",
+            "x": "https://twitter.com/SongShuran"
+          },
+          "sources": [
+            {
+              "url": "https://shurans.github.io/",
+              "excerpt": "I lead the Robotics and Embodied AI Lab at Stanford University",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://diffusion-policy.cs.columbia.edu/",
+              "excerpt": "Shuran Song",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://umi-gripper.github.io/",
+              "excerpt": "Shuran Song",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Benjamin Burchfiel",
+          "name": "Benjamin Burchfiel",
+          "bio": "Co-author of Diffusion Policy and UMI at Toyota Research Institute, working on learning robot manipulation from demonstrations.",
+          "affiliation": "Toyota Research Institute (Diffusion Policy / UMI research)",
+          "sources": [
+            {
+              "url": "https://diffusion-policy.cs.columbia.edu/",
+              "excerpt": "Benjamin Burchfiel",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://umi-gripper.github.io/",
+              "excerpt": "Benjamin Burchfiel",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        }
+      ],
       "evidence": [
         {
           "sourceId": "source-diffusion-policy",
@@ -876,6 +1058,199 @@
         "David Held",
         "Chuang Gan"
       ],
+      "people": [
+        {
+          "authorName": "Yufei Wang",
+          "name": "Yufei Wang",
+          "bio": "Studies robot manipulation and assistive robotics, including helping people get dressed.",
+          "affiliation": "Carnegie Mellon University",
+          "photoUrl": "https://yufeiwang63.github.io/img/4th-year.jpg",
+          "links": {
+            "website": "https://yufeiwang63.github.io/",
+            "x": "https://twitter.com/yufeiwang25"
+          },
+          "sources": [
+            {
+              "url": "https://yufeiwang63.github.io/",
+              "excerpt": "My general research interest is robot learning for manipulation, and its application in healthcare robotics.",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://robogen-ai.github.io/",
+              "excerpt": "Yufei Wang",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Zhou Xian",
+          "name": "Zhou Xian",
+          "bio": "Robotics researcher and engineer who founded Genesis AI. Also a landscape photographer.",
+          "affiliation": "Genesis AI",
+          "photoUrl": "https://static.wixstatic.com/media/e5e21b_6fa0d24befc94d18842d46ec0d583ce7~mv2.jpg/v1/fill/w_168,h_168,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/site.jpg",
+          "links": {
+            "website": "https://www.zhou-xian.com/"
+          },
+          "sources": [
+            {
+              "url": "https://www.zhou-xian.com/",
+              "excerpt": "I am a robotics researcher and engineer, and the founder of Genesis AI.",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://robogen-ai.github.io/",
+              "excerpt": "Zhou Xian",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Tsun-Hsuan Wang",
+          "name": "Tsun-Hsuan Wang",
+          "bio": "MIT robotics researcher studying how intelligent systems interact with the physical world, from data and reasoning to robot embodiment.",
+          "affiliation": "MIT CSAIL",
+          "photoUrl": "https://zswang666.github.io/assets/profile/johnson.webp",
+          "links": {
+            "website": "https://zswang666.github.io/"
+          },
+          "sources": [
+            {
+              "url": "https://robogen-ai.github.io/",
+              "excerpt": "Tsun-Hsuan Wang",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://zswang666.github.io/",
+              "excerpt": "Johnson Tsun-Hsuan Wang (王尊玄) is final-year PhD at MIT CSAIL",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Yian Wang",
+          "name": "Yian Wang",
+          "bio": "UMass Amherst PhD student researching robot skill acquisition and dexterous manipulation.",
+          "affiliation": "University of Massachusetts Amherst",
+          "photoUrl": "https://wangyian-me.github.io/images/profile.png",
+          "links": {
+            "website": "https://wangyian-me.github.io/"
+          },
+          "sources": [
+            {
+              "url": "https://robogen-ai.github.io/",
+              "excerpt": "Yian Wang",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://wangyian-me.github.io/",
+              "excerpt": "My primary research focus centers around Robotics and Embodied AI, with a particular emphasis on robot skill acquisition and dexterous manipulation.",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Katerina Fragkiadaki",
+          "name": "Katerina Fragkiadaki",
+          "bio": "CMU professor working across computer vision, machine learning, language understanding and robotics.",
+          "affiliation": "Carnegie Mellon University",
+          "photoUrl": "https://www.cs.cmu.edu/~katef/images/KaterinaFragkiadaki.png",
+          "links": {
+            "website": "https://www.cs.cmu.edu/~katef/",
+            "x": "https://x.com/KaterinaFragiad"
+          },
+          "sources": [
+            {
+              "url": "https://robogen-ai.github.io/",
+              "excerpt": "Katerina Fragkiadaki",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://www.cs.cmu.edu/~katef/",
+              "excerpt": "I work in Artificial Intelligence at the intersection of Computer Vision, Machine Learning, Language Understanding and Robotics.",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Zackory Erickson",
+          "name": "Zackory Erickson",
+          "bio": "Leads CMU’s Robotic Caregiving and Human Interaction Lab, developing robot learning and sensing for healthcare.",
+          "affiliation": "Carnegie Mellon University",
+          "photoUrl": "https://zackory.com/assets/images/Zackory_pr2.jpg",
+          "links": {
+            "website": "https://zackory.com/"
+          },
+          "sources": [
+            {
+              "url": "https://zackory.com/",
+              "excerpt": "I lead the Robotic Caregiving and Human Interaction (RCHI) Lab",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://robogen-ai.github.io/",
+              "excerpt": "Zackory Erickson",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "David Held",
+          "name": "David Held",
+          "bio": "Leads CMU’s Robots Perceiving and Doing Lab, developing robot learning for physical reasoning and manipulation.",
+          "affiliation": "Carnegie Mellon University",
+          "photoUrl": "https://davheld.github.io/DavidHeld_files/DavidHeld3.png",
+          "links": {
+            "website": "https://davheld.github.io/"
+          },
+          "sources": [
+            {
+              "url": "https://robogen-ai.github.io/",
+              "excerpt": "David Held",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://davheld.github.io/",
+              "excerpt": "His research focuses on robot learning for physical reasoning and manipulation.",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Chuang Gan",
+          "name": "Chuang Gan",
+          "bio": "UMass Amherst faculty member studying autonomous agents that sense, reason and act in the physical world.",
+          "affiliation": "UMass Amherst / MIT-IBM Watson AI Lab",
+          "photoUrl": "https://people.csail.mit.edu/ganchuang/imgs/portrait.jpg",
+          "links": {
+            "website": "https://people.csail.mit.edu/ganchuang/"
+          },
+          "sources": [
+            {
+              "url": "https://robogen-ai.github.io/",
+              "excerpt": "Chuang Gan",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://people.csail.mit.edu/ganchuang/",
+              "excerpt": "I am a faculty member at UMass Amherst and a research manager at MIT-IBM Watson AI Lab.",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Feng Chen",
+          "name": "Feng Chen",
+          "bio": "RoboGen co-author from Tsinghua’s Institute for Interdisciplinary Information Sciences, contributing to automated robot learning through generative simulation.",
+          "affiliation": "Tsinghua IIIS (RoboGen research)",
+          "sources": [
+            {
+              "url": "https://robogen-ai.github.io/",
+              "excerpt": "Feng Chen",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        }
+      ],
       "evidence": [
         {
           "sourceId": "source-robogen",
@@ -911,6 +1286,212 @@
         "Russ Tedrake",
         "Shuran Song"
       ],
+      "people": [
+        {
+          "authorName": "Cheng Chi",
+          "name": "Cheng Chi",
+          "bio": "Co-founder and CTO of Sunday Robotics; researches robot manipulation and perception. Enjoys studying cooking.",
+          "affiliation": "Sunday Robotics",
+          "photoUrl": "https://cheng-chi.github.io/assets/images/profile.jpg",
+          "links": {
+            "website": "https://cheng-chi.github.io/",
+            "x": "https://twitter.com/chichengcc"
+          },
+          "sources": [
+            {
+              "url": "https://cheng-chi.github.io/",
+              "excerpt": "I'm a co-founder and CTO of Sunday Robotics",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://diffusion-policy.cs.columbia.edu/",
+              "excerpt": "Cheng Chi",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://umi-gripper.github.io/",
+              "excerpt": "Cheng Chi",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Zhenjia Xu",
+          "name": "Zhenjia Xu",
+          "bio": "Robotics researcher and engineer, and a co-founder of Genesis AI. Earned his PhD at Columbia.",
+          "affiliation": "Genesis AI",
+          "photoUrl": "https://zhenjiaxu.com/images/Zhenjia_Xu.jpg",
+          "links": {
+            "website": "https://zhenjiaxu.com/",
+            "linkedin": "https://www.linkedin.com/in/zhenjia-xu/"
+          },
+          "sources": [
+            {
+              "url": "https://zhenjiaxu.com/",
+              "excerpt": "I am a robotics researcher and engineer, and a co-founder of Genesis AI.",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://diffusion-policy.cs.columbia.edu/",
+              "excerpt": "Zhenjia Xu",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://umi-gripper.github.io/",
+              "excerpt": "Zhenjia Xu",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Chuer Pan",
+          "name": "Chuer Pan",
+          "bio": "Stanford PhD student building robots that learn precise manipulation from human demonstrations.",
+          "affiliation": "Stanford University",
+          "photoUrl": "https://chuerpan.com/images/circle_bw_crop.jpg",
+          "links": {
+            "website": "https://chuerpan.com/",
+            "x": "https://twitter.com/chuer_pan",
+            "linkedin": "https://www.linkedin.com/in/chuer-pan-a2ab0475/"
+          },
+          "sources": [
+            {
+              "url": "https://chuerpan.com/",
+              "excerpt": "I am a PhD student at Stanford University working in robotics",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://umi-gripper.github.io/",
+              "excerpt": "Chuer Pan",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Eric Cousineau",
+          "name": "Eric Cousineau",
+          "bio": "Robotics research engineer at Toyota Research Institute who helps develop the Drake robotics software.",
+          "affiliation": "Toyota Research Institute",
+          "photoUrl": "https://www.eacousineau.com/media/2020-profile-pic-lowres.png",
+          "links": {
+            "website": "https://www.eacousineau.com/",
+            "x": "https://twitter.com/eacousineau",
+            "linkedin": "https://www.linkedin.com/in/eacousineau"
+          },
+          "sources": [
+            {
+              "url": "https://www.eacousineau.com/",
+              "excerpt": "I am a Robotics Research Engineer at Toyota Research Institute",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://umi-gripper.github.io/",
+              "excerpt": "Eric Cousineau",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://diffusion-policy.cs.columbia.edu/",
+              "excerpt": "Eric Cousineau",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Siyuan Feng",
+          "name": "Siyuan Feng",
+          "bio": "Robotics researcher using optimization and learning to generate complex robot behaviors, including locomotion and full-body manipulation.",
+          "affiliation": "Toyota Research Institute (UMI research)",
+          "photoUrl": "https://www.cs.cmu.edu/~sfeng/sfeng.jpg",
+          "links": {
+            "website": "https://www.cs.cmu.edu/~sfeng/"
+          },
+          "sources": [
+            {
+              "url": "https://umi-gripper.github.io/",
+              "excerpt": "Siyuan Feng",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://diffusion-policy.cs.columbia.edu/",
+              "excerpt": "Siyuan Feng",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://www.cs.cmu.edu/~sfeng/",
+              "excerpt": "I am generally interested in using optimization and learning techniques to generate complex robot behaviors.",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Russ Tedrake",
+          "name": "Russ Tedrake",
+          "bio": "MIT professor researching robot dynamics and control, from legged locomotion to dexterous manipulation. Develops the Drake robotics toolbox.",
+          "affiliation": "MIT",
+          "photoUrl": "https://locomotion.csail.mit.edu/group_photos/russt_2020_iceland_web.jpg",
+          "links": {
+            "website": "https://locomotion.csail.mit.edu/russt.html"
+          },
+          "sources": [
+            {
+              "url": "https://umi-gripper.github.io/",
+              "excerpt": "Russ Tedrake",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://locomotion.csail.mit.edu/russt.html",
+              "excerpt": "Toyota Professor of EECS, Aero/Astro, MechE.",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Shuran Song",
+          "name": "Shuran Song",
+          "bio": "Leads Stanford’s Robotics and Embodied AI Lab, studying how robots learn perception and manipulation through physical interaction.",
+          "affiliation": "Stanford University",
+          "photoUrl": "https://shurans.github.io/images/people/shuran_song.jpg",
+          "links": {
+            "website": "https://shurans.github.io/",
+            "x": "https://twitter.com/SongShuran"
+          },
+          "sources": [
+            {
+              "url": "https://shurans.github.io/",
+              "excerpt": "I lead the Robotics and Embodied AI Lab at Stanford University",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://diffusion-policy.cs.columbia.edu/",
+              "excerpt": "Shuran Song",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://umi-gripper.github.io/",
+              "excerpt": "Shuran Song",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Benjamin Burchfiel",
+          "name": "Benjamin Burchfiel",
+          "bio": "Co-author of Diffusion Policy and UMI at Toyota Research Institute, working on learning robot manipulation from demonstrations.",
+          "affiliation": "Toyota Research Institute (Diffusion Policy / UMI research)",
+          "sources": [
+            {
+              "url": "https://diffusion-policy.cs.columbia.edu/",
+              "excerpt": "Benjamin Burchfiel",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://umi-gripper.github.io/",
+              "excerpt": "Benjamin Burchfiel",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        }
+      ],
       "evidence": [
         {
           "sourceId": "source-umi",
@@ -942,6 +1523,104 @@
         "Tony Z. Zhao",
         "Chelsea Finn"
       ],
+      "people": [
+        {
+          "authorName": "Zipeng Fu",
+          "name": "Zipeng Fu",
+          "bio": "Co-founder and CEO of Reward AI. Studies robust robot performance and deployable systems in unstructured environments.",
+          "affiliation": "Reward AI",
+          "photoUrl": "https://zipengfu.github.io/images/Reward_AI_Profile_Photo_Sqaure.png",
+          "links": {
+            "website": "https://zipengfu.github.io/",
+            "x": "https://twitter.com/zipengfu",
+            "linkedin": "https://www.linkedin.com/in/zipengfu"
+          },
+          "sources": [
+            {
+              "url": "https://zipengfu.github.io/",
+              "excerpt": "I'm a cofounder and the CEO of Reward AI.",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://mobile-aloha.github.io/",
+              "excerpt": "Zipeng Fu",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://robot-parkour.github.io/",
+              "excerpt": "Zipeng Fu",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Tony Z. Zhao",
+          "name": "Tony Z. Zhao",
+          "bio": "Co-founder and CEO of Sunday Robotics. Developed ALOHA and Action Chunking with Transformers at Stanford.",
+          "affiliation": "Sunday Robotics",
+          "photoUrl": "https://tonyzhaozh.github.io/images/tony_21.jpg",
+          "links": {
+            "website": "https://tonyzhaozh.github.io/",
+            "x": "https://x.com/tonyzzhao",
+            "linkedin": "https://www.linkedin.com/in/tony-z-zhao/"
+          },
+          "sources": [
+            {
+              "url": "https://tonyzhaozh.github.io/",
+              "excerpt": "I previously worked on ALOHA and ACT at Stanford before dropping out.",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://tonyzhaozh.github.io/aloha/",
+              "excerpt": "Tony Zhao",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://mobile-aloha.github.io/",
+              "excerpt": "Tony Z. Zhao",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Chelsea Finn",
+          "name": "Chelsea Finn",
+          "bio": "Stanford professor and Physical Intelligence co-founder. Her IRIS lab studies how robots learn through interaction.",
+          "affiliation": "Stanford University",
+          "photoUrl": "https://ai.stanford.edu/~cbfinn/_files/sail_headshot_left_facing_crop.jpg",
+          "links": {
+            "website": "https://ai.stanford.edu/~cbfinn/",
+            "x": "https://www.twitter.com/chelseabfinn/"
+          },
+          "sources": [
+            {
+              "url": "https://ai.stanford.edu/~cbfinn/",
+              "excerpt": "My lab, IRIS, studies intelligence through robotic interaction at scale",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://tonyzhaozh.github.io/aloha/",
+              "excerpt": "Chelsea Finn",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://mobile-aloha.github.io/",
+              "excerpt": "Chelsea Finn",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://robot-parkour.github.io/",
+              "excerpt": "Chelsea Finn",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://serl-robot.github.io/",
+              "excerpt": "Chelsea Finn",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        }
+      ],
       "evidence": [
         {
           "sourceId": "source-mobile-aloha",
@@ -972,6 +1651,124 @@
         "Vikash Kumar",
         "Sergey Levine",
         "Chelsea Finn"
+      ],
+      "people": [
+        {
+          "authorName": "Tony Zhao",
+          "name": "Tony Z. Zhao",
+          "bio": "Co-founder and CEO of Sunday Robotics. Developed ALOHA and Action Chunking with Transformers at Stanford.",
+          "affiliation": "Sunday Robotics",
+          "photoUrl": "https://tonyzhaozh.github.io/images/tony_21.jpg",
+          "links": {
+            "website": "https://tonyzhaozh.github.io/",
+            "x": "https://x.com/tonyzzhao",
+            "linkedin": "https://www.linkedin.com/in/tony-z-zhao/"
+          },
+          "sources": [
+            {
+              "url": "https://tonyzhaozh.github.io/",
+              "excerpt": "I previously worked on ALOHA and ACT at Stanford before dropping out.",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://tonyzhaozh.github.io/aloha/",
+              "excerpt": "Tony Zhao",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://mobile-aloha.github.io/",
+              "excerpt": "Tony Z. Zhao",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Vikash Kumar",
+          "name": "Vikash Kumar",
+          "bio": "Robotics researcher and CMU adjunct professor studying embodied movement and algorithms for dexterity and agility.",
+          "affiliation": "Carnegie Mellon University",
+          "links": {
+            "website": "https://vikashplus.github.io/AboutMe.html"
+          },
+          "sources": [
+            {
+              "url": "https://tonyzhaozh.github.io/aloha/",
+              "excerpt": "Vikash Kumar",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://vikashplus.github.io/AboutMe.html",
+              "excerpt": "I am currently an adjunct professor at The Robotics Institute, Carnegie Mellon University (CMU)",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Sergey Levine",
+          "name": "Sergey Levine",
+          "bio": "Berkeley professor researching machine learning for decision making and control, including robot reinforcement learning.",
+          "affiliation": "UC Berkeley",
+          "photoUrl": "https://people.eecs.berkeley.edu/~svlevine/images/portrait_lab_small.png",
+          "links": {
+            "website": "https://people.eecs.berkeley.edu/~svlevine/",
+            "x": "https://twitter.com/svlevine"
+          },
+          "sources": [
+            {
+              "url": "https://people.eecs.berkeley.edu/~svlevine/",
+              "excerpt": "His work focuses on machine learning for decision making and control",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://tonyzhaozh.github.io/aloha/",
+              "excerpt": "Sergey Levine",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://serl-robot.github.io/",
+              "excerpt": "Sergey Levine",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Chelsea Finn",
+          "name": "Chelsea Finn",
+          "bio": "Stanford professor and Physical Intelligence co-founder. Her IRIS lab studies how robots learn through interaction.",
+          "affiliation": "Stanford University",
+          "photoUrl": "https://ai.stanford.edu/~cbfinn/_files/sail_headshot_left_facing_crop.jpg",
+          "links": {
+            "website": "https://ai.stanford.edu/~cbfinn/",
+            "x": "https://www.twitter.com/chelseabfinn/"
+          },
+          "sources": [
+            {
+              "url": "https://ai.stanford.edu/~cbfinn/",
+              "excerpt": "My lab, IRIS, studies intelligence through robotic interaction at scale",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://tonyzhaozh.github.io/aloha/",
+              "excerpt": "Chelsea Finn",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://mobile-aloha.github.io/",
+              "excerpt": "Chelsea Finn",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://robot-parkour.github.io/",
+              "excerpt": "Chelsea Finn",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://serl-robot.github.io/",
+              "excerpt": "Chelsea Finn",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        }
       ],
       "evidence": [
         {
@@ -1077,6 +1874,188 @@
         "Chelsea Finn",
         "Hang Zhao"
       ],
+      "people": [
+        {
+          "authorName": "Ziwen Zhuang",
+          "name": "Ziwen Zhuang",
+          "bio": "Tsinghua PhD student studying robot control for parkour, acrobatics and other athletic tasks.",
+          "affiliation": "Tsinghua University",
+          "photoUrl": "https://ziwenzhuang.github.io/images/profile.jpg",
+          "links": {
+            "website": "https://ziwenzhuang.github.io/",
+            "x": "https://twitter.com/ziwenzhuang_leo",
+            "linkedin": "https://www.linkedin.com/in/ACoAACha4IsBzVf0zW8G1GYtpiPkar6oF3gi_00"
+          },
+          "sources": [
+            {
+              "url": "https://ziwenzhuang.github.io/",
+              "excerpt": "I am a 2nd-year PhD student at IIIS, Tsinghua Univesity",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://robot-parkour.github.io/",
+              "excerpt": "Ziwen Zhuang",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Zipeng Fu",
+          "name": "Zipeng Fu",
+          "bio": "Co-founder and CEO of Reward AI. Studies robust robot performance and deployable systems in unstructured environments.",
+          "affiliation": "Reward AI",
+          "photoUrl": "https://zipengfu.github.io/images/Reward_AI_Profile_Photo_Sqaure.png",
+          "links": {
+            "website": "https://zipengfu.github.io/",
+            "x": "https://twitter.com/zipengfu",
+            "linkedin": "https://www.linkedin.com/in/zipengfu"
+          },
+          "sources": [
+            {
+              "url": "https://zipengfu.github.io/",
+              "excerpt": "I'm a cofounder and the CEO of Reward AI.",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://mobile-aloha.github.io/",
+              "excerpt": "Zipeng Fu",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://robot-parkour.github.io/",
+              "excerpt": "Zipeng Fu",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Jianren Wang",
+          "name": "Jianren Wang",
+          "bio": "CMU PhD researcher drawing on biology and neuroscience to build and understand intelligent physical systems.",
+          "affiliation": "Carnegie Mellon University",
+          "photoUrl": "https://jianrenw.github.io/images/jianrenwang.jpg",
+          "links": {
+            "website": "https://www.jianrenw.com/"
+          },
+          "sources": [
+            {
+              "url": "https://robot-parkour.github.io/",
+              "excerpt": "Jianren Wang",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://www.jianrenw.com/",
+              "excerpt": "My research interests lie at the intersection of artifical intelligence, biology and neuroscience.",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Christopher Atkeson",
+          "name": "Christopher Atkeson",
+          "bio": "CMU professor studying how robots learn from instruction, observation and practice, including challenging dynamic tasks such as juggling.",
+          "affiliation": "Carnegie Mellon University",
+          "photoUrl": "https://www.cs.cmu.edu/~cga/pictures/cga-ri2004.jpg",
+          "links": {
+            "website": "https://www.cs.cmu.edu/~cga/"
+          },
+          "sources": [
+            {
+              "url": "https://robot-parkour.github.io/",
+              "excerpt": "Christopher Atkeson",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://www.cs.cmu.edu/~cga/",
+              "excerpt": "I am an experimentalist in the field of robot learning, specializing in the learning of challenging dynamic tasks such as juggling.",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Sören Schwertfeger",
+          "name": "Sören Schwertfeger",
+          "bio": "ShanghaiTech associate professor in information science and technology, with a computer science PhD from Jacobs University.",
+          "affiliation": "ShanghaiTech University",
+          "photoUrl": "https://robotics.shanghaitech.edu.cn/sites/default/data/2025-06/Soeren_Schwertfeger.jpg",
+          "links": {
+            "website": "https://robotics.shanghaitech.edu.cn/people/soeren",
+            "linkedin": "https://www.linkedin.com/in/sschwertfeger"
+          },
+          "sources": [
+            {
+              "url": "https://robot-parkour.github.io/",
+              "excerpt": "Sören Schwertfeger",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://robotics.shanghaitech.edu.cn/people/soeren",
+              "excerpt": "Tenured Associate Professor at the School of Information Science and Technology of ShanghaiTech University",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Chelsea Finn",
+          "name": "Chelsea Finn",
+          "bio": "Stanford professor and Physical Intelligence co-founder. Her IRIS lab studies how robots learn through interaction.",
+          "affiliation": "Stanford University",
+          "photoUrl": "https://ai.stanford.edu/~cbfinn/_files/sail_headshot_left_facing_crop.jpg",
+          "links": {
+            "website": "https://ai.stanford.edu/~cbfinn/",
+            "x": "https://www.twitter.com/chelseabfinn/"
+          },
+          "sources": [
+            {
+              "url": "https://ai.stanford.edu/~cbfinn/",
+              "excerpt": "My lab, IRIS, studies intelligence through robotic interaction at scale",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://tonyzhaozh.github.io/aloha/",
+              "excerpt": "Chelsea Finn",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://mobile-aloha.github.io/",
+              "excerpt": "Chelsea Finn",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://robot-parkour.github.io/",
+              "excerpt": "Chelsea Finn",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://serl-robot.github.io/",
+              "excerpt": "Chelsea Finn",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Hang Zhao",
+          "name": "Hang Zhao",
+          "bio": "Tsinghua professor leading the MARS Lab and co-founder of Galaxea. Studies multimodal learning, robotics and autonomous driving.",
+          "affiliation": "Tsinghua University",
+          "photoUrl": "https://hangzhaomit.github.io/images/profile3.jpg",
+          "links": {
+            "website": "https://hangzhaomit.github.io/"
+          },
+          "sources": [
+            {
+              "url": "https://robot-parkour.github.io/",
+              "excerpt": "Hang Zhao",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://hangzhaomit.github.io/",
+              "excerpt": "My research interests are multi-modal learning, robotics, and autonomous driving.",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        }
+      ],
       "evidence": [
         {
           "sourceId": "source-robot-parkour",
@@ -1107,6 +2086,58 @@
         "Takahiro Miki",
         "Marco Hutter"
       ],
+      "people": [
+        {
+          "authorName": "Takahiro Miki",
+          "name": "Takahiro Miki",
+          "bio": "Research scientist working on Gemini Robotics. Previously studied legged locomotion in mountains, caves and rubble at ETH Zurich.",
+          "affiliation": "Google DeepMind",
+          "photoUrl": "https://takahiromiki.com/img/portrait.jpg",
+          "links": {
+            "website": "https://takahiromiki.com/",
+            "x": "https://twitter.com/ki_ki_ki1"
+          },
+          "sources": [
+            {
+              "url": "https://takahiromiki.com/cv.html",
+              "excerpt": "Research Scientist · Google DeepMind",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://ethz.ch/en/news-and-events/eth-news/news/2022/01/wie-roboter-wandern-lernen.html",
+              "excerpt": "Takahiro Miki",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Marco Hutter",
+          "name": "Marco Hutter",
+          "bio": "ETH professor developing intelligent robots for harsh environments, including walking robots, mobile manipulators and autonomous excavators.",
+          "affiliation": "ETH Zurich",
+          "photoUrl": "https://cdn.prod.website-files.com/6818e6452b63182753105ed7/68df9be8e4121ef2d1ee8e5c_Marco_Hutter.jpg",
+          "links": {
+            "website": "https://mavt.ethz.ch/people/person-detail.hutter.html"
+          },
+          "sources": [
+            {
+              "url": "https://ethar.ethz.ch/people",
+              "excerpt": "Marco Hutter is a Professor of Robotic Systems and the Head of the Center for Robotics at ETH Zurich.",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://ethz.ch/en/news-and-events/eth-news/news/2022/01/wie-roboter-wandern-lernen.html",
+              "excerpt": "Marco Hutter",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://ethz.ch/en/news-and-events/eth-news/news/2024/03/anymal-can-do-parkour-and-walk-across-rubble.html",
+              "excerpt": "Marco Hutter",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        }
+      ],
       "evidence": [
         {
           "sourceId": "source-anymal-hike",
@@ -1136,6 +2167,35 @@
         "Nikita Rudin",
         "Marco Hutter"
       ],
+      "people": [
+        {
+          "authorName": "Marco Hutter",
+          "name": "Marco Hutter",
+          "bio": "ETH professor developing intelligent robots for harsh environments, including walking robots, mobile manipulators and autonomous excavators.",
+          "affiliation": "ETH Zurich",
+          "photoUrl": "https://cdn.prod.website-files.com/6818e6452b63182753105ed7/68df9be8e4121ef2d1ee8e5c_Marco_Hutter.jpg",
+          "links": {
+            "website": "https://mavt.ethz.ch/people/person-detail.hutter.html"
+          },
+          "sources": [
+            {
+              "url": "https://ethar.ethz.ch/people",
+              "excerpt": "Marco Hutter is a Professor of Robotic Systems and the Head of the Center for Robotics at ETH Zurich.",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://ethz.ch/en/news-and-events/eth-news/news/2022/01/wie-roboter-wandern-lernen.html",
+              "excerpt": "Marco Hutter",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://ethz.ch/en/news-and-events/eth-news/news/2024/03/anymal-can-do-parkour-and-walk-across-rubble.html",
+              "excerpt": "Marco Hutter",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        }
+      ],
       "evidence": [
         {
           "sourceId": "source-anymal-parkour",
@@ -1164,6 +2224,48 @@
       "authors": [
         "Fabian Jenelten",
         "Marco Hutter"
+      ],
+      "people": [
+        {
+          "authorName": "Fabian Jenelten",
+          "name": "Fabian Jenelten",
+          "bio": "Developed Deep Tracking Control at ETH Zurich, combining learned movement with model-based control for rough terrain.",
+          "affiliation": "ETH Zurich (DTC research)",
+          "sources": [
+            {
+              "url": "https://ethz.ch/en/news-and-events/eth-news/news/2024/03/anymal-can-do-parkour-and-walk-across-rubble.html",
+              "excerpt": "conducted by Rudin’s colleague and fellow ETH doctoral student Fabian Jenelten",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Marco Hutter",
+          "name": "Marco Hutter",
+          "bio": "ETH professor developing intelligent robots for harsh environments, including walking robots, mobile manipulators and autonomous excavators.",
+          "affiliation": "ETH Zurich",
+          "photoUrl": "https://cdn.prod.website-files.com/6818e6452b63182753105ed7/68df9be8e4121ef2d1ee8e5c_Marco_Hutter.jpg",
+          "links": {
+            "website": "https://mavt.ethz.ch/people/person-detail.hutter.html"
+          },
+          "sources": [
+            {
+              "url": "https://ethar.ethz.ch/people",
+              "excerpt": "Marco Hutter is a Professor of Robotic Systems and the Head of the Center for Robotics at ETH Zurich.",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://ethz.ch/en/news-and-events/eth-news/news/2022/01/wie-roboter-wandern-lernen.html",
+              "excerpt": "Marco Hutter",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://ethz.ch/en/news-and-events/eth-news/news/2024/03/anymal-can-do-parkour-and-walk-across-rubble.html",
+              "excerpt": "Marco Hutter",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        }
       ],
       "evidence": [
         {
@@ -1229,6 +2331,141 @@
         "John Leonard",
         "Phillip Isola"
       ],
+      "people": [
+        {
+          "authorName": "Alan Yu",
+          "name": "Alan Yu",
+          "bio": "Stanford PhD student researching robot learning, generative simulation and evaluation. Enjoys swimming and playing guitar.",
+          "affiliation": "Stanford University",
+          "photoUrl": "https://alanyu.ai/images/picture_v2.png",
+          "links": {
+            "website": "https://alanyu.ai/",
+            "x": "https://twitter.com/alany1_",
+            "linkedin": "https://www.linkedin.com/in/alan-yu1/"
+          },
+          "sources": [
+            {
+              "url": "https://alanyu.ai/",
+              "excerpt": "I'm a CS PhD student at Stanford University.",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://lucidsim.github.io/",
+              "excerpt": "Alan Yu",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Ge Yang",
+          "name": "Ge Yang",
+          "bio": "Studies robot learning with generative simulation, synthetic data and digital twins. Trained as a physicist.",
+          "affiliation": "MIT CSAIL",
+          "photoUrl": "https://www.episodeyang.com/29552528604ada2f053048ce182c0eb7/Ge_profile.jpg",
+          "links": {
+            "website": "https://www.episodeyang.com/"
+          },
+          "sources": [
+            {
+              "url": "https://www.episodeyang.com/",
+              "excerpt": "I am currently a postdoc with Phillip Isola at MIT CSAIL",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://lucidsim.github.io/",
+              "excerpt": "Ge Yang",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Ran Choi",
+          "name": "Ran Choi",
+          "bio": "Mechanical engineering postdoctoral researcher at MIT during LucidSim, working on robot learning from generated images.",
+          "affiliation": "MIT CSAIL (LucidSim research)",
+          "links": {
+            "linkedin": "https://www.linkedin.com/in/ran-choi-tmr"
+          },
+          "sources": [
+            {
+              "url": "https://lucidsim.github.io/",
+              "excerpt": "Ran Choi",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://www.csail.mit.edu/news/can-robots-learn-machine-dreams",
+              "excerpt": "mechanical engineering postdoc Ran Choi",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Yajvan Ravan",
+          "name": "Yajvan Ravan",
+          "bio": "MIT graduate researching embodied intelligence, robot manipulation and learning from synthetic imagery. Enjoys tennis, lifting and sailing.",
+          "affiliation": "MIT (LucidSim research)",
+          "links": {
+            "website": "https://yravan.github.io/",
+            "linkedin": "https://www.linkedin.com/in/yajvan-ravan"
+          },
+          "sources": [
+            {
+              "url": "https://lucidsim.github.io/",
+              "excerpt": "Yajvan Ravan",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://yravan.github.io/",
+              "excerpt": "I'm a recent graduate of MIT, where I did my B.S. in Electrical Engineering and Computer Science ('25).",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "John Leonard",
+          "name": "John Leonard",
+          "bio": "MIT professor researching navigation and mapping for autonomous mobile robots, including visual localization in changing environments.",
+          "affiliation": "MIT",
+          "photoUrl": "https://meche.mit.edu/sites/default/files/styles/hero/public/John%20J.%20Leonard.jpg?itok=D3-bAv4f",
+          "links": {
+            "website": "https://meche.mit.edu/people/faculty/JLEONARD@MIT.EDU"
+          },
+          "sources": [
+            {
+              "url": "https://lucidsim.github.io/",
+              "excerpt": "John Leonard",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://meche.mit.edu/people/faculty/JLEONARD@MIT.EDU",
+              "excerpt": "Navigation and mapping for autonomous mobile robots",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Phillip Isola",
+          "name": "Phillip Isola",
+          "bio": "MIT professor studying intelligence and teaching deep learning, computer vision and robotics.",
+          "affiliation": "MIT CSAIL",
+          "photoUrl": "https://web.mit.edu/phillipi/www/images/photo_of_me_korea.jpeg",
+          "links": {
+            "website": "https://web.mit.edu/phillipi/"
+          },
+          "sources": [
+            {
+              "url": "https://lucidsim.github.io/",
+              "excerpt": "Phillip Isola",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://web.mit.edu/phillipi/",
+              "excerpt": "I am an associate professor in EECS at MIT, where I'm also a member of CSAIL.",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        }
+      ],
       "evidence": [
         {
           "sourceId": "source-lucidsim",
@@ -1265,6 +2502,251 @@
         "Chelsea Finn",
         "Abhishek Gupta",
         "Sergey Levine"
+      ],
+      "people": [
+        {
+          "authorName": "Jianlan Luo",
+          "name": "Jianlan Luo",
+          "bio": "Builds robot learning systems that connect foundation models, world models and reinforcement learning in the real world.",
+          "affiliation": "Shanghai Innovation Institute",
+          "photoUrl": "https://jianlanluo.github.io/images/jianlanluo.png",
+          "links": {
+            "website": "https://jianlanluo.github.io/",
+            "x": "https://twitter.com/jianlanluo"
+          },
+          "sources": [
+            {
+              "url": "https://jianlanluo.github.io/",
+              "excerpt": "I am an Associate Professor at Shanghai Innovation Institute.",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://serl-robot.github.io/",
+              "excerpt": "Jianlan Luo",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Zheyuan Hu",
+          "name": "Zheyuan Hu",
+          "bio": "CMU PhD student developing systems that learn manipulation skills from diverse data and physical interaction.",
+          "affiliation": "Carnegie Mellon University",
+          "photoUrl": "https://huzheyuan.io/assets/huzheyuan.webp",
+          "links": {
+            "website": "https://huzheyuan.io/",
+            "linkedin": "https://www.linkedin.com/in/huzheyuan"
+          },
+          "sources": [
+            {
+              "url": "https://huzheyuan.io/",
+              "excerpt": "I am a second-year Ph.D. student at the CMU Robotics Institute",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://serl-robot.github.io/",
+              "excerpt": "Zheyuan Hu",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Charles Xu",
+          "name": "Charles Xu",
+          "bio": "Berkeley PhD student researching how robots learn from real-world experience through online reinforcement learning.",
+          "affiliation": "UC Berkeley",
+          "photoUrl": "https://charlesxu0124.github.io/images/charles.jpg",
+          "links": {
+            "website": "https://charlesxu0124.github.io/"
+          },
+          "sources": [
+            {
+              "url": "https://serl-robot.github.io/",
+              "excerpt": "Charles Xu",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://charlesxu0124.github.io/",
+              "excerpt": "My research interest is learning from real-world experience through on-robot online reinforcement learning for scalable and deployable robot systems.",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "You Liang Tan",
+          "name": "You Liang Tan",
+          "bio": "NVIDIA researcher building generalist robot models through imitation and reinforcement learning. Core contributor to Project GR00T.",
+          "affiliation": "NVIDIA Research — GEAR",
+          "links": {
+            "website": "https://youliangtan.github.io/"
+          },
+          "sources": [
+            {
+              "url": "https://serl-robot.github.io/",
+              "excerpt": "You Liang Tan",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://youliangtan.github.io/",
+              "excerpt": "I’m currently a researcher at NVIDIA Research — GEAR, and a founding core member of Project GR00T",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Archit Sharma",
+          "name": "Archit Sharma",
+          "bio": "Stanford researcher working on reinforcement learning for robot decision making and aligning language models with human preferences.",
+          "affiliation": "Stanford University",
+          "photoUrl": "https://architsharma97.github.io/img/headshot.jpg",
+          "links": {
+            "website": "https://architsharma97.github.io/"
+          },
+          "sources": [
+            {
+              "url": "https://serl-robot.github.io/",
+              "excerpt": "Archit Sharma",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://architsharma97.github.io/about/",
+              "excerpt": "I am a final-year PhD student at Stanford, advised by Chelsea Finn.",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Stefan Schaal",
+          "name": "Stefan Schaal",
+          "bio": "Robotics researcher and SERL collaborator from Intrinsic, with research spanning robot learning and motor control.",
+          "affiliation": "Intrinsic (SERL research)",
+          "links": {
+            "website": "https://stefan-schaal.net/"
+          },
+          "sources": [
+            {
+              "url": "https://serl-robot.github.io/",
+              "excerpt": "Stefan Schaal",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://robotics.usc.edu/publications/author/514/",
+              "excerpt": "Stefan Schaal",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Chelsea Finn",
+          "name": "Chelsea Finn",
+          "bio": "Stanford professor and Physical Intelligence co-founder. Her IRIS lab studies how robots learn through interaction.",
+          "affiliation": "Stanford University",
+          "photoUrl": "https://ai.stanford.edu/~cbfinn/_files/sail_headshot_left_facing_crop.jpg",
+          "links": {
+            "website": "https://ai.stanford.edu/~cbfinn/",
+            "x": "https://www.twitter.com/chelseabfinn/"
+          },
+          "sources": [
+            {
+              "url": "https://ai.stanford.edu/~cbfinn/",
+              "excerpt": "My lab, IRIS, studies intelligence through robotic interaction at scale",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://tonyzhaozh.github.io/aloha/",
+              "excerpt": "Chelsea Finn",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://mobile-aloha.github.io/",
+              "excerpt": "Chelsea Finn",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://robot-parkour.github.io/",
+              "excerpt": "Chelsea Finn",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://serl-robot.github.io/",
+              "excerpt": "Chelsea Finn",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Abhishek Gupta",
+          "name": "Abhishek Gupta",
+          "bio": "Leads Washington’s WEIRD Lab, developing algorithms that let robots learn complex tasks in homes and offices.",
+          "affiliation": "University of Washington",
+          "photoUrl": "https://homes.cs.washington.edu/~abhgupta/images/abhgupta_sm.jpeg",
+          "links": {
+            "website": "https://homes.cs.washington.edu/~abhgupta/"
+          },
+          "sources": [
+            {
+              "url": "https://serl-robot.github.io/",
+              "excerpt": "Abhishek Gupta",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://homes.cs.washington.edu/~abhgupta/",
+              "excerpt": "I lead the Washington Embodied Intelligence and Robotics Development (WEIRD) lab.",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Sergey Levine",
+          "name": "Sergey Levine",
+          "bio": "Berkeley professor researching machine learning for decision making and control, including robot reinforcement learning.",
+          "affiliation": "UC Berkeley",
+          "photoUrl": "https://people.eecs.berkeley.edu/~svlevine/images/portrait_lab_small.png",
+          "links": {
+            "website": "https://people.eecs.berkeley.edu/~svlevine/",
+            "x": "https://twitter.com/svlevine"
+          },
+          "sources": [
+            {
+              "url": "https://people.eecs.berkeley.edu/~svlevine/",
+              "excerpt": "His work focuses on machine learning for decision making and control",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://tonyzhaozh.github.io/aloha/",
+              "excerpt": "Sergey Levine",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://serl-robot.github.io/",
+              "excerpt": "Sergey Levine",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        },
+        {
+          "authorName": "Jacob Berg",
+          "name": "Jacob Berg",
+          "bio": "Berkeley PhD student studying robust robot learning, world models and online adaptation. Enjoys climbing, skiing and teaching.",
+          "affiliation": "UC Berkeley",
+          "photoUrl": "https://jacob-berg.com/my_images/Jacob_Berg.jpg",
+          "links": {
+            "website": "https://jacob-berg.com/",
+            "linkedin": "https://www.linkedin.com/in/jacob-berg33"
+          },
+          "sources": [
+            {
+              "url": "https://jacob-berg.com/",
+              "excerpt": "I'm a PhD student at Berkeley advised by Sergey Levine working on robot learning.",
+              "accessedAt": "2026-10-08"
+            },
+            {
+              "url": "https://serl-robot.github.io/",
+              "excerpt": "Jacob Berg",
+              "accessedAt": "2026-10-08"
+            }
+          ]
+        }
       ],
       "evidence": [
         {
@@ -1573,6 +3055,78 @@
         "Ayoung Kim",
         "Maurice Fallon"
       ],
+      "people": [
+        {
+          "authorName": "Nived Chebrolu",
+          "name": "Nived Chebrolu",
+          "bio": "Develops navigation and mapping methods for robots in forests and agricultural fields. Previously a senior research associate at Oxford.",
+          "affiliation": "Oxford Robotics Institute alumnus",
+          "photoUrl": "https://ori.ox.ac.uk/media/9400/nived.jpg?width=250&height=250&v=1dd0e23b7368270",
+          "links": {
+            "website": "https://ori.ox.ac.uk/people/nived-chebrolu"
+          },
+          "sources": [
+            {
+              "url": "https://ori.ox.ac.uk/people/nived-chebrolu",
+              "excerpt": "He worked with the Dynamic Robot Systems Group on navigation and mapping tasks for field robots.",
+              "accessedAt": "2026-10-08T19:27:24.908022Z"
+            }
+          ]
+        },
+        {
+          "authorName": "Yifu Tao",
+          "name": "Yifu Tao",
+          "bio": "Assistant professor working on robot perception, navigation and manipulation, including building simulations from real-world sensor data.",
+          "affiliation": "Hong Kong Polytechnic University",
+          "photoUrl": "https://yifutao.github.io/assets/img/profile_ethan.jpg?c16d8fdf1fd2adfacedba07c29b338a0",
+          "links": {
+            "website": "https://yifutao.github.io/",
+            "x": "https://twitter.com/Yifu_Tao",
+            "linkedin": "https://www.linkedin.com/in/yifu-tao-b89613135"
+          },
+          "sources": [
+            {
+              "url": "https://yifutao.github.io/",
+              "excerpt": "I am generally interested in Robot Perception, Navigation and Manipulation.",
+              "accessedAt": "2026-10-08T19:27:24.908022Z"
+            }
+          ]
+        },
+        {
+          "authorName": "Lintong Zhang",
+          "name": "Lintong Zhang",
+          "bio": "Works on robot perception and navigation. Previously developed Dyson vacuum robot systems and autonomous-vehicle planning at Oxbotica.",
+          "affiliation": "Oxford Robotics Institute",
+          "photoUrl": "https://ori.ox.ac.uk/media/6233/lintong-zhang.png?width=250&height=250&v=1dd0e23b7274030",
+          "links": {
+            "website": "https://ori.ox.ac.uk/people/lintong-zhang"
+          },
+          "sources": [
+            {
+              "url": "https://ori.ox.ac.uk/people/lintong-zhang",
+              "excerpt": "He worked on Dyson robotic vacuums",
+              "accessedAt": "2026-10-08T19:27:24.908022Z"
+            }
+          ]
+        },
+        {
+          "authorName": "Maurice Fallon",
+          "name": "Maurice Fallon",
+          "bio": "Leads Oxford’s Dynamic Robot Systems Group. Builds methods for robot localisation, mapping and sensor fusion in difficult conditions.",
+          "affiliation": "University of Oxford",
+          "photoUrl": "https://ori.ox.ac.uk/media/pgwbl2bp/maurice-fallon.png?width=250&height=250&v=1dd0e23b5f8ab40",
+          "links": {
+            "website": "https://ori.ox.ac.uk/people/maurice-fallon"
+          },
+          "sources": [
+            {
+              "url": "https://ori.ox.ac.uk/people/maurice-fallon",
+              "excerpt": "He leads the Dynamic Robot Systems Group.",
+              "accessedAt": "2026-10-08T19:27:24.908022Z"
+            }
+          ]
+        }
+      ],
       "evidence": [
         {
           "sourceId": "oxford-planarmesh-2025-source",
@@ -1619,6 +3173,78 @@
         "Yifu Tao",
         "Jonathan Gammell",
         "Maurice Fallon"
+      ],
+      "people": [
+        {
+          "authorName": "Rowan Border",
+          "name": "Rowan Border",
+          "bio": "Researches autonomous aerial mapping and how robots choose their next viewing position.",
+          "affiliation": "Oxford ESP alumnus",
+          "photoUrl": "https://robotic-esp.com/people/rborder/figs/rowan_headshot_sqr.jpg",
+          "links": {
+            "website": "https://robotic-esp.com/people/rborder/"
+          },
+          "sources": [
+            {
+              "url": "https://robotic-esp.com/people/rborder/",
+              "excerpt": "Please note that Rowan is no longer at ESP.",
+              "accessedAt": "2026-10-08T19:30:59.737258Z"
+            }
+          ]
+        },
+        {
+          "authorName": "Nived Chebrolu",
+          "name": "Nived Chebrolu",
+          "bio": "Develops navigation and mapping methods for robots in forests and agricultural fields. Previously a senior research associate at Oxford.",
+          "affiliation": "Oxford Robotics Institute alumnus",
+          "photoUrl": "https://ori.ox.ac.uk/media/9400/nived.jpg?width=250&height=250&v=1dd0e23b7368270",
+          "links": {
+            "website": "https://ori.ox.ac.uk/people/nived-chebrolu"
+          },
+          "sources": [
+            {
+              "url": "https://ori.ox.ac.uk/people/nived-chebrolu",
+              "excerpt": "He worked with the Dynamic Robot Systems Group on navigation and mapping tasks for field robots.",
+              "accessedAt": "2026-10-08T19:27:24.908022Z"
+            }
+          ]
+        },
+        {
+          "authorName": "Yifu Tao",
+          "name": "Yifu Tao",
+          "bio": "Assistant professor working on robot perception, navigation and manipulation, including building simulations from real-world sensor data.",
+          "affiliation": "Hong Kong Polytechnic University",
+          "photoUrl": "https://yifutao.github.io/assets/img/profile_ethan.jpg?c16d8fdf1fd2adfacedba07c29b338a0",
+          "links": {
+            "website": "https://yifutao.github.io/",
+            "x": "https://twitter.com/Yifu_Tao",
+            "linkedin": "https://www.linkedin.com/in/yifu-tao-b89613135"
+          },
+          "sources": [
+            {
+              "url": "https://yifutao.github.io/",
+              "excerpt": "I am generally interested in Robot Perception, Navigation and Manipulation.",
+              "accessedAt": "2026-10-08T19:27:24.908022Z"
+            }
+          ]
+        },
+        {
+          "authorName": "Maurice Fallon",
+          "name": "Maurice Fallon",
+          "bio": "Leads Oxford’s Dynamic Robot Systems Group. Builds methods for robot localisation, mapping and sensor fusion in difficult conditions.",
+          "affiliation": "University of Oxford",
+          "photoUrl": "https://ori.ox.ac.uk/media/pgwbl2bp/maurice-fallon.png?width=250&height=250&v=1dd0e23b5f8ab40",
+          "links": {
+            "website": "https://ori.ox.ac.uk/people/maurice-fallon"
+          },
+          "sources": [
+            {
+              "url": "https://ori.ox.ac.uk/people/maurice-fallon",
+              "excerpt": "He leads the Dynamic Robot Systems Group.",
+              "accessedAt": "2026-10-08T19:27:24.908022Z"
+            }
+          ]
+        }
       ],
       "evidence": [
         {
@@ -1675,6 +3301,83 @@
         "Pramatarov, G.",
         "Kunze, L.",
         "De Martini, D."
+      ],
+      "people": [
+        {
+          "authorName": "Panagiotaki, E.",
+          "name": "Efimia Panagiotaki",
+          "bio": "Studies how environmental risks affect self-driving vehicle perception, with experience building autonomous-vehicle software.",
+          "affiliation": "Oxford Robotics Institute alumna",
+          "photoUrl": "https://ori.ox.ac.uk/media/gwsgm55f/efimia.jpg?width=250&height=250&v=1dd0e23a0eec630",
+          "links": {
+            "website": "https://efimiap.github.io/",
+            "linkedin": "https://www.linkedin.com/in/efimia-panagiotaki-9866b9144"
+          },
+          "sources": [
+            {
+              "url": "https://ori.ox.ac.uk/people/efimia-panagiotaki",
+              "excerpt": "the identification and assessment of the environmental risks affecting the performance of the perception system in self-driving vehicles.",
+              "accessedAt": "2026-10-08T19:27:24.908022Z"
+            },
+            {
+              "url": "https://efimiap.github.io/",
+              "excerpt": "Senior ML Engineer",
+              "accessedAt": "2026-10-08T19:30:59.737258Z"
+            }
+          ]
+        },
+        {
+          "authorName": "Pramatarov, G.",
+          "name": "Georgi Pramatarov",
+          "bio": "Works on understanding and mapping the world for mobile robots. Previously developed map tooling and route planning at Oxa.",
+          "affiliation": "Oxford Robotics Institute alumnus",
+          "photoUrl": "https://ori.ox.ac.uk/media/6143/georgi-pramatarov.jpg?width=250&height=250&v=1dd0e23b71b0b30",
+          "links": {
+            "website": "https://ori.ox.ac.uk/people/georgi-pramatarov"
+          },
+          "sources": [
+            {
+              "url": "https://ori.ox.ac.uk/people/georgi-pramatarov",
+              "excerpt": "His research interests include semantic segmentation and mapping in mobile robotics.",
+              "accessedAt": "2026-10-08T19:27:24.908022Z"
+            }
+          ]
+        },
+        {
+          "authorName": "Kunze, L.",
+          "name": "Lars Kunze",
+          "bio": "Professor focused on making autonomous robots safe, understandable and able to explain their decisions.",
+          "affiliation": "UWE Bristol · Oxford visiting fellow",
+          "photoUrl": "https://ori.ox.ac.uk/media/j0zft2dd/edit-89.jpg?width=250&height=250&v=1dd0e23a1bc4f60",
+          "links": {
+            "website": "https://ori.ox.ac.uk/people/lars-kunze",
+            "linkedin": "https://www.linkedin.com/in/lars-kunze-04005557/"
+          },
+          "sources": [
+            {
+              "url": "https://ori.ox.ac.uk/people/lars-kunze",
+              "excerpt": "Lars Kunze is a Full Professor in Safety for Robotics and Autonomous Systems at the Bristol Robotics Laboratory at UWE Bristol.",
+              "accessedAt": "2026-10-08T19:27:24.908022Z"
+            }
+          ]
+        },
+        {
+          "authorName": "De Martini, D.",
+          "name": "Daniele De Martini",
+          "bio": "Co-leads Oxford’s Mobile Robotics Group. Studies how robots perceive, map and navigate difficult environments.",
+          "affiliation": "University of Oxford",
+          "photoUrl": "https://ori.ox.ac.uk/media/2e3nrsxo/daniele-de-martini.jpg?width=250&height=250&v=1dd0e23a0dd12f0",
+          "links": {
+            "website": "https://danieledema.github.io/"
+          },
+          "sources": [
+            {
+              "url": "https://ori.ox.ac.uk/people/daniele-de-martini",
+              "excerpt": "He co-leads the Mobile Robotics Group alongside Professor Paul Newman.",
+              "accessedAt": "2026-10-08T19:27:24.908022Z"
+            }
+          ]
+        }
       ],
       "evidence": [
         {
@@ -1734,6 +3437,165 @@
         "C. Prahacs",
         "L. Kunze",
         "D. De Martini"
+      ],
+      "people": [
+        {
+          "authorName": "E. Panagiotaki",
+          "name": "Efimia Panagiotaki",
+          "bio": "Studies how environmental risks affect self-driving vehicle perception, with experience building autonomous-vehicle software.",
+          "affiliation": "Oxford Robotics Institute alumna",
+          "photoUrl": "https://ori.ox.ac.uk/media/gwsgm55f/efimia.jpg?width=250&height=250&v=1dd0e23a0eec630",
+          "links": {
+            "website": "https://efimiap.github.io/",
+            "linkedin": "https://www.linkedin.com/in/efimia-panagiotaki-9866b9144"
+          },
+          "sources": [
+            {
+              "url": "https://ori.ox.ac.uk/people/efimia-panagiotaki",
+              "excerpt": "the identification and assessment of the environmental risks affecting the performance of the perception system in self-driving vehicles.",
+              "accessedAt": "2026-10-08T19:27:24.908022Z"
+            },
+            {
+              "url": "https://efimiap.github.io/",
+              "excerpt": "Senior ML Engineer",
+              "accessedAt": "2026-10-08T19:30:59.737258Z"
+            }
+          ]
+        },
+        {
+          "authorName": "D. Thuremella",
+          "name": "Divya Thuremella",
+          "sources": [
+            {
+              "url": "https://efimiap.github.io/",
+              "excerpt": "Divya Thuremella",
+              "accessedAt": "2026-10-08T19:30:59.737258Z"
+            }
+          ]
+        },
+        {
+          "authorName": "J. Baghabrah",
+          "name": "Jumana Baghabrah",
+          "sources": [
+            {
+              "url": "https://efimiap.github.io/",
+              "excerpt": "Jumana Baghabrah",
+              "accessedAt": "2026-10-08T19:30:59.737258Z"
+            }
+          ]
+        },
+        {
+          "authorName": "S. Sze",
+          "name": "Samuel Sze",
+          "sources": [
+            {
+              "url": "https://efimiap.github.io/",
+              "excerpt": "Samuel Sze",
+              "accessedAt": "2026-10-08T19:30:59.737258Z"
+            }
+          ]
+        },
+        {
+          "authorName": "L. F. T. Fu",
+          "name": "Lanke Frank Tarimo Fu",
+          "sources": [
+            {
+              "url": "https://efimiap.github.io/",
+              "excerpt": "Lanke Frank Tarimo Fu",
+              "accessedAt": "2026-10-08T19:30:59.737258Z"
+            }
+          ]
+        },
+        {
+          "authorName": "B. Hardin",
+          "name": "Benjamin Hardin",
+          "sources": [
+            {
+              "url": "https://efimiap.github.io/",
+              "excerpt": "Benjamin Hardin",
+              "accessedAt": "2026-10-08T19:30:59.737258Z"
+            }
+          ]
+        },
+        {
+          "authorName": "T. Reinmund",
+          "name": "Tyler Reinmund",
+          "sources": [
+            {
+              "url": "https://efimiap.github.io/",
+              "excerpt": "Tyler Reinmund",
+              "accessedAt": "2026-10-08T19:30:59.737258Z"
+            }
+          ]
+        },
+        {
+          "authorName": "T. Flatscher",
+          "name": "Tobit Flatscher",
+          "sources": [
+            {
+              "url": "https://efimiap.github.io/",
+              "excerpt": "Tobit Flatscher",
+              "accessedAt": "2026-10-08T19:30:59.737258Z"
+            }
+          ]
+        },
+        {
+          "authorName": "D. Marques",
+          "name": "Daniel Marques",
+          "sources": [
+            {
+              "url": "https://efimiap.github.io/",
+              "excerpt": "Daniel Marques",
+              "accessedAt": "2026-10-08T19:30:59.737258Z"
+            }
+          ]
+        },
+        {
+          "authorName": "C. Prahacs",
+          "name": "Chris Prahacs",
+          "sources": [
+            {
+              "url": "https://efimiap.github.io/",
+              "excerpt": "Chris Prahacs",
+              "accessedAt": "2026-10-08T19:30:59.737258Z"
+            }
+          ]
+        },
+        {
+          "authorName": "L. Kunze",
+          "name": "Lars Kunze",
+          "bio": "Professor focused on making autonomous robots safe, understandable and able to explain their decisions.",
+          "affiliation": "UWE Bristol · Oxford visiting fellow",
+          "photoUrl": "https://ori.ox.ac.uk/media/j0zft2dd/edit-89.jpg?width=250&height=250&v=1dd0e23a1bc4f60",
+          "links": {
+            "website": "https://ori.ox.ac.uk/people/lars-kunze",
+            "linkedin": "https://www.linkedin.com/in/lars-kunze-04005557/"
+          },
+          "sources": [
+            {
+              "url": "https://ori.ox.ac.uk/people/lars-kunze",
+              "excerpt": "Lars Kunze is a Full Professor in Safety for Robotics and Autonomous Systems at the Bristol Robotics Laboratory at UWE Bristol.",
+              "accessedAt": "2026-10-08T19:27:24.908022Z"
+            }
+          ]
+        },
+        {
+          "authorName": "D. De Martini",
+          "name": "Daniele De Martini",
+          "bio": "Co-leads Oxford’s Mobile Robotics Group. Studies how robots perceive, map and navigate difficult environments.",
+          "affiliation": "University of Oxford",
+          "photoUrl": "https://ori.ox.ac.uk/media/2e3nrsxo/daniele-de-martini.jpg?width=250&height=250&v=1dd0e23a0dd12f0",
+          "links": {
+            "website": "https://danieledema.github.io/"
+          },
+          "sources": [
+            {
+              "url": "https://ori.ox.ac.uk/people/daniele-de-martini",
+              "excerpt": "He co-leads the Mobile Robotics Group alongside Professor Paul Newman.",
+              "accessedAt": "2026-10-08T19:27:24.908022Z"
+            }
+          ]
+        }
       ],
       "evidence": [
         {
@@ -1833,6 +3695,25 @@
         ],
         "marketOpportunity": "Hypothesis: charge per validated task dataset or ongoing data collection contract. NVIDIA already supplies simulation and synthetic-data tools; the potential wedge is reliable task-specific data, with measured hardware performance.",
         "buyer": "Robot manufacturers and teams building manipulation models.",
+        "marketSize": {
+          "value": "$16.5B",
+          "market": "Industrial robot installations",
+          "year": 2025,
+          "context": "Industry value reported by IFR in January 2025. This is a hardware-market proxy; spending on robot training data is unmeasured.",
+          "sourceUrls": [
+            "https://ifr.org/ifr-press-releases/news/top-5-global-robotics-trends-2025"
+          ]
+        },
+        "applications": [
+          "Generating variations of robot training scenes",
+          "Testing policies against unfamiliar objects",
+          "Reducing repetitive collection of demonstrations"
+        ],
+        "targetCustomers": [
+          "Robot learning teams",
+          "Robot manufacturers",
+          "Warehouse automation developers"
+        ],
         "marketStatus": "researched",
         "marketEvidence": [
           {
@@ -1855,25 +3736,6 @@
         "nextQuestions": [
           "For one paid customer task, can this reduce collection and training cost while matching hardware success on unseen objects?",
           "Does the buyer want data, an improved policy, or a complete automation system?"
-        ],
-        "marketSize": {
-          "value": "$16.5B",
-          "market": "Industrial robot installations",
-          "year": 2025,
-          "context": "Industry value reported by IFR in January 2025. This is a hardware-market proxy; spending on robot training data is unmeasured.",
-          "sourceUrls": [
-            "https://ifr.org/ifr-press-releases/news/top-5-global-robotics-trends-2025"
-          ]
-        },
-        "applications": [
-          "Generating variations of robot training scenes",
-          "Testing policies against unfamiliar objects",
-          "Reducing repetitive collection of demonstrations"
-        ],
-        "targetCustomers": [
-          "Robot learning teams",
-          "Robot manufacturers",
-          "Warehouse automation developers"
         ]
       }
     },
@@ -1920,6 +3782,25 @@
         ],
         "marketOpportunity": "Hypothesis: sell deployment and support for one assembly task before expanding across a factory. Amazon’s deployed picking systems show commercial demand for better manipulation, but do not prove willingness to buy this assembly product.",
         "buyer": "Automation integrators and electronics manufacturers with repetitive insertion or cable-handling tasks.",
+        "marketSize": {
+          "value": "$16.5B",
+          "market": "Industrial robot installations",
+          "year": 2025,
+          "context": "Industry value reported by IFR in January 2025. Installation and setup software is a subset whose size is not established.",
+          "sourceUrls": [
+            "https://ifr.org/ifr-press-releases/news/top-5-global-robotics-trends-2025"
+          ]
+        },
+        "applications": [
+          "Teaching robots new picking and handling tasks",
+          "Adapting production lines to changing parts",
+          "Reducing manual work during robot commissioning"
+        ],
+        "targetCustomers": [
+          "Manufacturers with changing product lines",
+          "Robot systems integrators",
+          "Industrial robot suppliers"
+        ],
         "marketStatus": "researched",
         "marketEvidence": [
           {
@@ -1942,25 +3823,6 @@
         "nextQuestions": [
           "Can one production line meet its cycle-time and defect limits after a part change with less technician time?",
           "Who pays for setup, recovery and ongoing support: the factory or its integrator?"
-        ],
-        "marketSize": {
-          "value": "$16.5B",
-          "market": "Industrial robot installations",
-          "year": 2025,
-          "context": "Industry value reported by IFR in January 2025. Installation and setup software is a subset whose size is not established.",
-          "sourceUrls": [
-            "https://ifr.org/ifr-press-releases/news/top-5-global-robotics-trends-2025"
-          ]
-        },
-        "applications": [
-          "Teaching robots new picking and handling tasks",
-          "Adapting production lines to changing parts",
-          "Reducing manual work during robot commissioning"
-        ],
-        "targetCustomers": [
-          "Manufacturers with changing product lines",
-          "Robot systems integrators",
-          "Industrial robot suppliers"
         ]
       }
     },
@@ -2004,6 +3866,25 @@
         ],
         "marketOpportunity": "Hypothesis: sell processing software per site or survey to reduce map handling and report preparation. Flyability already maps inspection findings onto 3D models, so this needs a demonstrated advantage in coverage, file size or delivery time.",
         "buyer": "Industrial survey firms, drone inspection operators and asset maintenance teams.",
+        "marketSize": {
+          "value": "$11.75B",
+          "market": "Inspection drones",
+          "year": 2025,
+          "context": "Global estimate covering drones, services and software. The market for mapping software alone is not established.",
+          "sourceUrls": [
+            "https://www.mordorintelligence.com/industry-reports/inspection-drones-market"
+          ]
+        },
+        "applications": [
+          "Mapping industrial sites and confined spaces",
+          "Repeat inspections of buildings and infrastructure",
+          "Preparing spatial models for maintenance teams"
+        ],
+        "targetCustomers": [
+          "Drone inspection providers",
+          "Utilities and infrastructure operators",
+          "Industrial asset owners"
+        ],
         "marketStatus": "researched",
         "marketEvidence": [
           {
@@ -2026,25 +3907,6 @@
         "nextQuestions": [
           "On the same industrial survey, does integrating PlanarMesh preserve inspection detail while reducing storage, processing and deliverable preparation time?",
           "Will an inspection operator pay for faster deliverables, and which defect details must survive compression?"
-        ],
-        "marketSize": {
-          "value": "$11.75B",
-          "market": "Inspection drones",
-          "year": 2025,
-          "context": "Global estimate covering drones, services and software. The market for mapping software alone is not established.",
-          "sourceUrls": [
-            "https://www.mordorintelligence.com/industry-reports/inspection-drones-market"
-          ]
-        },
-        "applications": [
-          "Mapping industrial sites and confined spaces",
-          "Repeat inspections of buildings and infrastructure",
-          "Preparing spatial models for maintenance teams"
-        ],
-        "targetCustomers": [
-          "Drone inspection providers",
-          "Utilities and infrastructure operators",
-          "Industrial asset owners"
         ]
       }
     },
@@ -2091,6 +3953,26 @@
         ],
         "marketOpportunity": "Hypothesis: sell independent acceptance tests and recurring checks as controllers change. ANYbotics already markets autonomous industrial inspections; whether operators will buy separate terrain assurance needs customer interviews.",
         "buyer": "Legged robot manufacturers and industrial operators evaluating inspection fleets.",
+        "marketSize": {
+          "value": "$2.5–5.6B",
+          "market": "Inspection robots",
+          "year": 2025,
+          "context": "Published estimates differ in coverage. Both cover the broader robot market; the opportunity for navigation software is unmeasured.",
+          "sourceUrls": [
+            "https://www.thebusinessresearchcompany.com/report/inspection-robots-global-market-report",
+            "https://www.fortunebusinessinsights.com/inspection-robots-market-105440"
+          ]
+        },
+        "applications": [
+          "Inspection routes over uneven or slippery ground",
+          "Testing recovery from failed steps",
+          "Evaluating robots before deployment at industrial sites"
+        ],
+        "targetCustomers": [
+          "Inspection robot manufacturers",
+          "Energy and utility operators",
+          "Industrial inspection contractors"
+        ],
         "marketStatus": "researched",
         "marketEvidence": [
           {
@@ -2119,26 +4001,6 @@
         "nextQuestions": [
           "On identical low-friction obstacles, which failures can fallback or hybrid control prevent, and which require avoiding the maneuver entirely?",
           "Which operator would pay for independent terrain tests, and which missed missions or recoveries would those tests prevent?"
-        ],
-        "marketSize": {
-          "value": "$2.5–5.6B",
-          "market": "Inspection robots",
-          "year": 2025,
-          "context": "Published estimates differ in coverage. Both cover the broader robot market; the opportunity for navigation software is unmeasured.",
-          "sourceUrls": [
-            "https://www.thebusinessresearchcompany.com/report/inspection-robots-global-market-report",
-            "https://www.fortunebusinessinsights.com/inspection-robots-market-105440"
-          ]
-        },
-        "applications": [
-          "Inspection routes over uneven or slippery ground",
-          "Testing recovery from failed steps",
-          "Evaluating robots before deployment at industrial sites"
-        ],
-        "targetCustomers": [
-          "Inspection robot manufacturers",
-          "Energy and utility operators",
-          "Industrial inspection contractors"
         ]
       }
     },
@@ -2182,6 +4044,25 @@
         ],
         "marketOpportunity": "Hypothesis: sell scenario libraries and test-authoring software for difficult cyclist encounters. Euro NCAP already evaluates vehicle responses to cyclists; these simulations would support engineering tests and cannot replace formal vehicle assessment.",
         "buyer": "Vehicle manufacturers, driver-assistance suppliers and autonomous-driving validation teams.",
+        "marketSize": {
+          "value": "$20.31B",
+          "market": "Automotive testing, inspection and certification",
+          "year": 2025,
+          "context": "Global estimate for the broader testing industry. Cyclist simulation is a smaller, unmeasured segment.",
+          "sourceUrls": [
+            "https://www.mordorintelligence.com/industry-reports/testing-inspection-and-certification-market-for-automotive-industry"
+          ]
+        },
+        "applications": [
+          "Testing emergency braking around cyclists",
+          "Replaying dangerous junction and turning scenarios",
+          "Checking perception systems before road testing"
+        ],
+        "targetCustomers": [
+          "Vehicle manufacturers",
+          "Driver-assistance system suppliers",
+          "Automotive test labs"
+        ],
         "marketStatus": "researched",
         "marketEvidence": [
           {
@@ -2204,25 +4085,6 @@
         "nextQuestions": [
           "Can engineers reproduce observed cyclist encounters through this connection faster than manual authoring, while preserving the interactions that trigger vehicle failures?",
           "Can the generated cyclist encounters reveal vehicle failures that current test libraries miss?"
-        ],
-        "marketSize": {
-          "value": "$20.31B",
-          "market": "Automotive testing, inspection and certification",
-          "year": 2025,
-          "context": "Global estimate for the broader testing industry. Cyclist simulation is a smaller, unmeasured segment.",
-          "sourceUrls": [
-            "https://www.mordorintelligence.com/industry-reports/testing-inspection-and-certification-market-for-automotive-industry"
-          ]
-        },
-        "applications": [
-          "Testing emergency braking around cyclists",
-          "Replaying dangerous junction and turning scenarios",
-          "Checking perception systems before road testing"
-        ],
-        "targetCustomers": [
-          "Vehicle manufacturers",
-          "Driver-assistance system suppliers",
-          "Automotive test labs"
         ]
       }
     }

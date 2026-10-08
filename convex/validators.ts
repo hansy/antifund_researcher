@@ -38,6 +38,23 @@ export const source = v.object({
   accessedAt: v.string(),
   excerpt: v.string(),
 });
+const person = v.object({
+  authorName: v.string(),
+  name: v.string(),
+  bio: v.optional(v.string()),
+  affiliation: v.optional(v.string()),
+  photoUrl: v.optional(v.string()),
+  links: v.optional(
+    v.object({
+      website: v.optional(v.string()),
+      x: v.optional(v.string()),
+      linkedin: v.optional(v.string()),
+    }),
+  ),
+  sources: v.array(
+    v.object({ url: v.string(), excerpt: v.string(), accessedAt: v.string() }),
+  ),
+});
 export const project = v.object({
   id: v.string(),
   schoolId: v.string(),
@@ -59,6 +76,7 @@ export const project = v.object({
     v.literal("Deployment"),
   ),
   authors: v.array(v.string()),
+  people: v.optional(v.array(person)),
   evidence: v.array(evidence),
 });
 export const insight = v.object({

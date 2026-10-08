@@ -8,20 +8,29 @@ import {
 import { flushSync } from "react-dom";
 import { useCorpus } from "../lib/client";
 import { getSignalBrief } from "../lib/signals";
+import { getTeamPeople } from "../lib/teams";
+import { Portrait, TeamView } from "./TeamView";
 import type { Corpus, Insight, Project, Source } from "../lib/contracts";
 
 type Selection = {
   signal: string | null;
   source: string | null;
   project: string | null;
+  team: string | null;
 };
-const emptySelection: Selection = { signal: null, source: null, project: null };
+const emptySelection: Selection = {
+  signal: null,
+  source: null,
+  project: null,
+  team: null,
+};
 function readSelection(): Selection {
   const params = new URLSearchParams(window.location.search);
   return {
     signal: params.get("signal"),
     source: params.get("source"),
     project: params.get("project"),
+    team: params.get("team"),
   };
 }
 function selectionUrl(selection: Selection) {
@@ -29,6 +38,7 @@ function selectionUrl(selection: Selection) {
   if (selection.signal) params.set("signal", selection.signal);
   if (selection.source) params.set("source", selection.source);
   if (selection.project) params.set("project", selection.project);
+  if (selection.team) params.set("team", selection.team);
   return params.size ? `/?${params}` : "/";
 }
 function Arrow({
@@ -232,23 +242,30 @@ export function Workspace() {
         item.evidence.some((evidence) => evidence.sourceId === source?.id),
     );
   const brief = insight ? getSignalBrief(insight) : null;
+  const relatedProjects =
+    corpus?.projects.filter((item) => insight?.projectIds.includes(item.id)) ??
+    [];
+  const team = relatedProjects.find((item) => item.id === selection.team);
   const signalSelection = {
     signal: insight?.id ?? null,
     source: null,
     project: null,
+    team: null,
   };
   const unknownSelection =
     ready &&
     corpus &&
     ((selection.signal && !insight) ||
       (selection.source && !source) ||
-      (selection.project && !project));
+      (selection.project && !project) ||
+      (selection.team && (!team || selection.source || selection.project)));
   const expanded = !!insight && !unknownSelection;
   function sourceLink(sourceId: string, projectId?: string) {
     return internalLink({
       signal: insight?.id ?? null,
       source: sourceId,
       project: projectId ?? null,
+      team: null,
     });
   }
   return (
@@ -289,6 +306,7 @@ export function Workspace() {
                   signal: item.id,
                   source: null,
                   project: null,
+                  team: null,
                 })}
                 className={`signal-card ${item.id === insight?.id ? "is-active" : ""}`}
                 aria-current={item.id === insight?.id ? "page" : undefined}
@@ -338,17 +356,29 @@ export function Workspace() {
             <nav className="mobile-navigation" aria-label="Breadcrumb">
               <a {...internalLink(emptySelection)}>Signals</a>
               <span aria-hidden="true">/</span>
-              {source ? (
+              {source || team ? (
                 <>
                   <a {...internalLink(signalSelection)}>{insight.title}</a>
                   <span aria-hidden="true">/</span>
-                  <span aria-current="page">Source</span>
+                  <span aria-current="page">{team ? "Team" : "Source"}</span>
                 </>
               ) : (
                 <span aria-current="page">{insight.title}</span>
               )}
             </nav>
-            {source ? (
+            {team ? (
+              <div className="report team-report" key={`team-${team.id}`}>
+                <a
+                  className="source-return"
+                  {...internalLink(signalSelection)}
+                  aria-label={`Return to ${insight.title}`}
+                >
+                  <Arrow back />
+                  <span>{insight.title}</span>
+                </a>
+                <TeamView project={team} headingRef={headingRef} />
+              </div>
+            ) : source ? (
               <div
                 className="report source-report"
                 key={`${insight.id}-${source.id}-${project?.id ?? ""}`}
@@ -452,84 +482,90 @@ export function Workspace() {
                   <BriefSection id="problem" title="The problem">
                     <p>{brief.problem}</p>
                   </BriefSection>
-                  <BriefSection id="breakthroughs" title="Research advances">
-                    <div className="breakthroughs">
-                      {brief.breakthroughs.map((item, index) => (
-                        <div className="breakthrough" key={index}>
-                          <p>{clean(item.text)}</p>
-                          <div className="inline-sources">
-                            {item.sourceIds.map((id) => {
-                              const evidenceSource = corpus.sources.find(
-                                (s) => s.id === id,
-                              );
-                              return evidenceSource ? (
-                                <a key={id} {...sourceLink(id)}>
-                                  {evidenceSource.title}
-                                  <Arrow />
-                                </a>
-                              ) : null;
-                            })}
-                          </div>
-                        </div>
-                      ))}
+                  <BriefSection id="related-research" title="Related research">
+                    <div className="research-list">
+                      {relatedProjects.map((item) => {
+                        const school = corpus.schools.find(
+                          (s) => s.id === item.schoolId,
+                        );
+                        return (
+                          <article className="research-card" key={item.id}>
+                            <p className="research-meta">
+                              {school?.shortName ?? school?.name} · {item.year}
+                            </p>
+                            <h3>{item.title}</h3>
+                            <p>{item.summary}</p>
+                            <div className="research-source-links">
+                              {item.evidence
+                                .filter(
+                                  (e, index, all) =>
+                                    all.findIndex(
+                                      (other) => other.sourceId === e.sourceId,
+                                    ) === index,
+                                )
+                                .map((evidence) => (
+                                  <a
+                                    key={evidence.sourceId}
+                                    {...sourceLink(evidence.sourceId, item.id)}
+                                  >
+                                    Read research
+                                    {evidence.page
+                                      ? ` · p. ${evidence.page}`
+                                      : ""}
+                                    <Arrow />
+                                  </a>
+                                ))}
+                            </div>
+                          </article>
+                        );
+                      })}
                     </div>
                   </BriefSection>
-                  <BriefSection id="evidence" title="Evidence">
-                    <div className="evidence-list">
-                      {corpus.projects
-                        .filter((item) => insight.projectIds.includes(item.id))
-                        .map((item) => {
-                          const school = corpus.schools.find(
-                            (s) => s.id === item.schoolId,
-                          );
-                          return (
-                            <div className="evidence-row" key={item.id}>
-                              <div className="evidence-meta">
-                                <span
-                                  className="school-symbol"
-                                  aria-hidden="true"
-                                >
-                                  {(
-                                    school?.shortName ??
-                                    school?.name ??
-                                    "U"
-                                  ).slice(0, 1)}
+                  <BriefSection id="teams" title="Teams">
+                    <div className="team-list">
+                      {relatedProjects.map((item) => {
+                        const people = getTeamPeople(item);
+                        return (
+                          <a
+                            key={item.id}
+                            className="team-card"
+                            {...internalLink({
+                              signal: insight.id,
+                              source: null,
+                              project: null,
+                              team: item.id,
+                            })}
+                          >
+                            <div className="team-preview" aria-hidden="true">
+                              {people.slice(0, 4).map((person) => (
+                                <Portrait
+                                  key={person.authorName}
+                                  person={person}
+                                />
+                              ))}
+                              {people.length > 4 && (
+                                <span className="team-remainder">
+                                  +{people.length - 4}
                                 </span>
-                                <span>
-                                  {school?.shortName ?? school?.name} ·{" "}
-                                  {item.year}
-                                </span>
-                              </div>
-                              <h3>{item.title}</h3>
-                              <p>{item.summary}</p>
-                              <div className="evidence-source-links">
-                                {item.evidence
-                                  .filter(
-                                    (evidence, index, all) =>
-                                      all.findIndex(
-                                        (other) =>
-                                          other.sourceId === evidence.sourceId,
-                                      ) === index,
-                                  )
-                                  .map((evidence) => (
-                                    <a
-                                      key={evidence.sourceId}
-                                      {...sourceLink(
-                                        evidence.sourceId,
-                                        item.id,
-                                      )}
-                                    >
-                                      Read source
-                                      {evidence.page
-                                        ? ` · p. ${evidence.page}`
-                                        : ""}
-                                      <Arrow />
-                                    </a>
-                                  ))}
-                              </div>
+                              )}
                             </div>
-                          );
-                        })}
+                            <h3>{item.title.split(":")[0]}</h3>
+                            <p>
+                              {people
+                                .slice(0, 2)
+                                .map((person) => person.name)
+                                .join(", ")}
+                              {people.length > 2
+                                ? ` +${people.length - 2}`
+                                : ""}
+                            </p>
+                            <span className="team-open">
+                              <span>View team</span>
+                              <Arrow />
+                            </span>
+                          </a>
+                        );
+                      })}
                     </div>
                   </BriefSection>
                   {brief.marketEvidence.length > 0 && (

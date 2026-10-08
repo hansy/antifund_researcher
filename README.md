@@ -2,13 +2,13 @@
 
 Market ideas from university projects, with evidence behind each one.
 
-[Live app](https://antifund-researcher.service-fff.workers.dev) · [Signal model](docs/SIGNALS.md) · [Intake pipeline](docs/INTAKE.md)
+[Live app](https://antifund-researcher.service-fff.workers.dev) · [Signal model](docs/SIGNALS.md) · [Intake pipeline](docs/INTAKE.md) · [Teams](docs/TEAMS.md)
 
-The app opens with five signal cards. Selecting one moves them into a fixed desktop rail and opens its report: a concise description, sourced market context, potential customers and applications, followed by the problem and research evidence. Sources open in the report space; market excerpts and unanswered questions unfold on demand. Mobile uses compact breadcrumbs.
+The app opens with five signal cards. Selecting one moves them into a fixed desktop rail and opens its report: a concise description, sourced market context, potential customers and applications, followed by related research and teams. Research opens the original evidence; teams open the people behind each project, with verified portraits, bios and profile links. Sources and unanswered questions unfold on demand. Mobile uses compact breadcrumbs.
 
 The checked-in starting corpus is **26 projects from ten schools, dated 2021–2026**. Five briefs interpret that research. A separate **2025–2026 intake** discovers hackathon, capstone and research archives across the full 50-school registry and all disciplines. The registry is planned coverage; neither a completed search nor a successful download establishes exhaustive collection.
 
-![Signals](docs/preview.jpg)
+![Team view](docs/team-preview.jpg)
 
 ## Stack
 
@@ -53,6 +53,15 @@ Repeat bounded collection and classification commands to resume. Add `--retry` t
 Classification comes before grouping or commercial selection. Unknown dates, ambiguous projects, failed parsers and isolated graph nodes remain in the archive. Publishing requires exact source evidence and verified 2025–2026 dates. Market research uses independent primary sources and verifies short excerpts against downloaded pages. It establishes context, not demand or willingness to pay.
 
 JavaScript-only galleries, scanned PDFs, unavailable pages and incomplete search remain collection gaps. [Operational details and limits](docs/INTAKE.md).
+
+## People
+
+```sh
+bun run research:people             # enrich the starting corpus from verified profiles
+bun run research:people --publish   # enrich live Convex records; preserve later collection
+```
+
+Profiles match exact credited authors within verified projects. Missing portraits or social links remain absent; every credited contributor still appears. [Profile provenance and publication](docs/TEAMS.md).
 
 ## Deploy and verify
 

@@ -181,3 +181,43 @@ test("ingestion is idempotent and completion rejects invented quotations", async
   });
   expect((await t.query(api.questions.get, { id }))?.status).toBe("complete");
 });
+
+test("classification updates retain profiles for credited authors and archive changed rosters", async () => {
+  const t = convexTest(schema, modules);
+  const enriched = structuredClone(corpus);
+  const project = enriched.projects.find((item) => item.people?.length)!;
+  const people = project.people!;
+  await t.mutation(api.research.ingest, { secret, corpus: enriched });
+  const classified = structuredClone(enriched);
+  const updated = classified.projects.find((item) => item.id === project.id)!;
+  delete updated.people;
+  updated.summary += " Updated classification.";
+  await t.mutation(api.research.ingest, { secret, corpus: classified });
+  expect(
+    (await t.query(api.corpus.get, {})).projects.find(
+      (item) => item.id === project.id,
+    )?.people,
+  ).toEqual(people);
+  updated.authors = updated.authors.filter(
+    (name) => name !== people[0]!.authorName,
+  );
+  await t.mutation(api.research.ingest, { secret, corpus: classified });
+  expect(
+    (await t.query(api.corpus.get, {})).projects.find(
+      (item) => item.id === project.id,
+    )?.people,
+  ).not.toContainEqual(people[0]);
+  const revisions = await t.run((ctx) =>
+    ctx.db.query("researchRevisions").collect(),
+  );
+  expect(
+    revisions.some(
+      (revision) =>
+        revision.recordId === project.id &&
+        JSON.parse(revision.payload).people?.some(
+          (person: { authorName: string }) =>
+            person.authorName === people[0]!.authorName,
+        ),
+    ),
+  ).toBe(true);
+});
