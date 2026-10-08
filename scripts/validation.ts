@@ -67,6 +67,15 @@ export function validateCorpus(input: unknown): Corpus {
     if (insight.brief) {
       const allowed = new Set(insight.sourceIds);
       if (
+        insight.brief.marketSize?.sourceUrls.some(
+          (url) =>
+            !insight.brief!.marketEvidence.some(
+              (evidence) => evidence.url === url,
+            ),
+        )
+      )
+        throw new Error(`Market size requires linked evidence: ${insight.id}`);
+      if (
         insight.brief.breakthroughs.some((claim) =>
           claim.sourceIds.some((id) => !allowed.has(id)),
         )

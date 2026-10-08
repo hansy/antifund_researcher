@@ -92,6 +92,17 @@ export const insight = v.object({
       ),
       marketOpportunity: v.string(),
       buyer: v.string(),
+      marketSize: v.optional(
+        v.object({
+          value: v.string(),
+          market: v.string(),
+          year: v.number(),
+          context: v.string(),
+          sourceUrls: v.array(v.string()),
+        }),
+      ),
+      applications: v.optional(v.array(v.string())),
+      targetCustomers: v.optional(v.array(v.string())),
       marketStatus: v.union(v.literal("hypothesis"), v.literal("researched")),
       marketEvidence: v.array(
         v.object({

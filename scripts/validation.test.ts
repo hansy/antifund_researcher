@@ -67,6 +67,20 @@ const corpus: Corpus = {
   },
 };
 describe("corpus integrity", () => {
+  test("market estimates retain their linked publisher evidence", async () => {
+    const published = validateCorpus(await Bun.file("data/corpus.json").json());
+    const signal = published.insights.find((item) => item.brief?.marketSize);
+    expect(signal?.brief?.marketSize?.sourceUrls.length).toBeGreaterThan(0);
+    const invalid = structuredClone(published);
+    invalid.insights.find(
+      (item) => item.id === signal!.id,
+    )!.brief!.marketSize!.sourceUrls = [
+      "https://example.com/unsupported-estimate",
+    ];
+    expect(() => validateCorpus(invalid)).toThrow(
+      "Market size requires linked evidence",
+    );
+  });
   test("accepts linked corpus; rejects dangling cross-school refs", () => {
     expect(validateCorpus(corpus).projects).toHaveLength(1);
     const invalid = structuredClone(corpus);

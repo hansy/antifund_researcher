@@ -1840,6 +1840,12 @@
             "url": "https://www.nvidia.com/en-us/industries/robotics/",
             "excerpt": "Synthetic data supplements real-world data, helping address data scarcity and expand the range of environments and scenarios used for training.",
             "accessedAt": "2026-10-08"
+          },
+          {
+            "title": "IFR · global robotics trends, January 2025",
+            "url": "https://ifr.org/ifr-press-releases/news/top-5-global-robotics-trends-2025",
+            "excerpt": "The global market value of industrial robot installations has reached an all-time high of US$ 16.5 billion.",
+            "accessedAt": "2026-10-08T18:09:38.335397Z"
           }
         ],
         "risks": [
@@ -1849,6 +1855,25 @@
         "nextQuestions": [
           "For one paid customer task, can this reduce collection and training cost while matching hardware success on unseen objects?",
           "Does the buyer want data, an improved policy, or a complete automation system?"
+        ],
+        "marketSize": {
+          "value": "$16.5B",
+          "market": "Industrial robot installations",
+          "year": 2025,
+          "context": "Industry value reported by IFR in January 2025. This is a hardware-market proxy; spending on robot training data is unmeasured.",
+          "sourceUrls": [
+            "https://ifr.org/ifr-press-releases/news/top-5-global-robotics-trends-2025"
+          ]
+        },
+        "applications": [
+          "Generating variations of robot training scenes",
+          "Testing policies against unfamiliar objects",
+          "Reducing repetitive collection of demonstrations"
+        ],
+        "targetCustomers": [
+          "Robot learning teams",
+          "Robot manufacturers",
+          "Warehouse automation developers"
         ]
       }
     },
@@ -1902,6 +1927,12 @@
             "url": "https://www.aboutamazon.com/news/operations/amazon-vulcan-robot-pick-stow-touch",
             "excerpt": "Vulcan is Amazon's first robot with a sense of touch, using sensors to pick and stow items at fulfillment centers.",
             "accessedAt": "2026-10-08"
+          },
+          {
+            "title": "IFR · global robotics trends, January 2025",
+            "url": "https://ifr.org/ifr-press-releases/news/top-5-global-robotics-trends-2025",
+            "excerpt": "The global market value of industrial robot installations has reached an all-time high of US$ 16.5 billion.",
+            "accessedAt": "2026-10-08T18:09:38.335649Z"
           }
         ],
         "risks": [
@@ -1911,6 +1942,25 @@
         "nextQuestions": [
           "Can one production line meet its cycle-time and defect limits after a part change with less technician time?",
           "Who pays for setup, recovery and ongoing support: the factory or its integrator?"
+        ],
+        "marketSize": {
+          "value": "$16.5B",
+          "market": "Industrial robot installations",
+          "year": 2025,
+          "context": "Industry value reported by IFR in January 2025. Installation and setup software is a subset whose size is not established.",
+          "sourceUrls": [
+            "https://ifr.org/ifr-press-releases/news/top-5-global-robotics-trends-2025"
+          ]
+        },
+        "applications": [
+          "Teaching robots new picking and handling tasks",
+          "Adapting production lines to changing parts",
+          "Reducing manual work during robot commissioning"
+        ],
+        "targetCustomers": [
+          "Manufacturers with changing product lines",
+          "Robot systems integrators",
+          "Industrial robot suppliers"
         ]
       }
     },
@@ -1961,6 +2011,12 @@
             "url": "https://www.flyability.com/elios-3",
             "excerpt": "All data and points of interest captured during flight are automatically mapped onto a 3D model of your asset",
             "accessedAt": "2026-10-08"
+          },
+          {
+            "title": "Mordor Intelligence · inspection drones",
+            "url": "https://www.mordorintelligence.com/industry-reports/inspection-drones-market",
+            "excerpt": "The inspection drones market size was valued at USD 11.75 billion in 2025",
+            "accessedAt": "2026-10-08T18:09:38.335652Z"
           }
         ],
         "risks": [
@@ -1970,6 +2026,25 @@
         "nextQuestions": [
           "On the same industrial survey, does integrating PlanarMesh preserve inspection detail while reducing storage, processing and deliverable preparation time?",
           "Will an inspection operator pay for faster deliverables, and which defect details must survive compression?"
+        ],
+        "marketSize": {
+          "value": "$11.75B",
+          "market": "Inspection drones",
+          "year": 2025,
+          "context": "Global estimate covering drones, services and software. The market for mapping software alone is not established.",
+          "sourceUrls": [
+            "https://www.mordorintelligence.com/industry-reports/inspection-drones-market"
+          ]
+        },
+        "applications": [
+          "Mapping industrial sites and confined spaces",
+          "Repeat inspections of buildings and infrastructure",
+          "Preparing spatial models for maintenance teams"
+        ],
+        "targetCustomers": [
+          "Drone inspection providers",
+          "Utilities and infrastructure operators",
+          "Industrial asset owners"
         ]
       }
     },
@@ -2023,6 +2098,18 @@
             "url": "https://www.anybotics.com/",
             "excerpt": "Our ANYmal robotic solutions automate industrial inspections.",
             "accessedAt": "2026-10-08"
+          },
+          {
+            "title": "The Business Research Company · inspection robots",
+            "url": "https://www.thebusinessresearchcompany.com/report/inspection-robots-global-market-report",
+            "excerpt": "Inspection Robots market size has reached to $2.47 billion in 2025",
+            "accessedAt": "2026-10-08T18:09:38.335654Z"
+          },
+          {
+            "title": "Fortune Business Insights · inspection robots",
+            "url": "https://www.fortunebusinessinsights.com/inspection-robots-market-105440",
+            "excerpt": "The global inspection robots market size was valued at USD 5.62 billion in 2025.",
+            "accessedAt": "2026-10-08T18:09:38.335655Z"
           }
         ],
         "risks": [
@@ -2032,6 +2119,26 @@
         "nextQuestions": [
           "On identical low-friction obstacles, which failures can fallback or hybrid control prevent, and which require avoiding the maneuver entirely?",
           "Which operator would pay for independent terrain tests, and which missed missions or recoveries would those tests prevent?"
+        ],
+        "marketSize": {
+          "value": "$2.5–5.6B",
+          "market": "Inspection robots",
+          "year": 2025,
+          "context": "Published estimates differ in coverage. Both cover the broader robot market; the opportunity for navigation software is unmeasured.",
+          "sourceUrls": [
+            "https://www.thebusinessresearchcompany.com/report/inspection-robots-global-market-report",
+            "https://www.fortunebusinessinsights.com/inspection-robots-market-105440"
+          ]
+        },
+        "applications": [
+          "Inspection routes over uneven or slippery ground",
+          "Testing recovery from failed steps",
+          "Evaluating robots before deployment at industrial sites"
+        ],
+        "targetCustomers": [
+          "Inspection robot manufacturers",
+          "Energy and utility operators",
+          "Industrial inspection contractors"
         ]
       }
     },
@@ -2082,6 +2189,12 @@
             "url": "https://www.euroncap.com/assessments/cupra/leon/1122/",
             "excerpt": "The system performed well in tests of its reaction to cyclists.",
             "accessedAt": "2026-10-08"
+          },
+          {
+            "title": "Mordor Intelligence · automotive testing",
+            "url": "https://www.mordorintelligence.com/industry-reports/testing-inspection-and-certification-market-for-automotive-industry",
+            "excerpt": "The automotive testing, inspection, and certification market size was valued at USD 20.31 billion in 2025",
+            "accessedAt": "2026-10-08T18:09:38.335657Z"
           }
         ],
         "risks": [
@@ -2091,6 +2204,25 @@
         "nextQuestions": [
           "Can engineers reproduce observed cyclist encounters through this connection faster than manual authoring, while preserving the interactions that trigger vehicle failures?",
           "Can the generated cyclist encounters reveal vehicle failures that current test libraries miss?"
+        ],
+        "marketSize": {
+          "value": "$20.31B",
+          "market": "Automotive testing, inspection and certification",
+          "year": 2025,
+          "context": "Global estimate for the broader testing industry. Cyclist simulation is a smaller, unmeasured segment.",
+          "sourceUrls": [
+            "https://www.mordorintelligence.com/industry-reports/testing-inspection-and-certification-market-for-automotive-industry"
+          ]
+        },
+        "applications": [
+          "Testing emergency braking around cyclists",
+          "Replaying dangerous junction and turning scenarios",
+          "Checking perception systems before road testing"
+        ],
+        "targetCustomers": [
+          "Vehicle manufacturers",
+          "Driver-assistance system suppliers",
+          "Automotive test labs"
         ]
       }
     }

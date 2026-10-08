@@ -5,6 +5,7 @@ import {
   type MouseEvent,
   type ReactNode,
 } from "react";
+import { flushSync } from "react-dom";
 import { useCorpus } from "../lib/client";
 import { getSignalBrief } from "../lib/signals";
 import type { Corpus, Insight, Project, Source } from "../lib/contracts";
@@ -61,6 +62,24 @@ function Arrow({
     </svg>
   );
 }
+function GridIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M4 4h6v6H4Zm10 0h6v6h-6ZM4 14h6v6H4Zm10 0h6v6h-6Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 function clean(value: string) {
   return value.replace(/^(?:Reported|Our interpretation):\s*/, "");
 }
@@ -79,44 +98,103 @@ function BriefSection({
   id,
   title,
   children,
-  label,
 }: {
   id: string;
   title: string;
   children: ReactNode;
-  label?: string;
 }) {
   return (
     <section className="brief-section" id={id}>
-      <div className="section-heading">
-        <h2>{title}</h2>
-        {label && <span className="small-label">{label}</span>}
-      </div>
+      <h2>{title}</h2>
       {children}
     </section>
+  );
+}
+function CollectionInfo({ corpus }: { corpus: Corpus }) {
+  return (
+    <details className="collection-info">
+      <summary aria-label="About this collection">
+        <span aria-hidden="true">i</span>
+      </summary>
+      <div className="info-popover">
+        <p>{corpus.meta.coverageNote}</p>
+        <p>Updated {formatDate(corpus.meta.collectedAt)}.</p>
+      </div>
+    </details>
   );
 }
 export function Workspace() {
   const { data: corpus, isLoading, error } = useCorpus();
   const [selection, setSelection] = useState<Selection>(emptySelection);
   const [ready, setReady] = useState(false);
+  const appRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const hasNavigated = useRef(false);
+  const animationsRef = useRef<Animation[]>([]);
+  function select(next: Selection) {
+    hasNavigated.current = true;
+    const app = appRef.current;
+    const animate = window.matchMedia(
+      "(min-width: 960px) and (prefers-reduced-motion: no-preference)",
+    ).matches;
+    const wasExpanded = app?.classList.contains("is-expanded");
+    const cards = animate
+      ? Array.from(app?.querySelectorAll<HTMLElement>(".signal-card") ?? [])
+      : [];
+    const before = cards.map((card) => card.getBoundingClientRect());
+    animationsRef.current.forEach((animation) => animation.cancel());
+    app?.classList.remove("is-morphing");
+    flushSync(() => {
+      setSelection(next);
+      window.scrollTo({ top: 0, behavior: "instant" });
+    });
+    if (
+      !app ||
+      !animate ||
+      wasExpanded === app.classList.contains("is-expanded")
+    )
+      return;
+    // Keep the same links mounted while their gallery positions become rail positions.
+    app.classList.add("is-morphing");
+    const animations = cards.flatMap((card, index) => {
+      const from = before[index];
+      const to = card.getBoundingClientRect();
+      if (!from || !to.width || !to.height) return [];
+      return [
+        card.animate(
+          [
+            {
+              transform: `translate(${from.left - to.left}px, ${from.top - to.top}px) scale(${from.width / to.width}, ${from.height / to.height})`,
+              transformOrigin: "top left",
+            },
+            { transform: "none", transformOrigin: "top left" },
+          ],
+          { duration: 550, easing: "cubic-bezier(.2,.8,.2,1)" },
+        ),
+      ];
+    });
+    animationsRef.current = animations;
+    void Promise.allSettled(
+      animations.map((animation) => animation.finished),
+    ).then(() => {
+      if (animationsRef.current !== animations) return;
+      animationsRef.current = [];
+      app.classList.remove("is-morphing");
+    });
+  }
   useEffect(() => {
     setSelection(readSelection());
     setReady(true);
-    const update = () => {
-      hasNavigated.current = true;
-      setSelection(readSelection());
-    };
+    const update = () => select(readSelection());
     window.addEventListener("popstate", update);
-    return () => window.removeEventListener("popstate", update);
+    return () => {
+      window.removeEventListener("popstate", update);
+      animationsRef.current.forEach((animation) => animation.cancel());
+    };
   }, []);
   useEffect(() => {
-    if (hasNavigated.current) {
+    if (hasNavigated.current)
       headingRef.current?.focus({ preventScroll: true });
-      window.scrollTo({ top: 0 });
-    }
   }, [selection]);
   function navigate(event: MouseEvent<HTMLAnchorElement>, next: Selection) {
     if (
@@ -128,9 +206,9 @@ export function Workspace() {
     )
       return;
     event.preventDefault();
-    hasNavigated.current = true;
+    if (selectionUrl(next) === selectionUrl(selection)) return;
     window.history.pushState(null, "", selectionUrl(next));
-    setSelection(next);
+    select(next);
   }
   function internalLink(next: Selection) {
     return {
@@ -162,7 +240,10 @@ export function Workspace() {
   const unknownSelection =
     ready &&
     corpus &&
-    ((selection.signal && !insight) || (selection.source && !source));
+    ((selection.signal && !insight) ||
+      (selection.source && !source) ||
+      (selection.project && !project));
+  const expanded = !!insight && !unknownSelection;
   function sourceLink(sourceId: string, projectId?: string) {
     return internalLink({
       signal: insight?.id ?? null,
@@ -171,42 +252,64 @@ export function Workspace() {
     });
   }
   return (
-    <div className="app">
-      <a className="skip-link" href="#content">
+    <div
+      ref={appRef}
+      className={`app ${expanded ? "is-expanded" : "is-gallery"}`}
+    >
+      <a className="skip-link" href={expanded ? "#content" : "#signals"}>
         Skip to content
       </a>
-      <header className="site-header">
-        <a
-          {...internalLink(emptySelection)}
-          className="wordmark"
-          aria-label="Fieldwork home"
+      {corpus && ready && !error && (
+        <nav
+          id="signals"
+          tabIndex={-1}
+          className="signals"
+          aria-label="Signals"
         >
-          <span className="brand-mark" aria-hidden="true">
-            f
-          </span>
-          <span>Fieldwork</span>
-        </a>
-        <details className="collection-info">
-          <summary aria-label="About this collection">
-            <span aria-hidden="true">i</span>
-          </summary>
-          <div className="info-popover">
-            <strong>About this collection</strong>
-            <p>
-              {corpus?.meta.coverageNote ??
-                "Signals are drawn from collected university research sources."}
-            </p>
-            {corpus && (
-              <p>
-                Updated {formatDate(corpus.meta.collectedAt)}. Market
-                opportunities are our interpretation unless supported by market
-                evidence.
-              </p>
-            )}
+          <div className="rail-tools">
+            <a
+              {...internalLink(emptySelection)}
+              className="icon-button"
+              aria-label="All signals"
+              title="All signals"
+            >
+              <GridIcon />
+            </a>
           </div>
-        </details>
-      </header>
-      <main id="content">
+          {!expanded && (
+            <h1 className="sr-only" ref={headingRef} tabIndex={-1}>
+              Signals
+            </h1>
+          )}
+          <div className="signal-list">
+            {corpus.insights.map((item) => (
+              <a
+                key={item.id}
+                {...internalLink({
+                  signal: item.id,
+                  source: null,
+                  project: null,
+                })}
+                className={`signal-card ${item.id === insight?.id ? "is-active" : ""}`}
+                aria-current={item.id === insight?.id ? "page" : undefined}
+              >
+                <div className="signal-copy">
+                  <h2>{item.title}</h2>
+                  <p>{item.summary}</p>
+                </div>
+                <span className="signal-arrow">
+                  <Arrow />
+                </span>
+              </a>
+            ))}
+          </div>
+          {corpus.insights.length === 0 && (
+            <p className="state-message">No signals collected yet.</p>
+          )}
+          <CollectionInfo corpus={corpus} />
+        </nav>
+      )}
+      <main id="content" className="content-space">
         {isLoading || !ready ? (
           <div className="state-message" role="status">
             Loading signals…
@@ -227,12 +330,12 @@ export function Workspace() {
               This research is unavailable
             </h1>
             <a {...internalLink(emptySelection)}>
-              Back to signals <Arrow />
+              Signals <Arrow />
             </a>
           </div>
         ) : corpus && insight && brief ? (
           <>
-            <nav className="breadcrumbs" aria-label="Breadcrumb">
+            <nav className="mobile-navigation" aria-label="Breadcrumb">
               <a {...internalLink(emptySelection)}>Signals</a>
               <span aria-hidden="true">/</span>
               {source ? (
@@ -245,245 +348,249 @@ export function Workspace() {
                 <span aria-current="page">{insight.title}</span>
               )}
             </nav>
-            <a
-              className="back-link"
-              {...internalLink(source ? signalSelection : emptySelection)}
-            >
-              <Arrow back />
-              {source ? "Back to signal" : "All signals"}
-            </a>
             {source ? (
-              <SourceView
-                source={source}
-                project={project}
-                corpus={corpus}
-                insight={insight}
-                headingRef={headingRef}
-              />
+              <div
+                className="report source-report"
+                key={`${insight.id}-${source.id}-${project?.id ?? ""}`}
+              >
+                <a
+                  className="source-return"
+                  {...internalLink(signalSelection)}
+                  aria-label={`Return to ${insight.title}`}
+                >
+                  <Arrow back />
+                  <span>{insight.title}</span>
+                </a>
+                <SourceView
+                  source={source}
+                  project={project}
+                  corpus={corpus}
+                  insight={insight}
+                  headingRef={headingRef}
+                />
+              </div>
             ) : (
-              <>
+              <article className="report" key={insight.id}>
                 <div className="brief-header">
-                  <p className="eyebrow">{insight.confidence}</p>
                   <h1 ref={headingRef} tabIndex={-1}>
                     {insight.title}
                   </h1>
-                  <p className="brief-summary">{insight.summary}</p>
+                  <p className="brief-summary">{brief.whatItIs}</p>
                 </div>
-                <div className="brief-layout">
-                  <nav className="section-nav" aria-label="In this brief">
-                    {[
-                      ["what", "What it is"],
-                      ["problem", "Problem"],
-                      ["breakthroughs", "Breakthroughs"],
-                      ["market", "Market opportunity"],
-                      ["evidence", "Evidence"],
-                    ].map(([id, title]) => (
-                      <a key={id} href={`#${id}`}>
-                        {title}
-                      </a>
-                    ))}
-                  </nav>
-                  <div className="brief-body">
-                    <BriefSection id="what" title="What it is">
-                      <p>{brief.whatItIs}</p>
-                    </BriefSection>
-                    <BriefSection id="problem" title="Problem">
-                      <p>{brief.problem}</p>
-                    </BriefSection>
-                    <BriefSection
-                      id="breakthroughs"
-                      title="Breakthroughs"
-                      label="Reported research"
-                    >
-                      <div className="breakthroughs">
-                        {brief.breakthroughs.map((item, index) => (
-                          <div className="breakthrough" key={index}>
-                            <span className="item-number">
-                              {String(index + 1).padStart(2, "0")}
-                            </span>
-                            <div>
-                              <p>{clean(item.text)}</p>
-                              <div className="inline-sources">
-                                {item.sourceIds.map((id) => {
-                                  const evidenceSource = corpus.sources.find(
-                                    (item) => item.id === id,
-                                  );
-                                  return evidenceSource ? (
-                                    <a key={id} {...sourceLink(id)}>
-                                      {evidenceSource.title} <Arrow external />
-                                    </a>
-                                  ) : null;
-                                })}
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </BriefSection>
-                    <BriefSection
-                      id="market"
-                      title="Market opportunity"
-                      label={
-                        brief.marketStatus === "researched"
-                          ? "Market research"
-                          : "Our hypothesis"
-                      }
-                    >
-                      <p>{brief.marketOpportunity}</p>
-                      <div className="buyer">
-                        <span className="small-label">Potential buyer</span>
-                        <p>{brief.buyer}</p>
-                      </div>
-                      {brief.marketEvidence.length > 0 && (
-                        <details className="deeper-detail">
-                          <summary>Market context</summary>
-                          <div className="market-sources">
-                            {brief.marketEvidence.map((item) => (
-                              <div key={item.url}>
+                <div className="brief-body">
+                  <div className="commercial-overview">
+                    <section className="market-size">
+                      <h2>Market size</h2>
+                      {brief.marketSize ? (
+                        <>
+                          <p className="market-value">
+                            {brief.marketSize.value}
+                          </p>
+                          <p className="market-category">
+                            {brief.marketSize.market} · {brief.marketSize.year}
+                          </p>
+                          <p className="market-scope">
+                            {brief.marketSize.context}
+                          </p>
+                          <div className="market-references">
+                            {brief.marketSize.sourceUrls.map((url) => {
+                              const evidence = brief.marketEvidence.find(
+                                (e) => e.url === url,
+                              );
+                              return (
                                 <a
-                                  href={item.url}
+                                  key={url}
+                                  href={url}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                 >
-                                  {item.title} <Arrow external />
+                                  {evidence?.title.split(" · ")[0] ?? "Source"}
+                                  <Arrow external />
                                 </a>
-                                <blockquote>{item.excerpt}</blockquote>
-                                <small>
-                                  Accessed {formatDate(item.accessedAt)}
-                                </small>
-                              </div>
-                            ))}
+                              );
+                            })}
                           </div>
-                        </details>
+                        </>
+                      ) : (
+                        <>
+                          <p className="market-unavailable">Not established</p>
+                          <p className="market-scope">
+                            No sourced estimate for this opportunity yet.
+                          </p>
+                        </>
                       )}
-                      {(brief.risks.length > 0 ||
-                        brief.nextQuestions.length > 0) && (
-                        <details className="deeper-detail">
-                          <summary>Risks & questions</summary>
-                          {brief.risks.length > 0 && (
-                            <div className="open-questions">
-                              <h3>Risks</h3>
-                              <ul>
-                                {brief.risks.map((item) => (
-                                  <li key={item}>{item}</li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
-                          {brief.nextQuestions.length > 0 && (
-                            <div className="open-questions">
-                              <h3>Questions to resolve</h3>
-                              <ul>
-                                {brief.nextQuestions.map((item) => (
-                                  <li key={item}>{item}</li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
-                        </details>
-                      )}
-                    </BriefSection>
-                    <BriefSection id="evidence" title="Evidence">
-                      <div className="evidence-list">
-                        {corpus.projects
-                          .filter((item) =>
-                            insight.projectIds.includes(item.id),
-                          )
-                          .map((item) => {
-                            const school = corpus.schools.find(
-                              (school) => school.id === item.schoolId,
-                            );
-                            return (
-                              <div className="evidence-row" key={item.id}>
-                                <p className="evidence-meta">
-                                  {school?.shortName ?? school?.name}{" "}
-                                  <span>·</span> {item.year}
-                                </p>
-                                <h3>{item.title}</h3>
-                                <p>{item.summary}</p>
-                                <div className="evidence-source-links">
-                                  {item.evidence
-                                    .filter(
-                                      (evidence, index, all) =>
-                                        all.findIndex(
-                                          (other) =>
-                                            other.sourceId ===
-                                            evidence.sourceId,
-                                        ) === index,
-                                    )
-                                    .map((evidence, index) => {
-                                      const evidenceSource =
-                                        corpus.sources.find(
-                                          (source) =>
-                                            source.id === evidence.sourceId,
-                                        );
-                                      return evidenceSource ? (
-                                        <a
-                                          key={`${evidence.sourceId}-${index}`}
-                                          {...sourceLink(
-                                            evidence.sourceId,
-                                            item.id,
-                                          )}
-                                        >
-                                          Read source
-                                          {evidence.page
-                                            ? ` · p. ${evidence.page}`
-                                            : ""}
-                                          <Arrow />
-                                        </a>
-                                      ) : null;
-                                    })}
-                                </div>
-                              </div>
-                            );
-                          })}
-                      </div>
-                    </BriefSection>
+                    </section>
+                    <div className="market-fit">
+                      <section>
+                        <h2>Potential customers</h2>
+                        <ul className="customer-list">
+                          {(brief.targetCustomers?.length
+                            ? brief.targetCustomers
+                            : [brief.buyer]
+                          ).map((item) => (
+                            <li key={item}>{item}</li>
+                          ))}
+                        </ul>
+                      </section>
+                      <section>
+                        <h2>Potential applications</h2>
+                        {brief.applications?.length ? (
+                          <ul className="application-list">
+                            {brief.applications.map((item) => (
+                              <li key={item}>{item}</li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p>Applications need validation with customers.</p>
+                        )}
+                      </section>
+                    </div>
                   </div>
+                  <BriefSection id="opportunity" title="The opportunity">
+                    <p>{brief.marketOpportunity}</p>
+                  </BriefSection>
+                  <BriefSection id="problem" title="The problem">
+                    <p>{brief.problem}</p>
+                  </BriefSection>
+                  <BriefSection id="breakthroughs" title="Research advances">
+                    <div className="breakthroughs">
+                      {brief.breakthroughs.map((item, index) => (
+                        <div className="breakthrough" key={index}>
+                          <p>{clean(item.text)}</p>
+                          <div className="inline-sources">
+                            {item.sourceIds.map((id) => {
+                              const evidenceSource = corpus.sources.find(
+                                (s) => s.id === id,
+                              );
+                              return evidenceSource ? (
+                                <a key={id} {...sourceLink(id)}>
+                                  {evidenceSource.title}
+                                  <Arrow />
+                                </a>
+                              ) : null;
+                            })}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </BriefSection>
+                  <BriefSection id="evidence" title="Evidence">
+                    <div className="evidence-list">
+                      {corpus.projects
+                        .filter((item) => insight.projectIds.includes(item.id))
+                        .map((item) => {
+                          const school = corpus.schools.find(
+                            (s) => s.id === item.schoolId,
+                          );
+                          return (
+                            <div className="evidence-row" key={item.id}>
+                              <div className="evidence-meta">
+                                <span
+                                  className="school-symbol"
+                                  aria-hidden="true"
+                                >
+                                  {(
+                                    school?.shortName ??
+                                    school?.name ??
+                                    "U"
+                                  ).slice(0, 1)}
+                                </span>
+                                <span>
+                                  {school?.shortName ?? school?.name} ·{" "}
+                                  {item.year}
+                                </span>
+                              </div>
+                              <h3>{item.title}</h3>
+                              <p>{item.summary}</p>
+                              <div className="evidence-source-links">
+                                {item.evidence
+                                  .filter(
+                                    (evidence, index, all) =>
+                                      all.findIndex(
+                                        (other) =>
+                                          other.sourceId === evidence.sourceId,
+                                      ) === index,
+                                  )
+                                  .map((evidence) => (
+                                    <a
+                                      key={evidence.sourceId}
+                                      {...sourceLink(
+                                        evidence.sourceId,
+                                        item.id,
+                                      )}
+                                    >
+                                      Read source
+                                      {evidence.page
+                                        ? ` · p. ${evidence.page}`
+                                        : ""}
+                                      <Arrow />
+                                    </a>
+                                  ))}
+                              </div>
+                            </div>
+                          );
+                        })}
+                    </div>
+                  </BriefSection>
+                  {brief.marketEvidence.length > 0 && (
+                    <details className="deeper-detail">
+                      <summary>Market sources</summary>
+                      <div className="market-sources">
+                        {brief.marketEvidence.map((item) => (
+                          <div key={item.url}>
+                            <a
+                              href={item.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {item.title}
+                              <Arrow external />
+                            </a>
+                            <blockquote>{item.excerpt}</blockquote>
+                            <small>
+                              Accessed {formatDate(item.accessedAt)}
+                            </small>
+                          </div>
+                        ))}
+                      </div>
+                    </details>
+                  )}
+                  {(brief.risks.length > 0 ||
+                    brief.nextQuestions.length > 0) && (
+                    <details className="deeper-detail">
+                      <summary>Risks & questions</summary>
+                      {brief.risks.length > 0 && (
+                        <div className="open-questions">
+                          <h3>Risks</h3>
+                          <ul>
+                            {brief.risks.map((item) => (
+                              <li key={item}>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      {brief.nextQuestions.length > 0 && (
+                        <div className="open-questions">
+                          <h3>Questions to resolve</h3>
+                          <ul>
+                            {brief.nextQuestions.map((item) => (
+                              <li key={item}>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </details>
+                  )}
                 </div>
-              </>
+              </article>
             )}
           </>
-        ) : corpus ? (
-          <section className="signals-index">
-            <div className="index-heading">
-              <h1 ref={headingRef} tabIndex={-1}>
-                Signals
-              </h1>
-            </div>
-            <div className="signal-list">
-              {corpus.insights.map((item, index) => (
-                <a
-                  key={item.id}
-                  {...internalLink({
-                    signal: item.id,
-                    source: null,
-                    project: null,
-                  })}
-                  className="signal-row"
-                >
-                  <span className="signal-number">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <div className="signal-copy">
-                    <h2>{item.title}</h2>
-                    <p>{item.summary}</p>
-                  </div>
-                  <span className="signal-arrow">
-                    <Arrow />
-                  </span>
-                </a>
-              ))}
-            </div>
-            {corpus.insights.length === 0 && (
-              <p className="state-message">No signals collected yet.</p>
-            )}
-          </section>
         ) : null}
       </main>
     </div>
   );
 }
+
 function SourceView({
   source,
   project,
@@ -556,8 +663,7 @@ function SourceView({
               </section>
               <section>
                 <h2>Why it matters</h2>
-                <span className="small-label">Our interpretation</span>
-                <p>{clean(item.whyItMatters)}</p>
+                <p>Our interpretation: {clean(item.whyItMatters)}</p>
               </section>
               {item.limitations && (
                 <section>

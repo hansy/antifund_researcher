@@ -64,6 +64,17 @@ export const signalBriefSchema = z.object({
     .min(1),
   marketOpportunity: z.string().min(1),
   buyer: z.string().min(1),
+  marketSize: z
+    .object({
+      value: z.string().min(1),
+      market: z.string().min(1),
+      year: z.number().int().min(2021).max(2026),
+      context: z.string().min(1),
+      sourceUrls: z.array(z.url()).min(1),
+    })
+    .optional(),
+  applications: z.array(z.string().min(1)).optional(),
+  targetCustomers: z.array(z.string().min(1)).optional(),
   marketStatus: z.enum(["hypothesis", "researched"]),
   marketEvidence: z.array(
     z.object({
