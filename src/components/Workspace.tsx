@@ -24,7 +24,7 @@ type Citation = {
 const suggestions = [
   "Where is sim-to-real working?",
   "What is changing in robot manipulation?",
-  "Which projects use digital twins?",
+  "What can reduce simulation setup time?",
 ];
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return (
@@ -107,10 +107,14 @@ function Dialog({
   );
 }
 function Section({ title, children }: { title: string; children: ReactNode }) {
+  const content =
+    typeof children === "string"
+      ? children.replace(/^(?:Reported|Our interpretation):\s*/, "")
+      : children;
   return (
     <section className="detail-section">
       <h3>{title}</h3>
-      <p>{children || "Not reported in the collected source."}</p>
+      <p>{content || "Not reported in the collected source."}</p>
     </section>
   );
 }
@@ -180,7 +184,9 @@ function ProjectDetail({
       </div>
       <p className="detail-lead">{project.summary}</p>
       <Section title="The problem">{project.problem}</Section>
-      <Section title="Current approach">{project.statusQuo}</Section>
+      {project.statusQuo !== project.problem && (
+        <Section title="Current approach">{project.statusQuo}</Section>
+      )}
       <Section title="Approach">{project.approach}</Section>
       <Section title="Reported results">{project.results}</Section>
       <Section title="Our interpretation">{project.whyItMatters}</Section>
@@ -507,7 +513,28 @@ export function Workspace() {
             )}
             {question?.answer && (
               <>
-                <p className="answer-text">{question.answer.answer}</p>
+                <p className="answer-text">
+                  {question.answer.answer
+                    .split(/(\[\d+\])/)
+                    .map((part, index) => {
+                      const number = /^\[(\d+)\]$/.exec(part)?.[1];
+                      const cited = number
+                        ? question.answer!.citations[Number(number) - 1]
+                        : undefined;
+                      return cited ? (
+                        <button
+                          key={index}
+                          className="inline-citation"
+                          aria-label={`Open source ${number}`}
+                          onClick={() => setCitation(cited)}
+                        >
+                          {part}
+                        </button>
+                      ) : (
+                        part
+                      );
+                    })}
+                </p>
                 {corpus && (
                   <CitationButtons
                     citations={question.answer.citations}
@@ -619,6 +646,7 @@ export function Workspace() {
             <label>
               <span className="sr-only">Filter by topic</span>
               <select
+                aria-label="Filter by topic"
                 value={topic}
                 onChange={(event) => setTopic(event.target.value)}
               >

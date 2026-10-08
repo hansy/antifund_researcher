@@ -1070,3 +1070,21 @@ blockquote {
     scroll-behavior: auto !important;
   }
 }
+.inline-citation {
+  color: var(--accent);
+  padding: 0 2px;
+  font-weight: 600;
+}
+.inline-citation:hover {
+  text-decoration: underline;
+}
+.collection-note summary {
+  cursor: pointer;
+  font-size: 11px;
+  margin-top: 8px;
+  color: var(--muted);
+}
+.collection-note details[open] p {
+  max-width: 760px;
+  margin-top: 10px;
+}

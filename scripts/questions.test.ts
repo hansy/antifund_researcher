@@ -100,6 +100,11 @@ test("ingestion is idempotent and completion rejects invented quotations", async
   expect((await t.query(api.corpus.get, {})).projects).toHaveLength(
     corpus.projects.length,
   );
+  await t.mutation(api.research.ingest, {
+    secret,
+    corpus: { ...corpus, insights: [] },
+  });
+  expect((await t.query(api.corpus.get, {})).insights).toHaveLength(0);
   await t.mutation(api.questions.heartbeat, { secret, workerId: "worker" });
   const { id } = await t.mutation(api.questions.enqueue, request);
   const lease = await t.mutation(api.questions.claim, {

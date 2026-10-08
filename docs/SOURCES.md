@@ -1,6 +1,6 @@
-# Initial corpus provenance
+# Corpus provenance
 
-Collected and manually checked on **8 October 2026**. `data/corpus.json` contains **22 projects, 22 source records and five hypothesis-led cross-project insights**, covering **nine registry schools**. Source excerpts are short verbatim text; result paragraphs paraphrase what the source reports. “Our interpretation” and “Hypothesis” identify our synthesis. No independent reproduction is claimed.
+Collected on **8 October 2026**. `data/corpus.json` contains **26 projects, 26 source records and five cross-project insights**, covering **ten registry schools**. The initial 22 projects were manually checked; four Oxford projects were added through the working discovery/extraction pipeline with exact quotation checks. The five current insights were generated from this corpus and reviewed for unsupported claims. Source excerpts are selected verbatim text; result paragraphs paraphrase what the source reports. “Our interpretation” and “Hypothesis” identify our synthesis. No independent reproduction is claimed.
 
 ## School registry
 
@@ -20,8 +20,8 @@ Waterloo's 2026 bananaHand and roamr abstracts are student capstone descriptions
 
 ## Coverage and interpretation limits
 
-The initial collection is a hand-selected, non-exhaustive sample across 2021–2026: MIT, Stanford, ETH Zurich, UC Berkeley, Carnegie Mellon, Caltech, Georgia Tech, Waterloo and TU Delft. **41 registry schools have no project in this corpus.** English-language, public project pages and prominent demonstrations are overrepresented. Nine sampled schools do not establish comparable collection completeness at those schools. The 2026 window ends on 8 October and is incomplete.
+The initial collection is a hand-selected, non-exhaustive sample across 2021–2026: MIT, Stanford, ETH Zurich, UC Berkeley, Carnegie Mellon, Caltech, Georgia Tech, Waterloo and TU Delft, followed by Oxford. **40 registry schools have no project in this corpus.** English-language, public project pages and prominent demonstrations are overrepresented. Ten sampled schools do not establish comparable collection completeness at those schools. The 2026 window ends on 8 October and is incomplete.
 
-Five insights connect multiple projects and schools, but all have **Early signal** confidence. They are research/workflow hypotheses, not verified market demand, TAM estimates, novelty claims, safety guarantees or commercialization evidence. Cross-project metrics are deliberately not aggregated because tasks, hardware and evaluation conditions differ.
+Five insights connect multiple projects and schools, with four labeled **Early signal** and one **Mixed evidence**. They are research/workflow hypotheses, not verified market demand, TAM estimates, novelty claims, safety guarantees or commercialization evidence. Cross-project metrics are deliberately not aggregated because tasks, hardware and evaluation conditions differ.
 
 Raw retrieved HTML, ranking image and publisher dataset were used only as local temporary verification material and are not committed. The repository holds normalized corpus/provenance records, not raw downloads, credentials or logs.

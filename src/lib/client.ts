@@ -36,6 +36,7 @@ export function useCorpus() {
 
 export interface Question {
   id: string;
+  createdAt?: number;
   status: "queued" | "running" | "complete" | "failed";
   answer?: Answer;
   error?: string;
@@ -55,9 +56,21 @@ export function useQuestion() {
   const query = useQuery({
     queryKey: ["question", id],
     enabled: Boolean(id),
-    queryFn: () =>
-      request<Question>(`/api/questions/${encodeURIComponent(id!)}`),
+    queryFn: async () => {
+      const result = await request<Question>(
+        `/api/questions/${encodeURIComponent(id!)}`,
+      );
+      if (
+        ["queued", "running"].includes(result.status) &&
+        result.createdAt &&
+        Date.now() - result.createdAt > 10 * 60_000
+      ) {
+        throw new Error("This question took too long. Please try again.");
+      }
+      return result;
+    },
     refetchInterval: (query) =>
+      query.state.error ||
       ["complete", "failed"].includes(query.state.data?.status || "")
         ? false
         : 2000,

@@ -770,7 +770,7 @@
       "kind": "pdf",
       "year": 2022,
       "accessedAt": "2026-10-08",
-      "excerpt": "the robot needs to learn and improve by autonomously practicing in the real world (curiosity) and adapt its learning to new scenarios (RMA)."
+      "excerpt": "How can we train a robot that can generalize to perform thousands of tasks in thousands\nof environments? This poses a chicken and egg problem: to train robots for generalization,\nwe need large amounts of robotic data from diverse environments, but it is impractical to\ncollect such data unless we can deploy robots that generalize. Passive human videos on\nthe internet can help alleviate this issue by providing diverse scenarios to pretrain robotic\nskills. However, just watching humans is not enough, the robot needs to learn and improve\nby autonomously practicing in the real world (curiosity) and adapt its learning to new\nscenarios (RMA). We will unify these three mechanisms – learning by watching others\n(social learning), practicing by exploration (curiosity), and adapt already learned skills\nin real-time (adaptation) – to define a continually adaptive robotic framework."
     },
     {
       "id": "oxford-planarmesh-2025-source",
@@ -1503,16 +1503,19 @@
       "schoolId": "cmu",
       "title": "Robotics In The Wild: Continual Improvement by Watching and Practicing",
       "year": 2022,
-      "summary": "A research presentation frames social learning, exploration and adaptation as complementary ways to scale robot learning. Speaker affiliation: Carnegie Mellon; host: ETH Zurich.",
-      "problem": "Collecting diverse robot data is difficult before robust generalization enables deployment.",
-      "approach": "Combine learning from human videos, robot practice and real-time adaptation.",
-      "whyItMatters": "Our interpretation: A research presentation frames social learning, exploration and adaptation as complementary ways to scale robot learning. Speaker affiliation: Carnegie Mellon; host: ETH Zurich.",
-      "statusQuo": "Collecting diverse robot data is difficult before robust generalization enables deployment.",
-      "results": "Reported: The presentation abstract proposes case studies of hands, legged robots and mobile manipulators; no measured result appears on this page.",
-      "limitations": "A one-page talk abstract is a research agenda, not a complete experiment or presentation slide deck.",
+      "summary": "A proposed continually adaptive robotic framework presented in ETH's Autonomy Talks 2022 by Carnegie Mellon faculty member Deepak Pathak. The abstract describes learning from human videos, autonomous real-world practice, and real-time adaptation, with planned case studies involving robotic hands, legged robots, and mobile manipulators.",
+      "problem": "Training robots to generalize requires substantial robotic data from diverse environments, but collecting that data is impractical without robots that already generalize.",
+      "approach": "Combine social learning from passive human videos, autonomous exploration in the real world, and real-time adaptation of learned skills to new scenarios.",
+      "whyItMatters": "The proposed combination could help scale robot learning across tasks and environments by coupling diverse pretraining data with continued real-world learning.",
+      "statusQuo": "Diverse robotic training data are difficult to collect, and watching human videos alone is insufficient for the learning and adaptation described in the abstract.",
+      "results": "Not reported.",
+      "limitations": "The abstract states that human-video learning alone is insufficient. It does not report experimental metrics, evaluation protocols, or evidence establishing the proposed framework's generalization across thousands of tasks and environments.",
       "topics": [
         "Robot learning",
-        "Autonomy"
+        "Manipulation",
+        "Locomotion",
+        "Autonomy",
+        "Sensing"
       ],
       "stage": "Concept",
       "authors": [
@@ -1521,9 +1524,28 @@
       "evidence": [
         {
           "sourceId": "source-robotics-wild-talk",
-          "quote": "the robot needs to learn and improve by autonomously practicing in the real world (curiosity) and adapt its learning to new scenarios (RMA).",
-          "page": 1,
-          "locator": "Autonomy Talks 2022: Abstract and Bio"
+          "quote": "Autonomy Talks 2022",
+          "page": 1
+        },
+        {
+          "sourceId": "source-robotics-wild-talk",
+          "quote": "to train robots for generalization,\nwe need large amounts of robotic data from diverse environments, but it is impractical to\ncollect such data unless we can deploy robots that generalize.",
+          "page": 1
+        },
+        {
+          "sourceId": "source-robotics-wild-talk",
+          "quote": "We will unify these three mechanisms – learning by watching others\n(social learning), practicing by exploration (curiosity), and adapt already learned skills\nin real-time (adaptation) – to define a continually adaptive robotic framework.",
+          "page": 1
+        },
+        {
+          "sourceId": "source-robotics-wild-talk",
+          "quote": "I will\ndemonstrate the potential of this framework for scaling up robot learning via case studies\nof controlling dextrous robotic hands from monocular vision, dynamic legged robots walk-\ning from vision on unseen challenging hikes, and mobile manipulators performing lots of\ndiverse manipulation tasks in the wild.",
+          "page": 1
+        },
+        {
+          "sourceId": "source-robotics-wild-talk",
+          "quote": "Deepak Pathak is a faculty in the School of Computer Science at Carnegie Mellon Uni-\nversity.",
+          "page": 1
         }
       ]
     },
@@ -1769,122 +1791,114 @@
   ],
   "insights": [
     {
-      "id": "sim-validation",
-      "title": "Simulation transfer needs explicit boundary tests",
-      "summary": "Hypothesis: a useful simulation workflow should track what transfers, what requires adaptation and where hardware fails.",
+      "id": "compact-survey-maps",
+      "title": "Compact maps for aerial surveys",
+      "summary": "Osprey demonstrates autonomous industrial mapping; PlanarMesh reports smaller LiDAR reconstructions. Combining them could simplify survey delivery, but integration remains untested.",
+      "topic": "Sensing",
+      "problem": "Mapping complex industrial structures requires online mapping and mission planning, while detailed LiDAR reconstruction must remain computationally efficient.",
+      "statusQuo": "Reported alternatives include GPS-guided preplanned flights, pilot-flown surveys, terrestrial laser scanners, and TSDF, occupancy or voxel-based reconstruction.",
+      "gap": "Hypothesis: survey teams could benefit from autonomous coverage and compact deliverables in one workflow. The excerpts do not establish that existing products lack this combination.",
+      "opportunity": "An aerial survey processing package for industrial surveying teams that combines multi-flight mapping with compact surface reconstruction and inspection imagery.",
+      "evidence": "Reported: Osprey achieved greater coverage than the manual survey alternatives across three sites totaling 2528 m², using 112 minutes of autonomous flight; no percentage coverage improvement is supplied. PlanarMesh reports files 10 times smaller than raw input and more than 5 times smaller than compared mesh methods, with comparable or better reconstruction accuracy and around 2 Hz processing for a 64-beam sensor.",
+      "counterpoint": "These are separate evaluations. The excerpts do not show PlanarMesh integrated into Osprey, quantify survey time savings, or establish that compressed maps retain all inspection-relevant detail.",
+      "nextQuestion": "On the same industrial survey, does integrating PlanarMesh preserve inspection detail while reducing storage, processing and deliverable preparation time?",
+      "projectIds": [
+        "oxford-osprey-2024",
+        "oxford-planarmesh-2025"
+      ],
+      "sourceIds": [
+        "oxford-aerial-robotics",
+        "oxford-planarmesh-2025-source"
+      ],
+      "confidence": "Early signal"
+    },
+    {
+      "id": "cycling-scenario-tests",
+      "title": "Turn cycling observations into tests",
+      "summary": "RobotCycle identifies traffic interactions and risk; GraphSCENE generates requested traffic scenarios. Their combination suggests a test-authoring tool focused on cyclist encounters.",
       "topic": "Simulation",
-      "problem": "Simulation can mask perception and contact failures.",
-      "statusQuo": "Teams train in simulation and test on a bounded collection of physical tasks.",
-      "gap": "Transfer claims use different assumptions and are difficult to compare.",
-      "opportunity": "Hypothesis: collect scenario-level transfer tests, real-data requirements and failure taxonomies alongside training assets.",
-      "evidence": "LucidSim reports parkour transfer from generated images; Depth Transfer adapts its real-depth encoder; Robot Parkour documents low-friction and soft-obstacle failures.",
-      "counterpoint": "A single validation protocol may miss robot-specific physics; this corpus does not establish willingness to pay.",
-      "nextQuestion": "Which three field conditions predict failure across a fixed robot and a reproducible test set?",
+      "problem": "Manually creating diverse, safety-critical traffic simulations is time-consuming. RobotCycle supplies observations of cyclist interactions that could inform those tests.",
+      "statusQuo": "GraphSCENE describes manual scenario creation as the current alternative. RobotCycle already provides datasets and tools for risk analysis, visualization, calibration and annotation.",
+      "gap": "Hypothesis: linking observed cyclist interactions to configurable simulations could reduce scenario preparation effort. Neither excerpt demonstrates this connection or a missing commercial offering.",
+      "opportunity": "A scenario-authoring tool for autonomous vehicle validation engineers that converts selected cycling interactions into reproducible simulations with explicit agents, infrastructure and criticality settings.",
+      "evidence": "Reported: RobotCycle provides multimodal cycling observations, agent relations, attention heatmaps and risk analysis. GraphSCENE generates temporal scene graphs constrained by an ontology and renders them in simulation; it reports better requested-link prediction than baselines. Neither excerpt quantifies preparation-time savings or safety improvement.",
+      "counterpoint": "Accurate graph links do not establish faithful cyclist behavior or useful vehicle failure detection. RobotCycle's excerpt does not establish compatibility with GraphSCENE's ontology, and its existing tools may already satisfy some analysis needs.",
+      "nextQuestion": "Can engineers reproduce observed cyclist encounters through this connection faster than manual authoring, while preserving the interactions that trigger vehicle failures?",
       "projectIds": [
-        "lucidsim",
-        "depth-transfer",
-        "robot-parkour"
+        "oxford-robotcycle-2025",
+        "oxford-graphscene-2025"
       ],
       "sourceIds": [
-        "source-lucidsim",
-        "source-depth-transfer",
-        "source-robot-parkour"
+        "oxford-robotcycle-2025-source",
+        "oxford-graphscene-2025-source"
       ],
       "confidence": "Early signal"
     },
     {
-      "id": "teaching-tools",
-      "title": "Demonstration tooling shapes the available skills",
-      "summary": "Hypothesis: improving collection ergonomics and embodiment compatibility may unlock more useful training data.",
-      "topic": "Robot learning",
-      "problem": "Demonstrations are costly and limited by where hardware can be installed.",
-      "statusQuo": "Teams use teleoperation or task-specific physical demonstrations.",
-      "gap": "Portable collection and whole-body teaching solve different constraints; comparability remains weak.",
-      "opportunity": "Hypothesis: a workflow could validate demonstrations against robot kinematics and record collection effort and downstream transfer.",
-      "evidence": "UMI uses handheld grippers and relative trajectories; Mobile ALOHA adds whole-body teleoperation; robomimic provides common demonstration datasets.",
-      "counterpoint": "Portable tools still constrain gripper form and sensing; a dataset alone does not establish generalization.",
-      "nextQuestion": "How many valid demonstrations per operator-hour survive transfer to a second robot?",
-      "projectIds": [
-        "umi",
-        "mobile-aloha",
-        "robomimic"
-      ],
-      "sourceIds": [
-        "source-umi",
-        "source-mobile-aloha",
-        "source-robomimic"
-      ],
-      "confidence": "Early signal"
-    },
-    {
-      "id": "hardware-control",
-      "title": "Mechanical design and learning can trade sensing cost",
-      "summary": "Hypothesis: robustness should be assessed across morphology, sensing and control together.",
-      "topic": "Locomotion",
-      "problem": "Rough ground makes sensing and control expensive and fragile.",
-      "statusQuo": "Some systems combine learned perception and proprioception; others use mechanical redundancy.",
-      "gap": "Cross-system energy, maintenance and failure tradeoffs are not quantified here.",
-      "opportunity": "Hypothesis: compare morphology and controller choices on the same terrain and payload rather than ranking showcase videos.",
-      "evidence": "ETH combines perception with proprioception; Georgia Tech demonstrates redundant-leg traversal; Extreme Parkour learns precise behavior with imprecise hardware.",
-      "counterpoint": "These robots differ in size, tasks and terrain; no cited head-to-head experiment establishes a superior architecture.",
-      "nextQuestion": "Which design minimizes total energy and failure recovery time for a specified inspection route?",
-      "projectIds": [
-        "anymal-hike",
-        "centipede",
-        "extreme-parkour"
-      ],
-      "sourceIds": [
-        "source-anymal-hike",
-        "source-centipede",
-        "source-extreme-parkour"
-      ],
-      "confidence": "Early signal"
-    },
-    {
-      "id": "task-infrastructure",
-      "title": "Task infrastructure is part of robot learning performance",
-      "summary": "Hypothesis: reusable controller, reset and demonstration interfaces can matter as much as a policy algorithm.",
-      "topic": "Manipulation",
-      "problem": "Robot learning requires hardware setup and reliable physical task execution.",
-      "statusQuo": "Researchers assemble task-specific demonstration, controller and reward pipelines.",
-      "gap": "Published task successes rarely account for integration and maintenance effort.",
-      "opportunity": "Hypothesis: a reusable evaluation kit could expose setup time, intervention frequency and component compatibility.",
-      "evidence": "SERL packages controllers and reward methods; ACT couples its algorithm with ALOHA teleoperation; bananaHand proposes modular tactile hardware.",
-      "counterpoint": "bananaHand is a capstone prototype, and SERL/ALOHA evaluations do not establish fleet operations.",
-      "nextQuestion": "Can an external lab reproduce a manipulation task while recording all human interventions?",
-      "projectIds": [
-        "serl",
-        "aloha",
-        "bananahand"
-      ],
-      "sourceIds": [
-        "source-serl",
-        "source-aloha",
-        "source-bananahand"
-      ],
-      "confidence": "Early signal"
-    },
-    {
-      "id": "generated-supervision",
-      "title": "Generated supervision still needs physical verification",
-      "summary": "Hypothesis: automatically generated tasks and rewards could reduce setup labor, if outputs are checked against useful physical behaviors.",
+      "id": "generated-training-review",
+      "title": "Review generated robot training tasks",
+      "summary": "RoboGen generates tasks and learning sequences; Eureka generates reward functions. A review workflow could help engineers decide which generated training setups are useful.",
       "topic": "Simulation",
-      "problem": "Manual tasks and reward code limit the breadth of simulation training.",
-      "statusQuo": "Researchers design scenes and rewards by hand or collect physical demonstrations.",
-      "gap": "Diverse simulated skills are not automatically useful, safe or transferable skills.",
-      "opportunity": "Hypothesis: an auditable task/reward review layer could retain generated assets, failure cases and hardware transfer evidence.",
-      "evidence": "RoboGen generates tasks, scenes and supervision; Eureka iteratively generates reward code; LucidSim generates visual training environments.",
-      "counterpoint": "RoboGen and Eureka predominantly show simulation outcomes, and generative methods can depend on expensive compute.",
-      "nextQuestion": "What fraction of generated tasks pass physics, usefulness and hardware-transfer checks?",
+      "problem": "A generated task needs an environment, subtasks and a reward that actually measures the intended behavior. The excerpts demonstrate generation of these pieces separately.",
+      "statusQuo": "RoboGen proposes environments and sequential sub-skills. Eureka generates rewards and compares them with expert human-engineered rewards; engineers could use these approaches separately.",
+      "gap": "Hypothesis: reviewing task and reward consistency across generated setups is a useful product function. The supplied evidence does not measure review burden or establish an unmet market need.",
+      "opportunity": "A simulation review tool for robot learning engineers that presents generated tasks, reward code and resulting behavior together, with reproducible evaluations before accepting a training setup.",
+      "evidence": "Reported: RoboGen proposes high-level tasks, generates environments, decomposes goals and learns sub-skills sequentially. Eureka claims generated rewards outperform expert human-engineered rewards. The cited excerpts provide no numerical performance gain or engineering-time reduction.",
+      "counterpoint": "Neither excerpt demonstrates an integrated workflow, hardware transfer, or that generated rewards reliably capture user intent. Existing generation tools may already provide enough review functionality for some users.",
+      "nextQuestion": "Across a fixed set of tasks, does reviewing generated tasks and rewards together reduce engineer correction time while maintaining independently measured task success?",
       "projectIds": [
         "robogen",
-        "eureka",
-        "lucidsim"
+        "eureka"
       ],
       "sourceIds": [
         "source-robogen",
-        "source-eureka",
-        "source-lucidsim"
+        "source-eureka"
+      ],
+      "confidence": "Early signal"
+    },
+    {
+      "id": "terrain-fallback-tests",
+      "title": "Test terrain failures and fallbacks",
+      "summary": "A reported low-friction parkour failure contrasts with proprioceptive fallback and hybrid control approaches. This suggests testing controller choices against specific terrain hazards.",
+      "topic": "Locomotion",
+      "problem": "Robot Parkour explicitly reports failure to leap from a low-friction platform. Obstacle execution alone therefore leaves a concrete terrain-dependent failure mode unresolved.",
+      "statusQuo": "The excerpts describe proprioceptive fallback in ANYmal's hiking controller and classic model-based control combined with learning in DTC as alternative approaches to difficult terrain.",
+      "gap": "Hypothesis: teams need a repeatable way to compare obstacle skills and fallback behavior under terrain changes. The excerpts do not establish demand for a standalone testing product.",
+      "opportunity": "A terrain test suite for quadruped control engineers that measures success, slips and recovery across controlled friction changes, including tests of fallback and hybrid controllers.",
+      "evidence": "Reported: Robot Parkour fails on a low-friction leap. ANYmal's hiking source says it 'plays it safe and relies on its proprioception.' DTC reports negotiating difficult terrain through combination with classic model-based control. These excerpts give no numerical comparative improvement.",
+      "counterpoint": "The systems were not compared on the same obstacle. Proprioception or hybrid control cannot be assumed to solve the reported leap failure, which may also depend on physical traction limits.",
+      "nextQuestion": "On identical low-friction obstacles, which failures can fallback or hybrid control prevent, and which require avoiding the maneuver entirely?",
+      "projectIds": [
+        "robot-parkour",
+        "anymal-hike",
+        "dtc"
+      ],
+      "sourceIds": [
+        "source-robot-parkour",
+        "source-anymal-hike",
+        "source-dtc"
+      ],
+      "confidence": "Mixed evidence"
+    },
+    {
+      "id": "drone-adaptation-workflow",
+      "title": "Measure drone adaptation effort",
+      "summary": "Depth Transfer adapts an encoder using real stereo data; MAVRL reports real deployment after fine-tuning. Both suggest a workflow for measuring the work required to move learned navigation onto hardware.",
+      "topic": "Autonomy",
+      "problem": "Both cited approaches require a real-world adaptation step before or during deployment. The effort and failure reduction associated with that step remain unquantified in the excerpts.",
+      "statusQuo": "Depth Transfer refines its encoder through domain adaptation using real stereo depth. MAVRL deploys after what its source calls 'minimal fine-tuning.'",
+      "gap": "Hypothesis: drone autonomy teams could benefit from repeatable adaptation and evaluation procedures. The excerpts do not show that a common procedure works across these methods or that current tooling is inadequate.",
+      "opportunity": "An adaptation and evaluation package for drone navigation engineers that records real-data requirements, runs tuning procedures, and compares navigation failures before and after adaptation.",
+      "evidence": "Reported: Depth Transfer uses stereo depth from real environments to refine its encoder during deployment. MAVRL reports successful deployment on a real drone after minimal fine-tuning. Neither excerpt quantifies data volume, tuning time or improvement in navigation success.",
+      "counterpoint": "Encoder adaptation and navigation fine-tuning are different interventions. Successful deployment does not establish reliability across environments, and 'minimal' is not a measured engineering budget.",
+      "nextQuestion": "For each method, how much real data and engineer time are required to meet a fixed navigation success threshold in a previously unseen environment?",
+      "projectIds": [
+        "depth-transfer",
+        "mavrl"
+      ],
+      "sourceIds": [
+        "source-depth-transfer",
+        "source-mavrl"
       ],
       "confidence": "Early signal"
     }
@@ -1893,6 +1907,6 @@
     "collectedAt": "2026-10-08T06:48:48.674Z",
     "rankingName": "QS 2026 Engineering & Technology — 50-school collection registry",
     "rankingUrl": "https://qs-topuniversities.cn/en/university-rankings/university-subject-rankings/2026/engineering-technology",
-    "coverageNote": "Partial initial corpus: 22 selected projects across 9 of 50 registry schools, dated 2021–2026 through 8 October 2026. The registry selects the first 50 currently listed QS 2026 Engineering & Technology institutions by rank then name: 49 have ranks ≤50; Monash (rank 51) fills the 50th slot. This is a fixed collection target, not completed 50-school collection or an exhaustive survey. English-language public sources and prominent demos are overrepresented; 2026 remains partial."
+    "coverageNote": "A partial collection of public projects and presentations from 2021–2026, through October 8, 2026. The 50-school registry uses QS 2026 Engineering & Technology: 49 listed institutions rank 50 or better; Monash (51) fills the last slot. English-language sources and prominent demonstrations are overrepresented. School labels follow researcher affiliation; visiting talks identify the host in their notes. This is not an exhaustive survey."
   }
 }

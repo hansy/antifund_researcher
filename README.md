@@ -57,7 +57,7 @@ bun run research synthesize
 bun run research status
 ```
 
-The registry contains 50 institutions, with a 2021–2026 collection window. The checked-in corpus is a **partial collection**, not all work from those institutions. Discovery is bounded to six sources per school per run; batches cover up to five schools without collected projects. Downloads are cached and records use stable IDs. Full-text extraction is limited to the first 140,000 characters. [Read the provenance and selection limitations](docs/SOURCES.md).
+The registry contains 50 institutions, with a 2021–2026 collection window. The checked-in corpus has **26 projects across ten schools** and is a **partial collection**, not all work from those institutions. Discovery is bounded to six sources per school per run; batches cover up to five schools without collected projects. Downloads are cached and records use stable IDs. Full-text extraction is limited to the first 140,000 characters. [Read the provenance and selection limitations](docs/SOURCES.md).
 
 ## Deploy
 

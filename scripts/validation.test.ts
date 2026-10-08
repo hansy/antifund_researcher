@@ -177,3 +177,28 @@ test("official download boundaries reject lookalikes and alternate protocols", (
   ])
     expect(() => validateOfficialUrl(url, school)).toThrow();
 });
+
+// The output API rejects Zod's URI format, while local parsing still checks URLs.
+test("Codex schema conversion keeps nested fields strict without URI format", async () => {
+  const { strictSchema } = await import("./codex");
+  const schema = strictSchema({
+    type: "object",
+    properties: {
+      source: {
+        type: "object",
+        properties: {
+          url: { type: "string", format: "uri" },
+          page: { type: "integer" },
+        },
+        required: ["url"],
+      },
+    },
+    required: ["source"],
+  });
+  expect(schema.properties.source.properties.url).not.toHaveProperty("format");
+  expect(schema.properties.source.required).toEqual(["url", "page"]);
+  expect(schema.properties.source.properties.page.anyOf).toContainEqual({
+    type: "null",
+  });
+  expect(schema.properties.source.additionalProperties).toBe(false);
+});

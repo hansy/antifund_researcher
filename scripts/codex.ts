@@ -74,7 +74,7 @@ export function safeChildEnv(scratch: string) {
     LANG: "en_US.UTF-8",
   };
 }
-function strictSchema(node: any): any {
+export function strictSchema(node: any): any {
   if (!node || typeof node !== "object") return node;
   const copy: any = Array.isArray(node)
     ? node.map(strictSchema)
@@ -120,7 +120,8 @@ export async function runCodex<T>(
       cwd: scratch,
       env: safeChildEnv(scratch),
       stdout: "pipe",
-      stderr: "pipe",
+      stderr: "ignore",
+      timeout: 15_000,
     });
     const catalogText = await new Response(catalogProcess.stdout).text();
     if ((await catalogProcess.exited) !== 0)

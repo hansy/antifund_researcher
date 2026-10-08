@@ -8,6 +8,11 @@ export const ingest = mutation({
   handler: async (ctx, args) => {
     requireSecret(args.secret);
     const data = validateCorpus(args.corpus);
+    // Signals are the current synthesis; preserving removed ones would display stale claims.
+    const currentSignals = new Set(data.insights.map((insight) => insight.id));
+    for (const previous of await ctx.db.query("insights").collect()) {
+      if (!currentSignals.has(previous.id)) await ctx.db.delete(previous._id);
+    }
     for (const table of [
       "schools",
       "sources",

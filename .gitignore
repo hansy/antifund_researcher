@@ -12,3 +12,5 @@ work/
 .DS_Store
 
 .research-cache/
+
+data/*.tmp

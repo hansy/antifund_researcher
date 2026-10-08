@@ -1,3 +1,4 @@
+import { mkdir } from "node:fs/promises";
 import { ConvexHttpClient } from "convex/browser";
 import { makeFunctionReference } from "convex/server";
 import { answerSchema, corpusSchema, type Corpus } from "../src/lib/contracts";
@@ -144,8 +145,14 @@ try {
     if (!Number.isInteger(count) || count < 1 || count > 5)
       throw new Error("Batch size must be 1–5 schools");
     let data = await loadCorpus();
+    await mkdir(".research-cache", { recursive: true });
+    const progressFile = Bun.file(".research-cache/batch-progress.json");
+    const attempts: Record<string, number> = (await progressFile.exists())
+      ? await progressFile.json()
+      : {};
     const schools = data.schools
       .filter((s) => !data.projects.some((p) => p.schoolId === s.id))
+      .sort((a, b) => (attempts[a.id] ?? 0) - (attempts[b.id] ?? 0))
       .slice(0, count);
     for (const school of schools) {
       console.log(`Discovering ${school.name}`);
@@ -167,6 +174,9 @@ try {
         console.error(
           `School skipped: ${error instanceof Error ? error.message : "discovery failed"}`,
         );
+      } finally {
+        attempts[school.id] = Date.now();
+        await Bun.write(progressFile, JSON.stringify(attempts, null, 2));
       }
     }
   } else if (command === "extract") {

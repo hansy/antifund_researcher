@@ -1,9 +1,13 @@
 # Validation
 
-- TypeScript check and production Vite build pass.
-- Seven Bun tests cover corpus references, citation grounding, retrieval, worker leases, model tool restrictions, credential isolation and source URL boundaries.
-- Production Cloudflare → Convex → local Codex question flow returned a cited sim-to-real answer. Citation drawer showed the matching excerpt and original MIT source.
-- A real ETH-hosted presentation PDF was downloaded, page-labeled and extracted into a valid record with five page-one quotations. This dry-run artifact stays local.
-- Oxford discovery and extraction, mobile interaction, queue integration tests and final autoreview are being completed before delivery.
+Validated on 8 October 2026.
 
-Local environment note: this network's IPv6 route stalls the local Cloudflare runtime's outbound requests. Hosted Cloudflare requests work. Network timeouts keep failed requests bounded.
+- TypeScript checks, production Vite build and 12 Bun tests pass. Tests cover corpus references, quote/page grounding, retrieval, URL boundaries, credential isolation, capability checks, rate limits, idempotent ingestion and expired worker leases.
+- The deployed Cloudflare → Convex → local Codex flow answered a sim-to-real question with five verified citations. Opening a citation showed its exact excerpt and original source.
+- Production requests reject foreign origins (403), short questions (400) and oversized bodies (413).
+- Desktop and 390px mobile checks cover signal/project navigation, school filtering and source dialogs. The mobile page and dialog fit without horizontal overflow.
+- An actual ETH-hosted PDF passed download, page extraction, structured Codex parsing and quote validation. Five page-one quotations are saved on the existing presentation record.
+- Oxford discovery found six candidate sources. Four passed exact quotation checks and added four projects; two were rejected. A real synthesis run produced the current five signals from 26 projects across ten schools.
+- One final autoreview is pending; its result and any direct fixes will be recorded here before delivery.
+
+Local environment: this network's IPv6 route stalls the local Cloudflare runtime's outbound requests. Hosted Cloudflare requests work. Server timeouts bound failures. The production question runner runs locally and requires this computer to remain awake.
