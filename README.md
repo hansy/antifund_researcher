@@ -51,6 +51,8 @@ bun run dev              # another terminal: http://127.0.0.1:3000
 
 `bun run` puts the pinned Codex executable on PATH. For direct `bun scripts/research.ts` calls, set `RESEARCH_CODEX_COMMAND` to its absolute path if your global CLI is older. The default model is `gpt-6.1-sol`, medium reasoning.
 
+`bun run dev` uses TanStack's native server with `.env.local`. This avoids outbound IPv6 stalls in local Workers emulation on some networks. Use `bun run dev:workers` to test the Cloudflare runtime with `.dev.vars`; production builds and previews always use Workers.
+
 ## Collect research
 
 ```sh

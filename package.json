@@ -5,6 +5,7 @@
   "packageManager": "bun@1.3.14",
   "scripts": {
     "dev": "vite --host 127.0.0.1 --port 3000",
+    "dev:workers": "vite --mode workers --host 127.0.0.1 --port 3000",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1 --port 3000",
     "typecheck": "tsc --noEmit && tsc --project scripts/tsconfig.json",
