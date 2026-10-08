@@ -15,6 +15,7 @@
     "research:worker": "bun scripts/research.ts worker",
     "research:seed": "bun scripts/research.ts seed",
     "research:intake": "bun scripts/intake-runner.ts",
+    "research:pipeline": "bun scripts/pipeline.ts",
     "research:scan": "bun scripts/scan-schools.ts",
     "research:signals": "bun scripts/opportunities.ts",
     "research:people": "bun scripts/people.ts",

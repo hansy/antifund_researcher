@@ -24,7 +24,11 @@ const status = makeFunctionReference<
 >("intake:setStatus");
 
 /** Immutable metadata revisions in Convex; raw downloads remain in the local archive. */
-export function createIntakeSync(url: string, secret: string) {
+export function createIntakeSync(
+  url: string,
+  secret: string,
+  statusContext?: () => Record<string, unknown>,
+) {
   const db = new ConvexHttpClient(url);
   const sent = new Map<string, string>();
   let lastSync = 0;
@@ -61,7 +65,7 @@ export function createIntakeSync(url: string, secret: string) {
     await db.mutation(status, {
       secret,
       updatedAt: state.updatedAt,
-      summary: JSON.stringify(intakeStatus(state)),
+      summary: JSON.stringify({ ...intakeStatus(state), ...statusContext?.() }),
     });
     lastSync = Date.now();
   };

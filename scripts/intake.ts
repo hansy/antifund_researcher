@@ -86,7 +86,7 @@ export async function checkpoint(state: State, options: IntakeOptions = {}) {
   await mkdir(root, { recursive: true, mode: 0o700 });
   state.updatedAt = new Date().toISOString();
   const temporary = join(root, "state.json.tmp");
-  await writeFile(temporary, JSON.stringify(state, null, 2) + "\n", {
+  await writeFile(temporary, JSON.stringify(state) + "\n", {
     mode: 0o600,
   });
   await rename(temporary, join(root, "state.json"));
@@ -305,13 +305,44 @@ function preserveChildren(
   void maxDepth;
 }
 function crawlPriority(candidate: Candidate) {
-  const url = candidate.url.toLowerCase();
+  const url = new URL(candidate.url);
+  const path = url.pathname.toLowerCase();
+  const titles = candidate.provenance
+    .map((p) => p.title)
+    .join(" ")
+    .toLowerCase();
+  // Discovery years describe search coverage, not the date of the linked work.
+  const dated = `${path} ${url.search} ${titles} ${candidate.provenance
+    .map((p) => p.claimedDate ?? "")
+    .join(" ")}`;
+  const detail =
+    /\/(?:projects?|papers?|publications?|posters?|theses|dissertations?|gallery|galleries|records?|items?|handle|bitstreams?)\/[^/]+/.test(
+      path,
+    ) || /\/(?:\d{5,}|[a-f0-9]{8}-[a-f0-9-]{27,})\/?$/.test(path);
+  const pagination =
+    [...url.searchParams.keys()].some((key) =>
+      /^(?:page|offset|start|cursor)$/i.test(key),
+    ) || /\/page\/\d+/.test(path);
+  const topical =
+    /project|gallery|showcase|capstone|poster|thesis|dissertation|publication|paper|hackathon/.test(
+      `${path} ${titles}`,
+    );
+  const generic =
+    /\/(?:research|about|people|faculty|news|events|departments?|admissions|contact|giving)\/?$/.test(
+      path,
+    ) || path === "/";
   return (
-    (/devpost\.com|project|gallery|showcase|capstone|poster|thesis|dissertation|publication|research|hackathon|[?&]page=|202[56]/.test(
-      url,
-    )
-      ? 10
-      : 0) - candidate.depth
+    (titles.includes("affiliation source for ") ? 80 : 0) +
+    (/\.pdf$/i.test(path) ? 50 : 0) +
+    (detail ? 35 : 0) +
+    (pagination ? 25 : 0) +
+    (topical ? 15 : 0) +
+    (/\b202[56]\b/.test(dated) ? 20 : 0) -
+    (/\b20(?:0\d|1\d|2[0-4])\b/.test(dated) && !/\b202[56]\b/.test(dated)
+      ? 20
+      : 0) -
+    (generic && !pagination ? 20 : 0) -
+    candidate.depth
   );
 }
 export async function collect(
@@ -345,8 +376,29 @@ export async function collect(
         (a, b) =>
           schoolLoad(a) - schoolLoad(b) || crawlPriority(b) - crawlPriority(a),
       )
-      .find(
-        (c) =>
+      .find((c) => {
+        // Keep unresolved external discoveries, but spend download attempts only
+        // after an official page supplies verifiable affiliation proof.
+        const associated = schools.filter((s) =>
+          c.provenance.some((p) => p.schoolId === s.id),
+        );
+        try {
+          safeUrl(c.url, associated, c.externalProof);
+        } catch (error) {
+          if (
+            error instanceof Error &&
+            error.message ===
+              "External showcase needs a preserved link from an official school source"
+          )
+            return false;
+          // Other safety/network errors still go through download so their
+          // failure records remain inspectable and resumable.
+        }
+        const affiliationResolved =
+          !!c.externalProof &&
+          c.failures.at(-1)?.message ===
+            "External showcase needs a preserved link from an official school source";
+        return (
           !visited.has(c.id) &&
           c.depth <= maxDepth &&
           (!options.schoolId ||
@@ -354,8 +406,9 @@ export async function collect(
           (options.refresh ||
             c.status !== "downloaded" ||
             c.revisions.some((r) => r.parseStatus !== "done")) &&
-          due(c.failures, !!options.retry),
-      );
+          (affiliationResolved || due(c.failures, !!options.retry))
+        );
+      });
     if (!candidate) break;
     visited.add(candidate.id);
     count++;
@@ -549,15 +602,27 @@ export async function classify(state: State, options: IntakeOptions = {}) {
         nextChunk: 0,
         done: false,
         failures: [],
-        chunkSize: 8000,
+        chunkSize: 4000,
       });
       if (progress.done || !due(progress.failures, !!options.retry)) continue;
+      // Smaller responses keep dense archives within the local agent timeout.
+      // Only unstarted revisions can change size without moving their checkpoint.
+      if (progress.nextChunk === 0)
+        progress.chunkSize = Math.min(progress.chunkSize ?? 30_000, 4000);
       const chunkSize = progress.chunkSize ?? 30_000;
       const text = await readFile(revision.textPath, "utf8");
       const chunks = Math.max(
         1,
-        Math.ceil(text.length / (chunkSize - overlap)),
+        1 +
+          Math.ceil(
+            Math.max(0, text.length - chunkSize) / (chunkSize - overlap),
+          ),
       );
+      if (progress.nextChunk >= chunks) {
+        progress.done = true;
+        await checkpoint(state, options);
+        continue;
+      }
       while (progress.nextChunk < chunks) {
         if (
           calls >= (options.budget ?? 10) ||
@@ -895,6 +960,9 @@ export async function intakeMain(
   };
   const opts: IntakeOptions = {
     ...options,
+    root: args.includes("--root")
+      ? args[args.indexOf("--root") + 1]
+      : options.root,
     budget: numberFlag(
       "--budget",
       options.budget ?? (command.startsWith("scan") ? 12 : 30),
@@ -906,6 +974,8 @@ export async function intakeMain(
     retry: args.includes("--retry") || options.retry,
     refresh: args.includes("--refresh") || options.refresh,
   };
+  if (args.includes("--root") && (!opts.root || opts.root.startsWith("--")))
+    throw new Error("--root requires an archive directory");
   const schoolFlag = args.indexOf("--school");
   if (schoolFlag >= 0) opts.schoolId = args[schoolFlag + 1];
   const schools = await loadSchools();

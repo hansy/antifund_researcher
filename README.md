@@ -35,6 +35,18 @@ Local development uses TanStack's native server to avoid local Workers IPv6 stal
 
 ## Collect and derive
 
+Run four workers together: collection, classification, grouping, and signal analysis with market research. Each gets an isolated snapshot; one coordinator merges checkpoints and mirrors metadata to Convex. The default run lasts two hours and can resume from its saved archive.
+
+```sh
+bun run research:pipeline run --depth 5
+bun run research:pipeline status
+bun run research:pipeline stop
+```
+
+[Worker handoffs and operations](docs/PIPELINE.md). Publication follows evidence inspection; pipeline output is not automatically presented as a verified market signal.
+
+Individual stages remain available:
+
 ```sh
 bun run research:scan                         # three archive searches per school; resumes
 bun run research:intake collect --budget 100 --minutes 30
