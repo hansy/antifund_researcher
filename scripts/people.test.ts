@@ -79,39 +79,42 @@ test("unknown authors, future provenance and non-profile social links are reject
   ).toThrow();
 });
 
-test("overlapping research combines verified people and keeps individual credits", () => {
+test("team cards keep distinct rosters and attach papers to the same resolved people", () => {
   const projects = corpus.projects.filter((item) =>
     ["oxford-robotcycle-2025", "oxford-graphscene-2025"].includes(item.id),
   );
   const snapshot = JSON.stringify(projects);
   const teams = groupResearchTeams(projects);
-  expect(teams).toHaveLength(1);
-  expect(teams[0]!.projects).toHaveLength(2);
-  expect(teams[0]!.members).toHaveLength(13);
-  expect(
-    teams[0]!.members.find(
-      (member) => member.person.name === "Efimia Panagiotaki",
-    )?.projects,
-  ).toHaveLength(2);
-  expect(
-    teams[0]!.members.find(
-      (member) => member.person.name === "Georgi Pramatarov",
-    )?.projects,
-  ).toHaveLength(1);
+  expect(teams).toHaveLength(2);
+  expect(teams.map((team) => team.members.length)).toEqual([4, 12]);
   expect(JSON.stringify(projects)).toBe(snapshot);
-  // The same school and unresolved names alone don't establish a collaboration.
+
+  const graphscene = projects.find(
+    (item) => item.id === "oxford-graphscene-2025",
+  )!;
+  const followup = {
+    ...graphscene,
+    id: "same-team-followup",
+    authors: [...graphscene.authors].reverse(),
+  };
+  const sameTeam = groupResearchTeams([graphscene, followup]);
+  expect(sameTeam).toHaveLength(1);
+  expect(sameTeam[0]!.projects).toHaveLength(2);
+  expect(sameTeam[0]!.members).toHaveLength(4);
   expect(
-    groupResearchTeams(
-      projects.map((item) => ({ ...item, people: undefined })),
-    ),
+    sameTeam[0]!.members.every((member) => member.projects.length === 2),
+  ).toBe(true);
+  expect(
+    groupResearchTeams([graphscene, { ...followup, people: undefined }]),
   ).toHaveLength(2);
-  const factory = corpus.projects.filter((item) =>
-    ["aloha", "serl"].includes(item.id),
-  );
-  expect(groupResearchTeams(factory)).toHaveLength(1);
-  expect(groupResearchTeams(factory)[0]!.members).toHaveLength(12);
-  const terrain = corpus.projects.filter((item) =>
-    ["anymal-hike", "dtc"].includes(item.id),
-  );
-  expect(groupResearchTeams(terrain)[0]!.members).toHaveLength(3);
+  const differentProfiles = {
+    ...followup,
+    people: followup.people!.map((person) => ({
+      ...person,
+      links: {
+        website: `https://example.com/another-person/${encodeURIComponent(person.name)}`,
+      },
+    })),
+  };
+  expect(groupResearchTeams([graphscene, differentProfiles])).toHaveLength(2);
 });

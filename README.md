@@ -4,11 +4,11 @@ Market ideas from university projects, with evidence behind each one.
 
 [Live app](https://antifund-researcher.service-fff.workers.dev) · [Signal model](docs/SIGNALS.md) · [Intake pipeline](docs/INTAKE.md) · [Teams](docs/TEAMS.md)
 
-The app opens with five signal cards. Selecting one moves them into a fixed desktop rail and opens its report: a concise description, sourced market context, potential customers and applications, followed by research cards. Each card combines people, school, years and related studies. Clicking the people opens verified portraits, bios and profile links; clicking a study opens its original evidence. Sources and unanswered questions unfold on demand. Mobile uses compact breadcrumbs.
+The app opens with five signal cards. Selecting one moves them into a fixed desktop rail and opens its report: a concise description, sourced market context, potential customers and applications, followed by Teams. Each team card shows its people first, school and years second, and its projects and papers underneath. Clicking the team opens verified portraits, bios and profile links; clicking its research opens the original evidence. Sources and unanswered questions unfold on demand. Mobile uses compact breadcrumbs.
 
 The checked-in starting corpus is **26 projects from ten schools, dated 2021–2026**. Five briefs interpret that research. A separate **2025–2026 intake** discovers hackathon, capstone and research archives across the full 50-school registry and all disciplines. The registry is planned coverage; neither a completed search nor a successful download establishes exhaustive collection.
 
-![Research card](docs/combined-card-preview.jpg)
+![Teams](docs/teams-research-preview.jpg)
 
 ## Stack
 

@@ -379,11 +379,7 @@ export function Workspace() {
                   <Arrow back />
                   <span>{insight.title}</span>
                 </a>
-                <TeamView
-                  team={team}
-                  schools={corpus.schools}
-                  headingRef={headingRef}
-                />
+                <TeamView team={team} headingRef={headingRef} />
               </div>
             ) : source ? (
               <div
@@ -489,7 +485,7 @@ export function Workspace() {
                   <BriefSection id="problem" title="The problem">
                     <p>{brief.problem}</p>
                   </BriefSection>
-                  <BriefSection id="related-research" title="Related research">
+                  <BriefSection id="teams" title="Teams">
                     <div className="research-list">
                       {researchTeams.map((team) => {
                         const schoolNames = [
@@ -529,7 +525,7 @@ export function Workspace() {
                                 project: null,
                                 team: team.id,
                               })}
-                              aria-label={`View people: ${schoolNames}, ${yearLabel}, ${peopleLabel}`}
+                              aria-label={`View team: ${peopleLabel}, ${schoolNames}, ${yearLabel}`}
                             >
                               <div className="team-preview" aria-hidden="true">
                                 {team.members
@@ -543,11 +539,12 @@ export function Workspace() {
                                   </span>
                                 )}
                               </div>
-                              <div className="research-team-meta">
-                                <h3>{schoolNames}</h3>
-                                <span>{yearLabel}</span>
-                              </div>
-                              <p className="research-people">{peopleLabel}</p>
+                              <h3 className="team-name">
+                                {peopleLabel || "Contributors"}
+                              </h3>
+                              <p className="research-team-meta">
+                                {schoolNames} · {yearLabel}
+                              </p>
                               <span
                                 className="research-team-arrow"
                                 aria-hidden="true"

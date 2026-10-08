@@ -1,5 +1,5 @@
 import { useState, type RefObject } from "react";
-import type { Person, School } from "../lib/contracts";
+import type { Person } from "../lib/contracts";
 import type { ResearchTeam } from "../lib/teams";
 
 export function Portrait({ person }: { person: Person }) {
@@ -30,29 +30,23 @@ export function Portrait({ person }: { person: Person }) {
 
 export function TeamView({
   team,
-  schools,
   headingRef,
 }: {
   team: ResearchTeam;
-  schools: School[];
   headingRef: RefObject<HTMLHeadingElement | null>;
 }) {
   const project = team.projects[0]!;
   const multiple = team.projects.length > 1;
-  const schoolNames = [
-    ...new Set(
-      team.projects.map(
-        (item) => schools.find((school) => school.id === item.schoolId)?.name,
-      ),
-    ),
-  ]
-    .filter(Boolean)
-    .join(" · ");
   return (
     <article className="team-view">
       <div className="brief-header">
         <h1 ref={headingRef} tabIndex={-1}>
-          {multiple ? schoolNames : project.title.split(":")[0]}
+          {multiple
+            ? team.members
+                .slice(0, 2)
+                .map(({ person }) => person.name)
+                .join(" · ")
+            : project.title.split(":")[0]}
         </h1>
         <p className="brief-summary">
           {multiple
