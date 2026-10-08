@@ -12,11 +12,11 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Fieldwork — Campus robotics research" },
+      { title: "Fieldwork — Signals" },
       {
         name: "description",
         content:
-          "Explore campus robotics and simulation research, connected through original sources.",
+          "Research signals, market opportunities, and original evidence.",
       },
     ],
     links: [

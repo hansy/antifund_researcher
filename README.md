@@ -1,39 +1,20 @@
 # Fieldwork
 
-Campus robotics research, connected through evidence.
+Market ideas from university projects, with evidence behind each one.
 
-University demos are scattered across lab pages, showcases and papers. Fieldwork turns them into searchable evidence and testable product hypotheses.
+[Live app](https://antifund-researcher.service-fff.workers.dev) · [Signal model](docs/SIGNALS.md) · [Intake pipeline](docs/INTAKE.md)
 
-[Live demo](https://antifund-researcher.service-fff.workers.dev) · [Source provenance](docs/SOURCES.md) · [Collection pipeline](docs/PIPELINE.md)
+The app starts with a short list of signals. Open one to see what it is, the buyer's problem, reported advances and a commercial hypothesis. Open its evidence to see the team, source excerpts, dates and PDF pages. Market context and unanswered questions unfold on demand.
 
-Ask a question, explore a research signal, or open a project. Every answer links to saved quotations and original sources. Project notes separate reported results from interpretation and limitations.
-
-![Fieldwork preview](docs/preview.jpg)
+The checked-in starting corpus is **26 projects from ten schools, dated 2021–2026**. Five briefs interpret that research. A separate **2025–2026 intake** discovers hackathon, capstone and research archives across the full 50-school registry and all disciplines. The registry is planned coverage; neither a completed search nor a successful download establishes exhaustive collection.
 
 ## Stack
 
-- **Bun + TypeScript** for the app and collection commands.
-- **TanStack Start / Query + React** for the interface and server routes.
-- **Cloudflare Workers** hosts the app; **Convex** stores research and question jobs.
-- **Codex CLI** uses the operator's ChatGPT subscription for discovery, extraction, synthesis and answers. No paid model API.
-- **Poppler + Tesseract** expose PDF text, page numbers and scanned pages locally.
+Bun + TypeScript; TanStack Start/Query + React; Cloudflare Workers; Convex. Subscription-authenticated Codex CLI handles discovery, classification, signal synthesis and market research locally. Poppler extracts PDF text and page references. No paid model API, scraping service or graph database.
 
-```mermaid
-flowchart LR
-  Schools[50-school registry] --> Collect[Bun collector]
-  Web[University pages / PDFs] --> Collect
-  Collect --> Codex[Subscription Codex]
-  Codex --> Validate[Validate quotes and references]
-  Validate --> Convex[(Convex)]
-  Visitor[Browser] --> App[TanStack / Cloudflare]
-  App <--> Convex
-  Convex <--> Runner[Local question runner]
-  Runner <--> Codex
-```
+## Run
 
-## Run locally
-
-Requires Bun, Node 22+, a subscription-authenticated Codex account, Cloudflare and Convex accounts. Install `poppler` and `tesseract` for PDF collection (`brew install poppler tesseract` on macOS).
+Requires Bun, Node 22+, Codex subscription authentication, Convex and Cloudflare accounts. Install Poppler for PDFs (`brew install poppler` on macOS).
 
 ```sh
 bun install
@@ -41,52 +22,45 @@ bunx codex login
 bunx convex dev --once
 ```
 
-Keep the deployment settings generated in `.env.local`. Add `CONVEX_URL` and a random `RESEARCH_WRITE_SECRET` there. Put those same two values in `.dev.vars` for the local Cloudflare runtime. Set the secret in the Convex dashboard's environment variables. Do not prefix secrets with `VITE_`.
+Keep generated deployment settings in ignored `.env.local`. Add `CONVEX_URL` and a random `RESEARCH_WRITE_SECRET`; set the same secret in Convex. Put these server values in ignored `.dev.vars` for Workers emulation. Never prefix a secret with `VITE_`.
 
 ```sh
 bun run research:seed
-bun run research:worker  # leave running in one terminal
-bun run dev              # another terminal: http://127.0.0.1:3000
+bun run dev
 ```
 
-`bun run` puts the pinned Codex executable on PATH. For direct `bun scripts/research.ts` calls, set `RESEARCH_CODEX_COMMAND` to its absolute path if your global CLI is older. The default model is `gpt-6.1-sol`, medium reasoning.
+Local development uses TanStack's native server to avoid local Workers IPv6 stalls. `bun run dev:workers` tests Workers emulation; production builds use Workers. Collection uses the pinned Codex CLI, `gpt-6.1-sol` and medium reasoning.
 
-`bun run dev` uses TanStack's native server with `.env.local`. This avoids outbound IPv6 stalls in local Workers emulation on some networks. Use `bun run dev:workers` to test the Cloudflare runtime with `.dev.vars`; production builds and previews always use Workers.
-
-## Collect research
+## Collect and derive
 
 ```sh
-bun run research discover oxford --collect
-bun run research discover-batch 2
-bun run research extract mit https://news.mit.edu/2024/can-robots-learn-machine-dreams-1119
-bun run research synthesize
-bun run research status
+bun run research:scan                         # three archive searches per school; resumes
+bun run research:intake collect --budget 100 --minutes 30
+bun run research:intake classify --budget 20 --minutes 30
+bun run research:intake graph
+bun run research:signals derive --budget 3
+bun run research:signals market --budget 3
+bun run research:signals prepare
+bun run research:seed .research-cache/intake/publication.json
+bun run research:intake status
 ```
 
-The registry contains 50 institutions, with a 2021–2026 collection window. The checked-in corpus has **26 projects across ten schools** and is a **partial collection**, not all work from those institutions. Discovery is bounded to six sources per school per run; batches cover up to five schools without collected projects. Downloads are cached and records use stable IDs. Full-text extraction is limited to the first 140,000 characters. [Read the provenance and selection limitations](docs/SOURCES.md).
+Repeat bounded collection and classification commands to resume. Add `--retry` to bypass failure backoff. All discoveries, raw revisions, complete extracted text and classification responses stay under ignored `.research-cache/intake`. Changed content is preserved as a new revision. Convex mirrors immutable metadata and job coverage; full raw downloads stay local.
 
-## Deploy
+Classification comes before grouping or commercial selection. Unknown dates, ambiguous projects, failed parsers and isolated graph nodes remain in the archive. Publishing requires exact source evidence and verified 2025–2026 dates. Market research uses independent primary sources and verifies short excerpts against downloaded pages. It establishes context, not demand or willingness to pay.
 
-```sh
-bunx convex deploy
-# Set RESEARCH_WRITE_SECRET in the production Convex environment.
-bun run deploy
-bunx wrangler secret put CONVEX_URL
-bunx wrangler secret put RESEARCH_WRITE_SECRET
-CONVEX_URL=https://YOUR-PRODUCTION.convex.cloud bun run research:seed
-CONVEX_URL=https://YOUR-PRODUCTION.convex.cloud bun run research:worker
-```
+JavaScript-only galleries, scanned PDFs, unavailable pages and incomplete search remain collection gaps. [Operational details and limits](docs/INTAKE.md).
 
-Use the same capability across the server, Convex and the runner. The deployment URL is public; the capability is private. The public app remains browsable when the runner is offline, but new questions require it to be awake and running. Cloudflare does not run the subscription-backed Codex process.
-
-Questions are limited to five per visitor/hour, 100 total/day and 20 pending jobs. Answers use a bounded subset of the corpus, so absence from an answer is not proof that research does not exist. Market gaps are hypotheses; this corpus cannot establish market size, buyer demand or commercial viability on its own.
-
-## Verify
+## Deploy and verify
 
 ```sh
 bun run typecheck
 bun test
 bun run build
+bunx convex deploy --yes
+bun run deploy
 ```
 
-See [implementation plan](docs/PLAN.md) and [validation record](docs/VALIDATION.md). Source content belongs to its original authors; this repository stores selected excerpts and research notes, not full PDFs.
+Configure `CONVEX_URL` and `RESEARCH_WRITE_SECRET` as Worker secrets and set the matching capability in production Convex. Seed the production deployment with its `CONVEX_URL`. Codex runs on the operator's computer; it is not hosted by Cloudflare.
+
+Never commit credentials, raw downloads or local logs. Original source material belongs to its authors; this repository contains selected excerpts and research notes.

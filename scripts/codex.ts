@@ -1,6 +1,13 @@
-import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import {
+  mkdir,
+  mkdtemp,
+  readFile,
+  rm,
+  writeFile,
+  appendFile,
+} from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { dirname, join } from "node:path";
+import { basename, dirname, join } from "node:path";
 import { z } from "zod";
 
 // All visitor text and source excerpts are untrusted. Never grant this child tools.
@@ -95,14 +102,28 @@ export function strictSchema(node: any): any {
   }
   return copy;
 }
-function omitNulls(value: any): any {
-  if (Array.isArray(value)) return value.map(omitNulls);
-  if (value && typeof value === "object")
+export function normalizeOutput(value: any, node: any): any {
+  if (Array.isArray(value))
+    return value.map((item) => normalizeOutput(item, node?.items));
+  if (value && typeof value === "object") {
+    const nullable = (property: any): boolean =>
+      property?.type === "null" ||
+      (Array.isArray(property?.type) && property.type.includes("null")) ||
+      (property?.anyOf ?? property?.oneOf ?? []).some(nullable);
     return Object.fromEntries(
       Object.entries(value)
-        .filter(([, item]) => item !== null)
-        .map(([key, item]) => [key, omitNulls(item)]),
+        .filter(
+          ([key, item]) =>
+            item !== null ||
+            node?.required?.includes(key) ||
+            nullable(node?.properties?.[key]),
+        )
+        .map(([key, item]) => [
+          key,
+          normalizeOutput(item, node?.properties?.[key]),
+        ]),
     );
+  }
   return value;
 }
 export async function runCodex<T>(
@@ -132,12 +153,8 @@ export async function runCodex<T>(
     const schemaFile = join(scratch, "schema.json");
     const outputFile = join(scratch, "answer.json");
     // OpenAI strict structured output requires required nullable optional fields.
-    await writeFile(
-      schemaFile,
-      JSON.stringify(
-        strictSchema(z.toJSONSchema(schema, { target: "draft-7" })),
-      ),
-    );
+    const originalSchema = z.toJSONSchema(schema, { target: "draft-7" });
+    await writeFile(schemaFile, JSON.stringify(strictSchema(originalSchema)));
     const argv = [
       executable,
       "exec",
@@ -197,8 +214,23 @@ export async function runCodex<T>(
       timedOut = true;
       child.kill();
     }, options.timeoutMs ?? 180_000);
-    // Drain diagnostics, but never print them (may contain visitor data).
-    const diagnostics = new Response(child.stderr).text();
+    // Owner-only progress survives a timeout; never expose it through the app.
+    const progressPath = join(
+      process.cwd(),
+      ".research-cache",
+      "codex-runs",
+      `${basename(scratch)}.log`,
+    );
+    await mkdir(dirname(progressPath), { recursive: true, mode: 0o700 });
+    await writeFile(progressPath, "", { mode: 0o600 });
+    const diagnostics = (async () => {
+      const chunks: Uint8Array[] = [];
+      for await (const chunk of child.stderr) {
+        chunks.push(chunk);
+        await appendFile(progressPath, chunk);
+      }
+      return Buffer.concat(chunks).toString("utf8");
+    })();
     const code = await child.exited;
     clearTimeout(timer);
     const diagnosticText = await diagnostics;
@@ -216,7 +248,10 @@ export async function runCodex<T>(
       );
     }
     return schema.parse(
-      omitNulls(JSON.parse(await readFile(outputFile, "utf8"))),
+      normalizeOutput(
+        JSON.parse(await readFile(outputFile, "utf8")),
+        originalSchema,
+      ),
     );
   } finally {
     await rm(scratch, { recursive: true, force: true });

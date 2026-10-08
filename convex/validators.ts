@@ -1,13 +1,13 @@
 import { v } from "convex/values";
-const topic = v.union(
-  v.literal("Robot learning"),
-  v.literal("Simulation"),
-  v.literal("Manipulation"),
-  v.literal("Locomotion"),
-  v.literal("Autonomy"),
-  v.literal("Sensing"),
-  v.literal("Digital twins"),
+export const recordKind = v.union(
+  v.literal("candidate"),
+  v.literal("item"),
+  v.literal("cell"),
+  v.literal("edge"),
+  v.literal("cluster"),
+  v.literal("opportunity"),
 );
+const topic = v.string();
 export const evidence = v.object({
   sourceId: v.string(),
   quote: v.string(),
@@ -78,6 +78,31 @@ export const insight = v.object({
     v.literal("Early signal"),
     v.literal("Supported"),
     v.literal("Mixed evidence"),
+  ),
+  brief: v.optional(
+    v.object({
+      whatItIs: v.string(),
+      problem: v.string(),
+      breakthroughs: v.array(
+        v.object({
+          text: v.string(),
+          sourceIds: v.array(v.string()),
+        }),
+      ),
+      marketOpportunity: v.string(),
+      buyer: v.string(),
+      marketStatus: v.union(v.literal("hypothesis"), v.literal("researched")),
+      marketEvidence: v.array(
+        v.object({
+          title: v.string(),
+          url: v.string(),
+          excerpt: v.string(),
+          accessedAt: v.string(),
+        }),
+      ),
+      risks: v.array(v.string()),
+      nextQuestions: v.array(v.string()),
+    }),
   ),
 });
 export const meta = v.object({

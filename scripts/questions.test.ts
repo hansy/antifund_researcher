@@ -10,6 +10,7 @@ const modules = {
   "../convex/questions.ts": () => import("../convex/questions"),
   "../convex/research.ts": () => import("../convex/research"),
   "../convex/corpus.ts": () => import("../convex/corpus"),
+  "../convex/intake.ts": () => import("../convex/intake"),
   "../convex/_generated/server.ts": () => import("../convex/_generated/server"),
 };
 const secret = "test-capability-only";
@@ -26,6 +27,42 @@ const request = {
   clientKey: "a".repeat(64),
   text: "Where is simulation useful?",
 };
+
+test("collection metadata is immutable, idempotent and capability protected", async () => {
+  const t = convexTest(schema, modules);
+  const record = {
+    kind: "item" as const,
+    recordId: "a",
+    revision: "a".repeat(64),
+    payload: '{"date":null}',
+    updatedAt: "2026-10-08",
+  };
+  await expect(
+    t.mutation(api.intake.recordBatch, { secret: "wrong", records: [record] }),
+  ).rejects.toThrow("Unauthorized");
+  expect(
+    await t.mutation(api.intake.recordBatch, { secret, records: [record] }),
+  ).toEqual({ added: 1 });
+  expect(
+    await t.mutation(api.intake.recordBatch, { secret, records: [record] }),
+  ).toEqual({ added: 0 });
+  expect(
+    await t.mutation(api.intake.recordBatch, {
+      secret,
+      records: [
+        { ...record, revision: "b".repeat(64), payload: '{"date":"2025"}' },
+      ],
+    }),
+  ).toEqual({ added: 1 });
+  const records = await t.run((ctx) =>
+    ctx.db.query("collectionRecords").collect(),
+  );
+  expect(records).toHaveLength(2);
+  expect(records.map((r) => r.payload)).toContain(record.payload);
+  await expect(t.query(api.intake.status, { secret: "wrong" })).rejects.toThrow(
+    "Unauthorized",
+  );
+});
 
 test("writes require the capability and questions require a live runner", async () => {
   const t = convexTest(schema, modules);

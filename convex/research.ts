@@ -8,10 +8,19 @@ export const ingest = mutation({
   handler: async (ctx, args) => {
     requireSecret(args.secret);
     const data = validateCorpus(args.corpus);
-    // Signals are the current synthesis; preserving removed ones would display stale claims.
+    // The UI shows the current synthesis; superseded work remains in the archive.
     const currentSignals = new Set(data.insights.map((insight) => insight.id));
     for (const previous of await ctx.db.query("insights").collect()) {
-      if (!currentSignals.has(previous.id)) await ctx.db.delete(previous._id);
+      if (!currentSignals.has(previous.id)) {
+        const { _id, _creationTime, ...record } = previous;
+        await ctx.db.insert("researchRevisions", {
+          kind: "insights",
+          recordId: previous.id,
+          recordedAt: Date.now(),
+          payload: JSON.stringify(record),
+        });
+        await ctx.db.delete(_id);
+      }
     }
     for (const table of [
       "schools",
@@ -24,8 +33,21 @@ export const ingest = mutation({
           .query(table)
           .withIndex("by_slug", (q) => q.eq("id", record.id))
           .unique();
-        if (existing) await ctx.db.replace(existing._id, record);
-        else await ctx.db.insert(table, record);
+        if (existing) {
+          const { _id, _creationTime, ...old } = existing;
+          if (
+            JSON.stringify(old) !== JSON.stringify(record) &&
+            table !== "schools"
+          ) {
+            await ctx.db.insert("researchRevisions", {
+              kind: table,
+              recordId: record.id,
+              recordedAt: Date.now(),
+              payload: JSON.stringify(old),
+            });
+          }
+          await ctx.db.replace(_id, record);
+        } else await ctx.db.insert(table, record);
       }
     }
     const existing = await ctx.db

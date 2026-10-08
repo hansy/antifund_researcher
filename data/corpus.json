@@ -1791,15 +1791,139 @@
   ],
   "insights": [
     {
+      "id": "generated-training-review",
+      "title": "Cheaper robot training data",
+      "summary": "Teach robots new tasks with less human training data.",
+      "topic": "Robot learning",
+      "problem": "Robot developers need varied examples of a task, but collecting them with robot arms in many locations takes equipment and operator time.",
+      "statusQuo": "Teams collect robot demonstrations and build simulation tasks separately.",
+      "gap": "Hypothesis: curated demonstrations plus useful simulated variations could lower the cost of teaching each new robot task.",
+      "opportunity": "A data service that records people demonstrating a specific robot task, adds simulated variations, and delivers examples tested on the buyer’s robot.",
+      "evidence": "Reported: UMI demonstrates handheld teaching and policies deployed on UR5 and Franka robots. Reported: RoboGen generates simulated tasks, environments and learning sequences. LucidSim reports physical quadruped parkour transfer without real-world training data. Neither proves cheaper manipulation training.",
+      "counterpoint": "Simulation success may not transfer to a buyer’s hardware; UMI still has embodiment and data-diversity constraints.",
+      "nextQuestion": "For one paid customer task, can this reduce collection and training cost while matching hardware success on unseen objects?",
+      "projectIds": [
+        "umi",
+        "robogen",
+        "lucidsim"
+      ],
+      "sourceIds": [
+        "source-umi",
+        "source-robogen",
+        "source-lucidsim"
+      ],
+      "confidence": "Early signal",
+      "brief": {
+        "whatItIs": "A data service that records people demonstrating a specific robot task, adds simulated variations, and delivers examples tested on the buyer’s robot.",
+        "problem": "Robot developers need varied examples of a task, but collecting them with robot arms in many locations takes equipment and operator time.",
+        "breakthroughs": [
+          {
+            "text": "Reported: UMI demonstrates handheld teaching and policies deployed on UR5 and Franka robots.",
+            "sourceIds": [
+              "source-umi"
+            ]
+          },
+          {
+            "text": "Reported: RoboGen generates simulated tasks, environments and learning sequences. LucidSim reports physical quadruped parkour transfer without real-world training data. Neither proves cheaper manipulation training.",
+            "sourceIds": [
+              "source-robogen",
+              "source-lucidsim"
+            ]
+          }
+        ],
+        "marketOpportunity": "Hypothesis: charge per validated task dataset or ongoing data collection contract. NVIDIA already supplies simulation and synthetic-data tools; the potential wedge is reliable task-specific data, with measured hardware performance.",
+        "buyer": "Robot manufacturers and teams building manipulation models.",
+        "marketStatus": "researched",
+        "marketEvidence": [
+          {
+            "title": "NVIDIA robotics platform",
+            "url": "https://www.nvidia.com/en-us/industries/robotics/",
+            "excerpt": "Synthetic data supplements real-world data, helping address data scarcity and expand the range of environments and scenarios used for training.",
+            "accessedAt": "2026-10-08"
+          }
+        ],
+        "risks": [
+          "Simulation success may not transfer to a buyer’s hardware; UMI still has embodiment and data-diversity constraints.",
+          "Established platforms and open research tools may make basic data generation a commodity."
+        ],
+        "nextQuestions": [
+          "For one paid customer task, can this reduce collection and training cost while matching hardware success on unseen objects?",
+          "Does the buyer want data, an improved policy, or a complete automation system?"
+        ]
+      }
+    },
+    {
+      "id": "factory-robot-setup",
+      "title": "Factory robots with less setup",
+      "summary": "Let factory workers teach robot arms by showing them what to do.",
+      "topic": "Manipulation",
+      "problem": "Small changes in parts or their placement can require robot reprogramming, fixtures, or new demonstrations before production resumes.",
+      "statusQuo": "Factories use programmed robot motions and task-specific setups; learned controllers offer an alternative that still needs evaluation.",
+      "gap": "Hypothesis: a repeatable teaching and recovery workflow could make automation economical for changing, lower-volume tasks.",
+      "opportunity": "Robot control software that lets a technician demonstrate a narrow assembly task, train it, and monitor failures during operation.",
+      "evidence": "Reported: SERL shows PCB insertion and cable routing under disturbances and reports 25–50 minute policy training for its demonstrated setups. Reported: ALOHA demonstrates fine two-arm manipulation with action sequences. Diffusion Policy evaluates 12 tasks and demonstrates physical manipulation.",
+      "counterpoint": "Research training time is not factory setup time; throughput, defect rates and maintenance remain unmeasured.",
+      "nextQuestion": "Can one production line meet its cycle-time and defect limits after a part change with less technician time?",
+      "projectIds": [
+        "serl",
+        "aloha",
+        "diffusion-policy"
+      ],
+      "sourceIds": [
+        "source-serl",
+        "source-aloha",
+        "source-diffusion-policy"
+      ],
+      "confidence": "Early signal",
+      "brief": {
+        "whatItIs": "Robot control software that lets a technician demonstrate a narrow assembly task, train it, and monitor failures during operation.",
+        "problem": "Small changes in parts or their placement can require robot reprogramming, fixtures, or new demonstrations before production resumes.",
+        "breakthroughs": [
+          {
+            "text": "Reported: SERL shows PCB insertion and cable routing under disturbances and reports 25–50 minute policy training for its demonstrated setups.",
+            "sourceIds": [
+              "source-serl"
+            ]
+          },
+          {
+            "text": "Reported: ALOHA demonstrates fine two-arm manipulation with action sequences. Diffusion Policy evaluates 12 tasks and demonstrates physical manipulation.",
+            "sourceIds": [
+              "source-aloha",
+              "source-diffusion-policy"
+            ]
+          }
+        ],
+        "marketOpportunity": "Hypothesis: sell deployment and support for one assembly task before expanding across a factory. Amazon’s deployed picking systems show commercial demand for better manipulation, but do not prove willingness to buy this assembly product.",
+        "buyer": "Automation integrators and electronics manufacturers with repetitive insertion or cable-handling tasks.",
+        "marketStatus": "researched",
+        "marketEvidence": [
+          {
+            "title": "Amazon Vulcan picking and stowing",
+            "url": "https://www.aboutamazon.com/news/operations/amazon-vulcan-robot-pick-stow-touch",
+            "excerpt": "Vulcan is Amazon's first robot with a sense of touch, using sensors to pick and stow items at fulfillment centers.",
+            "accessedAt": "2026-10-08"
+          }
+        ],
+        "risks": [
+          "Research training time is not factory setup time; throughput, defect rates and maintenance remain unmeasured.",
+          "Customer integration and safety requirements may outweigh savings from faster training."
+        ],
+        "nextQuestions": [
+          "Can one production line meet its cycle-time and defect limits after a part change with less technician time?",
+          "Who pays for setup, recovery and ongoing support: the factory or its integrator?"
+        ]
+      }
+    },
+    {
       "id": "compact-survey-maps",
-      "title": "Compact maps for aerial surveys",
-      "summary": "Osprey demonstrates autonomous industrial mapping; PlanarMesh reports smaller LiDAR reconstructions. Combining them could simplify survey delivery, but integration remains untested.",
+      "title": "Faster drone inspection maps",
+      "summary": "Turn drone scans into smaller, easier-to-use inspection maps.",
       "topic": "Sensing",
       "problem": "Mapping complex industrial structures requires online mapping and mission planning, while detailed LiDAR reconstruction must remain computationally efficient.",
       "statusQuo": "Reported alternatives include GPS-guided preplanned flights, pilot-flown surveys, terrestrial laser scanners, and TSDF, occupancy or voxel-based reconstruction.",
       "gap": "Hypothesis: survey teams could benefit from autonomous coverage and compact deliverables in one workflow. The excerpts do not establish that existing products lack this combination.",
-      "opportunity": "An aerial survey processing package for industrial surveying teams that combines multi-flight mapping with compact surface reconstruction and inspection imagery.",
-      "evidence": "Reported: Osprey achieved greater coverage than the manual survey alternatives across three sites totaling 2528 m², using 112 minutes of autonomous flight; no percentage coverage improvement is supplied. PlanarMesh reports files 10 times smaller than raw input and more than 5 times smaller than compared mesh methods, with comparable or better reconstruction accuracy and around 2 Hz processing for a 64-beam sensor.",
+      "opportunity": "Software that turns drone scans of industrial sites into compact 3D maps with inspection images linked to their locations.",
+      "evidence": "Reported: Osprey autonomously mapped three industrial sites totaling 2528 m² in 112 flight minutes and achieved greater coverage than the manual survey alternatives. Reported: PlanarMesh produces files 10 times smaller than raw input and more than 5 times smaller than compared mesh methods, at around 2 Hz for a 64-beam sensor.",
       "counterpoint": "These are separate evaluations. The excerpts do not show PlanarMesh integrated into Osprey, quantify survey time savings, or establish that compressed maps retain all inspection-relevant detail.",
       "nextQuestion": "On the same industrial survey, does integrating PlanarMesh preserve inspection detail while reducing storage, processing and deliverable preparation time?",
       "projectIds": [
@@ -1810,62 +1934,55 @@
         "oxford-aerial-robotics",
         "oxford-planarmesh-2025-source"
       ],
-      "confidence": "Early signal"
-    },
-    {
-      "id": "cycling-scenario-tests",
-      "title": "Turn cycling observations into tests",
-      "summary": "RobotCycle identifies traffic interactions and risk; GraphSCENE generates requested traffic scenarios. Their combination suggests a test-authoring tool focused on cyclist encounters.",
-      "topic": "Simulation",
-      "problem": "Manually creating diverse, safety-critical traffic simulations is time-consuming. RobotCycle supplies observations of cyclist interactions that could inform those tests.",
-      "statusQuo": "GraphSCENE describes manual scenario creation as the current alternative. RobotCycle already provides datasets and tools for risk analysis, visualization, calibration and annotation.",
-      "gap": "Hypothesis: linking observed cyclist interactions to configurable simulations could reduce scenario preparation effort. Neither excerpt demonstrates this connection or a missing commercial offering.",
-      "opportunity": "A scenario-authoring tool for autonomous vehicle validation engineers that converts selected cycling interactions into reproducible simulations with explicit agents, infrastructure and criticality settings.",
-      "evidence": "Reported: RobotCycle provides multimodal cycling observations, agent relations, attention heatmaps and risk analysis. GraphSCENE generates temporal scene graphs constrained by an ontology and renders them in simulation; it reports better requested-link prediction than baselines. Neither excerpt quantifies preparation-time savings or safety improvement.",
-      "counterpoint": "Accurate graph links do not establish faithful cyclist behavior or useful vehicle failure detection. RobotCycle's excerpt does not establish compatibility with GraphSCENE's ontology, and its existing tools may already satisfy some analysis needs.",
-      "nextQuestion": "Can engineers reproduce observed cyclist encounters through this connection faster than manual authoring, while preserving the interactions that trigger vehicle failures?",
-      "projectIds": [
-        "oxford-robotcycle-2025",
-        "oxford-graphscene-2025"
-      ],
-      "sourceIds": [
-        "oxford-robotcycle-2025-source",
-        "oxford-graphscene-2025-source"
-      ],
-      "confidence": "Early signal"
-    },
-    {
-      "id": "generated-training-review",
-      "title": "Review generated robot training tasks",
-      "summary": "RoboGen generates tasks and learning sequences; Eureka generates reward functions. A review workflow could help engineers decide which generated training setups are useful.",
-      "topic": "Simulation",
-      "problem": "A generated task needs an environment, subtasks and a reward that actually measures the intended behavior. The excerpts demonstrate generation of these pieces separately.",
-      "statusQuo": "RoboGen proposes environments and sequential sub-skills. Eureka generates rewards and compares them with expert human-engineered rewards; engineers could use these approaches separately.",
-      "gap": "Hypothesis: reviewing task and reward consistency across generated setups is a useful product function. The supplied evidence does not measure review burden or establish an unmet market need.",
-      "opportunity": "A simulation review tool for robot learning engineers that presents generated tasks, reward code and resulting behavior together, with reproducible evaluations before accepting a training setup.",
-      "evidence": "Reported: RoboGen proposes high-level tasks, generates environments, decomposes goals and learns sub-skills sequentially. Eureka claims generated rewards outperform expert human-engineered rewards. The cited excerpts provide no numerical performance gain or engineering-time reduction.",
-      "counterpoint": "Neither excerpt demonstrates an integrated workflow, hardware transfer, or that generated rewards reliably capture user intent. Existing generation tools may already provide enough review functionality for some users.",
-      "nextQuestion": "Across a fixed set of tasks, does reviewing generated tasks and rewards together reduce engineer correction time while maintaining independently measured task success?",
-      "projectIds": [
-        "robogen",
-        "eureka"
-      ],
-      "sourceIds": [
-        "source-robogen",
-        "source-eureka"
-      ],
-      "confidence": "Early signal"
+      "confidence": "Early signal",
+      "brief": {
+        "whatItIs": "Software that turns drone scans of industrial sites into compact 3D maps with inspection images linked to their locations.",
+        "problem": "Mapping complex industrial structures requires online mapping and mission planning, while detailed LiDAR reconstruction must remain computationally efficient.",
+        "breakthroughs": [
+          {
+            "text": "Reported: Osprey autonomously mapped three industrial sites totaling 2528 m² in 112 flight minutes and achieved greater coverage than the manual survey alternatives.",
+            "sourceIds": [
+              "oxford-aerial-robotics"
+            ]
+          },
+          {
+            "text": "Reported: PlanarMesh produces files 10 times smaller than raw input and more than 5 times smaller than compared mesh methods, at around 2 Hz for a 64-beam sensor.",
+            "sourceIds": [
+              "oxford-planarmesh-2025-source"
+            ]
+          }
+        ],
+        "marketOpportunity": "Hypothesis: sell processing software per site or survey to reduce map handling and report preparation. Flyability already maps inspection findings onto 3D models, so this needs a demonstrated advantage in coverage, file size or delivery time.",
+        "buyer": "Industrial survey firms, drone inspection operators and asset maintenance teams.",
+        "marketStatus": "researched",
+        "marketEvidence": [
+          {
+            "title": "Flyability Elios 3 inspection workflow",
+            "url": "https://www.flyability.com/elios-3",
+            "excerpt": "All data and points of interest captured during flight are automatically mapped onto a 3D model of your asset",
+            "accessedAt": "2026-10-08"
+          }
+        ],
+        "risks": [
+          "These are separate evaluations. The excerpts do not show PlanarMesh integrated into Osprey, quantify survey time savings, or establish that compressed maps retain all inspection-relevant detail.",
+          "Existing inspection products already provide mapping and report workflows; compact files alone may not justify a separate purchase."
+        ],
+        "nextQuestions": [
+          "On the same industrial survey, does integrating PlanarMesh preserve inspection detail while reducing storage, processing and deliverable preparation time?",
+          "Will an inspection operator pay for faster deliverables, and which defect details must survive compression?"
+        ]
+      }
     },
     {
       "id": "terrain-fallback-tests",
-      "title": "Test terrain failures and fallbacks",
-      "summary": "A reported low-friction parkour failure contrasts with proprioceptive fallback and hybrid control approaches. This suggests testing controller choices against specific terrain hazards.",
+      "title": "Safer inspection robots",
+      "summary": "Check where inspection robots can walk safely before sending them into a site.",
       "topic": "Locomotion",
-      "problem": "Robot Parkour explicitly reports failure to leap from a low-friction platform. Obstacle execution alone therefore leaves a concrete terrain-dependent failure mode unresolved.",
+      "problem": "An inspection robot that slips, falls or gets stuck can interrupt a mission and require a person to recover it in a hazardous area.",
       "statusQuo": "The excerpts describe proprioceptive fallback in ANYmal's hiking controller and classic model-based control combined with learning in DTC as alternative approaches to difficult terrain.",
       "gap": "Hypothesis: teams need a repeatable way to compare obstacle skills and fallback behavior under terrain changes. The excerpts do not establish demand for a standalone testing product.",
-      "opportunity": "A terrain test suite for quadruped control engineers that measures success, slips and recovery across controlled friction changes, including tests of fallback and hybrid controllers.",
-      "evidence": "Reported: Robot Parkour fails on a low-friction leap. ANYmal's hiking source says it 'plays it safe and relies on its proprioception.' DTC reports negotiating difficult terrain through combination with classic model-based control. These excerpts give no numerical comparative improvement.",
+      "opportunity": "A terrain testing service that measures where a legged inspection robot can walk safely, when it should stop, and how it recovers.",
+      "evidence": "Reported: Robot Parkour shows a failed leap on a low-friction platform. Reported: ANYmal’s hiking controller can fall back to internal sensing; DTC combines learned and model-based control to negotiate difficult terrain. These studies do not compare the same hazards.",
       "counterpoint": "The systems were not compared on the same obstacle. Proprioception or hybrid control cannot be assumed to solve the reported leap failure, which may also depend on physical traction limits.",
       "nextQuestion": "On identical low-friction obstacles, which failures can fallback or hybrid control prevent, and which require avoiding the maneuver entirely?",
       "projectIds": [
@@ -1878,29 +1995,104 @@
         "source-anymal-hike",
         "source-dtc"
       ],
-      "confidence": "Mixed evidence"
+      "confidence": "Mixed evidence",
+      "brief": {
+        "whatItIs": "A terrain testing service that measures where a legged inspection robot can walk safely, when it should stop, and how it recovers.",
+        "problem": "An inspection robot that slips, falls or gets stuck can interrupt a mission and require a person to recover it in a hazardous area.",
+        "breakthroughs": [
+          {
+            "text": "Reported: Robot Parkour shows a failed leap on a low-friction platform.",
+            "sourceIds": [
+              "source-robot-parkour"
+            ]
+          },
+          {
+            "text": "Reported: ANYmal’s hiking controller can fall back to internal sensing; DTC combines learned and model-based control to negotiate difficult terrain. These studies do not compare the same hazards.",
+            "sourceIds": [
+              "source-anymal-hike",
+              "source-dtc"
+            ]
+          }
+        ],
+        "marketOpportunity": "Hypothesis: sell independent acceptance tests and recurring checks as controllers change. ANYbotics already markets autonomous industrial inspections; whether operators will buy separate terrain assurance needs customer interviews.",
+        "buyer": "Legged robot manufacturers and industrial operators evaluating inspection fleets.",
+        "marketStatus": "researched",
+        "marketEvidence": [
+          {
+            "title": "ANYbotics industrial inspection solutions",
+            "url": "https://www.anybotics.com/",
+            "excerpt": "Our ANYmal robotic solutions automate industrial inspections.",
+            "accessedAt": "2026-10-08"
+          }
+        ],
+        "risks": [
+          "The systems were not compared on the same obstacle. Proprioception or hybrid control cannot be assumed to solve the reported leap failure, which may also depend on physical traction limits.",
+          "A test service cannot certify general safety from a small set of terrain trials; manufacturers may already test sufficiently in-house."
+        ],
+        "nextQuestions": [
+          "On identical low-friction obstacles, which failures can fallback or hybrid control prevent, and which require avoiding the maneuver entirely?",
+          "Which operator would pay for independent terrain tests, and which missed missions or recoveries would those tests prevent?"
+        ]
+      }
     },
     {
-      "id": "drone-adaptation-workflow",
-      "title": "Measure drone adaptation effort",
-      "summary": "Depth Transfer adapts an encoder using real stereo data; MAVRL reports real deployment after fine-tuning. Both suggest a workflow for measuring the work required to move learned navigation onto hardware.",
-      "topic": "Autonomy",
-      "problem": "Both cited approaches require a real-world adaptation step before or during deployment. The effort and failure reduction associated with that step remain unquantified in the excerpts.",
-      "statusQuo": "Depth Transfer refines its encoder through domain adaptation using real stereo depth. MAVRL deploys after what its source calls 'minimal fine-tuning.'",
-      "gap": "Hypothesis: drone autonomy teams could benefit from repeatable adaptation and evaluation procedures. The excerpts do not show that a common procedure works across these methods or that current tooling is inadequate.",
-      "opportunity": "An adaptation and evaluation package for drone navigation engineers that records real-data requirements, runs tuning procedures, and compares navigation failures before and after adaptation.",
-      "evidence": "Reported: Depth Transfer uses stereo depth from real environments to refine its encoder during deployment. MAVRL reports successful deployment on a real drone after minimal fine-tuning. Neither excerpt quantifies data volume, tuning time or improvement in navigation success.",
-      "counterpoint": "Encoder adaptation and navigation fine-tuning are different interventions. Successful deployment does not establish reliability across environments, and 'minimal' is not a measured engineering budget.",
-      "nextQuestion": "For each method, how much real data and engineer time are required to meet a fixed navigation success threshold in a previously unseen environment?",
+      "id": "cycling-scenario-tests",
+      "title": "Cyclist safety tests",
+      "summary": "Turn real cyclist encounters into repeatable tests for vehicle safety systems.",
+      "topic": "Simulation",
+      "problem": "Manually creating diverse, safety-critical traffic simulations is time-consuming. RobotCycle supplies observations of cyclist interactions that could inform those tests.",
+      "statusQuo": "GraphSCENE describes manual scenario creation as the current alternative. RobotCycle already provides datasets and tools for risk analysis, visualization, calibration and annotation.",
+      "gap": "Hypothesis: linking observed cyclist interactions to configurable simulations could reduce scenario preparation effort. Neither excerpt demonstrates this connection or a missing commercial offering.",
+      "opportunity": "Software that converts recorded cyclist encounters into configurable simulations for testing a vehicle’s response.",
+      "evidence": "Reported: RobotCycle supplies multimodal cycling data and tools for traffic and risk analysis, with attention heatmaps and infrastructure relationships. No safety improvement is measured. Reported: GraphSCENE generates requested traffic relationships and renders scenarios in simulation. The source reports better link prediction than baselines, not reduced crashes.",
+      "counterpoint": "Accurate graph links do not establish faithful cyclist behavior or useful vehicle failure detection. RobotCycle's excerpt does not establish compatibility with GraphSCENE's ontology, and its existing tools may already satisfy some analysis needs.",
+      "nextQuestion": "Can engineers reproduce observed cyclist encounters through this connection faster than manual authoring, while preserving the interactions that trigger vehicle failures?",
       "projectIds": [
-        "depth-transfer",
-        "mavrl"
+        "oxford-robotcycle-2025",
+        "oxford-graphscene-2025"
       ],
       "sourceIds": [
-        "source-depth-transfer",
-        "source-mavrl"
+        "oxford-robotcycle-2025-source",
+        "oxford-graphscene-2025-source"
       ],
-      "confidence": "Early signal"
+      "confidence": "Early signal",
+      "brief": {
+        "whatItIs": "Software that converts recorded cyclist encounters into configurable simulations for testing a vehicle’s response.",
+        "problem": "Manually creating diverse, safety-critical traffic simulations is time-consuming. RobotCycle supplies observations of cyclist interactions that could inform those tests.",
+        "breakthroughs": [
+          {
+            "text": "Reported: RobotCycle supplies multimodal cycling data and tools for traffic and risk analysis, with attention heatmaps and infrastructure relationships. No safety improvement is measured.",
+            "sourceIds": [
+              "oxford-robotcycle-2025-source"
+            ]
+          },
+          {
+            "text": "Reported: GraphSCENE generates requested traffic relationships and renders scenarios in simulation. The source reports better link prediction than baselines, not reduced crashes.",
+            "sourceIds": [
+              "oxford-graphscene-2025-source"
+            ]
+          }
+        ],
+        "marketOpportunity": "Hypothesis: sell scenario libraries and test-authoring software for difficult cyclist encounters. Euro NCAP already evaluates vehicle responses to cyclists; these simulations would support engineering tests and cannot replace formal vehicle assessment.",
+        "buyer": "Vehicle manufacturers, driver-assistance suppliers and autonomous-driving validation teams.",
+        "marketStatus": "researched",
+        "marketEvidence": [
+          {
+            "title": "Euro NCAP CUPRA Leon assessment",
+            "url": "https://www.euroncap.com/assessments/cupra/leon/1122/",
+            "excerpt": "The system performed well in tests of its reaction to cyclists.",
+            "accessedAt": "2026-10-08"
+          }
+        ],
+        "risks": [
+          "Accurate graph links do not establish faithful cyclist behavior or useful vehicle failure detection. RobotCycle's excerpt does not establish compatibility with GraphSCENE's ontology, and its existing tools may already satisfy some analysis needs.",
+          "Testing tools already exist; customers need useful failure discovery, not merely more scenarios."
+        ],
+        "nextQuestions": [
+          "Can engineers reproduce observed cyclist encounters through this connection faster than manual authoring, while preserving the interactions that trigger vehicle failures?",
+          "Can the generated cyclist encounters reveal vehicle failures that current test libraries miss?"
+        ]
+      }
     }
   ],
   "meta": {

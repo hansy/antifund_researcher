@@ -64,6 +64,30 @@ export function validateCorpus(input: unknown): Corpus {
     );
     if (insight.sourceIds.some((id) => !linked.has(id)))
       throw new Error(`Insight source is unrelated: ${insight.id}`);
+    if (insight.brief) {
+      const allowed = new Set(insight.sourceIds);
+      if (
+        insight.brief.breakthroughs.some((claim) =>
+          claim.sourceIds.some((id) => !allowed.has(id)),
+        )
+      )
+        throw new Error(`Breakthrough source is unrelated: ${insight.id}`);
+      if (
+        insight.brief.marketStatus === "researched" &&
+        !insight.brief.marketEvidence.length
+      )
+        throw new Error(`Market research requires evidence: ${insight.id}`);
+      for (const evidence of insight.brief.marketEvidence) {
+        const url = new URL(evidence.url);
+        if (url.protocol !== "https:" || url.username || url.password)
+          throw new Error("Market evidence must use a public HTTPS source");
+        if (
+          !Number.isFinite(Date.parse(evidence.accessedAt)) ||
+          Date.parse(evidence.accessedAt) > now
+        )
+          throw new Error("Invalid market research date");
+      }
+    }
   }
   return data;
 }

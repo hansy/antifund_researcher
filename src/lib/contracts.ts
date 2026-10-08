@@ -46,16 +46,41 @@ export const projectSchema = z.object({
   statusQuo: z.string(),
   results: z.string(),
   limitations: z.string(),
-  topics: z.array(z.enum(topics)),
+  topics: z.array(z.string().min(1)),
   stage: z.enum(["Concept", "Simulation", "Hardware", "Deployment"]),
   authors: z.array(z.string()),
   evidence: z.array(evidenceSchema).min(1),
+});
+export const signalBriefSchema = z.object({
+  whatItIs: z.string().min(1),
+  problem: z.string().min(1),
+  breakthroughs: z
+    .array(
+      z.object({
+        text: z.string().min(1),
+        sourceIds: z.array(z.string()).min(1),
+      }),
+    )
+    .min(1),
+  marketOpportunity: z.string().min(1),
+  buyer: z.string().min(1),
+  marketStatus: z.enum(["hypothesis", "researched"]),
+  marketEvidence: z.array(
+    z.object({
+      title: z.string().min(1),
+      url: z.url(),
+      excerpt: z.string().min(1),
+      accessedAt: z.string(),
+    }),
+  ),
+  risks: z.array(z.string()),
+  nextQuestions: z.array(z.string()),
 });
 export const insightSchema = z.object({
   id: z.string(),
   title: z.string(),
   summary: z.string(),
-  topic: z.enum(topics),
+  topic: z.string().min(1),
   problem: z.string(),
   statusQuo: z.string(),
   gap: z.string(),
@@ -66,6 +91,7 @@ export const insightSchema = z.object({
   projectIds: z.array(z.string()).min(2),
   sourceIds: z.array(z.string()).min(1),
   confidence: z.enum(["Early signal", "Supported", "Mixed evidence"]),
+  brief: signalBriefSchema.optional(),
 });
 export const corpusSchema = z.object({
   schools: z.array(schoolSchema),
@@ -95,5 +121,6 @@ export type School = z.infer<typeof schoolSchema>;
 export type Source = z.infer<typeof sourceSchema>;
 export type Project = z.infer<typeof projectSchema>;
 export type Insight = z.infer<typeof insightSchema>;
+export type SignalBrief = z.infer<typeof signalBriefSchema>;
 export type Corpus = z.infer<typeof corpusSchema>;
 export type Answer = z.infer<typeof answerSchema>;

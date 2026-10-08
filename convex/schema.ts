@@ -1,11 +1,34 @@
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
 import { school, source, project, insight, meta, answer } from "./validators";
+import { recordKind } from "./validators";
 export default defineSchema({
   schools: defineTable(school).index("by_slug", ["id"]),
   sources: defineTable(source).index("by_slug", ["id"]),
   projects: defineTable(project).index("by_slug", ["id"]),
   insights: defineTable(insight).index("by_slug", ["id"]),
+  researchRevisions: defineTable({
+    kind: v.union(
+      v.literal("sources"),
+      v.literal("projects"),
+      v.literal("insights"),
+    ),
+    recordId: v.string(),
+    recordedAt: v.number(),
+    payload: v.string(),
+  }).index("by_record", ["kind", "recordId"]),
+  collectionRecords: defineTable({
+    kind: recordKind,
+    recordId: v.string(),
+    revision: v.string(),
+    payload: v.string(),
+    updatedAt: v.string(),
+  }).index("by_revision", ["kind", "recordId", "revision"]),
+  collectionState: defineTable({
+    key: v.string(),
+    updatedAt: v.string(),
+    summary: v.string(),
+  }).index("by_key", ["key"]),
   meta: defineTable({ key: v.string(), value: meta }).index("by_key", ["key"]),
   questions: defineTable({
     text: v.string(),

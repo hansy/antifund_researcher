@@ -9,6 +9,7 @@
  */
 
 import type * as corpus from "../corpus.js";
+import type * as intake from "../intake.js";
 import type * as questions from "../questions.js";
 import type * as research from "../research.js";
 import type * as security from "../security.js";
@@ -22,6 +23,7 @@ import type {
 
 declare const fullApi: ApiFromModules<{
   corpus: typeof corpus;
+  intake: typeof intake;
   questions: typeof questions;
   research: typeof research;
   security: typeof security;
