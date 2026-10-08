@@ -7,6 +7,7 @@ import {
   preserveCandidate,
   collect,
   type Item,
+  graph,
 } from "./intake";
 import { publishable, validateDraft } from "./opportunities";
 import { mkdtemp, readFile, rm } from "node:fs/promises";
@@ -84,7 +85,10 @@ test("signal synthesis rejects unrelated project references", () => {
     risks: [],
     nextQuestions: [],
   };
-  const items = [{ id: "a" }, { id: "b" }] as Item[];
+  const items = [
+    { id: "a", candidateId: "a", title: "A" },
+    { id: "b", candidateId: "b", title: "B" },
+  ] as Item[];
   expect(validateDraft(draft, items)).toBe(draft);
   expect(() =>
     validateDraft(
@@ -95,6 +99,55 @@ test("signal synthesis rejects unrelated project references", () => {
   expect(() =>
     validateDraft({ ...draft, evidenceItemIds: ["a", "a"] }, items),
   ).toThrow();
+  expect(() =>
+    validateDraft(
+      draft,
+      items.map((i) => ({ ...i, candidateId: "a", title: "A" })),
+    ),
+  ).toThrow();
+});
+
+test("keyword regrouping preserves previously derived semantic links", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "intake-graph-test-"));
+  try {
+    const state = emptyState([]);
+    state.items = ["a", "b"].map((id): Item => ({
+      id,
+      candidateId: id,
+      title: id,
+      keywords: [],
+      domain: "Unknown",
+      revisionHash: "revision",
+      schoolIds: [],
+      category: "ambiguous",
+      problem: "Unknown",
+      approach: "Unknown",
+      embodiment: "unknown",
+      readiness: "Unknown",
+      date: null,
+      dateStatus: "unverified",
+      timeframe: "unknown",
+      evidence: [],
+      reportedResults: "Unknown",
+      interpretation: "Unknown",
+      unansweredQuestions: [],
+      classificationStatus: "ambiguous",
+    }));
+    state.edges = [
+      {
+        from: "a",
+        to: "b",
+        score: 1,
+        sharedKeywords: [],
+        reasons: ["Semantic hypothesis: shared buyer problem"],
+      },
+    ];
+    await graph(state, { root: directory });
+    expect(state.edges).toHaveLength(1);
+    expect(state.clusters[0]?.itemIds).toEqual(["a", "b"]);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
 });
 
 test("unsupported downloads survive parser failure as archived raw revisions", async () => {

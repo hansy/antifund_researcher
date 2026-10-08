@@ -68,8 +68,14 @@ export function validateDraft(
 ) {
   const allowed = new Set(items.map((i) => i.id));
   const selected = new Set(draft.evidenceItemIds);
+  const identities = new Set(
+    items
+      .filter((i) => selected.has(i.id))
+      .map((i) => i.candidateId + ":" + i.title.trim().toLowerCase()),
+  );
   if (
     selected.size < 2 ||
+    identities.size < 2 ||
     [...selected].some((id) => !allowed.has(id)) ||
     draft.breakthroughs.some((b) => b.itemIds.some((id) => !selected.has(id)))
   )
@@ -80,7 +86,13 @@ export function validateDraft(
 }
 /** Find related buyer problems even when classifications use different keywords. */
 export async function group(state: State, options: Options = {}) {
-  const items = state.items.filter(eligible);
+  const items = [
+    ...new Map(
+      state.items
+        .filter(eligible)
+        .map((i) => [i.candidateId + ":" + i.title.trim().toLowerCase(), i]),
+    ).values(),
+  ];
   let calls = 0;
   for (let start = 0; start < items.length - 1; start += 40) {
     if (calls++ >= (options.budget ?? 3)) break;
@@ -102,6 +114,15 @@ export async function group(state: State, options: Options = {}) {
         groupSchema,
         { timeoutMs: 180_000 },
       );
+      const directory = join(root(options), "groups");
+      await mkdir(directory, { recursive: true, mode: 0o700 });
+      const serialized = JSON.stringify({
+        itemIds: batch.map((i) => i.id),
+        result,
+      });
+      await writeFile(join(directory, hash(serialized) + ".json"), serialized, {
+        mode: 0o600,
+      });
       for (const proposed of result.groups) {
         const ids = [...new Set(proposed.itemIds)];
         if (ids.length < 2 || ids.some((id) => !allowed.has(id)))
@@ -227,6 +248,7 @@ export async function derive(state: State, options: Options = {}) {
 export async function market(state: State, options: Options = {}) {
   let calls = 0;
   for (const opportunity of state.opportunities ?? []) {
+    if (!opportunity.publishRecommended) continue;
     if (
       (options.opportunityId && opportunity.id !== options.opportunityId) ||
       (opportunity.stage === "researched" && !options.refresh)
@@ -349,7 +371,14 @@ export async function preparePublication(
       kind: revision.kind === "pdf" ? "pdf" : "page",
       year,
       accessedAt: revision.accessedAt,
-      excerpt: item.evidence.map((e) => e.quote).join("\n"),
+      excerpt: [
+        ...new Set([
+          ...(sources.get(sourceId)?.excerpt
+            ? [sources.get(sourceId)!.excerpt]
+            : []),
+          ...item.evidence.map((e) => e.quote),
+        ]),
+      ].join("\n"),
     });
     projects.set(projectId, {
       id: projectId,
@@ -364,14 +393,7 @@ export async function preparePublication(
       results: item.reportedResults,
       limitations: item.unansweredQuestions.join(" "),
       topics: [item.domain],
-      stage: /deploy|commercial|production/i.test(item.readiness)
-        ? "Deployment"
-        : /prototype|hardware/i.test(item.readiness) &&
-            item.embodiment === "physical"
-          ? "Hardware"
-          : /simulation/i.test(item.readiness)
-            ? "Simulation"
-            : "Concept",
+      stage: "Unknown",
       authors: item.authors ?? [],
       evidence: item.evidence.map((e) => ({
         sourceId,

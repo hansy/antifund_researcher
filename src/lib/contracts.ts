@@ -47,7 +47,7 @@ export const projectSchema = z.object({
   results: z.string(),
   limitations: z.string(),
   topics: z.array(z.string().min(1)),
-  stage: z.enum(["Concept", "Simulation", "Hardware", "Deployment"]),
+  stage: z.enum(["Unknown", "Concept", "Simulation", "Hardware", "Deployment"]),
   authors: z.array(z.string()),
   evidence: z.array(evidenceSchema).min(1),
 });

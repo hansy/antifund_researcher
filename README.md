@@ -8,6 +8,8 @@ The app starts with a short list of signals. Open one to see what it is, the buy
 
 The checked-in starting corpus is **26 projects from ten schools, dated 2021–2026**. Five briefs interpret that research. A separate **2025–2026 intake** discovers hackathon, capstone and research archives across the full 50-school registry and all disciplines. The registry is planned coverage; neither a completed search nor a successful download establishes exhaustive collection.
 
+![Signals](docs/preview.jpg)
+
 ## Stack
 
 Bun + TypeScript; TanStack Start/Query + React; Cloudflare Workers; Convex. Subscription-authenticated Codex CLI handles discovery, classification, signal synthesis and market research locally. Poppler extracts PDF text and page references. No paid model API, scraping service or graph database.
@@ -38,6 +40,7 @@ bun run research:scan                         # three archive searches per schoo
 bun run research:intake collect --budget 100 --minutes 30
 bun run research:intake classify --budget 20 --minutes 30
 bun run research:intake graph
+bun run research:signals group --budget 3       # related buyer problems beyond keyword matches
 bun run research:signals derive --budget 3
 bun run research:signals market --budget 3
 bun run research:signals prepare

@@ -19,6 +19,7 @@ import {
   due,
   dateWindow,
   buildGraph,
+  connectedClusters,
   type State,
   type School,
   type Candidate,
@@ -733,13 +734,25 @@ export async function classify(state: State, options: IntakeOptions = {}) {
 }
 export async function graph(state: State, options: IntakeOptions = {}) {
   const result = buildGraph(state.items);
-  state.edges = result.edges;
-  state.clusters = result.clusters;
+  const ids = new Set(state.items.map((i) => i.id));
+  const semantic = state.edges.filter(
+    (e) =>
+      ids.has(e.from) &&
+      ids.has(e.to) &&
+      e.reasons.some((reason) => reason.startsWith("Semantic hypothesis:")) &&
+      !result.edges.some(
+        (r) =>
+          (r.from === e.from && r.to === e.to) ||
+          (r.from === e.to && r.to === e.from),
+      ),
+  );
+  state.edges = [...result.edges, ...semantic];
+  state.clusters = connectedClusters(state.items, state.edges);
   state.insights = state.clusters
     .filter((c) => c.itemIds.length > 1)
     .map((cluster) => ({
       clusterId: cluster.id,
-      interpretation: `${cluster.itemIds.length} retained items share at least two classification keywords along connected edges. This is a hypothesis grouping, not evidence of market demand or technical equivalence.`,
+      interpretation: `${cluster.itemIds.length} retained items are connected by shared keywords or a proposed buyer problem. This is a hypothesis grouping, not evidence of market demand or technical equivalence.`,
       evidenceItemIds: cluster.itemIds,
       unansweredQuestions: [
         "Do the linked projects solve the same buyer problem?",

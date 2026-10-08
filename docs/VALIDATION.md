@@ -2,13 +2,14 @@
 
 Validated on 8 October 2026.
 
-- TypeScript checks, production Vite build and 13 Bun tests pass. Tests cover corpus references, quote/page grounding, retrieval, URL boundaries, credential isolation, capability checks, rate limits, idempotent ingestion and expired worker leases.
-- A live comparison retest now retrieves PlanarMesh alongside simulation projects and cites its 10× / >5× reported file-size improvements. Inline citations open their exact excerpts.
-- The deployed Cloudflare → Convex → local Codex flow answered a sim-to-real question with five verified citations. Opening a citation showed its exact excerpt and original source.
-- Production requests reject foreign origins (403), short questions (400) and oversized bodies (413).
-- Desktop and 390px mobile checks cover signal/project navigation, school filtering and source dialogs. The mobile page and dialog fit without horizontal overflow.
-- An actual ETH-hosted PDF passed download, page extraction, structured Codex parsing and quote validation. Five page-one quotations are saved on the existing presentation record.
-- Oxford discovery found six candidate sources. Four passed exact quotation checks and added four projects; two were rejected. A real synthesis run produced the current five signals from 26 projects across ten schools.
-- One final Autoreview model pass used GPT-6.1 Sol at medium reasoning over the complete implementation diff (base `520be50`, reviewed head `153dd3a`). Result: scoped-clean at P0/P1, no actionable findings, no suspected real credentials. The preflight secret scan passed after a credential-shaped dummy URL fixture was rewritten; no scan was bypassed.
+The signal redesign passes TypeScript checks, the production Vite build and 31 Bun tests. Tests cover evidence and date boundaries, unknown-date retention, unsupported-file preservation, immutable Convex metadata, semantic-link retention, duplicate-project rejection, capability checks and the existing question-worker protections.
 
-Local environment: this network's IPv6 route stalls the local Cloudflare runtime's outbound requests. Native TanStack development now avoids that route and successfully loads the 26-project index from Convex in the browser. `dev:workers` retains local platform emulation; production builds and previews use Cloudflare. Hosted Cloudflare requests work. Server timeouts bound failures. The production question runner runs locally and requires this computer to remain awake.
+Local and deployed browser walkthroughs verified the signal list, full brief, source drilldown, deep-link reload, browser back navigation and keyboard disclosure of market context. Source views distinguish reported results, interpretation and limitations. The current in-app browser's viewport scaling prevented a reliable 390px walkthrough; responsive rules were inspected, but a new mobile-device check remains outstanding.
+
+All 300 school/category/year discovery cells completed one bounded search pass across the 50-school registry. This found 363 initial archive URLs. A 100-attempt crawl retained thousands more links and archived 57 downloaded pages before integration of the separate smoke archive. These are discovery and download counts, not completed school coverage.
+
+A real Waterloo capstone PDF was downloaded and parsed with all 44 pages preserved. Subscription Codex classified Georgia Tech software capstones and Waterloo material with exact source checks. Partial/failed chunks and ambiguous records remain archived. Semantic grouping produced three proposed links; two derived opportunities were withheld from publication for insufficient evidence. Collection and classification remain incomplete.
+
+One bounded Autoreview used GPT-6.1 Sol with medium reasoning against base `76c37ff`. Its reviewed bundle was scoped-clean at P0/P1, with no actionable findings; the mandatory outgoing secret scan passed. Subsequent integration refinements were checked directly with typecheck and focused tests, without another review loop.
+
+Cloudflare and production Convex were deployed, and the initial five edited signals were seeded successfully. The public starting corpus remains 26 projects across ten schools. Collection runs locally with the operator's subscription; raw downloads and logs remain ignored and private.

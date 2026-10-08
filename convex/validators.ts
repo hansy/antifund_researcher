@@ -52,6 +52,7 @@ export const project = v.object({
   limitations: v.string(),
   topics: v.array(topic),
   stage: v.union(
+    v.literal("Unknown"),
     v.literal("Concept"),
     v.literal("Simulation"),
     v.literal("Hardware"),
