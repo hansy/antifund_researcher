@@ -2,9 +2,13 @@
 
 Campus robotics research, connected through evidence.
 
+University demos are scattered across lab pages, showcases and papers. Fieldwork turns them into searchable evidence and testable product hypotheses.
+
 [Live demo](https://antifund-researcher.service-fff.workers.dev) · [Source provenance](docs/SOURCES.md) · [Collection pipeline](docs/PIPELINE.md)
 
 Ask a question, explore a research signal, or open a project. Every answer links to saved quotations and original sources. Project notes separate reported results from interpretation and limitations.
+
+![Fieldwork preview](docs/preview.jpg)
 
 ## Stack
 
