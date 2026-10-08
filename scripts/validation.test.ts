@@ -172,10 +172,13 @@ test("official download boundaries reject lookalikes and alternate protocols", (
     "https://school.edu.evil.test/a",
     "https://localhost/a",
     "http://school.edu/a",
-    "https://user:pass@school.edu/a",
     "https://school.edu:1234/a",
   ])
     expect(() => validateOfficialUrl(url, school)).toThrow();
+  const credentialUrl = new URL("https://school.edu/a");
+  credentialUrl.username = "test-only-user";
+  credentialUrl.password = "test-only-password";
+  expect(() => validateOfficialUrl(credentialUrl.href, school)).toThrow();
 });
 
 // The output API rejects Zod's URI format, while local parsing still checks URLs.
@@ -201,4 +204,18 @@ test("Codex schema conversion keeps nested fields strict without URI format", as
     type: "null",
   });
   expect(schema.properties.source.additionalProperties).toBe(false);
+});
+
+test("broad simulation queries retain rarer mapping evidence", async () => {
+  const { default: seed } = await import("../data/corpus.json");
+  const selected = retrieve(
+    validateCorpus(seed),
+    "Which projects report measurable improvements in simulation or mapping?",
+  );
+  expect(selected.projects.map((p) => p.id)).toContain(
+    "oxford-planarmesh-2025",
+  );
+  expect(selected.projects.map((p) => p.id)).toContain("oxford-osprey-2024");
+  expect(selected.projects.length).toBeLessThanOrEqual(12);
+  expect(selected.sources.length).toBeLessThanOrEqual(16);
 });

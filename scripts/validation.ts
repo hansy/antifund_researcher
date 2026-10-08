@@ -156,41 +156,63 @@ export function retrieve(corpus: Corpus, question: string) {
         "robotics",
       ].includes(w),
   );
-  const ranked = corpus.projects
-    .map((project) => ({
-      project,
+  const documents = corpus.projects.map((project) => ({
+    project,
+    title: [project.title, ...project.topics].join(" ").toLowerCase(),
+    body: [
+      project.summary,
+      project.problem,
+      project.approach,
+      project.results,
+      project.statusQuo,
+      project.whyItMatters,
+      project.limitations,
+    ]
+      .join(" ")
+      .toLowerCase(),
+  }));
+  // Rare terms retain weight when a question spans a common topic and a smaller one.
+  const weights = new Map(
+    words.map((word) => [
+      word,
+      Math.log(
+        1 +
+          documents.length /
+            (1 +
+              documents.filter(
+                (d) => d.title.includes(word) || d.body.includes(word),
+              ).length),
+      ),
+    ]),
+  );
+  const ranked = documents
+    .map((d) => ({
+      project: d.project,
       score: words.reduce(
-        (n, word) =>
-          n +
-          ([project.title, ...project.topics]
-            .join(" ")
-            .toLowerCase()
-            .includes(word)
-            ? 3
-            : 0) +
-          ([project.summary, project.problem, project.approach, project.results]
-            .join(" ")
-            .toLowerCase()
-            .includes(word)
-            ? 1
-            : 0),
+        (score, word) =>
+          score +
+          weights.get(word)! *
+            ((d.title.includes(word) ? 0.75 : 0) +
+              (d.body.includes(word) ? 1 : 0)),
         0,
       ),
     }))
     .sort((a, b) => b.score - a.score);
-  const projects = ranked
-    .filter((p) => words.length === 0 || p.score > 0)
-    .slice(0, 8)
-    .map((p) => p.project);
-  const ids = new Set(
-    projects.flatMap((p) => p.evidence.map((e) => e.sourceId)),
-  );
+  const projects: Corpus["projects"] = [];
+  const ids = new Set<string>();
+  for (const candidate of ranked) {
+    if (projects.length >= 12) break;
+    if (words.length && candidate.score === 0) continue;
+    const candidateIds = candidate.project.evidence.map((e) => e.sourceId);
+    if (new Set([...ids, ...candidateIds]).size > 16) continue;
+    projects.push(candidate.project);
+    for (const id of candidateIds) ids.add(id);
+  }
   return {
     ...corpus,
     projects,
     sources: corpus.sources
       .filter((s) => ids.has(s.id))
-      .slice(0, 16)
       .map((s) => ({ ...s, excerpt: s.excerpt.slice(0, 6000) })),
     insights: [],
   };

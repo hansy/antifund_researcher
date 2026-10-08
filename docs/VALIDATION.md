@@ -2,7 +2,7 @@
 
 Validated on 8 October 2026.
 
-- TypeScript checks, production Vite build and 12 Bun tests pass. Tests cover corpus references, quote/page grounding, retrieval, URL boundaries, credential isolation, capability checks, rate limits, idempotent ingestion and expired worker leases.
+- TypeScript checks, production Vite build and 13 Bun tests pass. Tests cover corpus references, quote/page grounding, retrieval, URL boundaries, credential isolation, capability checks, rate limits, idempotent ingestion and expired worker leases.
 - The deployed Cloudflare → Convex → local Codex flow answered a sim-to-real question with five verified citations. Opening a citation showed its exact excerpt and original source.
 - Production requests reject foreign origins (403), short questions (400) and oversized bodies (413).
 - Desktop and 390px mobile checks cover signal/project navigation, school filtering and source dialogs. The mobile page and dialog fit without horizontal overflow.
