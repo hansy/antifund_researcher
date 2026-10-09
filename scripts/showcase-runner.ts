@@ -118,6 +118,12 @@ export async function runCompleteShowcases() {
     publicationAuthorized: false,
     exhaustiveInstitutionCoverage: false,
     error: undefined as string | undefined,
+    resources: {
+      rssBytes: 0,
+      heapUsedBytes: 0,
+      externalBytes: 0,
+      sampledAt: "",
+    },
   };
   let stopped = false,
     collectionFinished = false;
@@ -135,6 +141,13 @@ export async function runCompleteShowcases() {
   let saves = Promise.resolve();
   const save = () => {
     status.updatedAt = new Date().toISOString();
+    const memory = process.memoryUsage();
+    status.resources = {
+      rssBytes: memory.rss,
+      heapUsedBytes: memory.heapUsed,
+      externalBytes: memory.external,
+      sampledAt: status.updatedAt,
+    };
     const snapshot = structuredClone(status);
     saves = saves.then(() => atomic(completionPath, snapshot));
     return saves;
@@ -290,6 +303,7 @@ export async function runCompleteShowcases() {
       analysisError = error;
       stopped = true;
     });
+    let completedCollectionBatches = 0;
     while (!stopped) {
       const disk = await statfs(showcaseRoot);
       if (Number(disk.bavail) * Number(disk.bsize) < 1_000_000_000)
@@ -312,7 +326,14 @@ export async function runCompleteShowcases() {
         await wait(2000);
         continue;
       }
+      // Reclaim completed batch snapshots; live model/collection work stays referenced.
+      if (
+        completedCollectionBatches &&
+        process.memoryUsage().rss > 1_000_000_000
+      )
+        Bun.gc(true);
       const result = await runShowcases();
+      completedCollectionBatches++;
       if (
         result.status.reason === "signal" ||
         result.status.reason === "stop-file"

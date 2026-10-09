@@ -174,7 +174,7 @@ export async function analyzeShowcaseCollection(
     pendingRecordIds: items.map((i) => i.id),
     publicationAuthorized: false,
   });
-  const texts = new Map<string, string>();
+  const texts = new Map<string, Promise<string>>();
   const prepared = await Promise.all(
     items.map(async (item) => {
       const candidate = candidates.find((c) => c.id === item.candidateId)!;
@@ -184,11 +184,12 @@ export async function analyzeShowcaseCollection(
       if (!revision?.textPath || revision.parseStatus !== "done")
         throw new Error(`Missing retained text for item ${item.id}`);
       const key = `${candidate.id}:${revision.hash}`;
-      let text = texts.get(key);
-      if (text === undefined) {
-        text = await readFile(revision.textPath, "utf8");
-        texts.set(key, text);
+      let pendingText = texts.get(key);
+      if (pendingText === undefined) {
+        pendingText = readFile(revision.textPath, "utf8");
+        texts.set(key, pendingText);
       }
+      const text = await pendingText;
       return {
         item,
         sourceUrl: revision.finalUrl,

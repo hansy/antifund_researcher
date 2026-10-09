@@ -5,6 +5,7 @@ import {
   rm,
   writeFile,
   appendFile,
+  copyFile,
 } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { basename, dirname, join } from "node:path";
@@ -224,16 +225,13 @@ export async function runCodex<T>(
     await mkdir(dirname(progressPath), { recursive: true, mode: 0o700 });
     await writeFile(progressPath, "", { mode: 0o600 });
     const diagnostics = (async () => {
-      const chunks: Uint8Array[] = [];
       for await (const chunk of child.stderr) {
-        chunks.push(chunk);
         await appendFile(progressPath, chunk);
       }
-      return Buffer.concat(chunks).toString("utf8");
     })();
     const code = await child.exited;
     clearTimeout(timer);
-    const diagnosticText = await diagnostics;
+    await diagnostics;
     if (timedOut) throw new Error("Codex execution timed out");
     if (code !== 0) {
       const log = join(
@@ -242,7 +240,7 @@ export async function runCodex<T>(
         "last-codex-error.log",
       );
       await mkdir(dirname(log), { recursive: true });
-      await writeFile(log, diagnosticText, { mode: 0o600 });
+      await copyFile(progressPath, log);
       throw new Error(
         `Codex failed (${code}); operator diagnostics: .research-cache/last-codex-error.log`,
       );

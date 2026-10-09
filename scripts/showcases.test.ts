@@ -10,8 +10,14 @@ import {
   checkpoint,
   enrichItem,
   type Item,
+  type State,
 } from "./intake";
-import { classifyShowcases, scopeSchema } from "./showcases";
+import {
+  classifyShowcases,
+  collectShowcases,
+  sourceSnapshot,
+  scopeSchema,
+} from "./showcases";
 import { runCodex } from "./codex";
 import { runPipeline } from "./pipeline";
 const school = {
@@ -27,6 +33,77 @@ const provenance = {
   title: "2025 Showcase",
   discoveredAt: "2026-10-09",
 };
+test("source snapshots exclude unrelated archive payloads and preserve ownership isolation", () => {
+  const state = emptyState([school]);
+  const chosen = preserveCandidate(
+    state,
+    "https://example.edu/chosen",
+    provenance,
+  );
+  const unrelated = preserveCandidate(state, "https://example.edu/other", {
+    ...provenance,
+    title: "x".repeat(1_000_000),
+  });
+  state.classification[chosen.id + ":rev"] = {
+    done: false,
+    nextChunk: 0,
+    failures: [],
+  };
+  state.classification[unrelated.id + ":rev"] = {
+    done: true,
+    nextChunk: 1,
+    failures: [],
+  };
+  const local = sourceSnapshot(state, chosen.id);
+  expect(local.candidates.map((c) => c.id)).toEqual([chosen.id]);
+  expect(Object.keys(local.classification)).toEqual([chosen.id + ":rev"]);
+  expect(JSON.stringify(local).length).toBeLessThan(
+    JSON.stringify(state).length / 100,
+  );
+  local.candidates[0]!.status = "failed";
+  local.classification[chosen.id + ":rev"]!.done = true;
+  expect(chosen.status).toBe("pending");
+  expect(state.classification[chosen.id + ":rev"]?.done).toBe(false);
+});
+test("isolated concurrent source downloads merge revisions and preserve unrelated archive data", async () => {
+  const root = await mkdtemp(join(tmpdir(), "showcase-collection-"));
+  try {
+    const state = emptyState([school]);
+    state.cells = [];
+    const selected = [0, 1, 2].map((i) =>
+      preserveCandidate(state, `https://example.edu/chosen/${i}`, provenance),
+    );
+    const other = preserveCandidate(
+      state,
+      "https://example.edu/deferred",
+      provenance,
+    );
+    other.status = "failed";
+    await collectShowcases(state, [school], {
+      root,
+      candidateIds: selected.map((c) => c.id),
+      downloader: async (url) => ({
+        bytes: Buffer.from("<h1>2025 project</h1>"),
+        finalUrl: url,
+        contentType: "text/html",
+      }),
+    });
+    const saved: State = JSON.parse(
+      await readFile(join(root, "state.json"), "utf8"),
+    );
+    expect(
+      saved.candidates.filter((c) => c.status === "downloaded"),
+    ).toHaveLength(3);
+    expect(saved.candidates.find((c) => c.id === other.id)?.status).toBe(
+      "failed",
+    );
+    expect(
+      saved.candidates.filter((c) => c.revisions.length === 1),
+    ).toHaveLength(3);
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
 test("a full abstract enriches a table-of-contents record without losing evidence", () => {
   const first = {
     problem: "Unknown",

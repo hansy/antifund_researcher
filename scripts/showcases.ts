@@ -32,6 +32,28 @@ export const showcasePipeline = resolve(
   ".research-cache/pipeline/showcases-2025",
 );
 
+/** Each source worker owns only its source, not six copies of the whole archive. */
+export function sourceSnapshot(state: State, candidateId: string): State {
+  const candidate = state.candidates.find((c) => c.id === candidateId);
+  if (!candidate) throw new Error(`Missing source ${candidateId}`);
+  return structuredClone({
+    version: state.version,
+    updatedAt: state.updatedAt,
+    cells: [],
+    candidates: [candidate],
+    items: state.items.filter((i) => i.candidateId === candidateId),
+    classification: Object.fromEntries(
+      Object.entries(state.classification).filter(([key]) =>
+        key.startsWith(candidateId + ":"),
+      ),
+    ),
+    edges: [],
+    clusters: [],
+    insights: [],
+    opportunities: [],
+  });
+}
+
 /** Downloads have no model budget; independent sources share a serialized merge. */
 export async function collectShowcases(
   state: State,
@@ -58,8 +80,8 @@ export async function collectShowcases(
   let queue = Promise.resolve();
   const results = await Promise.allSettled(
     selected.map(async (candidate) => {
-      let baseline = structuredClone(state);
-      const local = structuredClone(state);
+      const local = sourceSnapshot(state, candidate.id);
+      let baseline = structuredClone(local);
       await collect(local, schools, {
         ...options,
         root: join(options.root!, candidate.id),
@@ -185,8 +207,8 @@ export async function classifyShowcases(
   let queue = Promise.resolve();
   const results = await Promise.allSettled(
     candidates.map(async (c) => {
-      let baseline = structuredClone(state);
-      const local = structuredClone(state);
+      const local = sourceSnapshot(state, c.id);
+      let baseline = structuredClone(local);
       await classify(local, {
         ...options,
         root: join(options.root!, c.id),
