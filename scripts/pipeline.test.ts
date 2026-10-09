@@ -90,6 +90,40 @@ const provenance = {
   title: "Source",
 };
 
+test("source-scoped rediscovery preserves another source's downloads and adds provenance", () => {
+  const canonical = emptyState([school]);
+  const known = preserveCandidate(
+    canonical,
+    "https://example.edu/project",
+    provenance,
+  );
+  known.status = "downloaded";
+  known.attempts = 2;
+  known.revisions.push({
+    hash: "retained",
+    requestedUrl: known.url,
+    finalUrl: known.url,
+    accessedAt: "2026-10-09",
+    kind: "html",
+    rawPath: "/retained/project.html",
+    textPath: "/retained/project.txt",
+    parseStatus: "done",
+  });
+  const baseline = emptyState([school]);
+  const incoming = structuredClone(baseline);
+  preserveCandidate(incoming, known.url, {
+    ...provenance,
+    parentUrl: "https://example.edu/gallery",
+  });
+  mergeLaneState(canonical, "collect", baseline, incoming);
+  mergeLaneState(canonical, "collect", baseline, incoming);
+  expect(canonical.candidates).toHaveLength(1);
+  expect(canonical.candidates[0]!.status).toBe("downloaded");
+  expect(canonical.candidates[0]!.attempts).toBe(2);
+  expect(canonical.candidates[0]!.revisions).toEqual(known.revisions);
+  expect(canonical.candidates[0]!.provenance).toHaveLength(2);
+});
+
 test("interleaved stale checkpoints preserve every other lane's records and fresh grouping members", () => {
   const canonical = emptyState([school]);
   canonical.items = [item("a"), item("b")];

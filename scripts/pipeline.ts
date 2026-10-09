@@ -101,10 +101,34 @@ export function mergeLaneState(
   incoming: State,
 ): State {
   if (lane === "collect") {
+    const previousIds = new Set(baseline.candidates.map((c) => c.id));
+    const currentById = new Map(canonical.candidates.map((c) => [c.id, c]));
+    const candidates = incoming.candidates.map((candidate) => {
+      const current = currentById.get(candidate.id);
+      // A source-scoped worker cannot see other sources. Rediscovering an
+      // existing URL adds provenance, never replaces its retained downloads.
+      if (
+        !current ||
+        previousIds.has(candidate.id) ||
+        candidate.revisions.length
+      )
+        return candidate;
+      return {
+        ...current,
+        depth: Math.min(current.depth, candidate.depth),
+        externalProof: current.externalProof ?? candidate.externalProof,
+        provenance: mergeRecords(
+          current.provenance,
+          [],
+          candidate.provenance,
+          (p) => `${p.schoolId}:${p.category}:${p.year}:${p.parentUrl ?? ""}`,
+        ),
+      };
+    });
     canonical.candidates = mergeRecords(
       canonical.candidates,
       baseline.candidates,
-      incoming.candidates,
+      candidates,
       (value) => value.id,
     );
     canonical.cells = mergeRecords(
