@@ -731,16 +731,19 @@ export async function classify(state: State, options: IntakeOptions = {}) {
           for (const extracted of result.items) {
             const evidence = extracted.evidence.map((e) => {
               let page = e.page ?? undefined;
+              const quote = retainedQuote(text, e.quote, page) ?? e.quote;
               if (revision.kind === "pdf" && !page) {
-                const offset = text.indexOf(e.quote);
-                const markers = [
-                  ...text.slice(0, offset).matchAll(/\[PDF PAGE (\d+)\]/g),
-                ];
-                const marker = markers.at(-1);
-                if (marker) page = Number(marker[1]);
+                const offset = text.indexOf(quote);
+                if (offset >= 0) {
+                  const markers = [
+                    ...text.slice(0, offset).matchAll(/\[PDF PAGE (\d+)\]/g),
+                  ];
+                  const marker = markers.at(-1);
+                  if (marker) page = Number(marker[1]);
+                }
               }
               return {
-                quote: retainedQuote(text, e.quote, page) ?? e.quote,
+                quote,
                 sourceUrl: revision.finalUrl,
                 ...(page ? { page } : {}),
               };
@@ -831,12 +834,15 @@ export async function classify(state: State, options: IntakeOptions = {}) {
           }
           progress.nextChunk++;
           progress.done = progress.nextChunk >= chunks;
+          for (const failure of progress.failures)
+            failure.resolvedAt ??= new Date().toISOString();
         } catch (error) {
           progress.failures.push(
             recordFailure(
               "classification",
               error,
-              progress.failures.length + 1,
+              progress.failures.filter((failure) => !failure.resolvedAt)
+                .length + 1,
             ),
           );
           await checkpoint(state, options);

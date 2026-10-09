@@ -15,6 +15,7 @@ export type Failure = {
   stage: string;
   message: string;
   retryAfter: string;
+  resolvedAt?: string;
 };
 export type Provenance = {
   schoolId: string;
@@ -231,11 +232,8 @@ export function recordFailure(
   };
 }
 export function due(failures: Failure[], retry: boolean) {
-  return (
-    retry ||
-    !failures.length ||
-    Date.parse(failures.at(-1)!.retryAfter) <= Date.now()
-  );
+  const pending = failures.filter((failure) => !failure.resolvedAt).at(-1);
+  return retry || !pending || Date.parse(pending.retryAfter) <= Date.now();
 }
 export function dateWindow(
   date: string | null,

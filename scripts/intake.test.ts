@@ -1,8 +1,9 @@
 import { afterEach, describe, expect, test } from "bun:test";
-import { mkdtemp, readFile, rm } from "node:fs/promises";
+import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { runCodex } from "./codex";
+import { due, recordFailure } from "./intake/model";
 import {
   emptyState,
   preserveCandidate,
@@ -311,4 +312,64 @@ test("PDF evidence repairs only layout differences and retains the exact origina
     ),
   ).toBeNull();
   expect(retainedQuote("a  b; a\nb", "a b")).toBeNull();
+});
+
+test("classification infers PDF pages after recovering wrapped quotes and resolves retry history", async () => {
+  const state = seed();
+  const opts = await options({ downloader: html("<p>Project roster</p>") });
+  await collect(state, [school], opts);
+  const candidate = state.candidates[0]!;
+  const revision = candidate.revisions[0]!;
+  revision.kind = "pdf";
+  const exact = "A comprehen-\nsive fleet analysis\n  engages stakeholders.";
+  await writeFile(
+    revision.textPath!,
+    `[PDF PAGE 1]\n${exact}\n[PDF PAGE 2]\nOther projects.`,
+  );
+  const failure = recordFailure("classification", "Previous attempt failed");
+  const key = `${candidate.id}:${revision.hash}`;
+  state.classification[key] = {
+    nextChunk: 0,
+    chunkSize: 8000,
+    done: false,
+    failures: [failure],
+  };
+  expect(due([failure], false)).toBe(false);
+  opts.retry = true;
+  opts.agent = fakeAgent({
+    items: [
+      {
+        title: "Fleet analysis",
+        category: "capstone",
+        domain: "Transport",
+        problem: "Fleet planning",
+        approach: "Analysis",
+        keywords: ["fleet"],
+        embodiment: "software",
+        readiness: "Unknown",
+        date: null,
+        dateEvidence: null,
+        evidence: [
+          {
+            quote: "A comprehensive fleet analysis engages stakeholders.",
+            page: null,
+          },
+        ],
+        reportedResults: "Not reported",
+        interpretation: "May support planning",
+        unansweredQuestions: ["How accurate is it?"],
+        classificationStatus: "classified",
+      },
+    ],
+    ambiguity: "",
+  });
+  await classify(state, opts);
+  expect(state.classification[key]!.done).toBe(true);
+  expect(state.items[0]!.evidence[0]).toMatchObject({ quote: exact, page: 1 });
+  expect(failure.resolvedAt).toBeTruthy();
+  expect(failure.message).toBe("Previous attempt failed");
+  expect(due([failure], false)).toBe(true);
+  expect(
+    due([failure, recordFailure("classification", "New failure")], false),
+  ).toBe(false);
 });
