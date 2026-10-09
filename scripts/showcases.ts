@@ -5,6 +5,7 @@ import {
   access,
   open,
   unlink,
+  statfs,
 } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { z } from "zod";
@@ -60,6 +61,11 @@ export async function collectShowcases(
   schools: School[],
   options: IntakeOptions,
 ) {
+  const disk = await statfs(options.root!);
+  if (Number(disk.bavail) * Number(disk.bsize) < 1_000_000_000)
+    throw new Error(
+      "Collection waiting for at least 1 GB free disk; evidence and checkpoints retained.",
+    );
   const selected = state.candidates
     .filter(
       (c) =>
