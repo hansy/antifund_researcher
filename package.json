@@ -20,7 +20,8 @@
     "research:signals": "bun scripts/opportunities.ts",
     "research:people": "bun scripts/people.ts",
     "convex:dev": "convex dev",
-    "format": "prettier --write src scripts convex docs README.md"
+    "format": "prettier --write src scripts convex docs README.md",
+    "research:showcases": "bun scripts/showcases.ts"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.100.14",

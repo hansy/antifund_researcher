@@ -1,4 +1,15 @@
-# Continuous private intake
+# Active collection: 2025 showcases
+
+Run `bun scripts/showcases.ts`. Status: `bun scripts/pipeline.ts status --root .research-cache/showcases-2025 --pipeline-root .research-cache/pipeline/showcases-2025`. Use the same paths with `stop` for a cooperative shutdown.
+
+`data/showcase-scope.json` freezes nine sources across Georgia Tech, Berkeley, Waterloo, MIT and Stanford. These include capstone rosters, design competitions and a hackathon report. The target is 100–200 distinct projects, not a claim about the number already collected. Some selected sources report winners rather than every participant; these limitations must remain explicit. Only these exact URLs are downloaded in the first pass. All discovered navigation links are retained but deferred. Additional project pages require explicit selection for the later 10–15-project investigation.
+
+The broader `.research-cache/intake` archive remains intact and deferred. The selected archive reuses matching raw downloads and completed work. Three independent sources are classified concurrently, one chunk per source per round, with serialized checkpoint merges. Grouping waits until every selected source is downloaded and classified. Repeated market synthesis is disabled during intake; the later 10–15-project investigation and 3–5 private hypotheses follow roster review. Source failure keeps this gate closed and is reported for resolution; a runtime deadline does not imply completion. The selected `review-queue.json` records unreviewed, ambiguous and out-of-year results. Classification is not evidence review; signal publication stays on hold until the selected collection is reviewed.
+
+The monitor continues bounded runs of `scripts/showcases.ts` only. It must never restart broad intake. Archive metadata is mirrored additively to Convex; public signals and profiles are unchanged. The public corpus is not automatically published.
+
+## Previous broad intake implementation (deferred)
+
 
 Run from the repository with Bun and the operator's subscription-authenticated Codex CLI. The existing `runCodex` uses GPT-6.1 Sol with medium reasoning; no paid model or scraping API is introduced.
 
@@ -42,4 +53,4 @@ bun run typecheck
 
 The pipeline tests exercise stale interleaved merges, classifier ambiguity removal, actual concurrent collection/classification/grouping/derivation with a blocked classifier and fake agent, existing lock preservation, runtime cleanup, and stop-file checkpoint draining.
 
-Signal publication is on hold until the collected corpus has been reviewed in full. Bounded batch completion or `publishRecommended` does not lift this hold. Retained ambiguous records, unknown dates, incomplete source classifications and failed parses must be accounted for. Design competitions, capstone presentations (programs, posters, project books and demo days), and hackathon submissions are explicit discovery targets; competition formats are included in the existing capstone lane.
+Signal publication is on hold until the active selected collection has been reviewed in full. Bounded batch completion or `publishRecommended` does not lift this hold. Retained ambiguous records, unknown dates, incomplete source classifications and failed parses must be accounted for. Design competitions, capstone presentations (programs, posters, project books and demo days), and hackathon submissions are explicit discovery targets; competition formats are included in the existing capstone lane.

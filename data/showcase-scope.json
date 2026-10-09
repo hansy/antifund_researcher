@@ -1,0 +1,77 @@
+{
+  "id": "showcases-2025",
+  "year": 2025,
+  "targetProjects": [
+    100,
+    200
+  ],
+  "schoolIds": [
+    "gatech",
+    "berkeley",
+    "waterloo",
+    "mit",
+    "stanford"
+  ],
+  "sources": [
+    {
+      "schoolId": "gatech",
+      "category": "capstone",
+      "title": "Spring 2025 Capstone Expo \u2014 featured teams and winners",
+      "url": "https://coe.gatech.edu/news/2025/04/solutions-operating-room-and-cubesat-navigation-top-spring-2025-capstone-design-expo"
+    },
+    {
+      "schoolId": "gatech",
+      "category": "capstone",
+      "title": "2025 InVenture Prize \u2014 competition results",
+      "url": "https://news.gatech.edu/news/2025/03/13/convexity-wins-inventure-prize-electronics-3d-printer"
+    },
+    {
+      "schoolId": "berkeley",
+      "category": "capstone",
+      "title": "2025 Fung Institute Capstone Showcase",
+      "url": "https://funginstitute.berkeley.edu/capstone-showcase-2025/"
+    },
+    {
+      "schoolId": "berkeley",
+      "category": "hackathon",
+      "title": "2025 Google Hackathon \u2014 event report",
+      "url": "https://analytics.berkeley.edu/2025/12/2025-google-hackathon/"
+    },
+    {
+      "schoolId": "waterloo",
+      "category": "capstone",
+      "title": "2025 Mechanical Engineering Capstone Designs",
+      "url": "https://uwaterloo.ca/capstone-design/2025-mechanical-engineering-capstone-designs"
+    },
+    {
+      "schoolId": "waterloo",
+      "category": "capstone",
+      "title": "2025 Interdisciplinary Capstone Abstract Booklet",
+      "url": "https://uwaterloo.ca/engineering/sites/default/files/uploads/documents/2025-i-capstone-abstract-booklet.pdf"
+    },
+    {
+      "schoolId": "mit",
+      "category": "capstone",
+      "title": "2025 MADMEC design competition \u2014 finalists and results",
+      "url": "https://news.mit.edu/2025/madmec-winners-develop-spray-coating-protect-power-lines-ice-1205"
+    },
+    {
+      "schoolId": "stanford",
+      "category": "capstone",
+      "title": "2025 CS147 Industry Project Fair",
+      "url": "https://hci.stanford.edu/courses/cs147/2025/au/projects.html",
+      "assets": [
+        {
+          "title": "CS147 2025 project roster data (linked from showcase page)",
+          "url": "https://hci.stanford.edu/courses/cs147/2025/au/data/data.js?v=0"
+        }
+      ]
+    },
+    {
+      "schoolId": "stanford",
+      "category": "capstone",
+      "title": "Extreme Expo 2025 projects",
+      "url": "https://extreme.stanford.edu/extreme-expo/extreme-expo-2025/"
+    }
+  ]
+}

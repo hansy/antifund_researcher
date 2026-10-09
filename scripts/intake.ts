@@ -44,6 +44,8 @@ export type IntakeOptions = {
   refresh?: boolean;
   maxDepth?: number;
   schoolId?: string;
+  candidateIds?: string[];
+  discovery?: boolean;
   onCheckpoint?: (state: State) => Promise<void>;
   agent?: typeof runCodex;
   downloader?: typeof download;
@@ -65,7 +67,9 @@ export async function loadIntake(
     ) as State;
     if (state.version !== 1)
       throw new Error("Unsupported intake state version");
-    for (const cell of emptyState(schools).cells)
+    for (const cell of options.discovery === false
+      ? []
+      : emptyState(schools).cells)
       if (
         !state.cells.some(
           (c) =>
@@ -78,7 +82,9 @@ export async function loadIntake(
     return state;
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
-    return emptyState(schools);
+    const state = emptyState(schools);
+    if (options.discovery === false) state.cells = [];
+    return state;
   }
 }
 export async function checkpoint(state: State, options: IntakeOptions = {}) {
@@ -399,6 +405,7 @@ export async function collect(
           c.failures.at(-1)?.message ===
             "External showcase needs a preserved link from an official school source";
         return (
+          (!options.candidateIds || options.candidateIds.includes(c.id)) &&
           !visited.has(c.id) &&
           c.depth <= maxDepth &&
           (!options.schoolId ||
@@ -590,6 +597,8 @@ export async function classify(state: State, options: IntakeOptions = {}) {
   let calls = 0;
   const overlap = 1000;
   for (const candidate of state.candidates) {
+    if (options.candidateIds && !options.candidateIds.includes(candidate.id))
+      continue;
     if (
       options.schoolId &&
       !candidate.provenance.some((p) => p.schoolId === options.schoolId)

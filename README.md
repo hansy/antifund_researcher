@@ -88,3 +88,5 @@ bun run deploy
 Configure `CONVEX_URL` and `RESEARCH_WRITE_SECRET` as Worker secrets and set the matching capability in production Convex. Seed the production deployment with its `CONVEX_URL`. Codex runs on the operator's computer; it is not hosted by Cloudflare.
 
 Never commit credentials, raw downloads or local logs. Original source material belongs to its authors; this repository contains selected excerpts and research notes.
+
+Active collection: `bun run research:showcases` runs the fixed 2025 showcase scope across five schools. See [the pipeline guide](docs/PIPELINE.md). Broad intake is deferred and its archive is preserved.

@@ -174,6 +174,10 @@ export type PipelineOptions = {
   maxDepth?: number;
   schoolId?: string;
   schools?: School[];
+  candidateIds?: string[];
+  enabledLanes?: Lane[];
+  discovery?: boolean;
+  deferAnalysisUntilClassified?: boolean;
   agent?: typeof runCodex;
   downloader?: IntakeOptions["downloader"];
   signal?: AbortSignal;
@@ -421,7 +425,10 @@ export async function runPipeline(options: PipelineOptions = {}) {
       if (error.code !== "ENOENT") throw error;
     });
     const schools = options.schools ?? (await loadSchools());
-    const canonical = await loadIntake(schools, { root });
+    const canonical = await loadIntake(schools, {
+      root,
+      discovery: options.discovery,
+    });
     // Existing archives may contain relative paths; all lanes must reference the same files.
     for (const candidate of canonical.candidates)
       for (const revision of candidate.revisions) {
@@ -518,9 +525,31 @@ export async function runPipeline(options: PipelineOptions = {}) {
     const maxDepth = options.maxDepth ?? 3;
     const completed = new Map<Lane, string>();
     let lastProgress = Date.now();
-    const pending = (lane: Lane) =>
-      hasWork(canonical, lane, maxDepth, options.schoolId) &&
-      completed.get(lane) !== inputKey(canonical, lane);
+    const workState = () => ({
+      ...canonical,
+      cells: options.discovery === false ? [] : canonical.cells,
+      candidates: options.candidateIds
+        ? canonical.candidates.filter((c) =>
+            options.candidateIds!.includes(c.id),
+          )
+        : canonical.candidates,
+    });
+    const pending = (lane: Lane) => {
+      if (options.enabledLanes && !options.enabledLanes.includes(lane))
+        return false;
+      const work = workState();
+      if (
+        options.deferAnalysisUntilClassified &&
+        (lane === "group" || lane === "analyze") &&
+        (hasWork(work, "collect", maxDepth, options.schoolId) ||
+          hasWork(work, "classify", maxDepth, options.schoolId))
+      )
+        return false;
+      return (
+        hasWork(work, lane, maxDepth, options.schoolId) &&
+        completed.get(lane) !== inputKey(canonical, lane)
+      );
+    };
     const log = async (lane: Lane | "mirror", error: unknown) => {
       await appendFile(
         join(pipeline, "errors.log"),
@@ -546,7 +575,7 @@ export async function runPipeline(options: PipelineOptions = {}) {
           delete laneStatus.retryAfter;
         if (
           !pending(lane) ||
-          !runnable(canonical, lane, maxDepth, options.schoolId) ||
+          !runnable(workState(), lane, maxDepth, options.schoolId) ||
           Date.parse(laneStatus.retryAfter ?? "") > Date.now()
         ) {
           laneStatus.phase =
@@ -568,6 +597,7 @@ export async function runPipeline(options: PipelineOptions = {}) {
         const laneOptions: IntakeOptions = {
           root: laneRoot,
           budget: budgets[lane],
+          candidateIds: options.candidateIds,
           runtimeMs: Math.max(1, deadline - Date.now()),
           maxDepth,
           schoolId: options.schoolId,
@@ -631,7 +661,7 @@ export async function runPipeline(options: PipelineOptions = {}) {
           else if (lane === "collect") {
             // Download existing discoveries promptly, then spend a small discovery budget.
             await collect(snapshot, schools, laneOptions);
-            if (!stopped)
+            if (!stopped && options.discovery !== false)
               await scanAll(snapshot, schools, {
                 ...laneOptions,
                 budget: Math.min(2, budgets.collect),
