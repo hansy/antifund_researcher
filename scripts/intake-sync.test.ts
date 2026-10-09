@@ -103,3 +103,46 @@ test("archive batches bound bytes and retry only records without acknowledgement
   expect(batches[2]).toEqual(batches[1]);
   expect(batches.slice(1).flat()).not.toContain(batches[0]![0]);
 });
+
+test("large candidate provenance is preserved losslessly in linked immutable records", async () => {
+  const value = state();
+  const candidate = value.candidates[0]!;
+  const original = candidate.provenance[0]!;
+  candidate.provenance = Array.from({ length: 1000 }, (_, n) => ({
+    ...original,
+    title: "x".repeat(400),
+    parentUrl: `https://example.edu/project-${n}`,
+  }));
+  const stored = new Map<string, { revision: string; payload: string }>();
+  const transport = Object.assign(
+    async (_input: Parameters<typeof fetch>[0], init?: RequestInit) => {
+      const request = JSON.parse(String(init!.body));
+      for (const record of request.args[0].records ?? []) {
+        expect(record.payload.length).toBeLessThanOrEqual(400_000);
+        stored.set(record.recordId, record);
+      }
+      return Response.json({ status: "success", value: null });
+    },
+    { preconnect: fetch.preconnect },
+  );
+  const sync = createIntakeSync(
+    "https://example.convex.cloud",
+    "fixture-secret",
+    undefined,
+    { fetch: transport },
+  );
+  await sync(value, true);
+  const parent = JSON.parse(stored.get(candidate.id)!.payload);
+  expect(parent.associationCount).toBe(1000);
+  const restored = parent.associationChunks.flatMap(
+    (ref: { recordId: string; revision: string }) => {
+      const record = stored.get(ref.recordId)!;
+      expect(record.revision).toBe(ref.revision);
+      const chunk = JSON.parse(record.payload);
+      expect(chunk.candidateId).toBe(candidate.id);
+      return chunk.associations;
+    },
+  );
+  expect(restored).toEqual(candidate.provenance);
+  expect(parent.url).toBe(candidate.url);
+});

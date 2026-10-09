@@ -55,6 +55,8 @@ export function createIntakeSync(
     const records: ArchiveRecord[] = [];
     const add = (kind: RecordKind, id: string, value: unknown) => {
       const payload = JSON.stringify(value);
+      if (payload.length > 400_000)
+        throw new Error(`Archive record exceeds size limit: ${kind}:${id}`);
       const revision = createHash("sha256").update(payload).digest("hex");
       if (sent.get(`${kind}:${id}`) !== revision)
         records.push({
@@ -65,7 +67,47 @@ export function createIntakeSync(
           updatedAt: state.updatedAt,
         });
     };
-    manifest.candidates.forEach((x) => add("candidate", x.id, x));
+    manifest.candidates.forEach((x) => {
+      if (JSON.stringify(x).length <= 350_000) {
+        add("candidate", x.id, x);
+        return;
+      }
+      // Common navigation URLs accumulate provenance from every source. Keep
+      // those associations in linked immutable records rather than truncating.
+      const chunks: (typeof x.associations)[] = [];
+      let chunk: typeof x.associations = [];
+      let characters = 0;
+      for (const association of x.associations) {
+        const size = JSON.stringify(association).length;
+        if (size > 300_000)
+          throw new Error(`Archive association exceeds record limit: ${x.id}`);
+        if (chunk.length && characters + size > 100_000) {
+          chunks.push(chunk);
+          chunk = [];
+          characters = 0;
+        }
+        chunk.push(association);
+        characters += size;
+      }
+      if (chunk.length) chunks.push(chunk);
+      const associationChunks = chunks.map((associations, index) => {
+        const recordId = `${x.id}:associations:${index}`;
+        const value = { candidateId: x.id, associations };
+        add("candidate", recordId, value);
+        return {
+          recordId,
+          revision: createHash("sha256")
+            .update(JSON.stringify(value))
+            .digest("hex"),
+        };
+      });
+      add("candidate", x.id, {
+        ...x,
+        associations: [],
+        associationCount: x.associations.length,
+        associationChunks,
+      });
+    });
     manifest.items.forEach((x) => add("item", x.id, x));
     manifest.coverage.forEach((x) =>
       add("cell", `${x.schoolId}:${x.category}:${x.year}`, x),
