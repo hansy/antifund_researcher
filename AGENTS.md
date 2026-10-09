@@ -7,3 +7,5 @@ Keep the MVP small. Preserve source URLs, evidence excerpts, dates, and PDF page
 Keep UI copy sparse and specific. Use a coherent visual system, keyboard-accessible interactions, and responsive layouts. No decorative dashboard statistics or fabricated research.
 
 Never commit credentials, raw downloads, personal account configuration, or local logs. Verify with typecheck, Bun tests, production build, and a browser walkthrough. The lead owns git commits, deployment, integration, and one final autoreview. Subagents should not delegate or repeatedly review each other.
+
+Signal publication is on hold until the entire collected corpus has been reviewed, including retained unknown-date, ambiguous and incomplete records. Opportunity recommendations are private drafts, not publication authorization. Discovery must include design competitions, capstone presentations and hackathon project galleries. Collection coverage remains partial until demonstrated otherwise.

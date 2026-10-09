@@ -41,3 +41,5 @@ bun run typecheck
 ```
 
 The pipeline tests exercise stale interleaved merges, classifier ambiguity removal, actual concurrent collection/classification/grouping/derivation with a blocked classifier and fake agent, existing lock preservation, runtime cleanup, and stop-file checkpoint draining.
+
+Signal publication is on hold until the collected corpus has been reviewed in full. Bounded batch completion or `publishRecommended` does not lift this hold. Retained ambiguous records, unknown dates, incomplete source classifications and failed parses must be accounted for. Design competitions, capstone presentations (programs, posters, project books and demo days), and hackathon submissions are explicit discovery targets; competition formats are included in the existing capstone lane.
