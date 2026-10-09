@@ -4,8 +4,37 @@ import {
   selectedCollectionComplete,
   analyzedItem,
   hasUnselectedSources,
+  recordAnalysisFailure,
 } from "./showcase-runner";
 import { showcaseAnalysisSchema } from "./showcase-analysis";
+test("corpus analysis retries independent quote failures but bounds a stalled record", () => {
+  let failure: ReturnType<typeof recordAnalysisFailure> | undefined;
+  let completed = 100;
+  for (const id of ["first", "second", "third", "fourth"]) {
+    failure = recordAnalysisFailure(
+      failure,
+      new Error(`Invalid quote for ${id}`),
+      completed,
+      completed + 6,
+      1000,
+    );
+    completed += 6;
+    expect(failure.attempts).toBeLessThan(3);
+    expect(failure.analyzedRecords).toBe(completed);
+  }
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    failure = recordAnalysisFailure(
+      failure,
+      new Error("Same batch still has an invalid PDF page"),
+      completed,
+      completed,
+      2000,
+    );
+    expect(failure.attempts).toBe(attempt);
+  }
+  expect(failure?.retryAt).toBe(32000);
+  expect(failure?.error).toContain("invalid PDF page");
+});
 test("completion gate rejects missing/failed/unclassified selected sources", () => {
   const state = emptyState([]);
   const c = preserveCandidate(state, "https://example.edu/projects", {

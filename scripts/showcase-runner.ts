@@ -46,6 +46,28 @@ function alive(pid: number) {
     throw error;
   }
 }
+type AnalysisFailure = {
+  attempts: number;
+  error: string;
+  retryAt: number;
+  analyzedRecords: number;
+};
+export function recordAnalysisFailure(
+  previous: AnalysisFailure | undefined,
+  error: unknown,
+  before: number,
+  after: number,
+  now = Date.now(),
+): AnalysisFailure {
+  return {
+    // Independent bad outputs must not exhaust the entire corpus's retry budget.
+    // Stop after three attempts without another validated item checkpoint.
+    attempts: after > before ? 0 : (previous?.attempts ?? 0) + 1,
+    error: error instanceof Error ? error.message : String(error),
+    retryAt: now + 30_000,
+    analyzedRecords: after,
+  };
+}
 export function selectedCollectionComplete(state: State, ids: string[]) {
   return (
     ids.length > 0 &&
@@ -127,10 +149,7 @@ export async function runCompleteShowcases() {
   };
   let stopped = false,
     collectionFinished = false;
-  const analysisFailures = new Map<
-    string,
-    { attempts: number; error: string; retryAt: number }
-  >();
+  const analysisFailures = new Map<string, AnalysisFailure>();
   const reviewed = new Map<
     string,
     {
@@ -239,6 +258,7 @@ export async function runCompleteShowcases() {
         ) {
           worked = true;
           await save();
+          const analyzedBefore = status.analyzedRecords;
           try {
             const ledger = await analyzeShowcaseCollection(state, ready, {
               root: join(analysisRoot, "working"),
@@ -268,11 +288,15 @@ export async function runCompleteShowcases() {
             }
             analysisFailures.delete(snapshot);
           } catch (error) {
-            analysisFailures.set(snapshot, {
-              attempts: (failed?.attempts ?? 0) + 1,
-              error: error instanceof Error ? error.message : String(error),
-              retryAt: Date.now() + 30_000,
-            });
+            analysisFailures.set(
+              snapshot,
+              recordAnalysisFailure(
+                failed,
+                error,
+                analyzedBefore,
+                status.analyzedRecords,
+              ),
+            );
             await atomic(join(analysisRoot, "failures.json"), [
               ...analysisFailures.entries(),
             ]);
@@ -291,7 +315,7 @@ export async function runCompleteShowcases() {
           if (!pending.length) break;
           if ((analysisFailures.get(snapshot)?.attempts ?? 0) >= 3)
             throw new Error(
-              `Analysis requires attention for ${pending.length} sources; see analysis/failures.json`,
+              `Analysis stalled after three attempts without progress; ${status.rawRecords - status.analyzedRecords} records remain; see analysis/failures.json`,
             );
         }
         if (!worked) await wait(2000);
