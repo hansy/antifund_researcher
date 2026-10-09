@@ -546,6 +546,48 @@ export function evidencePresent(
     .slice(start + marker.length, end < 0 ? undefined : end)
     .includes(quote);
 }
+/** Recover an exact retained span only for unique whitespace/line-wrap matches on the cited page. */
+export function retainedQuote(
+  full: string,
+  quote: string,
+  page?: number,
+): string | null {
+  if (evidencePresent(full, quote, page)) return quote;
+  let source = full;
+  if (page) {
+    const marker = `[PDF PAGE ${page}]`;
+    const start = full.indexOf(marker);
+    if (start < 0) return null;
+    const end = full.indexOf("[PDF PAGE ", start + marker.length);
+    source = full.slice(start + marker.length, end < 0 ? undefined : end);
+  }
+  const normalize = (text: string) => {
+    let value = "";
+    const offsets: number[] = [];
+    for (let i = 0; i < text.length; i++) {
+      const wrap = text[i] === "-" ? /^-\s*\n\s*/.exec(text.slice(i)) : null;
+      if (wrap) {
+        i += wrap[0].length - 1;
+        continue;
+      }
+      const char = /\s/.test(text[i]) ? " " : text[i];
+      if (char === " " && value.endsWith(" ")) continue;
+      value += char;
+      offsets.push(i);
+    }
+    return { value, offsets };
+  };
+  const normalized = normalize(source);
+  const needle = normalize(quote).value.trim();
+  if (!needle) return null;
+  const start = normalized.value.indexOf(needle);
+  if (start < 0 || normalized.value.indexOf(needle, start + 1) >= 0)
+    return null;
+  return source.slice(
+    normalized.offsets[start],
+    normalized.offsets[start + needle.length - 1] + 1,
+  );
+}
 export function explicitDateMatches(date: string, evidence: string): boolean {
   if (/copyright|©/i.test(evidence) || dateWindow(date) === "unknown")
     return false;
@@ -698,7 +740,7 @@ export async function classify(state: State, options: IntakeOptions = {}) {
                 if (marker) page = Number(marker[1]);
               }
               return {
-                quote: e.quote,
+                quote: retainedQuote(text, e.quote, page) ?? e.quote,
                 sourceUrl: revision.finalUrl,
                 ...(page ? { page } : {}),
               };

@@ -15,6 +15,7 @@ import {
   pageLinks,
   intakeStatus,
   evidencePresent,
+  retainedQuote,
   loadIntake,
   dateWindow,
   type Item,
@@ -281,4 +282,33 @@ test("inspectable clusters require specific shared keywords and keep isolated am
     "b",
   ]);
   expect(clusters).toHaveLength(3);
+});
+
+test("PDF evidence repairs only layout differences and retains the exact original page span", () => {
+  const text =
+    "[PDF PAGE 1]\nA comprehen-\nsive fleet analysis\n  engages stakeholders.\n[PDF PAGE 2]\nDifferent results.";
+  const quote = retainedQuote(
+    text,
+    "A comprehensive fleet analysis engages stakeholders.",
+    1,
+  );
+  expect(quote).toBe(
+    "A comprehen-\nsive fleet analysis\n  engages stakeholders.",
+  );
+  expect(evidencePresent(text, quote!, 1)).toBe(true);
+  expect(
+    retainedQuote(
+      text,
+      "A comprehensive fleet analysis engages stakeholders.",
+      2,
+    ),
+  ).toBeNull();
+  expect(
+    retainedQuote(
+      text,
+      "A comprehensive fleet analysis ignores stakeholders.",
+      1,
+    ),
+  ).toBeNull();
+  expect(retainedQuote("a  b; a\nb", "a b")).toBeNull();
 });
