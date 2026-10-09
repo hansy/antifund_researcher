@@ -98,6 +98,12 @@ test("signal synthesis rejects unrelated project references", () => {
     { id: "b", candidateId: "b", title: "B" },
   ] as Item[];
   expect(validateDraft(draft, items)).toBe(draft);
+  expect(
+    validateDraft(
+      { ...draft, publishRecommended: false, evidenceItemIds: ["a"] },
+      items,
+    ).publishRecommended,
+  ).toBe(false);
   expect(() =>
     validateDraft(
       { ...draft, breakthroughs: [{ text: "Unsupported", itemIds: ["c"] }] },

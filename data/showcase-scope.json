@@ -1,59 +1,55 @@
 {
   "id": "showcases-2025",
-  "year": 2025,
-  "targetProjects": [
-    100,
-    200
-  ],
-  "schoolIds": [
-    "gatech",
-    "berkeley",
-    "waterloo",
-    "mit",
-    "stanford"
-  ],
+  "schoolIds": ["gatech", "berkeley", "waterloo", "mit", "stanford"],
   "sources": [
     {
       "schoolId": "gatech",
       "category": "capstone",
       "title": "Spring 2025 Capstone Expo \u2014 featured teams and winners",
-      "url": "https://coe.gatech.edu/news/2025/04/solutions-operating-room-and-cubesat-navigation-top-spring-2025-capstone-design-expo"
+      "url": "https://coe.gatech.edu/news/2025/04/solutions-operating-room-and-cubesat-navigation-top-spring-2025-capstone-design-expo",
+      "year": 2025
     },
     {
       "schoolId": "gatech",
       "category": "capstone",
       "title": "2025 InVenture Prize \u2014 competition results",
-      "url": "https://news.gatech.edu/news/2025/03/13/convexity-wins-inventure-prize-electronics-3d-printer"
+      "url": "https://news.gatech.edu/news/2025/03/13/convexity-wins-inventure-prize-electronics-3d-printer",
+      "year": 2025
     },
     {
       "schoolId": "berkeley",
       "category": "capstone",
       "title": "2025 Fung Institute Capstone Showcase",
-      "url": "https://funginstitute.berkeley.edu/capstone-showcase-2025/"
+      "url": "https://funginstitute.berkeley.edu/capstone-showcase-2025/",
+      "year": 2025
     },
     {
       "schoolId": "berkeley",
       "category": "hackathon",
       "title": "2025 Google Hackathon \u2014 event report",
-      "url": "https://analytics.berkeley.edu/2025/12/2025-google-hackathon/"
+      "url": "https://analytics.berkeley.edu/2025/12/2025-google-hackathon/",
+      "year": 2025
     },
     {
       "schoolId": "waterloo",
       "category": "capstone",
       "title": "2025 Mechanical Engineering Capstone Designs",
-      "url": "https://uwaterloo.ca/capstone-design/2025-mechanical-engineering-capstone-designs"
+      "url": "https://uwaterloo.ca/capstone-design/2025-mechanical-engineering-capstone-designs",
+      "year": 2025
     },
     {
       "schoolId": "waterloo",
       "category": "capstone",
       "title": "2025 Interdisciplinary Capstone Abstract Booklet",
-      "url": "https://uwaterloo.ca/engineering/sites/default/files/uploads/documents/2025-i-capstone-abstract-booklet.pdf"
+      "url": "https://uwaterloo.ca/engineering/sites/default/files/uploads/documents/2025-i-capstone-abstract-booklet.pdf",
+      "year": 2025
     },
     {
       "schoolId": "mit",
       "category": "capstone",
       "title": "2025 MADMEC design competition \u2014 finalists and results",
-      "url": "https://news.mit.edu/2025/madmec-winners-develop-spray-coating-protect-power-lines-ice-1205"
+      "url": "https://news.mit.edu/2025/madmec-winners-develop-spray-coating-protect-power-lines-ice-1205",
+      "year": 2025
     },
     {
       "schoolId": "stanford",
@@ -65,13 +61,1186 @@
           "title": "CS147 2025 project roster data (linked from showcase page)",
           "url": "https://hci.stanford.edu/courses/cs147/2025/au/data/data.js?v=0"
         }
-      ]
+      ],
+      "year": 2025
     },
     {
       "schoolId": "stanford",
       "category": "capstone",
       "title": "Extreme Expo 2025 projects",
-      "url": "https://extreme.stanford.edu/extreme-expo/extreme-expo-2025/"
+      "url": "https://extreme.stanford.edu/extreme-expo/extreme-expo-2025/",
+      "year": 2025
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "capstone",
+      "title": "2026 Mechatronics Engineering Capstone Designs \u2014 complete gallery",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2026-capstone-design-projects/2026-mechatronics-engineering-capstone-designs",
+      "kind": "gallery"
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "capstone",
+      "title": "2025 Capstone Design Projects \u2014 official department index",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2025-capstone-design-projects",
+      "kind": "gallery",
+      "evidenceUrl": "https://uwaterloo.ca/capstone-design/project-abstracts",
+      "notes": "Index contains 11 department gallery links; index is discovery metadata, not a project roster. All 11 child pages opened and verified in this bounded pass."
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "capstone",
+      "title": "2025 Biomedical Engineering Capstone Designs",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2025-capstone-design-projects/2025-biomedical-engineering-capstone-designs",
+      "kind": "gallery",
+      "evidenceUrl": "https://uwaterloo.ca/capstone-design/project-abstracts/2025-capstone-design-projects",
+      "notes": "Official inline project abstracts and team roster, not winners-only. Opened successfully. No pagination needed was observed in retrieved page; ingestion must reconcile all numbered/unnumbered sections and preserve missing/ambiguous entries. No separate required roster asset established from page. "
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "capstone",
+      "title": "2025 Chemical Engineering Capstone Designs",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2025-capstone-design-projects/2025-chemical-engineering-capstone-designs",
+      "kind": "gallery",
+      "evidenceUrl": "https://uwaterloo.ca/capstone-design/project-abstracts/2025-capstone-design-projects",
+      "notes": "Official inline project abstracts and team roster, not winners-only. Opened successfully. No pagination needed was observed in retrieved page; ingestion must reconcile all numbered/unnumbered sections and preserve missing/ambiguous entries. No separate required roster asset established from page. "
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "capstone",
+      "title": "2025 Civil, Environmental, Geological and Architectural Engineering Capstone Designs",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2025-capstone-design-projects/2025-civil-environmental-geological-and-architectural",
+      "kind": "gallery",
+      "evidenceUrl": "https://uwaterloo.ca/capstone-design/project-abstracts/2025-capstone-design-projects",
+      "notes": "Official inline project abstracts and team roster, not winners-only. Opened successfully. No pagination needed was observed in retrieved page; ingestion must reconcile all numbered/unnumbered sections and preserve missing/ambiguous entries. No separate required roster asset established from page. "
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "capstone",
+      "title": "2025 Electrical and Computer Engineering Capstone Designs",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2025-capstone-design-projects/2025-electrical-and-computer-engineering-capstone-designs",
+      "kind": "gallery",
+      "evidenceUrl": "https://uwaterloo.ca/capstone-design/project-abstracts/2025-capstone-design-projects",
+      "notes": "Official inline project abstracts and team roster, not winners-only. Opened successfully. No pagination needed was observed in retrieved page; ingestion must reconcile all numbered/unnumbered sections and preserve missing/ambiguous entries. No separate required roster asset established from page. "
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "capstone",
+      "title": "2025 i-Capstone Capstone Designs",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2025-capstone-design-projects/2025-i-capstone-designs",
+      "kind": "gallery",
+      "evidenceUrl": "https://uwaterloo.ca/capstone-design/project-abstracts/2025-capstone-design-projects",
+      "notes": "Official inline project abstracts and team roster, not winners-only. Opened successfully. No pagination needed was observed in retrieved page; ingestion must reconcile all numbered/unnumbered sections and preserve missing/ambiguous entries. No separate required roster asset established from page. "
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "capstone",
+      "title": "2025 Management Engineering Capstone Designs",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2025-capstone-design-projects/2025-management-engineering-capstone-designs",
+      "kind": "gallery",
+      "evidenceUrl": "https://uwaterloo.ca/capstone-design/project-abstracts/2025-capstone-design-projects",
+      "notes": "Official inline project abstracts and team roster, not winners-only. Opened successfully. No pagination needed was observed in retrieved page; ingestion must reconcile all numbered/unnumbered sections and preserve missing/ambiguous entries. No separate required roster asset established from page. "
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "capstone",
+      "title": "2025 Mechatronics Engineering Capstone Designs",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2025-capstone-design-projects/2025-mechatronics-engineering-capstone-designs",
+      "kind": "gallery",
+      "evidenceUrl": "https://uwaterloo.ca/capstone-design/project-abstracts/2025-capstone-design-projects",
+      "notes": "Official inline project abstracts and team roster, not winners-only. Opened successfully. No pagination needed was observed in retrieved page; ingestion must reconcile all numbered/unnumbered sections and preserve missing/ambiguous entries. No separate required roster asset established from page. "
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "capstone",
+      "title": "2025 Nanotechnology Engineering Capstone Designs",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2025-capstone-design-projects/2025-nanotechnology-engineering-capstone-designs",
+      "kind": "gallery",
+      "evidenceUrl": "https://uwaterloo.ca/capstone-design/project-abstracts/2025-capstone-design-projects",
+      "notes": "Official inline project abstracts and team roster, not winners-only. Opened successfully. No pagination needed was observed in retrieved page; ingestion must reconcile all numbered/unnumbered sections and preserve missing/ambiguous entries. No separate required roster asset established from page. "
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "capstone",
+      "title": "2025 Software Engineering Capstone Designs",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2025-capstone-design-projects/2025-software-engineering-capstone-designs",
+      "kind": "gallery",
+      "evidenceUrl": "https://uwaterloo.ca/capstone-design/project-abstracts/2025-capstone-design-projects",
+      "notes": "Official inline project abstracts and team roster, not winners-only. Opened successfully. No pagination needed was observed in retrieved page; ingestion must reconcile all numbered/unnumbered sections and preserve missing/ambiguous entries. No separate required roster asset established from page. "
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "capstone",
+      "title": "2025 Systems Design Engineering Capstone Designs",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2025-capstone-design-projects/2025-systems-design-engineering-capstone-designs",
+      "kind": "gallery",
+      "evidenceUrl": "https://uwaterloo.ca/capstone-design/project-abstracts/2025-capstone-design-projects",
+      "notes": "Official inline project abstracts and team roster, not winners-only. Opened successfully. No pagination needed was observed in retrieved page; ingestion must reconcile all numbered/unnumbered sections and preserve missing/ambiguous entries. No separate required roster asset established from page. "
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "capstone",
+      "title": "2026 Capstone Design Projects \u2014 official department index",
+      "url": "https://uwaterloo.ca/capstone-design/2026-capstone-design-projects",
+      "kind": "gallery",
+      "evidenceUrl": "https://uwaterloo.ca/capstone-design/project-abstracts",
+      "notes": "Index contains 11 department gallery links; index is discovery metadata, not a project roster. All 11 child pages opened and verified in this bounded pass."
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "capstone",
+      "title": "2026 Biomedical Engineering Capstone Designs",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2026-capstone-design-projects/2026-biomedical-engineering-capstone-designs",
+      "kind": "gallery",
+      "evidenceUrl": "https://uwaterloo.ca/capstone-design/2026-capstone-design-projects",
+      "notes": "Official inline project abstracts and team roster, not winners-only. Opened successfully. No pagination needed was observed in retrieved page; ingestion must reconcile all numbered/unnumbered sections and preserve missing/ambiguous entries. No separate required roster asset established from page. "
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "capstone",
+      "title": "2026 Chemical Engineering Capstone Designs",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2026-capstone-design-projects/2026-chemical-engineering-capstone-designs",
+      "kind": "gallery",
+      "evidenceUrl": "https://uwaterloo.ca/capstone-design/2026-capstone-design-projects",
+      "notes": "Official inline project abstracts and team roster, not winners-only. Opened successfully. No pagination needed was observed in retrieved page; ingestion must reconcile all numbered/unnumbered sections and preserve missing/ambiguous entries. No separate required roster asset established from page. "
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "capstone",
+      "title": "2026 Civil, Environmental, Geological and Architectural Engineering Capstone Designs",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2026-capstone-design-projects/2026-civil-environmental-geological-and-architectural",
+      "kind": "gallery",
+      "evidenceUrl": "https://uwaterloo.ca/capstone-design/2026-capstone-design-projects",
+      "notes": "Official inline project abstracts and team roster, not winners-only. Opened successfully. No pagination needed was observed in retrieved page; ingestion must reconcile all numbered/unnumbered sections and preserve missing/ambiguous entries. No separate required roster asset established from page. "
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "capstone",
+      "title": "2026 Electrical and Computer Engineering Capstone Designs",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2026-capstone-design-projects/2026-electrical-and-computer-engineering-capstone-designs",
+      "kind": "gallery",
+      "evidenceUrl": "https://uwaterloo.ca/capstone-design/2026-capstone-design-projects",
+      "notes": "Official inline project abstracts and team roster, not winners-only. Opened successfully. No pagination needed was observed in retrieved page; ingestion must reconcile all numbered/unnumbered sections and preserve missing/ambiguous entries. No separate required roster asset established from page. "
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "capstone",
+      "title": "2026 i-Capstone Capstone Designs",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2026-capstone-design-projects/2026-i-capstone-designs",
+      "kind": "gallery",
+      "evidenceUrl": "https://uwaterloo.ca/capstone-design/2026-capstone-design-projects",
+      "notes": "Official inline project abstracts and team roster, not winners-only. Opened successfully. No pagination needed was observed in retrieved page; ingestion must reconcile all numbered/unnumbered sections and preserve missing/ambiguous entries. No separate required roster asset established from page. "
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "capstone",
+      "title": "2026 Management Engineering Capstone Designs",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2026-capstone-design-projects/2026-management-engineering-capstone-designs",
+      "kind": "gallery",
+      "evidenceUrl": "https://uwaterloo.ca/capstone-design/2026-capstone-design-projects",
+      "notes": "Official inline project abstracts and team roster, not winners-only. Opened successfully. No pagination needed was observed in retrieved page; ingestion must reconcile all numbered/unnumbered sections and preserve missing/ambiguous entries. No separate required roster asset established from page. "
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "capstone",
+      "title": "2026 Mechanical Engineering Capstone Designs",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2026-capstone-design-projects/2026-mechanical-engineering-capstone-designs",
+      "kind": "gallery",
+      "evidenceUrl": "https://uwaterloo.ca/capstone-design/2026-capstone-design-projects",
+      "notes": "Official inline project abstracts and team roster, not winners-only. Opened successfully. No pagination needed was observed in retrieved page; ingestion must reconcile all numbered/unnumbered sections and preserve missing/ambiguous entries. No separate required roster asset established from page. "
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "capstone",
+      "title": "2026 Nanotechnology Engineering Capstone Designs",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2026-capstone-design-projects/2026-nanotechnology-engineering-capstone-designs",
+      "kind": "gallery",
+      "evidenceUrl": "https://uwaterloo.ca/capstone-design/2026-capstone-design-projects",
+      "notes": "Official inline project abstracts and team roster, not winners-only. Opened successfully. No pagination needed was observed in retrieved page; ingestion must reconcile all numbered/unnumbered sections and preserve missing/ambiguous entries. No separate required roster asset established from page. "
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "capstone",
+      "title": "2026 Software Engineering Capstone Designs",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2026-capstone-design-projects/2026-software-engineering-capstone-designs",
+      "kind": "gallery",
+      "evidenceUrl": "https://uwaterloo.ca/capstone-design/2026-capstone-design-projects",
+      "notes": "Official inline project abstracts and team roster, not winners-only. Opened successfully. No pagination needed was observed in retrieved page; ingestion must reconcile all numbered/unnumbered sections and preserve missing/ambiguous entries. No separate required roster asset established from page. "
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "capstone",
+      "title": "2026 Systems Design Engineering Capstone Designs",
+      "url": "https://uwaterloo.ca/capstone-design/project-abstracts/2026-capstone-design-projects/2026-systems-design-engineering-capstone-designs",
+      "kind": "gallery",
+      "evidenceUrl": "https://uwaterloo.ca/capstone-design/2026-capstone-design-projects",
+      "notes": "Official inline project abstracts and team roster, not winners-only. Opened successfully. No pagination needed was observed in retrieved page; ingestion must reconcile all numbered/unnumbered sections and preserve missing/ambiguous entries. No separate required roster asset established from page. "
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "hackathon",
+      "title": "Hack the North 2025 university event report",
+      "url": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record",
+      "kind": "event-report",
+      "evidenceUrl": "https://hackthenorth2025.devpost.com/rules",
+      "notes": "Official university report dated September 18 2025 establishes Waterloo hosting, 256 submissions in event report and 12 finalists. Context only; use 11-page project gallery for full roster. Current gallery lists 261, so count discrepancy remains. Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links."
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "capstone",
+      "title": "Waterloo engineering undergrads at 2026 Canadian Engineering Competition",
+      "url": "https://uwaterloo.ca/engineering/news/engineering-undergrads-shine-national-student-competition",
+      "kind": "event-report",
+      "evidenceUrl": "https://uwaterloo.ca/engineering/news/engineering-undergrads-shine-national-student-competition",
+      "notes": "Official April 1 2026 report includes Waterloo Innovative Design teams. Partial award report, not a full competition gallery; category capstone reflects schema limitation (no design-competition category supplied). Reconcile teams with capstone records; do not count as complete design competition discovery."
+    },
+    {
+      "schoolId": "berkeley",
+      "year": 2026,
+      "category": "capstone",
+      "title": "Fung Institute End of Year Showcase 2026",
+      "url": "https://funginstitute.berkeley.edu/capstone-showcase-2026/",
+      "kind": "gallery",
+      "evidenceUrl": "https://funginstitute.berkeley.edu/capstone-showcase-2026/",
+      "notes": "Landing page links two separate project galleries; ingest both children below. Landing alone contains no project roster."
+    },
+    {
+      "schoolId": "berkeley",
+      "year": 2026,
+      "category": "capstone",
+      "title": "MEng End of Year Showcase 2026",
+      "url": "https://funginstitute.berkeley.edu/meng-showcase-2026/",
+      "kind": "gallery",
+      "evidenceUrl": "https://funginstitute.berkeley.edu/capstone-showcase-2026/",
+      "notes": "Linked View Projects MEng gallery; inline abstracts/teams/advisors/project IDs. Expand Details content present in HTML extraction. Duplicate project ID 90 and title occur; count distinct teams rather than entries. Do not assume institutional completeness beyond listed gallery."
+    },
+    {
+      "schoolId": "berkeley",
+      "year": 2026,
+      "category": "capstone",
+      "title": "Fung Fellowship End of Year Showcase 2026",
+      "url": "https://funginstitute.berkeley.edu/ff-showcase-2026/",
+      "kind": "gallery",
+      "evidenceUrl": "https://funginstitute.berkeley.edu/capstone-showcase-2026/",
+      "notes": "Linked undergraduate showcase child, separate from MEng. Review all project sections; could include non-engineering community design."
+    },
+    {
+      "schoolId": "berkeley",
+      "year": 2026,
+      "category": "capstone",
+      "title": "Critical Making Spring 2026 showcase",
+      "url": "https://make.berkeley.edu/showcase.html",
+      "kind": "gallery",
+      "evidenceUrl": "https://make.berkeley.edu/showcase.html",
+      "notes": "Inline named projects with descriptions, photos and linked student artifacts; page explicitly says Spring 2026 and public showcase 7 May 2026. Mutable current page; date-qualify each record."
+    },
+    {
+      "schoolId": "berkeley",
+      "year": 2025,
+      "category": "capstone",
+      "title": "Critical Making Spring 2025 archive",
+      "url": "https://make.berkeley.edu/showcase2025.html",
+      "kind": "gallery",
+      "evidenceUrl": "https://make.berkeley.edu/showcase.html",
+      "notes": "Explicit Previous Showcases 2025 link; target timed out/inaccessible to web extractor. Needs bounded retrieval and complete project enumeration; do not mark reviewed."
+    },
+    {
+      "schoolId": "berkeley",
+      "year": 2025,
+      "category": "capstone",
+      "title": "Spring 2025 Design Showcase \u2014 course roster leads",
+      "url": "https://jacobsinstitute.berkeley.edu/spring-2025-design-showcase/",
+      "kind": "event-report",
+      "evidenceUrl": "https://jacobsinstitute.berkeley.edu/spring-2025-design-showcase/",
+      "notes": "May 7\u20139 schedule names all participating courses; no full team roster on event page. Leads include ME102B, Critical Making, MDes, CS160/260A and Innovation Catalyst. Separate course gallery coverage required."
+    },
+    {
+      "schoolId": "berkeley",
+      "year": 2025,
+      "category": "capstone",
+      "title": "ME102B Fall 2025 Inventor Open House \u2014 artifact gap",
+      "url": "https://edg.berkeley.edu/course/me102b/",
+      "kind": "event-report",
+      "evidenceUrl": "https://edg.berkeley.edu/course/me102b/",
+      "notes": "Fall 2025 section dated Dec 8, lists awards and promises videos/reports; complete 2025 roster not present in extracted text. Older 2024/2023 project reports on same page must not become 2025 records. Linked all-years YouTube channel is a lead needing year separation."
+    },
+    {
+      "schoolId": "stanford",
+      "year": 2025,
+      "category": "capstone",
+      "title": "ME170 Mechanical Engineering Capstone \u2014 2025 class",
+      "url": "https://me170.stanford.edu/class-projects/2025-class",
+      "kind": "gallery",
+      "evidenceUrl": "https://me170.stanford.edu/",
+      "notes": "Inline named project descriptions and linked demo videos; year-specific class page."
+    },
+    {
+      "schoolId": "stanford",
+      "year": 2026,
+      "category": "capstone",
+      "title": "ME170 Mechanical Engineering Capstone \u2014 2026 class",
+      "url": "https://me170.stanford.edu/class-projects/2026-class",
+      "kind": "gallery",
+      "evidenceUrl": "https://me170.stanford.edu/",
+      "notes": "Page reports 56 students and 14 projects; final reviews March 10/12 2026. Full schedule is embedded in two Googleusercontent images, not textual full project descriptions. Need OCR/image review and team artifact resolution; image endpoints returned 403 via web extractor in discovery. Do not equate summary themes with 14 resolved records."
+    },
+    {
+      "schoolId": "stanford",
+      "year": 2025,
+      "category": "capstone",
+      "title": "CS147 Autumn 2025 linked project roster data",
+      "url": "https://hci.stanford.edu/courses/cs147/2025/au/data/data.js?v=0",
+      "kind": "roster-asset",
+      "evidenceUrl": "https://hci.stanford.edu/courses/cs147/2025/au/projects.html",
+      "notes": "Requests GET 200, 15310 bytes on access date; starts let studios = [. Script linkage verified in page HTML. Store source evidence separately, parse studio/project objects; no execution required."
+    },
+    {
+      "schoolId": "stanford",
+      "year": 2026,
+      "category": "capstone",
+      "title": "CS147 Autumn 2026 project page \u2014 unpublished roster",
+      "url": "https://hci.stanford.edu/courses/cs147/2026/au/projects.html",
+      "kind": "gallery",
+      "evidenceUrl": "https://hci.stanford.edu/courses/cs147/2026/au/projects.html",
+      "notes": "Requests GET 200, but no roster data script present, links back to 2025 projects; web title still says Autumn 2025. Do not infer 2026 completed project records from URL or stale title. Autumn final fair remains future/unpublished as of Oct 9."
+    },
+    {
+      "schoolId": "stanford",
+      "year": 2026,
+      "category": "capstone",
+      "title": "Extreme Expo 2026 projects",
+      "url": "https://extreme.stanford.edu/extreme-expo/extreme-expo-2026/",
+      "kind": "gallery",
+      "evidenceUrl": "https://extreme.stanford.edu/extreme-expo/extreme-expo-2026/",
+      "notes": "Official gallery says 6 multidisciplinary teams and supplies six named project/partner/community descriptions and Vimeo embeds. Review all six; observed stray Coral Tico paragraph under Se Siwa appears copy inconsistency and should remain flagged, not silently normalized."
+    },
+    {
+      "schoolId": "stanford",
+      "year": 2025,
+      "category": "capstone",
+      "title": "Design Capstone Portfolios '25 \u2014 opt-in subset",
+      "url": "https://designcapstone.stanford.edu/portfolios25",
+      "kind": "gallery",
+      "evidenceUrl": "https://designcapstone.stanford.edu/portfolios25",
+      "notes": "Explicitly featured portfolios of students who chose to share: 17 links observed. NOT a complete project roster. Cannot substitute for full 2025 design capstone coverage."
+    },
+    {
+      "schoolId": "stanford",
+      "year": 2026,
+      "category": "capstone",
+      "title": "Stanford EXPE 2026 \u2014 ME310/ME170 roster gap",
+      "url": "https://expe26.stanford.edu/",
+      "kind": "event-report",
+      "evidenceUrl": "https://expe26.stanford.edu/About%20%E2%80%94%20Stanford%20EXPE%202026.html",
+      "notes": "Official indexed About page confirms June 4 2026 and ME310/ME170. Direct main/About fetches fail/time out/SSL certificate. No complete roster obtained; final ME310 reports may be in Stanford Engineering Libraries ME310 digital collection per official course listing. Do not claim collected. Collector confirmed expired TLS certificate on repeated attempts; retained as an explicit coverage gap rather than a completed roster.",
+      "availability": "unavailable"
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "hackathon",
+      "title": "Hack the North 2025 \u2014 full project gallery page 1 of 11",
+      "url": "https://hackthenorth2025.devpost.com/project-gallery",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2025.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 261 total listed submissions, 24 per page. Pages 1, 2 and 11 opened; page 2 changes records and final range verified. This page directly verified. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author. University September 18 article reports 256 submissions versus current gallery 261; reconcile rather than silently selecting a total. Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "hackathon",
+      "title": "Hack the North 2025 \u2014 full project gallery page 2 of 11",
+      "url": "https://hackthenorth2025.devpost.com/project-gallery?page=2",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2025.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 261 total listed submissions, 24 per page. Pages 1, 2 and 11 opened; page 2 changes records and final range verified. This page directly verified. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author. University September 18 article reports 256 submissions versus current gallery 261; reconcile rather than silently selecting a total. Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "hackathon",
+      "title": "Hack the North 2025 \u2014 full project gallery page 3 of 11",
+      "url": "https://hackthenorth2025.devpost.com/project-gallery?page=3",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2025.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 261 total listed submissions, 24 per page. Pages 1, 2 and 11 opened; page 2 changes records and final range verified. Intermediate page URL enumerated from verified page parameter and count; not individually opened. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author. University September 18 article reports 256 submissions versus current gallery 261; reconcile rather than silently selecting a total. Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "hackathon",
+      "title": "Hack the North 2025 \u2014 full project gallery page 4 of 11",
+      "url": "https://hackthenorth2025.devpost.com/project-gallery?page=4",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2025.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 261 total listed submissions, 24 per page. Pages 1, 2 and 11 opened; page 2 changes records and final range verified. Intermediate page URL enumerated from verified page parameter and count; not individually opened. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author. University September 18 article reports 256 submissions versus current gallery 261; reconcile rather than silently selecting a total. Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "hackathon",
+      "title": "Hack the North 2025 \u2014 full project gallery page 5 of 11",
+      "url": "https://hackthenorth2025.devpost.com/project-gallery?page=5",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2025.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 261 total listed submissions, 24 per page. Pages 1, 2 and 11 opened; page 2 changes records and final range verified. Intermediate page URL enumerated from verified page parameter and count; not individually opened. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author. University September 18 article reports 256 submissions versus current gallery 261; reconcile rather than silently selecting a total. Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "hackathon",
+      "title": "Hack the North 2025 \u2014 full project gallery page 6 of 11",
+      "url": "https://hackthenorth2025.devpost.com/project-gallery?page=6",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2025.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 261 total listed submissions, 24 per page. Pages 1, 2 and 11 opened; page 2 changes records and final range verified. Intermediate page URL enumerated from verified page parameter and count; not individually opened. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author. University September 18 article reports 256 submissions versus current gallery 261; reconcile rather than silently selecting a total. Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "hackathon",
+      "title": "Hack the North 2025 \u2014 full project gallery page 7 of 11",
+      "url": "https://hackthenorth2025.devpost.com/project-gallery?page=7",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2025.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 261 total listed submissions, 24 per page. Pages 1, 2 and 11 opened; page 2 changes records and final range verified. Intermediate page URL enumerated from verified page parameter and count; not individually opened. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author. University September 18 article reports 256 submissions versus current gallery 261; reconcile rather than silently selecting a total. Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "hackathon",
+      "title": "Hack the North 2025 \u2014 full project gallery page 8 of 11",
+      "url": "https://hackthenorth2025.devpost.com/project-gallery?page=8",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2025.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 261 total listed submissions, 24 per page. Pages 1, 2 and 11 opened; page 2 changes records and final range verified. Intermediate page URL enumerated from verified page parameter and count; not individually opened. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author. University September 18 article reports 256 submissions versus current gallery 261; reconcile rather than silently selecting a total. Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "hackathon",
+      "title": "Hack the North 2025 \u2014 full project gallery page 9 of 11",
+      "url": "https://hackthenorth2025.devpost.com/project-gallery?page=9",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2025.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 261 total listed submissions, 24 per page. Pages 1, 2 and 11 opened; page 2 changes records and final range verified. Intermediate page URL enumerated from verified page parameter and count; not individually opened. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author. University September 18 article reports 256 submissions versus current gallery 261; reconcile rather than silently selecting a total. Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "hackathon",
+      "title": "Hack the North 2025 \u2014 full project gallery page 10 of 11",
+      "url": "https://hackthenorth2025.devpost.com/project-gallery?page=10",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2025.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 261 total listed submissions, 24 per page. Pages 1, 2 and 11 opened; page 2 changes records and final range verified. Intermediate page URL enumerated from verified page parameter and count; not individually opened. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author. University September 18 article reports 256 submissions versus current gallery 261; reconcile rather than silently selecting a total. Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2025,
+      "category": "hackathon",
+      "title": "Hack the North 2025 \u2014 full project gallery page 11 of 11",
+      "url": "https://hackthenorth2025.devpost.com/project-gallery?page=11",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2025.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 261 total listed submissions, 24 per page. Pages 1, 2 and 11 opened; page 2 changes records and final range verified. This page directly verified. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author. University September 18 article reports 256 submissions versus current gallery 261; reconcile rather than silently selecting a total. Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "Hack the North 2026 \u2014 full project gallery page 1 of 15",
+      "url": "https://hackthenorth2026.devpost.com/project-gallery",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2026.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 349 total listed submissions, 24 per page. Pages 1, 2 and 15 opened; page 2 changes records and final range verified. This page directly verified. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author.  Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "Hack the North 2026 \u2014 full project gallery page 2 of 15",
+      "url": "https://hackthenorth2026.devpost.com/project-gallery?page=2",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2026.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 349 total listed submissions, 24 per page. Pages 1, 2 and 15 opened; page 2 changes records and final range verified. This page directly verified. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author.  Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "Hack the North 2026 \u2014 full project gallery page 3 of 15",
+      "url": "https://hackthenorth2026.devpost.com/project-gallery?page=3",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2026.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 349 total listed submissions, 24 per page. Pages 1, 2 and 15 opened; page 2 changes records and final range verified. Intermediate page URL enumerated from verified page parameter and count; not individually opened. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author.  Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "Hack the North 2026 \u2014 full project gallery page 4 of 15",
+      "url": "https://hackthenorth2026.devpost.com/project-gallery?page=4",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2026.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 349 total listed submissions, 24 per page. Pages 1, 2 and 15 opened; page 2 changes records and final range verified. Intermediate page URL enumerated from verified page parameter and count; not individually opened. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author.  Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "Hack the North 2026 \u2014 full project gallery page 5 of 15",
+      "url": "https://hackthenorth2026.devpost.com/project-gallery?page=5",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2026.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 349 total listed submissions, 24 per page. Pages 1, 2 and 15 opened; page 2 changes records and final range verified. Intermediate page URL enumerated from verified page parameter and count; not individually opened. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author.  Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "Hack the North 2026 \u2014 full project gallery page 6 of 15",
+      "url": "https://hackthenorth2026.devpost.com/project-gallery?page=6",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2026.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 349 total listed submissions, 24 per page. Pages 1, 2 and 15 opened; page 2 changes records and final range verified. Intermediate page URL enumerated from verified page parameter and count; not individually opened. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author.  Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "Hack the North 2026 \u2014 full project gallery page 7 of 15",
+      "url": "https://hackthenorth2026.devpost.com/project-gallery?page=7",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2026.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 349 total listed submissions, 24 per page. Pages 1, 2 and 15 opened; page 2 changes records and final range verified. Intermediate page URL enumerated from verified page parameter and count; not individually opened. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author.  Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "Hack the North 2026 \u2014 full project gallery page 8 of 15",
+      "url": "https://hackthenorth2026.devpost.com/project-gallery?page=8",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2026.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 349 total listed submissions, 24 per page. Pages 1, 2 and 15 opened; page 2 changes records and final range verified. Intermediate page URL enumerated from verified page parameter and count; not individually opened. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author.  Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "Hack the North 2026 \u2014 full project gallery page 9 of 15",
+      "url": "https://hackthenorth2026.devpost.com/project-gallery?page=9",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2026.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 349 total listed submissions, 24 per page. Pages 1, 2 and 15 opened; page 2 changes records and final range verified. Intermediate page URL enumerated from verified page parameter and count; not individually opened. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author.  Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "Hack the North 2026 \u2014 full project gallery page 10 of 15",
+      "url": "https://hackthenorth2026.devpost.com/project-gallery?page=10",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2026.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 349 total listed submissions, 24 per page. Pages 1, 2 and 15 opened; page 2 changes records and final range verified. Intermediate page URL enumerated from verified page parameter and count; not individually opened. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author.  Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "Hack the North 2026 \u2014 full project gallery page 11 of 15",
+      "url": "https://hackthenorth2026.devpost.com/project-gallery?page=11",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2026.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 349 total listed submissions, 24 per page. Pages 1, 2 and 15 opened; page 2 changes records and final range verified. Intermediate page URL enumerated from verified page parameter and count; not individually opened. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author.  Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "Hack the North 2026 \u2014 full project gallery page 12 of 15",
+      "url": "https://hackthenorth2026.devpost.com/project-gallery?page=12",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2026.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 349 total listed submissions, 24 per page. Pages 1, 2 and 15 opened; page 2 changes records and final range verified. Intermediate page URL enumerated from verified page parameter and count; not individually opened. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author.  Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "Hack the North 2026 \u2014 full project gallery page 13 of 15",
+      "url": "https://hackthenorth2026.devpost.com/project-gallery?page=13",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2026.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 349 total listed submissions, 24 per page. Pages 1, 2 and 15 opened; page 2 changes records and final range verified. Intermediate page URL enumerated from verified page parameter and count; not individually opened. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author.  Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "Hack the North 2026 \u2014 full project gallery page 14 of 15",
+      "url": "https://hackthenorth2026.devpost.com/project-gallery?page=14",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2026.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 349 total listed submissions, 24 per page. Pages 1, 2 and 15 opened; page 2 changes records and final range verified. Intermediate page URL enumerated from verified page parameter and count; not individually opened. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author.  Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "waterloo",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "Hack the North 2026 \u2014 full project gallery page 15 of 15",
+      "url": "https://hackthenorth2026.devpost.com/project-gallery?page=15",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackthenorth2026.devpost.com/rules",
+      "notes": "Organizer-hosted Devpost gallery. 349 total listed submissions, 24 per page. Pages 1, 2 and 15 opened; page 2 changes records and final range verified. This page directly verified. Follow every linked devpost.com/software project for full descriptions, dates, team and repository links. Current default sorting puts winners first: first page is not complete collection. School label denotes Waterloo-hosted event, not verified Waterloo enrollment of every author.  Linkage verified: official university event report links to https://hackthenorth.com/ (web article link 8). Organizer homepage timed out twice, so organizer-to-Devpost outgoing link is NOT verified in this pass. Devpost event overview identifies Hack the North, University of Waterloo venue and year; organizer-hosted rules require submission at the matching year-specific Devpost host. This corroborates event identity but does not close the requested outgoing-link chain. Full detail URL pattern: https://devpost.com/software/<project-slug>, extracted from gallery href rather than synthesized from title. Verified examples: https://devpost.com/software/dum-e-kgx6at (2025) and https://devpost.com/software/reflex-e0jkih (2026); both open full project stories with team, submitted-event association, build details and links. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "waterloo",
+        "officialUrl": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record"
+      }
+    },
+    {
+      "schoolId": "berkeley",
+      "year": 2025,
+      "category": "hackathon",
+      "title": "UC Berkeley AI Hackathon 2025 \u2014 all-submission gallery",
+      "url": "https://uc-berkeley-ai-hackathon-2025.devpost.com/project-gallery",
+      "kind": "gallery",
+      "evidenceUrl": "https://uc-berkeley-ai-hackathon-2025.devpost.com/",
+      "notes": "Official gallery showed 1\u201324 of 330 on 2026-10-09. Page 2 verified as 25\u201348 via ?page=2. Enumerate page=N until reconciled total; follow /software/ links for descriptions, teams, demo and repository links. Winners sorted first but unfiltered gallery includes non-winners. These are hosted-event affiliations, not proof every participant is a Berkeley student. No full pagination/ingestion performed in discovery. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication. Verified institutional-to-organizer provenance: Official Berkeley BEGIN directory links calhacks.io; opened organizer calhacks.io links hackberkeley.org and states it hosts both Cal Hacks and UC Berkeley AI Hackathon. Year-specific university-authored Jacobs newsletter hosted at Google Groups: https://groups.google.com/a/lists.berkeley.edu/g/jacobs_community/c/PKIJi98yYOI (opened; May1 2025; June21-22 2025; outgoing Apply link ai.hackberkeley.org). BEGIN itself is generic affiliation evidence, not year-specific event proof.",
+      "externalProof": {
+        "schoolId": "berkeley",
+        "officialUrl": "https://begin.berkeley.edu/resources/cal-hacks/"
+      }
+    },
+    {
+      "schoolId": "berkeley",
+      "year": 2025,
+      "category": "hackathon",
+      "title": "uc-berkeley-ai-hackathon-2025 \u2014 pagination sample",
+      "url": "https://uc-berkeley-ai-hackathon-2025.devpost.com/project-gallery?page=2",
+      "kind": "roster-asset",
+      "evidenceUrl": "https://uc-berkeley-ai-hackathon-2025.devpost.com/project-gallery",
+      "notes": "Verified second gallery page; use pagination, do not treat first-page winners as full collection. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication. Verified institutional-to-organizer provenance: Official Berkeley BEGIN directory links calhacks.io; opened organizer calhacks.io links hackberkeley.org and states it hosts both Cal Hacks and UC Berkeley AI Hackathon. Year-specific university-authored Jacobs newsletter hosted at Google Groups: https://groups.google.com/a/lists.berkeley.edu/g/jacobs_community/c/PKIJi98yYOI (opened; May1 2025; June21-22 2025; outgoing Apply link ai.hackberkeley.org). BEGIN itself is generic affiliation evidence, not year-specific event proof.",
+      "externalProof": {
+        "schoolId": "berkeley",
+        "officialUrl": "https://begin.berkeley.edu/resources/cal-hacks/"
+      }
+    },
+    {
+      "schoolId": "berkeley",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "UC Berkeley AI Hackathon 2026 \u2014 all-submission gallery",
+      "url": "https://ai-hackathon-2026.devpost.com/project-gallery",
+      "kind": "gallery",
+      "evidenceUrl": "https://live.hackberkeley.org/",
+      "notes": "Official gallery showed 1\u201324 of 400 on 2026-10-09. Page 2 verified as 25\u201348 via ?page=2. Enumerate page=N until reconciled total; follow /software/ links for descriptions, teams, demo and repository links. Winners sorted first but unfiltered gallery includes non-winners. These are hosted-event affiliations, not proof every participant is a Berkeley student. No full pagination/ingestion performed in discovery. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication. Verified institutional-to-organizer provenance: Generic university-to-organizer chain: BEGIN -> calhacks.io -> hackberkeley.org -> ai.hackberkeley.org. Organizer live.hackberkeley.org explicitly titled AI Hackathon2026, states venue MLK Student Union Berkeley, and links exact Devpost event. No year-specific Berkeley-domain university announcement verified in bounded pass.",
+      "externalProof": {
+        "schoolId": "berkeley",
+        "officialUrl": "https://begin.berkeley.edu/resources/cal-hacks/"
+      }
+    },
+    {
+      "schoolId": "berkeley",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "ai-hackathon-2026 \u2014 pagination sample",
+      "url": "https://ai-hackathon-2026.devpost.com/project-gallery?page=2",
+      "kind": "roster-asset",
+      "evidenceUrl": "https://ai-hackathon-2026.devpost.com/project-gallery",
+      "notes": "Verified second gallery page; use pagination, do not treat first-page winners as full collection. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication. Verified institutional-to-organizer provenance: Generic university-to-organizer chain: BEGIN -> calhacks.io -> hackberkeley.org -> ai.hackberkeley.org. Organizer live.hackberkeley.org explicitly titled AI Hackathon2026, states venue MLK Student Union Berkeley, and links exact Devpost event. No year-specific Berkeley-domain university announcement verified in bounded pass.",
+      "externalProof": {
+        "schoolId": "berkeley",
+        "officialUrl": "https://begin.berkeley.edu/resources/cal-hacks/"
+      }
+    },
+    {
+      "schoolId": "berkeley",
+      "year": 2025,
+      "category": "hackathon",
+      "title": "Cal Hacks 12.0 \u2014 all-submission gallery",
+      "url": "https://cal-hacks-12-0.devpost.com/project-gallery",
+      "kind": "gallery",
+      "evidenceUrl": "https://cal-hacks-12-0.devpost.com/",
+      "notes": "Official gallery showed 1\u201324 of 699 on 2026-10-09. Page 2 verified as 25\u201348 via ?page=2. Enumerate page=N until reconciled total; follow /software/ links for descriptions, teams, demo and repository links. Winners sorted first but unfiltered gallery includes non-winners. These are hosted-event affiliations, not proof every participant is a Berkeley student. No full pagination/ingestion performed in discovery. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication. Verified institutional-to-organizer provenance: University directory -> calhacks.io -> hackberkeley.org. Opened organizer homepage labels past event Cal Hacks12.0 October2025. University page establishes organization affiliation only; no year-specific university report verified. Official EECS directory https://eecs.berkeley.edu/people/students-2/organizations/ also opened and links www.calhacks.io under Hack the Bay (CalHacks).",
+      "externalProof": {
+        "schoolId": "berkeley",
+        "officialUrl": "https://begin.berkeley.edu/resources/cal-hacks/"
+      }
+    },
+    {
+      "schoolId": "berkeley",
+      "year": 2025,
+      "category": "hackathon",
+      "title": "cal-hacks-12-0 \u2014 pagination sample",
+      "url": "https://cal-hacks-12-0.devpost.com/project-gallery?page=2",
+      "kind": "roster-asset",
+      "evidenceUrl": "https://cal-hacks-12-0.devpost.com/project-gallery",
+      "notes": "Verified second gallery page; use pagination, do not treat first-page winners as full collection. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication. Verified institutional-to-organizer provenance: University directory -> calhacks.io -> hackberkeley.org. Opened organizer homepage labels past event Cal Hacks12.0 October2025. University page establishes organization affiliation only; no year-specific university report verified. Official EECS directory https://eecs.berkeley.edu/people/students-2/organizations/ also opened and links www.calhacks.io under Hack the Bay (CalHacks).",
+      "externalProof": {
+        "schoolId": "berkeley",
+        "officialUrl": "https://begin.berkeley.edu/resources/cal-hacks/"
+      }
+    },
+    {
+      "schoolId": "stanford",
+      "year": 2025,
+      "category": "hackathon",
+      "title": "TreeHacks 2025 \u2014 all-submission gallery",
+      "url": "https://treehacks-2025.devpost.com/project-gallery",
+      "kind": "gallery",
+      "evidenceUrl": "https://treehacks-2025.devpost.com/",
+      "notes": "Official Stanford-hosted event; gallery total 257, 24/page on access date. Follow /software/ detail pages and external artifacts. Hosted-event association does not prove all students attend Stanford. Page 2 returned 403 in this pass; pagination method verified on other Devpost events, this event remains incomplete. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication. Verified institutional-to-organizer provenance: Year-specific Stanford Ecopreneurship sponsorship; on-campus event; exact outgoing organizer link. University page fetched HTTP200 with Bun after web-reader timeouts.",
+      "externalProof": {
+        "schoolId": "stanford",
+        "officialUrl": "https://ecopreneurship.stanford.edu/beyond-stanford/"
+      }
+    },
+    {
+      "schoolId": "stanford",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "TreeHacks 2026 \u2014 all-submission gallery",
+      "url": "https://treehacks-2026.devpost.com/project-gallery",
+      "kind": "gallery",
+      "evidenceUrl": "https://treehacks-2026.devpost.com/",
+      "notes": "Official Stanford-hosted event; gallery total 378, 24/page on access date. Follow /software/ detail pages and external artifacts. Hosted-event association does not prove all students attend Stanford. Page 2 verified 25\u201348 of 378 via ?page=2. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication. Verified institutional-to-organizer provenance: Year-specific Stanford Ecopreneurship sponsorship; on-campus event; exact outgoing organizer link. University page fetched HTTP200 with Bun. Additional opened university report: https://ose.stanford.edu/news/treehacks-12-sam-altman-and-llamas .",
+      "externalProof": {
+        "schoolId": "stanford",
+        "officialUrl": "https://ecopreneurship.stanford.edu/beyond-stanford/"
+      }
+    },
+    {
+      "schoolId": "stanford",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "TreeHacks 2026 \u2014 pagination sample",
+      "url": "https://treehacks-2026.devpost.com/project-gallery?page=2",
+      "kind": "roster-asset",
+      "evidenceUrl": "https://treehacks-2026.devpost.com/project-gallery",
+      "notes": "Second page verified; enumerate all pages and reconcile 378 before claiming collection completeness. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication. Verified institutional-to-organizer provenance: Year-specific Stanford Ecopreneurship sponsorship; on-campus event; exact outgoing organizer link. University page fetched HTTP200 with Bun. Additional opened university report: https://ose.stanford.edu/news/treehacks-12-sam-altman-and-llamas .",
+      "externalProof": {
+        "schoolId": "stanford",
+        "officialUrl": "https://ecopreneurship.stanford.edu/beyond-stanford/"
+      }
+    },
+    {
+      "schoolId": "gatech",
+      "year": 2025,
+      "category": "capstone",
+      "title": "Spring 2025 Expo program roster PDF",
+      "url": "https://bpb-us-e1.wpmucdn.com/sites.gatech.edu/dist/e/127/files/2025/04/capstone-spring2025_draft1.pdf",
+      "kind": "roster-asset",
+      "evidenceUrl": "https://expo.gatech.edu/",
+      "notes": "Full table/project program supplemental to live semester roster; filename says draft1; do not use as final completion evidence.",
+      "externalProof": {
+        "schoolId": "gatech",
+        "officialUrl": "https://expo.gatech.edu/",
+        "linkedHost": "bpb-us-e1.wpmucdn.com"
+      }
+    },
+    {
+      "schoolId": "gatech",
+      "year": 2025,
+      "category": "hackathon",
+      "title": "HackGT 12 complete project gallery",
+      "url": "https://hackgt-12.devpost.com/project-gallery",
+      "kind": "gallery",
+      "evidenceUrl": "https://calendar.gatech.edu/event/2025/09/26/hackgt-12-midnight-museum",
+      "notes": "Official GT campus calendar verifies HexLabs event at Klaus Sept26\u201328 2025. Devpost overview and public gallery match organizer/event. Gallery pagination page=N; not winner-only. Public page accessed; all project pages not downloaded. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "gatech",
+        "officialUrl": "https://calendar.gatech.edu/event/2025/09/26/hackgt-12-midnight-museum"
+      }
+    },
+    {
+      "schoolId": "gatech",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "Hacklytics 2026 Golden Byte project gallery",
+      "url": "https://hacklytics-2026.devpost.com/project-gallery",
+      "kind": "gallery",
+      "evidenceUrl": "https://d9-liberty2.oit.gatech.edu/learn-vibe-code-sase",
+      "notes": "Official GT event identifies Hacklytics as DS@GT spring hackathon; general affiliation also verified by cc.gatech.edu/news/student-data-science-club-builds-skills-opportunity-members. Public Devpost gallery accessed, page=N pagination; whole gallery not fetched. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "gatech",
+        "officialUrl": "https://d9-liberty2.oit.gatech.edu/learn-vibe-code-sase"
+      }
+    },
+    {
+      "schoolId": "gatech",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "EnergyHack@GT 2026 full project gallery",
+      "url": "https://energyhack-gt-26.devpost.com/project-gallery",
+      "kind": "gallery",
+      "evidenceUrl": "https://www.gatech.edu/news/2026/02/16/concept-prototype-how-georgia-tech-students-are-shaping-sustainable-energy-future",
+      "notes": "Official GT report explicitly links all submitted projects and reports 22 submissions, Jan23\u201325 2026. Devpost fetch hit 429; retain as retry gap, not collected. Event-host association only; participant school enrollment unverified. Official source URL must be audited before publication.",
+      "externalProof": {
+        "schoolId": "gatech",
+        "officialUrl": "https://www.gatech.edu/news/2026/02/16/concept-prototype-how-georgia-tech-students-are-shaping-sustainable-energy-future"
+      }
+    },
+    {
+      "schoolId": "gatech",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "RoboTech 2026 hardware hackathon roster gap",
+      "url": "https://sites.gatech.edu/ece-ieee/robotech/",
+      "kind": "event-report",
+      "evidenceUrl": "https://sites.gatech.edu/ece-ieee/robotech/",
+      "notes": "Official IEEE@GT page confirms 2026 event, but full public project roster not located in bounded pass; cannot imply collection. Selected official event URL returned HTTP404 on repeated checks; no project roster available at this URL.",
+      "availability": "unavailable"
+    },
+    {
+      "schoolId": "mit",
+      "year": 2025,
+      "category": "hackathon",
+      "title": "HackMIT 2025 full project gallery",
+      "url": "https://plume.hackmit.org/gallery?hackathon_id=hack-2025",
+      "kind": "gallery",
+      "evidenceUrl": "https://archive.hackmit.org/2025/",
+      "notes": "Organizer-owned HackMIT subdomain and official event dates. Public API /api/v3/projects/gallery?hackathon_id=hack-2025&page=N returns 24 records/page even if items_per_page=100. total_projects=319; all 14 pages fetched, 319 unique project ids verified. Saved hackmit-2025-public-projects.json with project metadata including descriptions/builds/repos/demos; join/internal link fields and individual-contribution identity fields omitted. API metadata provides full writeups, not merely gallery summaries. Event spans external participants: not every project team is MIT-enrolled.",
+      "externalProof": {
+        "schoolId": "mit",
+        "officialUrl": "https://entrepreneurship.mit.edu/student-organizations/",
+        "linkedHost": "plume.hackmit.org"
+      }
+    },
+    {
+      "schoolId": "mit",
+      "year": 2025,
+      "category": "hackathon",
+      "title": "HackMIT 2025 public full-description JSON API",
+      "url": "https://plume.hackmit.org/api/v3/projects/gallery?hackathon_id=hack-2025&page=1",
+      "kind": "roster-asset",
+      "evidenceUrl": "https://plume.hackmit.org/gallery?hackathon_id=hack-2025",
+      "notes": "HTTPS JSON; iterate page=1 onward, fixed24/page; metadata JSON string contains description/inspiration/what_it_does/how_we_built_it/challenges/accomplishments/whats_next/code_link/links/video_demo. Sanitized complete snapshot saved locally.",
+      "externalProof": {
+        "schoolId": "mit",
+        "officialUrl": "https://entrepreneurship.mit.edu/student-organizations/",
+        "linkedHost": "plume.hackmit.org"
+      }
+    },
+    {
+      "schoolId": "mit",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "HackMIT 2026 full project gallery",
+      "url": "https://plume.hackmit.org/gallery?hackathon_id=hack-2026",
+      "kind": "gallery",
+      "evidenceUrl": "https://hackmit.org/",
+      "notes": "Organizer-owned HackMIT subdomain and official event dates. Public API /api/v3/projects/gallery?hackathon_id=hack-2026&page=N returns 24 records/page even if items_per_page=100. total_projects=299; all 13 pages fetched, 299 unique project ids verified. Saved hackmit-2026-public-projects.json with project metadata including descriptions/builds/repos/demos; join/internal link fields and individual-contribution identity fields omitted. API metadata provides full writeups, not merely gallery summaries. Event spans external participants: not every project team is MIT-enrolled.",
+      "externalProof": {
+        "schoolId": "mit",
+        "officialUrl": "https://capd.mit.edu/annual-career-fairs-at-mit/",
+        "linkedHost": "plume.hackmit.org"
+      }
+    },
+    {
+      "schoolId": "mit",
+      "year": 2026,
+      "category": "hackathon",
+      "title": "HackMIT 2026 public full-description JSON API",
+      "url": "https://plume.hackmit.org/api/v3/projects/gallery?hackathon_id=hack-2026&page=1",
+      "kind": "roster-asset",
+      "evidenceUrl": "https://plume.hackmit.org/gallery?hackathon_id=hack-2026",
+      "notes": "HTTPS JSON; iterate page=1 onward, fixed24/page; metadata JSON string contains description/inspiration/what_it_does/how_we_built_it/challenges/accomplishments/whats_next/code_link/links/video_demo. Sanitized complete snapshot saved locally.",
+      "externalProof": {
+        "schoolId": "mit",
+        "officialUrl": "https://capd.mit.edu/annual-career-fairs-at-mit/",
+        "linkedHost": "plume.hackmit.org"
+      }
+    },
+    {
+      "schoolId": "mit",
+      "year": 2025,
+      "category": "capstone",
+      "title": "MIT 2.009 Cycles complete six-product gallery",
+      "url": "https://www.009cycles.com/products",
+      "kind": "gallery",
+      "evidenceUrl": "https://mitadmissions.org/blogs/entry/2-009-live-blog-2025-2/",
+      "notes": "Official MIT Admissions Dec8 2025 liveblog directly links 009cycles.com/webcast, verifying external event site. Products page links all six: HeartBridge, AgriSweep, Scribbly, Dori, Polar, HydroHold. Program page lists all six team colors. Event year2025 despite Jan2026 school report.",
+      "externalProof": {
+        "schoolId": "mit",
+        "officialUrl": "https://news.mit.edu/2026/product-engineering-students-embrace-cycles-0108",
+        "linkedHost": "www.009cycles.com"
+      }
+    },
+    {
+      "schoolId": "mit",
+      "year": 2025,
+      "category": "capstone",
+      "title": "MIT 2.009 Cycles six-project school report",
+      "url": "https://news.mit.edu/2026/product-engineering-students-embrace-cycles-0108",
+      "kind": "event-report",
+      "evidenceUrl": "https://www.009cycles.com/",
+      "notes": "Official January8 2026 report explicitly describes December8 2025 launch; complete six final teams, not just winners. Use event year2025."
+    },
+    {
+      "schoolId": "mit",
+      "year": 2025,
+      "category": "capstone",
+      "title": "MIT 2.009 2025 HeartBridge team product sheet",
+      "url": "https://www.009cycles.com/products/green-product-sheet.pdf",
+      "kind": "roster-asset",
+      "evidenceUrl": "https://www.009cycles.com/products",
+      "notes": "Linked by complete six-product gallery verified through official MIT Admissions. Downloaded HTTP200, 37744404 bytes privately as mit-2025-green-product-sheet.pdf; includes team roster and project/budget detail; student claims not independent validation. Some PDFs exceed browser PDF fetch limit; use local extraction.",
+      "externalProof": {
+        "schoolId": "mit",
+        "officialUrl": "https://news.mit.edu/2026/product-engineering-students-embrace-cycles-0108",
+        "linkedHost": "www.009cycles.com"
+      }
+    },
+    {
+      "schoolId": "mit",
+      "year": 2025,
+      "category": "capstone",
+      "title": "MIT 2.009 2025 AgriSweep team product sheet",
+      "url": "https://www.009cycles.com/products/purple-product-sheet.pdf",
+      "kind": "roster-asset",
+      "evidenceUrl": "https://www.009cycles.com/products",
+      "notes": "Linked by complete six-product gallery verified through official MIT Admissions. Downloaded HTTP200, 1776869 bytes privately as mit-2025-purple-product-sheet.pdf; includes team roster and project/budget detail; student claims not independent validation. Some PDFs exceed browser PDF fetch limit; use local extraction.",
+      "externalProof": {
+        "schoolId": "mit",
+        "officialUrl": "https://news.mit.edu/2026/product-engineering-students-embrace-cycles-0108",
+        "linkedHost": "www.009cycles.com"
+      }
+    },
+    {
+      "schoolId": "mit",
+      "year": 2025,
+      "category": "capstone",
+      "title": "MIT 2.009 2025 Scribbly team product sheet",
+      "url": "https://www.009cycles.com/products/red-product-sheet.pdf",
+      "kind": "roster-asset",
+      "evidenceUrl": "https://www.009cycles.com/products",
+      "notes": "Linked by complete six-product gallery verified through official MIT Admissions. Downloaded HTTP200, 13466737 bytes privately as mit-2025-red-product-sheet.pdf; includes team roster and project/budget detail; student claims not independent validation. Some PDFs exceed browser PDF fetch limit; use local extraction.",
+      "externalProof": {
+        "schoolId": "mit",
+        "officialUrl": "https://news.mit.edu/2026/product-engineering-students-embrace-cycles-0108",
+        "linkedHost": "www.009cycles.com"
+      }
+    },
+    {
+      "schoolId": "mit",
+      "year": 2025,
+      "category": "capstone",
+      "title": "MIT 2.009 2025 Dori team product sheet",
+      "url": "https://www.009cycles.com/products/blue-product-sheet.pdf",
+      "kind": "roster-asset",
+      "evidenceUrl": "https://www.009cycles.com/products",
+      "notes": "Linked by complete six-product gallery verified through official MIT Admissions. Downloaded HTTP200, 38676377 bytes privately as mit-2025-blue-product-sheet.pdf; includes team roster and project/budget detail; student claims not independent validation. Some PDFs exceed browser PDF fetch limit; use local extraction.",
+      "externalProof": {
+        "schoolId": "mit",
+        "officialUrl": "https://news.mit.edu/2026/product-engineering-students-embrace-cycles-0108",
+        "linkedHost": "www.009cycles.com"
+      }
+    },
+    {
+      "schoolId": "mit",
+      "year": 2025,
+      "category": "capstone",
+      "title": "MIT 2.009 2025 Polar team product sheet",
+      "url": "https://www.009cycles.com/products/yellow-product-sheet.pdf",
+      "kind": "roster-asset",
+      "evidenceUrl": "https://www.009cycles.com/products",
+      "notes": "Linked by complete six-product gallery verified through official MIT Admissions. Downloaded HTTP200, 450196 bytes privately as mit-2025-yellow-product-sheet.pdf; includes team roster and project/budget detail; student claims not independent validation. Some PDFs exceed browser PDF fetch limit; use local extraction.",
+      "externalProof": {
+        "schoolId": "mit",
+        "officialUrl": "https://news.mit.edu/2026/product-engineering-students-embrace-cycles-0108",
+        "linkedHost": "www.009cycles.com"
+      }
+    },
+    {
+      "schoolId": "mit",
+      "year": 2025,
+      "category": "capstone",
+      "title": "MIT 2.009 2025 HydroHold team product sheet",
+      "url": "https://www.009cycles.com/products/pink-product-sheet.pdf",
+      "kind": "roster-asset",
+      "evidenceUrl": "https://www.009cycles.com/products",
+      "notes": "Linked by complete six-product gallery verified through official MIT Admissions. Downloaded HTTP200, 12941936 bytes privately as mit-2025-pink-product-sheet.pdf; includes team roster and project/budget detail; student claims not independent validation. Some PDFs exceed browser PDF fetch limit; use local extraction.",
+      "externalProof": {
+        "schoolId": "mit",
+        "officialUrl": "https://news.mit.edu/2026/product-engineering-students-embrace-cycles-0108",
+        "linkedHost": "www.009cycles.com"
+      }
+    }
+  ],
+  "years": [2025, 2026],
+  "discoveryComplete": true,
+  "gaps": [
+    {
+      "schoolId": "stanford",
+      "year": 2026,
+      "detail": "Stanford EXPE/ME310 2025 full project roster not located; 2026 EXPE inaccessible and ME170 schedule images need review."
+    },
+    {
+      "schoolId": "stanford",
+      "year": 2026,
+      "detail": "No validated full Stanford Design Capstone 2026 gallery; 2025 portfolio list explicitly opt-in."
+    },
+    {
+      "schoolId": "stanford",
+      "year": 2026,
+      "detail": "CS147 Autumn 2026 roster not published on inspected page; final fair future relative to Oct 9."
+    },
+    {
+      "schoolId": "berkeley",
+      "year": 2026,
+      "detail": "Cal Hacks 13.0 future event, not completed 2026 collection."
+    },
+    {
+      "schoolId": "berkeley",
+      "year": 2026,
+      "detail": "Berkeley Google Hackathon 2025 all-team roster and ME102B Fall 2025 full project artifacts unresolved."
+    },
+    {
+      "schoolId": "berkeley",
+      "year": 2026,
+      "detail": "All Devpost pagination and individual detail/project artifact collection remain unperformed in discovery; counts are public gallery totals at access, not reviewed projects."
+    },
+    {
+      "schoolId": "berkeley",
+      "year": 2026,
+      "detail": "Schools host participants from other institutions; attach hostSchool evidence, do not invent student enrollment."
+    },
+    {
+      "schoolId": "stanford",
+      "year": 2026,
+      "detail": "https://expe26.stanford.edu/ is unavailable due to expired TLS certificate; no complete ME310 roster obtained. Failure and source URL remain archived. Other available collections continue."
+    },
+    {
+      "schoolId": "gatech",
+      "year": 2026,
+      "detail": "RoboTech official event page repeatedly returns HTTP404; no complete submission roster obtained. Failed URL retained; other identified galleries continue."
     }
   ]
 }

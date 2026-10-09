@@ -136,6 +136,7 @@ export type State = {
       done: boolean;
       failures: Failure[];
       chunkSize?: number;
+      method?: "structured-v1";
     }
   >;
   edges: Edge[];

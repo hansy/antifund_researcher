@@ -8,6 +8,8 @@ import {
   collect,
   loadIntake,
   checkpoint,
+  enrichItem,
+  type Item,
 } from "./intake";
 import { classifyShowcases, scopeSchema } from "./showcases";
 import { runCodex } from "./codex";
@@ -25,6 +27,38 @@ const provenance = {
   title: "2025 Showcase",
   discoveredAt: "2026-10-09",
 };
+test("a full abstract enriches a table-of-contents record without losing evidence", () => {
+  const first = {
+    problem: "Unknown",
+    approach: "Unknown",
+    domain: "Unknown",
+    embodiment: "unknown",
+    readiness: "unknown",
+    reportedResults: "Not reported",
+    interpretation: "Title only",
+    unansweredQuestions: ["Performance unknown"],
+    classificationStatus: "ambiguous",
+    evidence: [{ quote: "LiftAssist", sourceUrl: "https://example.edu" }],
+  } as Item;
+  const full = {
+    ...first,
+    problem: "Caregivers need help repositioning patients in bed.",
+    approach: "A retrofit lifts and turns the mattress.",
+    reportedResults: "Prototype described; clinical outcomes unreported.",
+    classificationStatus: "classified",
+  } as Item;
+  enrichItem(first, full);
+  expect(first.problem).toBe(full.problem);
+  expect(first.classificationStatus).toBe("classified");
+  enrichItem(first, {
+    ...full,
+    problem: "Unknown",
+    approach: "Unknown",
+    reportedResults: "Not reported",
+  });
+  expect(first.problem).toBe(full.problem);
+  expect(first.evidence).toHaveLength(1);
+});
 test("focused collection retains navigation links but never downloads them", async () => {
   const root = await mkdtemp(join(tmpdir(), "showcases-test-"));
   try {
@@ -147,12 +181,30 @@ test("focused pipeline ignores deferred candidates and holds synthesis while sel
     await rm(root, { recursive: true, force: true });
   }
 });
-test("showcase scope stays within five schools and two sources per school", async () => {
+test("showcase scope includes 2026 and permits full galleries without a two-source cap", async () => {
   const scope = scopeSchema.parse(
     JSON.parse(await readFile("data/showcase-scope.json", "utf8")),
   );
-  expect(scope.year).toBe(2025);
-  expect(scope.sources).toHaveLength(9);
+  expect(scope.years).toEqual([2025, 2026]);
+  expect(scope.sources.some((source) => source.year === 2026)).toBe(true);
+  expect(
+    scopeSchema.safeParse({
+      ...scope,
+      sources: [
+        ...scope.sources,
+        {
+          ...scope.sources[0],
+          url: "https://coe.gatech.edu/2026/third-gallery",
+          year: 2026,
+        },
+        {
+          ...scope.sources[0],
+          url: "https://coe.gatech.edu/2026/fourth-gallery",
+          year: 2026,
+        },
+      ],
+    }).success,
+  ).toBe(true);
   expect(
     scopeSchema.safeParse({
       ...scope,

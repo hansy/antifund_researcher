@@ -602,6 +602,42 @@ export function explicitDateMatches(date: string, evidence: string): boolean {
     parsed.toISOString().slice(0, date.length) === date
   );
 }
+/** Overlapping gallery chunks may encounter the index before the full abstract. */
+export function enrichItem(existing: Item, incoming: Item) {
+  const missing = (value: string) =>
+    /^(unknown|not (reported|specified|provided)|unspecified|n\/a)(?:[.\s]|$)/i.test(
+      value.trim(),
+    );
+  const detailed = (item: Item) =>
+    [item.problem, item.approach, item.reportedResults].reduce(
+      (n, value) => n + (missing(value) ? 0 : value.length),
+      0,
+    );
+  const preferIncoming = detailed(incoming) > detailed(existing);
+  for (const field of [
+    "domain",
+    "problem",
+    "approach",
+    "embodiment",
+    "readiness",
+    "reportedResults",
+    "interpretation",
+  ] as const) {
+    if (
+      !missing(incoming[field]) &&
+      (missing(existing[field]) || preferIncoming)
+    )
+      existing[field] = incoming[field];
+  }
+  if (incoming.classificationStatus === "classified")
+    existing.classificationStatus = "classified";
+  existing.unansweredQuestions = [
+    ...new Set([
+      ...existing.unansweredQuestions,
+      ...incoming.unansweredQuestions,
+    ]),
+  ];
+}
 function ambiguousItem(
   candidate: Candidate,
   revision: Revision,
@@ -788,6 +824,7 @@ export async function classify(state: State, options: IntakeOptions = {}) {
             };
             const existing = state.items.find((i) => i.id === item.id);
             if (existing) {
+              enrichItem(existing, item);
               if (
                 existing.dateStatus !== "verified" &&
                 item.dateStatus === "verified"

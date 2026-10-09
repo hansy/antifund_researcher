@@ -10,55 +10,146 @@ import { join, resolve } from "node:path";
 import { z } from "zod";
 import {
   classify,
+  collect,
   checkpoint,
   emptyState,
   loadSchools,
   preserveCandidate,
   due,
+  safeUrl,
   type State,
   type IntakeOptions,
   type School,
 } from "./intake";
 import { download } from "./intake/network";
 import { mergeLaneState, runPipeline } from "./pipeline";
+import { seedStructuredSources } from "./showcase-seeding";
+import { expandShowcaseSources, importHackmit } from "./showcase-intake";
+import { importShowcaseArtifacts } from "./showcase-artifacts";
 
 export const showcaseRoot = resolve(".research-cache/showcases-2025");
 export const showcasePipeline = resolve(
   ".research-cache/pipeline/showcases-2025",
 );
+
+/** Downloads have no model budget; independent sources share a serialized merge. */
+export async function collectShowcases(
+  state: State,
+  schools: School[],
+  options: IntakeOptions,
+) {
+  const selected = state.candidates
+    .filter(
+      (c) =>
+        options.candidateIds?.includes(c.id) &&
+        (c.status !== "downloaded" ||
+          c.revisions.some((r) => r.parseStatus !== "done")) &&
+        due(c.failures, false) &&
+        (() => {
+          try {
+            safeUrl(c.url, schools, c.externalProof);
+            return true;
+          } catch {
+            return false;
+          }
+        })(),
+    )
+    .slice(0, 6);
+  let queue = Promise.resolve();
+  const results = await Promise.allSettled(
+    selected.map(async (candidate) => {
+      let baseline = structuredClone(state);
+      const local = structuredClone(state);
+      await collect(local, schools, {
+        ...options,
+        root: join(options.root!, candidate.id),
+        candidateIds: [candidate.id],
+        budget: 1,
+        onCheckpoint: (incoming) => {
+          queue = queue.then(async () => {
+            await seedStructuredSources(incoming, [candidate.id]);
+            mergeLaneState(state, "collect", baseline, incoming);
+            // Collection owns new revisions; structured records are seeded separately
+            // because lane merges intentionally keep model-classification ownership.
+            await seedStructuredSources(state, [candidate.id]);
+            baseline = structuredClone(incoming);
+            await checkpoint(state, options);
+          });
+          return queue;
+        },
+      });
+      // Raw/text evidence stays; the canonical checkpoint already owns this copy.
+      await unlink(join(options.root!, candidate.id, "state.json")).catch(
+        (error: NodeJS.ErrnoException) => {
+          if (error.code !== "ENOENT") throw error;
+        },
+      );
+    }),
+  );
+  await queue;
+  const failure = results.find((r) => r.status === "rejected");
+  if (failure?.status === "rejected") throw failure.reason;
+}
 export const scopeSchema = z
   .object({
     id: z.literal("showcases-2025"),
-    year: z.literal(2025),
-    targetProjects: z.tuple([z.number(), z.number()]),
+    years: z.array(z.union([z.literal(2025), z.literal(2026)])).min(1),
+    discoveryComplete: z.boolean(),
+    gaps: z
+      .array(
+        z.object({
+          schoolId: z.string(),
+          year: z.number(),
+          detail: z.string(),
+        }),
+      )
+      .default([]),
     schoolIds: z.array(z.string()).length(5),
     sources: z
       .array(
         z.object({
           schoolId: z.string(),
+          year: z.union([z.literal(2025), z.literal(2026)]),
           category: z.enum(["capstone", "hackathon"]),
           title: z.string(),
           url: z.url(),
+          kind: z
+            .enum(["gallery", "roster-asset", "event-report", "project"])
+            .optional(),
+          evidenceUrl: z.url().optional(),
+          notes: z.string().optional(),
+          availability: z
+            .enum(["available", "unavailable", "future", "unresolved"])
+            .optional(),
+          externalProof: z
+            .object({
+              officialUrl: z.url(),
+              schoolId: z.string(),
+              linkedHost: z.string().optional(),
+            })
+            .optional(),
           assets: z
             .array(z.object({ title: z.string(), url: z.url() }))
             .optional(),
         }),
       )
-      .max(10),
+      .min(1),
   })
   .superRefine((scope, ctx) => {
     if (new Set(scope.sources.map((s) => s.url)).size !== scope.sources.length)
       ctx.addIssue({ code: "custom", message: "Duplicate source URL" });
     for (const school of scope.schoolIds) {
       const count = scope.sources.filter((s) => s.schoolId === school).length;
-      if (count < 1 || count > 2)
+      if (count < 1)
         ctx.addIssue({
           code: "custom",
-          message: `Expected one or two sources for ${school}`,
+          message: `Expected sources for ${school}`,
         });
     }
     if (scope.sources.some((s) => !scope.schoolIds.includes(s.schoolId)))
       ctx.addIssue({ code: "custom", message: "Unselected school" });
+    if (scope.sources.some((s) => !scope.years.includes(s.year)))
+      ctx.addIssue({ code: "custom", message: "Source year outside scope" });
   });
 
 /** Disjoint sources run concurrently; one serialized merge owns the lane checkpoint. */
@@ -67,6 +158,8 @@ export async function classifyShowcases(
   _schools: School[],
   options: IntakeOptions,
 ) {
+  await seedStructuredSources(state, options.candidateIds ?? []);
+  await checkpoint(state, options);
   const candidates = state.candidates
     .filter(
       (c) =>
@@ -108,6 +201,11 @@ export async function classifyShowcases(
           return queue;
         },
       });
+      await unlink(join(options.root!, c.id, "state.json")).catch(
+        (error: NodeJS.ErrnoException) => {
+          if (error.code !== "ENOENT") throw error;
+        },
+      );
     }),
   );
   await queue;
@@ -115,7 +213,7 @@ export async function classifyShowcases(
   if (failed?.status === "rejected") throw failed.reason;
 }
 
-async function runShowcaseBatch() {
+export async function runShowcaseBatch() {
   const scope = scopeSchema.parse(
     JSON.parse(await readFile("data/showcase-scope.json", "utf8")),
   );
@@ -123,14 +221,16 @@ async function runShowcaseBatch() {
     scope.schoolIds.includes(s.id),
   );
   if (schools.length !== 5) throw new Error("Scope school registry mismatch");
-  const sources = scope.sources.flatMap((source) => [
-    source,
-    ...(source.assets ?? []).map((asset) => ({
-      ...source,
-      ...asset,
-      assets: undefined,
-    })),
-  ]);
+  let sources = scope.sources
+    .filter((source) => source.availability !== "unavailable")
+    .flatMap((source) => [
+      source,
+      ...(source.assets ?? []).map((asset) => ({
+        ...source,
+        ...asset,
+        assets: undefined,
+      })),
+    ]);
   // Broad collection is deferred, never deleted or overwritten.
   try {
     await access(".research-cache/intake/writer.lock");
@@ -184,23 +284,37 @@ async function runShowcaseBatch() {
   } catch (e) {
     if ((e as NodeJS.ErrnoException).code !== "ENOENT") throw e;
   }
-  const candidateIds = sources.map(
-    (source) =>
-      preserveCandidate(
-        state,
-        source.url,
-        {
-          schoolId: source.schoolId,
-          category: source.category,
-          year: 2025,
-          title: source.title,
-          discoveredAt: new Date().toISOString(),
-          discoveryRationale:
-            "Selected 2025 showcase; event dates still require source evidence.",
-        },
-        0,
-      ).id,
+  const discoveryRoot = join(showcasePipeline, "discovery");
+  const apiSources = await importHackmit(state, discoveryRoot, showcaseRoot);
+  sources = await expandShowcaseSources(
+    state,
+    [...sources, ...apiSources],
+    discoveryRoot,
   );
+  await importShowcaseArtifacts(state, sources, discoveryRoot, showcaseRoot);
+  const candidateIds = [
+    ...new Set(
+      sources.map((source) => {
+        const candidate = preserveCandidate(
+          state,
+          source.url,
+          {
+            schoolId: source.schoolId,
+            category: source.category,
+            year: source.year,
+            title: source.title,
+            discoveredAt: new Date().toISOString(),
+            discoveryRationale:
+              "Selected 2025–2026 showcase; event dates still require source evidence.",
+          },
+          0,
+        );
+        if (source.externalProof)
+          candidate.externalProof = source.externalProof;
+        return candidate.id;
+      }),
+    ),
+  ];
   await checkpoint(state, { root: showcaseRoot });
   await writeFile(
     join(showcasePipeline, "scope.json"),
@@ -208,6 +322,7 @@ async function runShowcaseBatch() {
       {
         ...scope,
         candidateIds,
+        selectedSources: sources,
         broaderArchive: ".research-cache/intake",
         publicationHold: true,
       },
@@ -221,11 +336,11 @@ async function runShowcaseBatch() {
     pipelineRoot: showcasePipeline,
     schools,
     candidateIds,
-    enabledLanes: ["collect", "classify", "group"],
+    enabledLanes: ["collect", "classify"],
     discovery: false,
     deferAnalysisUntilClassified: true,
     maxDepth: 0,
-    runtimeMs: 120 * 60_000,
+    runtimeMs: 10 * 60_000,
     idleMs: 5 * 60_000,
     mirrorEnv: true,
     budgets: { collect: 10, classify: 3, group: 3, analyze: 2 },
@@ -233,13 +348,13 @@ async function runShowcaseBatch() {
       const result = await download(...args);
       // This linked roster is data, never executed as JavaScript.
       if (
-        args[0] ===
-        "https://hci.stanford.edu/courses/cs147/2025/au/data/data.js?v=0"
+        /\/data\/data\.js(?:\?|$)/.test(args[0]) ||
+        /(?:json|javascript)/i.test(result.contentType)
       )
         result.contentType = "text/plain";
       return result;
     },
-    runners: { classify: classifyShowcases },
+    runners: { collect: collectShowcases, classify: classifyShowcases },
   });
   await writeFile(
     join(showcasePipeline, "review-queue.json"),
@@ -256,8 +371,9 @@ async function runShowcaseBatch() {
           dateStatus: i.dateStatus,
           classificationStatus: i.classificationStatus,
           disposition:
-            i.dateStatus === "verified" && !i.date?.startsWith("2025")
-              ? "deferred-outside-2025"
+            i.dateStatus === "verified" &&
+            !scope.years.some((y) => i.date?.startsWith(String(y)))
+              ? "deferred-outside-scope"
               : "needs-review",
         })),
       },
@@ -266,6 +382,7 @@ async function runShowcaseBatch() {
     ) + "\n",
     { mode: 0o600 },
   );
+  return { ...result, scope, candidateIds, sources };
 }
 export async function runShowcases() {
   await mkdir(showcaseRoot, { recursive: true, mode: 0o700 });
@@ -273,7 +390,7 @@ export async function runShowcases() {
   const lock = await open(path, "wx", 0o600);
   await lock.writeFile(String(process.pid));
   try {
-    await runShowcaseBatch();
+    return await runShowcaseBatch();
   } finally {
     await lock.close();
     await unlink(path);

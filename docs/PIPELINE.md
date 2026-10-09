@@ -1,15 +1,20 @@
-# Active collection: 2025 showcases
+# Active collection: 2025–2026 showcases
 
-Run `bun scripts/showcases.ts`. Status: `bun scripts/pipeline.ts status --root .research-cache/showcases-2025 --pipeline-root .research-cache/pipeline/showcases-2025`. Use the same paths with `stop` for a cooperative shutdown.
+Run `bun --env-file=.env.local scripts/showcase-runner.ts`. The controller continues bounded collection batches, analyzes every collected record, then extracts private signals and researches their market context. It runs locally through the subscription-authenticated Codex CLI, using GPT-6.1 Sol with medium reasoning.
 
-`data/showcase-scope.json` freezes nine sources across Georgia Tech, Berkeley, Waterloo, MIT and Stanford. These include capstone rosters, design competitions and a hackathon report. The target is 100–200 distinct projects, not a claim about the number already collected. Some selected sources report winners rather than every participant; these limitations must remain explicit. Only these exact URLs are downloaded in the first pass. All discovered navigation links are retained but deferred. Additional project pages require explicit selection for the later 10–15-project investigation.
+`data/showcase-scope.json` selects Georgia Tech, Berkeley, Waterloo, MIT and Stanford. Collect all projects from the identified capstone, design competition and hackathon galleries: event pagination, actual project links and retained public API snapshots. There is no 15-project shortlist, per-school source cap or project-count cutoff. This finite source inventory is not exhaustive institutional coverage. Future events, missing rosters and inaccessible URLs remain explicit gaps.
 
-The broader `.research-cache/intake` archive remains intact and deferred. The selected archive reuses matching raw downloads and completed work. Three independent sources are classified concurrently, one chunk per source per round, with serialized checkpoint merges. Grouping waits until every selected source is downloaded and classified. Repeated market synthesis is disabled during intake; the later 10–15-project investigation and 3–5 private hypotheses follow roster review. Source failure keeps this gate closed and is reported for resolution; a runtime deadline does not imply completion. The selected `review-queue.json` records unreviewed, ambiguous and out-of-year results. Classification is not evidence review; signal publication stays on hold until the selected collection is reviewed.
+The legacy cache directory names remain `showcases-2025` to preserve checkpoints. Collection status is `.research-cache/pipeline/showcases-2025/status.json`; end-to-end status is `completion-status.json` in that directory. Confirm the recorded PID before recovery. Send SIGTERM to the controller for a cooperative stop; it drains active work and retains checkpoints. Do not start competing writers or restart the broader archive.
 
-The monitor continues bounded runs of `scripts/showcases.ts` only. It must never restart broad intake. Archive metadata is mirrored additively to Convex; public signals and profiles are unchanged. The public corpus is not automatically published.
+Collection downloads six independent sources concurrently. Known Waterloo, Georgia Tech, Devpost and HackMIT structures are extracted deterministically, preserving complete abstracts. Other sources use the evidence-checking classifier. Original PDFs keep page references; transcribed image rosters retain images, hashes and transcription provenance. Hosted hackathons establish event association, not participants’ enrollment.
+
+Analysis runs alongside collection with three Codex calls at a time. Every raw record receives a disposition, topic, robotics/simulation relevance, problem, possible customer, applicability, reported results, interpretation and unknowns. Unknown dates, duplicate candidates, navigation/context records and incomplete projects are accounted for rather than dropped. Per-record fingerprints reuse completed analysis as the collection grows; raw evidence is unchanged.
+
+Signal extraction waits for all selected sources to finish and every retained record to be analyzed. It groups relevant projects, drafts private opportunities, and checks market claims against primary sources. Single-project leads remain private; a recommendation is not publication authorization. Final evidence accounting is saved under `analysis/review-ledger.json`, with private drafts under `analysis/signals/` and the result in `analysis/outcome.json`.
+
+Archive metadata is mirrored additively to development and production Convex using existing environment credentials. Public projects, signals and profiles are preserved. Raw files, logs and private analysis never enter Git. The broader `.research-cache/intake` archive remains intact and deferred. A monitor may report progress or recover a confirmed stopped process; the controller itself advances the work.
 
 ## Previous broad intake implementation (deferred)
-
 
 Run from the repository with Bun and the operator's subscription-authenticated Codex CLI. The existing `runCodex` uses GPT-6.1 Sol with medium reasoning; no paid model or scraping API is introduced.
 
