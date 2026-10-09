@@ -28,8 +28,25 @@ export function createIntakeSync(
   url: string,
   secret: string,
   statusContext?: () => Record<string, unknown>,
+  options: { fetch?: typeof fetch; requestTimeoutMs?: number } = {},
 ) {
-  const db = new ConvexHttpClient(url);
+  const transport = options.fetch ?? fetch;
+  const db = new ConvexHttpClient(url, {
+    fetch: Object.assign(
+      (input: Parameters<typeof fetch>[0], init?: RequestInit) => {
+        const deadline = AbortSignal.timeout(
+          options.requestTimeoutMs ?? 30_000,
+        );
+        return transport(input, {
+          ...init,
+          signal: init?.signal
+            ? AbortSignal.any([init.signal, deadline])
+            : deadline,
+        });
+      },
+      { preconnect: transport.preconnect },
+    ),
+  });
   const sent = new Map<string, string>();
   let lastSync = 0;
   return async (state: State, force = false) => {
@@ -57,8 +74,20 @@ export function createIntakeSync(
     manifest.clusters.forEach((x) => add("cluster", x.id, x));
     manifest.insights.forEach((x) => add("opportunity", x.clusterId, x));
     manifest.opportunities.forEach((x) => add("opportunity", x.id, x));
-    for (let start = 0; start < records.length; start += 75) {
-      const part = records.slice(start, start + 75);
+    let start = 0;
+    while (start < records.length) {
+      const part: ArchiveRecord[] = [];
+      let bytes = 0;
+      while (start < records.length && part.length < 75) {
+        const record = records[start]!;
+        const size = Buffer.byteLength(JSON.stringify(record));
+        if (part.length && bytes + size > 256_000) break;
+        part.push(record);
+        bytes += size;
+        start++;
+      }
+      // Each deployment stays below 0.5 MB/s, including initial full syncs.
+      await Bun.sleep(Math.ceil((bytes / 500_000) * 1000));
       await db.mutation(batch, { secret, records: part });
       part.forEach((x) => sent.set(`${x.kind}:${x.recordId}`, x.revision));
     }
