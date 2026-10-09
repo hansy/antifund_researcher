@@ -326,6 +326,7 @@ export async function runCompleteShowcases() {
         join(showcasePipeline, "discovery"),
       );
       const newUrls = hasUnselectedSources(expanded, result.candidateIds);
+      status.error = undefined;
       if (
         result.scope.discoveryComplete &&
         !newUrls &&
@@ -345,9 +346,17 @@ export async function runCompleteShowcases() {
           join(showcasePipeline, "unavailable-sources.json"),
           exhausted,
         );
-        throw new Error(
-          `${exhausted.length} sources persistently unavailable; evidence/checkpoints retained.`,
+        const failedIds = new Set(exhausted.map((c) => c.id));
+        const otherWork = result.candidateIds.some(
+          (id) =>
+            !failedIds.has(id) &&
+            !selectedCollectionComplete(result.state, [id]),
         );
+        status.error = `${exhausted.length} sources persistently unavailable; evidence/checkpoints retained.`;
+        await save();
+        // One unavailable page must not prevent collecting the rest of its cohort.
+        // The final gate stays closed until the failed sources are accounted for.
+        if (!otherWork) throw new Error(status.error);
       }
     }
     if (analysisError) throw analysisError;
