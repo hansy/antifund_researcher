@@ -5,6 +5,7 @@ import {
   open,
   unlink,
   readdir,
+  rename,
 } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { z } from "zod";
@@ -189,14 +190,17 @@ async function failedAttempt(
     recursive: true,
     mode: 0o700,
   });
+  const destination = attemptPath(stage, fingerprint, options);
+  const temporary = `${destination}.${crypto.randomUUID()}.tmp`;
   await writeFile(
-    attemptPath(stage, fingerprint, options),
+    temporary,
     JSON.stringify({
       attempts,
       failure: recordFailure(stage, error, attempts),
     }),
     { mode: 0o600 },
   );
+  await rename(temporary, destination);
   await retainFailure(stage, id, error, options);
 }
 

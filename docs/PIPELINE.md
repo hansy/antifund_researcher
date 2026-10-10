@@ -12,6 +12,8 @@ Analysis runs alongside collection with three Codex calls at a time. Every raw r
 
 Invalid quotes and PDF pages fail validation. The controller retries after 30 seconds and stops after three consecutive attempts without another validated record checkpoint. Independent errors encountered while progressing through the corpus do not exhaust a shared retry limit; completed records remain cached.
 
+Signal retry metadata uses atomic replacement so interrupted writes cannot truncate the last valid retry state. When recovering an older partial file, retain it outside `signal-attempts` before resuming; never discard research evidence or completed drafts.
+
 Source workers clone only their own source records. Rediscovered URLs add provenance without resetting another source's download metadata. Analysis shares one read per source revision, and Codex diagnostics stream to private files. The existing status refresh records RSS, heap and external memory; completed collection batches may trigger garbage collection above 1 GB RSS. Check resource trends at milestones without starting additional watchers or workers.
 
 Large candidate archive records retain their associations in separate `candidate` records named `<candidateId>:associations:<index>`. The parent retains its URL and revision metadata, sets `associations` to an empty array, and includes `associationCount` plus `associationChunks` containing exact record IDs and revision hashes. Reconstruct associations by reading those immutable revisions in order. The local canonical archive keeps the full original candidate unchanged.
