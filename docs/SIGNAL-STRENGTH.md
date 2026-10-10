@@ -32,6 +32,8 @@ The initial catalog covers broad AI adoption, healthcare spending, data-center e
 bun run research:assess-signals
 # Bound local subscription-authenticated Codex calls, then resume from checkpoints:
 bun run research:assess-signals --budget 3
+# Smaller batches for timeout recovery (the default is four notes):
+bun run research:assess-signals --batch-size 2
 ```
 
 Defaults read `.research-cache/pipeline/showcases-2025/analysis/signals/state.json` and write `.research-cache/pipeline/showcases-2025/analysis/strength/`. `--input` and `--output` override these paths. The pass verifies every input excerpt/page against retained text, fingerprints rubric/input/context, revalidates cached results, preserves per-note checkpoints, and uses one exclusive output lock. At most three independent no-tool model calls run concurrently; the owner applies checkpoints serially. An existing lock is not removed automatically; check its PID before recovering a stale owner. Runs are finite and failures remain explicitly pending for a later resume.

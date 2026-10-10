@@ -200,8 +200,11 @@ export async function assessSignalsMain(
     ),
   );
   const budget = Number(option("--budget", "1000"));
+  const batchSize = Number(option("--batch-size", "4"));
   if (!Number.isInteger(budget) || budget < 0)
     throw new Error("Budget must be a nonnegative call count");
+  if (!Number.isInteger(batchSize) || batchSize < 1 || batchSize > 8)
+    throw new Error("Batch size must be between one and eight notes");
   await mkdir(output, { recursive: true, mode: 0o700 });
   const lockPath = join(output, "assessment.lock");
   const lock = await open(lockPath, "wx", 0o600);
@@ -372,8 +375,9 @@ export async function assessSignalsMain(
     await save("assessing");
     // At most three no-tool calls; the owning process applies checkpoints serially.
     const batches = Array.from(
-      { length: Math.min(Math.ceil(pending.length / 8), budget) },
-      (_, index) => pending.slice(index * 8, index * 8 + 8),
+      { length: Math.min(Math.ceil(pending.length / batchSize), budget) },
+      (_, index) =>
+        pending.slice(index * batchSize, index * batchSize + batchSize),
     );
     for (let start = 0; start < batches.length; start += 3) {
       const wave = batches.slice(start, start + 3);
