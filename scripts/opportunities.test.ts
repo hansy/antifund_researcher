@@ -368,8 +368,10 @@ test("market rejects unmatched downloaded excerpts and backs off repeated attemp
       },
     ];
     let calls = 0;
-    const agent = (async () => {
+    const prompts: string[] = [];
+    const agent = (async (prompt: string) => {
       calls++;
+      prompts.push(prompt);
       return {
         marketOpportunity: "Hypothesis",
         statusQuo: "Unverified",
@@ -395,6 +397,13 @@ test("market rejects unmatched downloaded excerpts and backs off repeated attemp
     expect(calls).toBe(1);
     expect(state.opportunities[0]!.stage).toBe("hypothesis");
     expect(state.opportunities[0]!.marketEvidence).toHaveLength(0);
+    await market(state, { root: directory, agent, downloader, retry: true });
+    expect(calls).toBe(2);
+    expect(prompts[1]).toContain(
+      "Market excerpt does not match downloaded primary source",
+    );
+    expect(prompts[1]).toContain("https://example.com/product");
+    expect(state.opportunities[0]!.stage).toBe("hypothesis");
   } finally {
     await rm(directory, { recursive: true, force: true });
   }
