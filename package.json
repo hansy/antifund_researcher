@@ -18,6 +18,7 @@
     "research:pipeline": "bun scripts/pipeline.ts",
     "research:scan": "bun scripts/scan-schools.ts",
     "research:signals": "bun scripts/opportunities.ts",
+    "research:assess-signals": "bun scripts/assess-signals.ts",
     "research:people": "bun scripts/people.ts",
     "convex:dev": "convex dev",
     "format": "prettier --write src scripts convex docs README.md",

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "census-business-ai-2026",
+    "title": "Census Bureau: Business AI use, December 2025–May 2026",
+    "url": "https://www.census.gov/library/stories/2026/05/ai-use-businesses.html",
+    "excerpt": "overall AI usage hovered between 17% and 20%",
+    "publishedAt": "2026-05-26",
+    "period": "December 2025–May 2026",
+    "geography": "United States",
+    "segment": "Businesses using AI in any business function",
+    "kind": "trend",
+    "basis": "reported",
+    "finding": "Census reports business AI use around 17–20% during the survey period.",
+    "limitation": "Broad adoption proxy, not agent-tool revenue, willingness to pay, or a current October estimate. November 2025 question wording changed; do not compare directly with earlier series."
+  },
+  {
+    "id": "cms-health-spending-2024",
+    "title": "CMS: Historical National Health Expenditures",
+    "url": "https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data/historical",
+    "excerpt": "U.S. health care spending grew 7.2 percent in 2024, reaching $5.3 trillion or $15,474 per person.",
+    "publishedAt": null,
+    "period": "2024",
+    "geography": "United States",
+    "segment": "All national health expenditures",
+    "kind": "size",
+    "basis": "reported",
+    "finding": "Total US healthcare spending reached $5.3 trillion in 2024, up 7.2% in nominal terms.",
+    "limitation": "Broad expenditure context, not medical-device, rehabilitation, assistive-tech or software TAM. Nominal spending growth does not establish volume growth or available product budgets."
+  },
+  {
+    "id": "bls-home-care-2035",
+    "title": "BLS: Home Health and Personal Care Aides",
+    "url": "https://www.bls.gov/ooh/healthcare/home-health-aides-and-personal-care-aides.htm",
+    "excerpt": "Employment of home health and personal care aides is projected to grow 18 percent from 2025 to 2035",
+    "publishedAt": null,
+    "period": "2025–2035",
+    "geography": "United States",
+    "segment": "Home health and personal care aide employment",
+    "kind": "economic",
+    "basis": "forecast",
+    "finding": "BLS projects 18% employment growth for home health and personal care aides over 2025–2035.",
+    "limitation": "An occupational forecast indicating care demand; it does not prove a labor shortage, automation savings, reimbursement or demand for a specific device."
+  },
+  {
+    "id": "doe-data-center-demand-2030",
+    "title": "DOE: Data Center Resource Hub, 2025 report update",
+    "url": "https://www.energy.gov/powering-americas-ai-future-data-center-resource-hub",
+    "excerpt": "data centers could account for 11.8% of total U.S. electricity use by the end of the decade",
+    "publishedAt": null,
+    "period": "2030 forecast in the 2025 report update",
+    "geography": "United States",
+    "segment": "Data center electricity demand",
+    "kind": "economic",
+    "basis": "forecast",
+    "finding": "DOE cites LBNL's central forecast of 11.8% of US electricity use by 2030 for data centers.",
+    "limitation": "Scenario-based demand projection, not software-market revenue or buyer ROI. Equipment-shipment modeling does not directly model future grid or on-site supply; efficiency may change outcomes."
+  },
+  {
+    "id": "ifr-industrial-robots-2025",
+    "title": "IFR: Five Million Robots Now Operate in Factories Globally",
+    "url": "https://ifr.org/ifr-press-releases/five-million-robots-now-operate-in-factories-globally",
+    "excerpt": "The global operational stock of industrial robots surged 9% to a record 5 million units in 2025.",
+    "publishedAt": "2026-09-24",
+    "period": "2025 versus 2024",
+    "geography": "Global",
+    "segment": "Operational industrial robot stock",
+    "kind": "growth",
+    "basis": "reported",
+    "finding": "IFR reports industrial robot stock of 5 million in 2025, up 9% year over year.",
+    "limitation": "Industry association statistics on installed stock, not revenue, annual shipments or demand for a particular component. Geographic and application-level growth can differ."
+  }
+]
